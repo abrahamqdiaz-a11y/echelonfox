@@ -4,14 +4,42 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SEO & Content Strategy Agency — Organic Growth That Compounds | Echelon Fox",
+  title: "SEO & Content Strategy — Organic Growth That Compounds",
   description:
     "Echelon Fox builds SEO and content programs that drive sustained organic traffic, domain authority, and inbound leads. Technical SEO, content marketing, and link building built to last.",
+  alternates: {
+    canonical: "https://echelonfox.com/services/seo-content",
+  },
   openGraph: {
     title: "SEO & Content Strategy — Echelon Fox",
     description: "Organic growth that compounds. Technical SEO, content marketing, and authority building for ambitious brands.",
     url: "https://echelonfox.com/services/seo-content",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "SEO & Content Strategy — Echelon Fox",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "SEO & Content Strategy",
+  serviceType: "Digital Marketing",
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
+  url: "https://echelonfox.com/services/seo-content",
+  description:
+    "Technical SEO, content marketing, and link building programs that drive sustained organic traffic, domain authority, and inbound leads.",
+  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 
 const process = [
@@ -80,6 +108,10 @@ const faq = [
 export default function SeoContentPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceNav />
 
       <section style={{ padding: "160px 32px 100px", position: "relative", overflow: "hidden", borderBottom: "1px solid #1a1a1a" }}>

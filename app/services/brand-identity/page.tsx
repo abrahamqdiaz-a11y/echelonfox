@@ -4,14 +4,42 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Brand Identity & Creative Agency — Design, Video & Copywriting | Echelon Fox",
+  title: "Brand Identity & Creative — Design, Video & Copywriting",
   description:
     "Echelon Fox builds brand identities that demand attention and creative assets that make people stop. Strategy-led branding, design systems, video production, and copywriting for ambitious brands.",
+  alternates: {
+    canonical: "https://echelonfox.com/services/brand-identity",
+  },
   openGraph: {
     title: "Brand Identity & Creative — Echelon Fox",
     description: "Your brand is your first impression. We build identities that are impossible to ignore.",
     url: "https://echelonfox.com/services/brand-identity",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Brand Identity & Creative — Echelon Fox",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Brand Identity & Creative",
+  serviceType: "Digital Marketing",
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
+  url: "https://echelonfox.com/services/brand-identity",
+  description:
+    "Strategy-led branding, design systems, video production, and copywriting for brands that demand attention and make people stop.",
+  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 
 const process = [
@@ -73,6 +101,10 @@ const faq = [
 export default function BrandIdentityPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceNav />
 
       <section style={{ padding: "160px 32px 100px", position: "relative", overflow: "hidden", borderBottom: "1px solid #1a1a1a" }}>

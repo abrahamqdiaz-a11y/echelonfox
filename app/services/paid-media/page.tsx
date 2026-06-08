@@ -4,14 +4,42 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Paid Media Management Agency — Meta, Google, TikTok Ads | Echelon Fox",
+  title: "Paid Media Management — Meta, Google & TikTok Ads",
   description:
     "Echelon Fox manages paid media campaigns across Meta, Google, TikTok, and YouTube. Strategy-first, full-funnel ad management that scales revenue — not just impressions.",
+  alternates: {
+    canonical: "https://echelonfox.com/services/paid-media",
+  },
   openGraph: {
     title: "Paid Media Management — Echelon Fox",
     description: "High-ROAS paid media strategy and execution across every major ad platform.",
     url: "https://echelonfox.com/services/paid-media",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Paid Media Management — Echelon Fox",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Paid Media Management",
+  serviceType: "Digital Marketing",
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
+  url: "https://echelonfox.com/services/paid-media",
+  description:
+    "Full-funnel paid media campaigns across Meta, Google, TikTok, and YouTube — strategy-first, ROI-focused ad management that scales revenue.",
+  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 
 const process = [
@@ -82,6 +110,10 @@ const faq = [
 export default function PaidMediaPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceNav />
 
       {/* Hero */}

@@ -1,0 +1,29 @@
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://echelonfox.com";
+
+  const services = [
+    "seo-content",
+    "paid-media",
+    "brand-identity",
+    "social-media",
+    "analytics-growth",
+    "email-crm",
+  ];
+
+  return [
+    {
+      url: base,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    ...services.map((slug) => ({
+      url: `${base}/services/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
+}
