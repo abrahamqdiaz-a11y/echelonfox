@@ -7,11 +7,26 @@ export const metadata: Metadata = {
   title: "Email & CRM Marketing Agency — Klaviyo, HubSpot & Automation | Echelon Fox",
   description:
     "Echelon Fox builds email and CRM programs that turn subscribers into customers and customers into repeat buyers. Klaviyo, HubSpot, automations, segmentation, and campaign strategy.",
+  alternates: {
+    canonical: "https://echelonfox.com/services/email-crm",
+  },
   openGraph: {
     title: "Email & CRM Marketing — Echelon Fox",
     description: "Turn your list into a revenue engine. Automated flows, segmentation, and campaigns that convert.",
     url: "https://echelonfox.com/services/email-crm",
   },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Email & CRM Marketing",
+  serviceType: "Digital Marketing",
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
+  url: "https://echelonfox.com/services/email-crm",
+  description:
+    "Klaviyo, HubSpot, automations, segmentation, and campaign strategy that turns subscribers into customers and customers into repeat buyers.",
+  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 
 const process = [
@@ -82,6 +97,10 @@ const faq = [
 export default function EmailCrmPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceNav />
 
       <section style={{ padding: "160px 32px 100px", position: "relative", overflow: "hidden", borderBottom: "1px solid #1a1a1a" }}>

@@ -7,11 +7,26 @@ export const metadata: Metadata = {
   title: "Analytics & Growth Strategy Agency — GA4, CRO & Attribution | Echelon Fox",
   description:
     "Echelon Fox builds analytics programs that turn your marketing data into a clear growth roadmap. GA4 setup, custom dashboards, CRO, attribution modeling, and strategy that scales what works.",
+  alternates: {
+    canonical: "https://echelonfox.com/services/analytics-growth",
+  },
   openGraph: {
     title: "Analytics & Growth Strategy — Echelon Fox",
     description: "Data without strategy is noise. We turn your numbers into a roadmap.",
     url: "https://echelonfox.com/services/analytics-growth",
   },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Analytics & Growth Strategy",
+  serviceType: "Digital Marketing",
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
+  url: "https://echelonfox.com/services/analytics-growth",
+  description:
+    "GA4 setup, custom dashboards, CRO, attribution modeling, and growth strategy that turns marketing data into a clear roadmap.",
+  areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 
 const process = [
@@ -82,6 +97,10 @@ const faq = [
 export default function AnalyticsGrowthPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <ServiceNav />
 
       <section style={{ padding: "160px 32px 100px", position: "relative", overflow: "hidden", borderBottom: "1px solid #1a1a1a" }}>

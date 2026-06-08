@@ -1,0 +1,21 @@
+# Echelon Fox
+
+> Echelon Fox is a world-class digital marketing media company. We build brands that dominate through data-driven strategy, creative excellence, and relentless execution.
+
+## About
+
+Echelon Fox is a full-service digital marketing agency serving ambitious brands that want to lead their category. Our work spans paid media, SEO, brand identity, social media management, analytics, and email/CRM marketing.
+
+## Services
+
+- [SEO & Content Strategy](https://echelonfox.com/services/seo-content): Technical SEO, content marketing, and link building programs that drive sustained organic traffic and domain authority.
+- [Paid Media Management](https://echelonfox.com/services/paid-media): Full-funnel paid media campaigns across Meta, Google, TikTok, and YouTube — strategy-first, ROI-focused.
+- [Brand Identity & Creative](https://echelonfox.com/services/brand-identity): Strategy-led branding, design systems, video production, and copywriting for brands that demand attention.
+- [Social Media Management](https://echelonfox.com/services/social-media): Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management.
+- [Analytics & Growth Strategy](https://echelonfox.com/services/analytics-growth): GA4 setup, custom dashboards, CRO, attribution modeling, and growth strategy that scales what works.
+- [Email & CRM Marketing](https://echelonfox.com/services/email-crm): Klaviyo, HubSpot, automations, segmentation, and campaign strategy that turns subscribers into buyers.
+
+## Contact
+
+- Website: https://echelonfox.com
+- Email: hello@echelonfox.com
