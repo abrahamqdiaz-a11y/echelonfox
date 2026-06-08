@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Social Media Management Agency — Strategy, Content & Community | Echelon Fox",
+  title: "Social Media Management — Strategy, Content & Community",
   description:
     "Echelon Fox manages social media for brands that want to dominate their category. Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management.",
   alternates: {
@@ -14,6 +14,19 @@ export const metadata: Metadata = {
     title: "Social Media Management — Echelon Fox",
     description: "We run your social presence like a media brand. Consistent, creative, and built to grow.",
     url: "https://echelonfox.com/services/social-media",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Social Media Management — Echelon Fox",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 

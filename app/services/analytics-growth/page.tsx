@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Analytics & Growth Strategy Agency — GA4, CRO & Attribution | Echelon Fox",
+  title: "Analytics & Growth Strategy — GA4, CRO & Attribution",
   description:
     "Echelon Fox builds analytics programs that turn your marketing data into a clear growth roadmap. GA4 setup, custom dashboards, CRO, attribution modeling, and strategy that scales what works.",
   alternates: {
@@ -14,6 +14,19 @@ export const metadata: Metadata = {
     title: "Analytics & Growth Strategy — Echelon Fox",
     description: "Data without strategy is noise. We turn your numbers into a roadmap.",
     url: "https://echelonfox.com/services/analytics-growth",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Analytics & Growth Strategy — Echelon Fox",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 

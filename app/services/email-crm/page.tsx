@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Email & CRM Marketing Agency — Klaviyo, HubSpot & Automation | Echelon Fox",
+  title: "Email & CRM Marketing — Klaviyo, HubSpot & Automation",
   description:
     "Echelon Fox builds email and CRM programs that turn subscribers into customers and customers into repeat buyers. Klaviyo, HubSpot, automations, segmentation, and campaign strategy.",
   alternates: {
@@ -14,6 +14,19 @@ export const metadata: Metadata = {
     title: "Email & CRM Marketing — Echelon Fox",
     description: "Turn your list into a revenue engine. Automated flows, segmentation, and campaigns that convert.",
     url: "https://echelonfox.com/services/email-crm",
+    type: "website",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Email & CRM Marketing — Echelon Fox",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 
