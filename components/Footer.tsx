@@ -1,10 +1,28 @@
 "use client";
+import Link from "next/link";
 
-const links = {
-  Services: ["Paid Media", "SEO & Content", "Social Media", "Brand & Creative", "Email Marketing", "Analytics"],
-  Company: ["About", "Work", "Results", "Contact", "Careers"],
-  Connect: ["Instagram", "LinkedIn", "Twitter / X", "TikTok"],
-};
+const serviceLinks = [
+  { label: "Paid Media", href: "/services/paid-media" },
+  { label: "SEO & Content", href: "/services/seo-content" },
+  { label: "Social Media", href: "/services/social-media" },
+  { label: "Brand & Creative", href: "/services/brand-identity" },
+  { label: "Email & CRM", href: "/services/email-crm" },
+  { label: "Analytics", href: "/services/analytics-growth" },
+];
+
+const companyLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Work", href: "/#work" },
+  { label: "Results", href: "/#results" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const connectLinks = [
+  { label: "Instagram", href: "#" },
+  { label: "LinkedIn", href: "#" },
+  { label: "Twitter / X", href: "#" },
+  { label: "TikTok", href: "#" },
+];
 
 export default function Footer() {
   return (
@@ -76,43 +94,50 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Link cols */}
-          {Object.entries(links).map(([heading, items]) => (
-            <div key={heading}>
-              <h5
-                style={{
-                  color: "#fff",
-                  fontWeight: 800,
-                  fontSize: "0.8rem",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  margin: "0 0 20px",
-                }}
-              >
-                {heading}
-              </h5>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-                {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      style={{
-                        color: "#444",
-                        textDecoration: "none",
-                        fontSize: "0.875rem",
-                        transition: "color 0.2s",
-                        letterSpacing: "0.02em",
-                      }}
-                      onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
-                      onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#444")}
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Services col */}
+          <div>
+            <h5 style={{ color: "#fff", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase", margin: "0 0 20px" }}>Services</h5>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              {serviceLinks.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} style={{ color: "#444", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s", letterSpacing: "0.02em" }}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
+                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#444")}
+                  >{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company col */}
+          <div>
+            <h5 style={{ color: "#fff", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase", margin: "0 0 20px" }}>Company</h5>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              {companyLinks.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} style={{ color: "#444", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s", letterSpacing: "0.02em" }}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
+                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#444")}
+                  >{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect col */}
+          <div>
+            <h5 style={{ color: "#fff", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase", margin: "0 0 20px" }}>Connect</h5>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              {connectLinks.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} style={{ color: "#444", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s", letterSpacing: "0.02em" }}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
+                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#444")}
+                  >{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
