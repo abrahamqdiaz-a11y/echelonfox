@@ -237,43 +237,43 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Scrolling stats row */}
+        {/* Platform certifications row */}
         <div
           style={{
-            display: "flex",
-            gap: "48px",
             marginTop: "80px",
             paddingTop: "40px",
             borderTop: "1px solid #1a1a1a",
-            flexWrap: "wrap",
             opacity: 0,
             animation: "fadeUp 0.6s ease 0.9s forwards",
           }}
         >
-          {[
-            { num: "500+", label: "Campaigns Launched" },
-            { num: "$2.4B", label: "Revenue Generated" },
-            { num: "98%", label: "Client Retention" },
-            { num: "#1", label: "Rated Media Co." },
-          ].map((s) => (
-            <div key={s.num}>
+          <div style={{ fontSize: "0.7rem", color: "#444", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "20px" }}>
+            Certified Partners
+          </div>
+          <div style={{ display: "flex", gap: "32px", flexWrap: "wrap", alignItems: "center" }}>
+            {[
+              { name: "Google", badge: "Partner" },
+              { name: "Meta", badge: "Business Partner" },
+              { name: "HubSpot", badge: "Certified" },
+              { name: "LinkedIn", badge: "Marketing Solutions" },
+            ].map((p) => (
               <div
+                key={p.name}
                 style={{
-                  fontSize: "1.75rem",
-                  fontWeight: 900,
-                  color: "#FF5500",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1,
-                  marginBottom: "4px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "10px 16px",
+                  border: "1px solid #222",
+                  background: "#0d0d0d",
                 }}
               >
-                {s.num}
+                <div style={{ width: "6px", height: "6px", background: "#FF5500", borderRadius: "50%" }} />
+                <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#fff" }}>{p.name}</span>
+                <span style={{ fontSize: "0.75rem", color: "#555" }}>{p.badge}</span>
               </div>
-              <div style={{ fontSize: "0.8rem", color: "#666", letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

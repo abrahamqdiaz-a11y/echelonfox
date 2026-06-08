@@ -1,26 +1,17 @@
 "use client";
 
-const testimonials = [
+const values = [
   {
-    quote:
-      "Echelon Fox completely transformed our paid media. In 90 days they took us from breakeven to a 4x ROAS. They don't just run ads — they build systems that print money.",
-    author: "Jordan Lee",
-    role: "CEO, NovaSpark Apparel",
-    highlight: "4x ROAS in 90 days",
+    title: "No Vanity Metrics",
+    desc: "We don't celebrate impressions — we celebrate revenue. Every report ties directly to your business outcomes, not agency optics.",
   },
   {
-    quote:
-      "I've worked with five agencies in the last three years. Echelon Fox is the only one I'd actually recommend without hesitation. They're obsessed with results and it shows every single month.",
-    author: "Maya Chen",
-    role: "CMO, Apex Financial",
-    highlight: "6x lead volume increase",
+    title: "Your Brand, Our Obsession",
+    desc: "We embed deep into your category, your competitors, and your customers before writing a single line of copy or setting a single bid.",
   },
   {
-    quote:
-      "Our social media went from an afterthought to our #1 acquisition channel. The Echelon Fox team thinks differently — they treat your brand like their own.",
-    author: "Darius Thomas",
-    role: "Founder, Vibe Health Co.",
-    highlight: "1.2M monthly impressions",
+    title: "Accountability Built In",
+    desc: "Fixed monthly retainers with clearly scoped deliverables. No scope creep, no surprise invoices — just the work we said we'd do, done exceptionally.",
   },
 ];
 
@@ -54,7 +45,7 @@ export default function Testimonials() {
                 textTransform: "uppercase",
               }}
             >
-              Client Testimonials
+              How We Work
             </span>
             <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
           </div>
@@ -67,8 +58,8 @@ export default function Testimonials() {
               margin: 0,
             }}
           >
-            Heard from the{" "}
-            <span style={{ color: "#FF5500" }}>Best</span>
+            Why Clients{" "}
+            <span style={{ color: "#FF5500" }}>Stay</span>
           </h2>
         </div>
 
@@ -80,7 +71,7 @@ export default function Testimonials() {
             gap: "24px",
           }}
         >
-          {testimonials.map((t, i) => (
+          {values.map((v, i) => (
             <div
               key={i}
               style={{
@@ -97,81 +88,78 @@ export default function Testimonials() {
                 ((e.currentTarget as HTMLElement).style.borderColor = "#1e1e1e")
               }
             >
-              {/* Quote mark */}
               <div
                 style={{
-                  fontSize: "5rem",
-                  fontWeight: 900,
-                  color: "#FF5500",
-                  lineHeight: 0.8,
-                  marginBottom: "24px",
-                  opacity: 0.6,
-                  fontFamily: "Georgia, serif",
-                }}
-              >
-                &ldquo;
-              </div>
-
-              {/* Highlight result */}
-              <div
-                style={{
-                  display: "inline-block",
-                  background: "rgba(255,85,0,0.1)",
-                  border: "1px solid rgba(255,85,0,0.25)",
-                  color: "#FF5500",
-                  fontSize: "0.7rem",
+                  fontSize: "0.65rem",
                   fontWeight: 700,
-                  letterSpacing: "0.12em",
+                  color: "#FF5500",
+                  letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  padding: "5px 12px",
                   marginBottom: "20px",
                 }}
               >
-                {t.highlight}
+                0{i + 1}
               </div>
-
-              <p
+              <h3
                 style={{
-                  color: "#aaa",
-                  fontSize: "1rem",
-                  lineHeight: 1.75,
-                  margin: "0 0 32px",
-                  fontStyle: "italic",
+                  fontSize: "1.3rem",
+                  fontWeight: 800,
+                  color: "#fff",
+                  margin: "0 0 16px",
+                  letterSpacing: "-0.01em",
                 }}
               >
-                {t.quote}
+                {v.title}
+              </h3>
+              <p
+                style={{
+                  color: "#777",
+                  fontSize: "0.95rem",
+                  lineHeight: 1.75,
+                  margin: 0,
+                }}
+              >
+                {v.desc}
               </p>
-
-              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                {/* Avatar placeholder */}
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #FF5500, #FF7733)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: 900,
-                    fontSize: "1rem",
-                    color: "white",
-                    flexShrink: 0,
-                  }}
-                >
-                  {t.author[0]}
-                </div>
-                <div>
-                  <div
-                    style={{ fontWeight: 700, fontSize: "0.9rem", color: "#fff", marginBottom: "2px" }}
-                  >
-                    {t.author}
-                  </div>
-                  <div style={{ fontSize: "0.8rem", color: "#555" }}>{t.role}</div>
-                </div>
-              </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div style={{ textAlign: "center", marginTop: "64px" }}>
+          <p style={{ color: "#555", fontSize: "0.9rem", marginBottom: "24px" }}>
+            Ready to work with an agency that puts your growth first?
+          </p>
+          <a
+            href="#contact"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              background: "#FF5500",
+              color: "white",
+              fontWeight: 700,
+              fontSize: "0.85rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              padding: "16px 36px",
+              textDecoration: "none",
+              clipPath:
+                "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
+              transition: "background 0.2s",
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.background = "#FF7733")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.background = "#FF5500")
+            }
+          >
+            Let&apos;s Talk
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
