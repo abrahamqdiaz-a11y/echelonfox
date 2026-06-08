@@ -1,40 +1,28 @@
 "use client";
 
-const caseStudies = [
+const industries = [
   {
-    client: "NovaSpark Apparel",
-    industry: "Fashion E-commerce",
-    result: "+340% ROAS",
-    desc: "Rebuilt their entire paid media strategy across Meta and Google, resulting in a 340% return on ad spend in 90 days.",
+    sector: "Fashion & E-commerce",
+    desc: "We build paid media systems for direct-to-consumer brands that scale — across Meta, Google, and emerging platforms.",
     services: ["Paid Ads", "Creative Strategy", "Email"],
-    color: "#FF5500",
     bg: "#1a0a00",
   },
   {
-    client: "Apex Financial",
-    industry: "Fintech / B2B",
-    result: "6x Lead Volume",
-    desc: "Launched a full-funnel LinkedIn and Google campaign that multiplied qualified lead flow while cutting CPL by 58%.",
+    sector: "Fintech & B2B",
+    desc: "Full-funnel demand generation for financial services and B2B companies where qualified pipeline is the only metric that matters.",
     services: ["LinkedIn Ads", "SEO", "CRO"],
-    color: "#FF5500",
     bg: "#0a0f1a",
   },
   {
-    client: "Vibe Health Co.",
-    industry: "Health & Wellness",
-    result: "1.2M Impressions",
-    desc: "Built a viral social strategy that generated 1.2M organic impressions per month and grew their community 10x in 6 months.",
+    sector: "Health & Wellness",
+    desc: "Community-led growth strategies that turn health brands into cultural movements — organic, paid, and influencer combined.",
     services: ["Social Media", "Content", "Influencers"],
-    color: "#FF5500",
     bg: "#0a1a0a",
   },
   {
-    client: "Crest Living",
-    industry: "Real Estate",
-    result: "$18M Attributed Revenue",
-    desc: "End-to-end digital marketing for a premium real estate brand — from search to video to retargeting — driving $18M in closed deals.",
+    sector: "Real Estate & Luxury",
+    desc: "End-to-end digital marketing for premium real estate brands — from search intent capture to high-production video retargeting.",
     services: ["Google Ads", "Video", "SEO"],
-    color: "#FF5500",
     bg: "#1a1500",
   },
 ];
@@ -79,7 +67,7 @@ export default function Work() {
                   textTransform: "uppercase",
                 }}
               >
-                Case Studies
+                Industries We Serve
               </span>
             </div>
             <h2
@@ -91,8 +79,8 @@ export default function Work() {
                 margin: 0,
               }}
             >
-              Results That{" "}
-              <span style={{ color: "#FF5500" }}>Speak</span>
+              Built for{" "}
+              <span style={{ color: "#FF5500" }}>Your Industry</span>
             </h2>
           </div>
           <a
@@ -119,7 +107,7 @@ export default function Work() {
           </a>
         </div>
 
-        {/* Case study cards */}
+        {/* Industry cards */}
         <div
           style={{
             display: "grid",
@@ -127,9 +115,9 @@ export default function Work() {
             gap: "24px",
           }}
         >
-          {caseStudies.map((cs) => (
+          {industries.map((ind) => (
             <div
-              key={cs.client}
+              key={ind.sector}
               style={{
                 background: "#111",
                 border: "1px solid #1e1e1e",
@@ -156,12 +144,12 @@ export default function Work() {
                   right: 0,
                   width: "120px",
                   height: "120px",
-                  background: `radial-gradient(circle at top right, ${cs.bg}, transparent 70%)`,
+                  background: `radial-gradient(circle at top right, ${ind.bg}, transparent 70%)`,
                   pointerEvents: "none",
                 }}
               />
 
-              {/* Industry badge */}
+              {/* Sector badge */}
               <span
                 style={{
                   display: "inline-block",
@@ -176,51 +164,24 @@ export default function Work() {
                   marginBottom: "24px",
                 }}
               >
-                {cs.industry}
+                {ind.sector}
               </span>
-
-              {/* Result */}
-              <div
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 3rem)",
-                  fontWeight: 900,
-                  color: "#FF5500",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1,
-                  marginBottom: "8px",
-                }}
-              >
-                {cs.result}
-              </div>
-
-              {/* Client */}
-              <h3
-                style={{
-                  fontSize: "1.1rem",
-                  fontWeight: 800,
-                  color: "#fff",
-                  margin: "0 0 16px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {cs.client}
-              </h3>
 
               {/* Description */}
               <p
                 style={{
-                  color: "#666",
-                  fontSize: "0.9rem",
-                  lineHeight: 1.65,
-                  margin: "0 0 24px",
+                  color: "#aaa",
+                  fontSize: "0.95rem",
+                  lineHeight: 1.7,
+                  margin: "0 0 28px",
                 }}
               >
-                {cs.desc}
+                {ind.desc}
               </p>
 
               {/* Tags */}
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {cs.services.map((svc) => (
+                {ind.services.map((svc) => (
                   <span
                     key={svc}
                     style={{
