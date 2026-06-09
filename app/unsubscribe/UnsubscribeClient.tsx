@@ -169,8 +169,6 @@ export default function UnsubscribeClient() {
             <form
               name="unsubscribe"
               method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               style={{ textAlign: "left" }}
             >
