@@ -41,6 +41,17 @@ export default function Nav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Lock body scroll and handle Escape key when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
+
   return (
     <nav
       style={{
@@ -53,7 +64,6 @@ export default function Nav() {
         background: scrolled ? "rgba(8,8,8,0.95)" : "transparent",
         borderBottom: scrolled ? "1px solid #222" : "1px solid transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        padding: "0 32px",
       }}
     >
       <div
@@ -64,7 +74,9 @@ export default function Nav() {
           alignItems: "center",
           justifyContent: "space-between",
           height: "72px",
+          padding: "0 32px",
         }}
+        className="nav-inner"
       >
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -243,7 +255,7 @@ export default function Nav() {
           Start a Project
         </a>
 
-        {/* Hamburger */}
+        {/* Hamburger — 44×44px touch target */}
         <button
           className="md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -253,10 +265,15 @@ export default function Nav() {
             cursor: "pointer",
             display: "flex",
             flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             gap: "5px",
-            padding: "4px",
+            width: "44px",
+            height: "44px",
+            flexShrink: 0,
           }}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
           {[0, 1, 2].map((i) => (
             <span
@@ -281,10 +298,16 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — scrollable, max-height capped to viewport */}
       {menuOpen && (
         <div
-          style={{ background: "#111111", borderTop: "1px solid #222", padding: "24px 32px" }}
+          style={{
+            background: "#111111",
+            borderTop: "1px solid #222",
+            padding: "24px 20px",
+            maxHeight: "calc(100dvh - 72px)",
+            overflowY: "auto",
+          }}
           className="md:hidden"
         >
           {/* Mobile services accordion */}
@@ -305,6 +328,7 @@ export default function Nav() {
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               padding: "12px 0",
+              minHeight: "44px",
             }}
           >
             Services
@@ -330,9 +354,11 @@ export default function Nav() {
                     display: "flex",
                     flexDirection: "column",
                     gap: "2px",
-                    padding: "10px 0",
+                    padding: "12px 0",
                     textDecoration: "none",
                     borderBottom: "1px solid #1a1a1a",
+                    minHeight: "44px",
+                    justifyContent: "center",
                   }}
                 >
                   <span style={{ color: "#ccc", fontSize: "0.9rem", fontWeight: 700 }}>{item.label}</span>
@@ -348,7 +374,8 @@ export default function Nav() {
               href={l.href}
               onClick={() => setMenuOpen(false)}
               style={{
-                display: "block",
+                display: "flex",
+                alignItems: "center",
                 color: "#CCCCCC",
                 textDecoration: "none",
                 fontSize: "1.1rem",
@@ -357,6 +384,7 @@ export default function Nav() {
                 textTransform: "uppercase",
                 padding: "12px 0",
                 borderBottom: "1px solid #222",
+                minHeight: "44px",
                 transition: "color 0.2s",
               }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
@@ -369,7 +397,7 @@ export default function Nav() {
             href="#contact"
             onClick={() => setMenuOpen(false)}
             style={{
-              display: "inline-block",
+              display: "block",
               marginTop: "20px",
               background: "#FF5500",
               color: "white",
@@ -377,14 +405,21 @@ export default function Nav() {
               fontSize: "0.9rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              padding: "12px 28px",
+              padding: "14px 28px",
               textDecoration: "none",
+              textAlign: "center",
             }}
           >
             Start a Project
           </a>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-inner { padding: 0 20px !important; }
+        }
+      `}</style>
     </nav>
   );
 }

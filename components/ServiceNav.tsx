@@ -41,6 +41,16 @@ export default function ServiceNav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
+
   return (
     <nav
       style={{
@@ -53,10 +63,10 @@ export default function ServiceNav() {
         background: scrolled ? "rgba(8,8,8,0.95)" : "rgba(8,8,8,0.7)",
         borderBottom: scrolled ? "1px solid #222" : "1px solid transparent",
         backdropFilter: "blur(12px)",
-        padding: "0 32px",
       }}
     >
       <div
+        className="nav-inner"
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
@@ -64,6 +74,7 @@ export default function ServiceNav() {
           alignItems: "center",
           justifyContent: "space-between",
           height: "72px",
+          padding: "0 32px",
         }}
       >
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -172,8 +183,21 @@ export default function ServiceNav() {
         </Link>
 
         <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexDirection: "column", gap: "5px", padding: "4px" }}
-          aria-label="Toggle menu"
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            width: "44px",
+            height: "44px",
+            flexShrink: 0,
+          }}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
           {[0, 1, 2].map((i) => (
             <span key={i} style={{ display: "block", width: "24px", height: "2px", background: i === 1 ? "#FF5500" : "#FFFFFF", transition: "all 0.2s",
@@ -184,10 +208,19 @@ export default function ServiceNav() {
       </div>
 
       {menuOpen && (
-        <div style={{ background: "#111111", borderTop: "1px solid #222", padding: "24px 32px" }} className="md:hidden">
+        <div
+          style={{
+            background: "#111111",
+            borderTop: "1px solid #222",
+            padding: "24px 20px",
+            maxHeight: "calc(100dvh - 72px)",
+            overflowY: "auto",
+          }}
+          className="md:hidden"
+        >
           <button
             onClick={() => setMobileServicesOpen((o) => !o)}
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", background: "none", border: "none", borderBottom: "1px solid #222", cursor: "pointer", color: "#CCCCCC", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 0" }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", background: "none", border: "none", borderBottom: "1px solid #222", cursor: "pointer", color: "#CCCCCC", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 0", minHeight: "44px" }}
           >
             Services
             <svg width="14" height="14" viewBox="0 0 10 10" fill="none" style={{ transition: "transform 0.2s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}>
@@ -199,7 +232,7 @@ export default function ServiceNav() {
             <div style={{ paddingLeft: "16px", paddingBottom: "8px", borderBottom: "1px solid #222" }}>
               {serviceDropdown.map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}
-                  style={{ display: "flex", flexDirection: "column", gap: "2px", padding: "10px 0", textDecoration: "none", borderBottom: "1px solid #1a1a1a" }}
+                  style={{ display: "flex", flexDirection: "column", gap: "2px", padding: "12px 0", textDecoration: "none", borderBottom: "1px solid #1a1a1a", minHeight: "44px", justifyContent: "center" }}
                 >
                   <span style={{ color: "#ccc", fontSize: "0.9rem", fontWeight: 700 }}>{item.label}</span>
                   <span style={{ color: "#444", fontSize: "0.75rem" }}>{item.desc}</span>
@@ -210,18 +243,24 @@ export default function ServiceNav() {
 
           {navLinks.map((l) => (
             <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
-              style={{ display: "block", color: "#CCCCCC", textDecoration: "none", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 0", borderBottom: "1px solid #222" }}
+              style={{ display: "flex", alignItems: "center", color: "#CCCCCC", textDecoration: "none", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 0", borderBottom: "1px solid #222", minHeight: "44px" }}
             >
               {l.label}
             </Link>
           ))}
           <Link href="/#contact" onClick={() => setMenuOpen(false)}
-            style={{ display: "inline-block", marginTop: "20px", background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "12px 28px", textDecoration: "none" }}
+            style={{ display: "block", marginTop: "20px", background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "14px 28px", textDecoration: "none", textAlign: "center" }}
           >
             Start a Project
           </Link>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-inner { padding: 0 20px !important; }
+        }
+      `}</style>
     </nav>
   );
 }
