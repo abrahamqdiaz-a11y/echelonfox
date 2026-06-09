@@ -251,7 +251,7 @@ export default function Hero() {
           <div style={{ fontSize: "0.7rem", color: "#444", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "20px" }}>
             Certified Partners
           </div>
-          <div style={{ display: "flex", gap: "32px", flexWrap: "wrap", alignItems: "center" }}>
+          <div className="hero-partners" style={{ display: "flex", gap: "32px", flexWrap: "wrap", alignItems: "center" }}>
             {[
               { name: "Google", badge: "Partner" },
               { name: "Meta", badge: "Business Partner" },

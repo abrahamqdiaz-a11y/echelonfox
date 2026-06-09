@@ -75,6 +75,7 @@ export default function Testimonials() {
           {values.map((v, i) => (
             <div
               key={i}
+              className="value-card"
               style={{
                 background: "#0f0f0f",
                 border: "1px solid #1e1e1e",
