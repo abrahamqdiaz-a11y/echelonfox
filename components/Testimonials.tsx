@@ -18,6 +18,7 @@ const values = [
 export default function Testimonials() {
   return (
     <section
+      id="testimonials"
       style={{
         padding: "120px 32px",
         background: "#080808",
@@ -67,7 +68,7 @@ export default function Testimonials() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))",
             gap: "24px",
           }}
         >
