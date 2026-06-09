@@ -41,7 +41,6 @@ export default function Nav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Lock body scroll and handle Escape key when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
@@ -67,6 +66,7 @@ export default function Nav() {
       }}
     >
       <div
+        className="nav-inner"
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
@@ -76,7 +76,6 @@ export default function Nav() {
           height: "72px",
           padding: "0 32px",
         }}
-        className="nav-inner"
       >
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -111,11 +110,8 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <ul
-          style={{ display: "flex", gap: "40px", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}
-          className="hidden md:flex"
-        >
+        {/* Desktop links — hidden on mobile via CSS */}
+        <ul className="nav-desktop-links" style={{ gap: "40px", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
           {/* Services dropdown */}
           <li ref={dropdownRef} style={{ position: "relative" }}>
             <button
@@ -150,7 +146,6 @@ export default function Nav() {
               </svg>
             </button>
 
-            {/* Dropdown panel */}
             {servicesOpen && (
               <div
                 style={{
@@ -166,7 +161,6 @@ export default function Nav() {
                   boxShadow: "0 24px 48px rgba(0,0,0,0.6)",
                 }}
               >
-                {/* Arrow */}
                 <div style={{
                   position: "absolute",
                   top: "-6px",
@@ -233,10 +227,10 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* Desktop CTA — hidden on mobile via CSS */}
         <a
           href="#contact"
-          className="hidden md:inline-flex"
+          className="nav-desktop-cta"
           style={{
             background: "#FF5500",
             color: "white",
@@ -255,15 +249,14 @@ export default function Nav() {
           Start a Project
         </a>
 
-        {/* Hamburger — 44×44px touch target */}
+        {/* Hamburger — shown on mobile via CSS, 44×44px touch target */}
         <button
-          className="md:hidden"
+          className="nav-hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
@@ -271,6 +264,7 @@ export default function Nav() {
             width: "44px",
             height: "44px",
             flexShrink: 0,
+            padding: 0,
           }}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
@@ -283,7 +277,8 @@ export default function Nav() {
                 width: "24px",
                 height: "2px",
                 background: i === 1 ? "#FF5500" : "#FFFFFF",
-                transition: "all 0.2s",
+                transition: "all 0.3s ease",
+                transformOrigin: "center",
                 transform:
                   menuOpen && i === 0
                     ? "rotate(45deg) translate(5px, 5px)"
@@ -298,19 +293,18 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu — scrollable, max-height capped to viewport */}
+      {/* Mobile menu drawer */}
       {menuOpen && (
         <div
           style={{
-            background: "#111111",
+            background: "#0f0f0f",
             borderTop: "1px solid #222",
-            padding: "24px 20px",
+            padding: "8px 0 24px",
             maxHeight: "calc(100dvh - 72px)",
             overflowY: "auto",
           }}
-          className="md:hidden"
         >
-          {/* Mobile services accordion */}
+          {/* Services accordion */}
           <button
             onClick={() => setMobileServicesOpen((o) => !o)}
             style={{
@@ -320,15 +314,16 @@ export default function Nav() {
               width: "100%",
               background: "none",
               border: "none",
-              borderBottom: "1px solid #222",
+              borderBottom: "1px solid #1e1e1e",
               cursor: "pointer",
-              color: "#CCCCCC",
-              fontSize: "1.1rem",
+              color: mobileServicesOpen ? "#FF5500" : "#CCCCCC",
+              fontSize: "0.85rem",
               fontWeight: 700,
-              letterSpacing: "0.08em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              padding: "12px 0",
-              minHeight: "44px",
+              padding: "16px 20px",
+              minHeight: "52px",
+              transition: "color 0.2s",
             }}
           >
             Services
@@ -337,14 +332,14 @@ export default function Nav() {
               height="14"
               viewBox="0 0 10 10"
               fill="none"
-              style={{ transition: "transform 0.2s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}
+              style={{ transition: "transform 0.25s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}
             >
               <path d="M2 3.5L5 6.5L8 3.5" stroke="#FF5500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
           {mobileServicesOpen && (
-            <div style={{ paddingLeft: "16px", paddingBottom: "8px", borderBottom: "1px solid #222" }}>
+            <div style={{ background: "#080808", borderBottom: "1px solid #1e1e1e" }}>
               {serviceDropdown.map((item) => (
                 <Link
                   key={item.href}
@@ -353,16 +348,20 @@ export default function Nav() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2px",
-                    padding: "12px 0",
+                    gap: "3px",
+                    padding: "14px 20px 14px 32px",
                     textDecoration: "none",
-                    borderBottom: "1px solid #1a1a1a",
-                    minHeight: "44px",
+                    borderBottom: "1px solid #141414",
+                    minHeight: "52px",
                     justifyContent: "center",
+                    borderLeft: "2px solid transparent",
+                    transition: "border-color 0.15s",
                   }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderLeftColor = "#FF5500"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent"; }}
                 >
-                  <span style={{ color: "#ccc", fontSize: "0.9rem", fontWeight: 700 }}>{item.label}</span>
-                  <span style={{ color: "#444", fontSize: "0.75rem" }}>{item.desc}</span>
+                  <span style={{ color: "#e0e0e0", fontSize: "0.85rem", fontWeight: 700 }}>{item.label}</span>
+                  <span style={{ color: "#555", fontSize: "0.75rem" }}>{item.desc}</span>
                 </Link>
               ))}
             </div>
@@ -378,45 +377,66 @@ export default function Nav() {
                 alignItems: "center",
                 color: "#CCCCCC",
                 textDecoration: "none",
-                fontSize: "1.1rem",
+                fontSize: "0.85rem",
                 fontWeight: 700,
-                letterSpacing: "0.08em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                padding: "12px 0",
-                borderBottom: "1px solid #222",
-                minHeight: "44px",
+                padding: "16px 20px",
+                borderBottom: "1px solid #1e1e1e",
+                minHeight: "52px",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#CCCCCC")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#FF5500")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#CCCCCC")}
             >
               {l.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: "block",
-              marginTop: "20px",
-              background: "#FF5500",
-              color: "white",
-              fontWeight: 700,
-              fontSize: "0.9rem",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: "14px 28px",
-              textDecoration: "none",
-              textAlign: "center",
-            }}
-          >
-            Start a Project
-          </a>
+
+          <div style={{ padding: "20px 20px 0" }}>
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                background: "#FF5500",
+                color: "white",
+                fontWeight: 700,
+                fontSize: "0.85rem",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "16px 28px",
+                textDecoration: "none",
+                clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                transition: "background 0.2s",
+              }}
+            >
+              Start a Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
         </div>
       )}
 
       <style>{`
-        @media (max-width: 768px) {
+        /* Mobile: show hamburger, hide desktop nav */
+        .nav-desktop-links { display: none; }
+        .nav-desktop-cta   { display: none; }
+        .nav-hamburger     { display: flex; }
+
+        /* Desktop (≥768px): show desktop nav, hide hamburger */
+        @media (min-width: 768px) {
+          .nav-desktop-links { display: flex; }
+          .nav-desktop-cta   { display: inline-flex; }
+          .nav-hamburger     { display: none; }
+        }
+
+        @media (max-width: 767px) {
           .nav-inner { padding: 0 20px !important; }
         }
       `}</style>
