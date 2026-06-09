@@ -165,6 +165,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
+          className="hero-ctas"
           style={{
             display: "flex",
             gap: "16px",

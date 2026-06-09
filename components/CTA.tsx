@@ -119,7 +119,7 @@ export default function CTA() {
           }}
           onSubmit={(e) => e.preventDefault()}
         >
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+          <div className="cta-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
             <input
               type="text"
               placeholder="Your Name"

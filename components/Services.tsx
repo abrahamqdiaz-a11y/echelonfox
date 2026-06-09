@@ -98,7 +98,7 @@ export default function Services() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(380px, 100%), 1fr))",
           gap: "1px",
           background: "#1a1a1a",
           border: "1px solid #1a1a1a",
@@ -108,6 +108,7 @@ export default function Services() {
           <Link
             key={s.number}
             href={s.href}
+            className="service-card"
             style={{
               background: "#080808",
               padding: "48px 40px",

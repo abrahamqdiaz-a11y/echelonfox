@@ -62,3 +62,51 @@ body {
 .animate-slide-in {
   animation: slideIn 0.6s ease forwards;
 }
+
+/* ─────────────── Mobile responsive ─────────────── */
+@media (max-width: 768px) {
+  /* Homepage section padding */
+  #home        { padding: 100px 20px 60px !important; }
+  #services    { padding: 60px 20px !important; }
+  #work        { padding: 60px 20px !important; }
+  #about       { padding: 60px 20px !important; }
+  #contact     { padding: 60px 20px !important; }
+  #testimonials { padding: 60px 20px !important; }
+  footer       { padding: 60px 20px 32px !important; }
+
+  /* Stats section */
+  .stats-inner  { padding-left: 20px !important; padding-right: 20px !important; }
+  .stats-pillar { padding: 32px 16px !important; }
+
+  /* Contact form — stack name/email fields */
+  .cta-form-row { grid-template-columns: 1fr !important; }
+
+  /* Hero CTA buttons — full width on small screens */
+  .hero-ctas a,
+  .hero-ctas button { width: 100%; justify-content: center; }
+
+  /* Service cards — reduce padding */
+  .service-card { padding: 32px 24px !important; }
+
+  /* Service pages — section padding */
+  .service-page section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+  }
+  /* Service page hero needs more top room for fixed nav */
+  .service-page section:first-of-type {
+    padding-top: 120px !important;
+  }
+
+  /* Service page 2-column layout → stack */
+  .service-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr !important; }
+}

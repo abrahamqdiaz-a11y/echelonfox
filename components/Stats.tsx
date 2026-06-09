@@ -47,8 +47,9 @@ export default function Stats() {
         }}
       />
 
-      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 32px" }}>
+      <div className="stats-inner" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 32px" }}>
         <div
+          className="stats-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -57,6 +58,7 @@ export default function Stats() {
           {pillars.map((p) => (
             <div
               key={p.label}
+              className="stats-pillar"
               style={{
                 textAlign: "center",
                 padding: "48px 32px",

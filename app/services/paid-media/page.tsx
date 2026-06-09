@@ -109,7 +109,7 @@ const faq = [
 
 export default function PaidMediaPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+    <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -200,7 +200,7 @@ export default function PaidMediaPage() {
               How We Run Paid Media
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
             {process.map((p) => (
               <div key={p.step} style={{ background: "#0a0a0a", padding: "40px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: "-10px", right: "16px", fontSize: "5rem", fontWeight: 900, color: "#141414", lineHeight: 1, userSelect: "none", pointerEvents: "none" }}>{p.step}</div>
@@ -225,7 +225,7 @@ export default function PaidMediaPage() {
               What&apos;s Included
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "24px" }}>
             {included.map((block) => (
               <div key={block.category} style={{ background: "#0f0f0f", border: "1px solid #1e1e1e", padding: "32px" }}>
                 <h3 style={{ fontSize: "0.85rem", fontWeight: 800, color: "#FF5500", letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 20px" }}>{block.category}</h3>
@@ -255,7 +255,7 @@ export default function PaidMediaPage() {
               Platforms We Manage
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))", gap: "24px" }}>
             {platforms.map((p) => (
               <div key={p.name} style={{ background: "#111", border: "1px solid #1e1e1e", padding: "32px", display: "flex", gap: "20px", alignItems: "flex-start" }}>
                 <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", flexShrink: 0, marginTop: "6px" }} />
@@ -281,7 +281,7 @@ export default function PaidMediaPage() {
               Built For Brands Serious About Growth
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "24px" }}>
             {whoFor.map((w) => (
               <div key={w.label} style={{ background: "#0f0f0f", border: "1px solid #1e1e1e", padding: "32px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
@@ -339,7 +339,6 @@ export default function PaidMediaPage() {
       </section>
 
       <Footer />
-      <style>{`.service-two-col { @media (max-width: 768px) { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
     </div>
   );
 }
