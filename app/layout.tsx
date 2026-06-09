@@ -52,6 +52,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    google: "4rgNarRiQaH9SXMilPk6N4FMCYgsvhfL-aD6I6Ua1hA",
+  },
 };
 
 export const viewport: Viewport = {
@@ -113,7 +116,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <meta name="google-site-verification" content="4rgNarRiQaH9SXMilPk6N4FMCYgsvhfL-aD6I6Ua1hA" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
