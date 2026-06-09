@@ -66,17 +66,20 @@ body {
 /* ─────────────── Mobile responsive ─────────────── */
 @media (max-width: 768px) {
   /* Homepage section padding */
-  #home        { padding: 100px 20px 60px !important; }
-  #services    { padding: 60px 20px !important; }
-  #work        { padding: 60px 20px !important; }
-  #about       { padding: 60px 20px !important; }
-  #contact     { padding: 60px 20px !important; }
+  #home         { padding: 100px 20px 60px !important; }
+  #services     { padding: 60px 20px !important; }
+  #work         { padding: 60px 20px !important; }
+  #about        { padding: 60px 20px !important; }
+  #contact      { padding: 60px 20px !important; }
   #testimonials { padding: 60px 20px !important; }
-  footer       { padding: 60px 20px 32px !important; }
+  footer        { padding: 60px 20px 32px !important; }
 
   /* Stats section */
   .stats-inner  { padding-left: 20px !important; padding-right: 20px !important; }
-  .stats-pillar { padding: 32px 16px !important; }
+  .stats-grid   { grid-template-columns: 1fr 1fr !important; }
+  .stats-pillar { padding: 32px 16px !important; border-right: none !important; border-bottom: 1px solid #1a1a1a; }
+  .stats-pillar:nth-child(odd)  { border-right: 1px solid #1a1a1a !important; }
+  .stats-pillar:nth-last-child(-n+2) { border-bottom: none; }
 
   /* Contact form — stack name/email fields */
   .cta-form-row { grid-template-columns: 1fr !important; }
@@ -85,8 +88,15 @@ body {
   .hero-ctas a,
   .hero-ctas button { width: 100%; justify-content: center; }
 
+  /* Hero certified partners — tighter gap, wrap to 2 per row */
+  .hero-partners { gap: 12px !important; }
+  .hero-partners > * { flex: 1 1 calc(50% - 6px); min-width: 0; }
+
   /* Service cards — reduce padding */
   .service-card { padding: 32px 24px !important; }
+
+  /* Testimonial / value cards — reduce padding */
+  .value-card { padding: 28px 24px !important; }
 
   /* Service pages — section padding */
   .service-page section {
@@ -109,4 +119,12 @@ body {
 
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr !important; }
+  .stats-pillar { border-right: none !important; border-bottom: 1px solid #1a1a1a !important; }
+  .stats-pillar:last-child { border-bottom: none !important; }
+
+  /* Hero certified partners — stack to 1 per row on very small screens */
+  .hero-partners > * { flex: 1 1 100%; }
+
+  /* Hero section — reduce top padding */
+  #home { padding-top: 90px !important; }
 }

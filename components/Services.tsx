@@ -52,10 +52,9 @@ export default function Services() {
       id="services"
       style={{
         padding: "120px 32px",
-        maxWidth: "1400px",
-        margin: "0 auto",
       }}
     >
+      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
       {/* Header */}
       <div style={{ marginBottom: "72px" }}>
         <div
@@ -204,6 +203,7 @@ export default function Services() {
             </div>
           </Link>
         ))}
+      </div>
       </div>
     </section>
   );
