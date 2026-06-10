@@ -79,15 +79,27 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <Image
             src="/eflogo.logo.png"
             alt="Echelon Fox"
             width={160}
             height={48}
-            style={{ objectFit: "contain", height: "40px", width: "auto" }}
+            style={{ objectFit: "contain", height: "36px", width: "auto" }}
             priority
           />
+          <span
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontWeight: 900,
+              fontSize: "1.1rem",
+              letterSpacing: "0.05em",
+              color: "#FFFFFF",
+              textTransform: "uppercase",
+            }}
+          >
+            ECHELON<span style={{ color: "#FF5500" }}>FOX</span>
+          </span>
         </Link>
 
         {/* Desktop links — hidden on mobile via CSS */}
