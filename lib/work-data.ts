@@ -14,25 +14,19 @@ export const projects: WorkCardData[] = [
     // TODO: Add link once client permission is confirmed
   },
   {
-    // TODO: Replace with real agency name
-    name: "[TODO — Agency Name]",
-    nameTodo: true,
+    name: "Insurance Agency",
     category: "Website Design & Build",
     description:
       "Full website design and build for a local insurance agency — clear service pages, quote request flow, and a fast, mobile-first experience.",
     imageTodo: true,
     linkTodo: true,
-    // TODO: Add live URL
   },
   {
-    // TODO: Replace with real business name
-    name: "[TODO — Business Name]",
-    nameTodo: true,
+    name: "Pet Care Company",
     category: "Website Design & Build",
     description:
       "Website design and build for a premium pet care company — service and booking information structured for local search and built to convert visitors into inquiries.",
     imageTodo: true,
     linkTodo: true,
-    // TODO: Add live URL
   },
 ];
