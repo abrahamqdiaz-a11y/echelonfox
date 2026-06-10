@@ -87,7 +87,7 @@ export default function About() {
             }}
           >
             <Image
-              src="/abe-quinn.jpg"
+              src="/profile pic of me.png"
               alt="Abe Quinn, Founder of Echelon Fox"
               fill
               style={{ objectFit: "cover" }}
