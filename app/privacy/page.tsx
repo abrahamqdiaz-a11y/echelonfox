@@ -58,11 +58,11 @@ export default function PrivacyPage() {
           },
           {
             title: "6. Your Rights",
-            body: "Depending on your jurisdiction, you may have rights to access, correct, or delete your personal data. To exercise these rights, contact us at hello@echelonfox.com.",
+            body: "Depending on your jurisdiction, you may have rights to access, correct, or delete your personal data. To exercise these rights, contact us at abe.quinn@echelonfox.com.",
           },
           {
             title: "7. Contact",
-            body: "For privacy-related questions, email us at hello@echelonfox.com.",
+            body: "For privacy-related questions, email us at abe.quinn@echelonfox.com.",
           },
         ].map((section) => (
           <section key={section.title} style={{ marginBottom: "40px" }}>

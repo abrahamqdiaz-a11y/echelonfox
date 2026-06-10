@@ -225,10 +225,10 @@ export default function UnsubscribeClient() {
                 >
                   Something went wrong. Please try again or email us at{" "}
                   <a
-                    href="mailto:hello@echelonfox.com"
+                    href="mailto:abe.quinn@echelonfox.com"
                     style={{ color: "var(--orange)", textDecoration: "none" }}
                   >
-                    hello@echelonfox.com
+                    abe.quinn@echelonfox.com
                   </a>
                   .
                 </p>
