@@ -86,7 +86,7 @@ const brandMistakes = [
   { title: "Starting with aesthetics, not strategy", desc: "A logo that looks beautiful but doesn't communicate your positioning is decoration, not branding. Every visual decision should answer to a strategic rationale." },
   { title: "Treating brand as a one-time project", desc: "Brand is a living system. Logos that never evolve, voice guidelines that are never followed, and visual systems that break in practice are symptoms of treating brand as a launch deliverable rather than an ongoing asset." },
   { title: "Inconsistency across channels", desc: "When your website looks nothing like your ads, and your social looks nothing like your packaging, buyers struggle to build a coherent mental image of your brand. Consistency is trust at scale." },
-  { title: "Copying category conventions", desc: "The fastest way to be forgettable is to look like everyone else in your category. The brands that dominate their space have a distinctive point of view — visually and verbally — that makes imitation impossible." },
+  { title: "Copying category conventions", desc: "The fastest way to be forgettable is to look like everyone else in your category. The brands that win their space have a distinctive point of view — visually and verbally — that makes imitation impossible." },
 ];
 
 const faq = [

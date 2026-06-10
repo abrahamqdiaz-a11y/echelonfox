@@ -19,7 +19,7 @@ const pillars = [
   {
     icon: "🌐",
     title: "Global Thinking",
-    desc: "We bring world-class strategy to every client — regardless of size. Your competition won't see us coming.",
+    desc: "We bring enterprise-level strategy to every client — regardless of size. Your competition won't see us coming.",
   },
 ];
 
@@ -108,8 +108,9 @@ export default function About() {
               margin: "0 0 24px",
             }}
           >
-            Echelon Fox was built with one mission: to be the world&apos;s most effective digital
-            marketing company. Not the biggest. Not the loudest. The most effective.
+            Echelon Fox was built with one mission: to give e-commerce brands the kind of performance
+            marketing usually reserved for companies ten times their size. Focused, measurable, and
+            accountable to revenue — not vanity metrics.
           </p>
 
           <p
@@ -120,7 +121,7 @@ export default function About() {
               margin: "0 0 40px",
             }}
           >
-            We work with brands who want to dominate their market — not just participate in it.
+            We work with brands who want to outperform their market — not just participate in it.
             Our team combines creative firepower with analytical precision to deliver campaigns
             that consistently outperform benchmarks.
           </p>
@@ -146,6 +147,53 @@ export default function About() {
           >
             Work With Us
           </a>
+
+          {/* Founder block — TODO: fill in real name, photo, and bio */}
+          <div
+            style={{
+              marginTop: "48px",
+              paddingTop: "40px",
+              borderTop: "1px solid #1e1e1e",
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+            }}
+          >
+            {/* TODO: Replace this placeholder with a real circular photo (<img> or <Image>) */}
+            <div
+              style={{
+                width: "64px",
+                height: "64px",
+                borderRadius: "50%",
+                background: "#1e1e1e",
+                border: "2px solid #333",
+                flexShrink: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#555",
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+              }}
+            >
+              Photo
+            </div>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "1rem", color: "#fff", marginBottom: "2px" }}>
+                {/* TODO: Replace with founder name */}
+                [FOUNDER NAME — TODO]
+              </div>
+              <div style={{ fontSize: "0.8rem", color: "#FF5500", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "6px" }}>
+                Founder, Echelon Fox
+              </div>
+              <p style={{ color: "#555", fontSize: "0.85rem", lineHeight: 1.6, margin: 0 }}>
+                {/* TODO: 1–2 sentence bio */}
+                [TODO — 1–2 sentences on background]
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Right column - pillars */}

@@ -11,9 +11,9 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { absolute: "Echelon Fox — World-Class Digital Marketing" },
+  title: { absolute: "Echelon Fox — Performance Marketing for E-Commerce Brands" },
   description:
-    "Echelon Fox is the world's premier digital marketing media company. We build brands that dominate through SEO, paid media, brand identity, social media, analytics, and email marketing.",
+    "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
   alternates: {
     canonical: "https://echelonfox.com",
   },

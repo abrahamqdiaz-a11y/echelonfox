@@ -12,16 +12,11 @@ const serviceLinks = [
 
 const companyLinks = [
   { label: "About", href: "/#about" },
-  { label: "Work", href: "/#work" },
-  { label: "Results", href: "/#results" },
   { label: "Contact", href: "/#contact" },
 ];
 
 const connectLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Twitter / X", href: "#" },
-  { label: "TikTok", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/echelonfox/" },
 ];
 
 export default function Footer() {
@@ -77,8 +72,7 @@ export default function Footer() {
                 maxWidth: "280px",
               }}
             >
-              The world&apos;s most effective digital marketing company.
-              We build brands that dominate.
+              A performance marketing studio for e-commerce brands.
             </p>
             <a
               href="mailto:hello@echelonfox.com"
@@ -157,10 +151,13 @@ export default function Footer() {
           </p>
 
           <div style={{ display: "flex", gap: "24px" }}>
-            {["Privacy Policy", "Terms of Service"].map((item) => (
-              <a
-                key={item}
-                href="#"
+            {[
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Service", href: "/terms" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
                 style={{
                   color: "#333",
                   fontSize: "0.8rem",
@@ -171,8 +168,8 @@ export default function Footer() {
                 onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
                 onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#333")}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>

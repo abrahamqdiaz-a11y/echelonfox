@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Social Media Management — Strategy, Content & Community",
   description:
-    "Echelon Fox manages social media for brands that want to dominate their category. Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management.",
+    "Echelon Fox manages social media for brands that want to outperform their category. Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management.",
   alternates: {
     canonical: "https://echelonfox.com/services/social-media",
   },
@@ -38,7 +38,7 @@ const serviceSchema = {
   provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
   url: "https://echelonfox.com/services/social-media",
   description:
-    "Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management for brands that want to dominate their category.",
+    "Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management for brands that want to outperform their category.",
   areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },
 };
 

@@ -12,18 +12,18 @@ const BASE_URL = "https://echelonfox.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Echelon Fox — World-Class Digital Marketing",
+    default: "Echelon Fox — Performance Marketing for E-Commerce Brands",
     template: "%s | Echelon Fox",
   },
   description:
-    "Echelon Fox is the world's premier digital marketing media company. We build brands that dominate through SEO, paid media, brand identity, social media, analytics, and email marketing.",
+    "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
   metadataBase: new URL(BASE_URL),
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Echelon Fox — World-Class Digital Marketing",
-    description: "We build brands that dominate.",
+    title: "Echelon Fox — Performance Marketing for E-Commerce Brands",
+    description: "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
     url: BASE_URL,
     siteName: "Echelon Fox",
     type: "website",
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
         url: "/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Echelon Fox — World-Class Digital Marketing",
+        alt: "Echelon Fox — Performance Marketing for E-Commerce Brands",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Echelon Fox — World-Class Digital Marketing",
-    description: "World-Class Digital Marketing Media Company",
+    title: "Echelon Fox — Performance Marketing for E-Commerce Brands",
+    description: "Performance marketing for e-commerce brands that want profitable growth.",
     site: "@echelonfox",
     images: ["/og-default.png"],
   },
@@ -70,13 +70,10 @@ const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
   description:
-    "World-class digital marketing media company. We build brands that dominate through SEO, paid media, brand identity, social media, analytics, and email marketing.",
+    "A performance marketing studio for e-commerce brands. Paid media, SEO, brand identity, social media, analytics, and email marketing.",
   email: "hello@echelonfox.com",
   sameAs: [
-    "https://www.instagram.com/echelonfox",
-    "https://www.linkedin.com/company/echelonfox",
-    "https://x.com/echelonfox",
-    "https://www.tiktok.com/@echelonfox",
+    "https://www.linkedin.com/company/echelonfox/",
   ],
   serviceArea: {
     "@type": "AdministrativeArea",
