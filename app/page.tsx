@@ -13,11 +13,24 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { absolute: "Echelon Fox — Performance Marketing for E-Commerce Brands" },
+  title: { absolute: "Echelon Fox — Your Marketing Team, Monthly" },
   description:
-    "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
+    "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
   alternates: {
     canonical: "https://echelonfox.com",
+  },
+  openGraph: {
+    title: "Echelon Fox — Your Marketing Team, Monthly",
+    description:
+      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+    url: "https://echelonfox.com",
+    type: "website",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Echelon Fox — Your Marketing Team, Monthly" }],
+  },
+  twitter: {
+    title: "Echelon Fox — Your Marketing Team, Monthly",
+    description:
+      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
   },
 };
 
