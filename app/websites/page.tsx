@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import WebsitesClient from "./WebsitesClient";
 
 export const metadata: Metadata = {
-  title: "Websites for Local Businesses — Echelon Fox",
+  title: { absolute: "Websites for Local Businesses — Echelon Fox" },
   description:
     "Flat-rate website design and build for local businesses — done in weeks, not months, with local SEO basics included.",
   alternates: { canonical: "https://echelonfox.com/websites" },

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import GrowthSprint from "@/components/GrowthSprint";
 
 export const metadata: Metadata = {
-  title: "SaaS Marketing — Echelon Fox",
+  title: { absolute: "SaaS Marketing — Echelon Fox" },
   description:
     "Pipeline-focused marketing for SaaS companies. SEO, paid media, and content built around qualified trials, demos, and self-serve signups.",
   alternates: { canonical: "https://echelonfox.com/saas" },

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import GrowthSprint from "@/components/GrowthSprint";
 
 export const metadata: Metadata = {
-  title: "E-Commerce Marketing — Echelon Fox",
+  title: { absolute: "E-Commerce Marketing — Echelon Fox" },
   description:
     "Performance marketing for e-commerce brands. SEO, paid media, email, and creative built around profitable revenue growth.",
   alternates: { canonical: "https://echelonfox.com/ecommerce" },

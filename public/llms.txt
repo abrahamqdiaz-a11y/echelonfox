@@ -15,6 +15,17 @@ Echelon Fox is a full-service digital marketing agency serving ambitious brands 
 - [Analytics & Growth Strategy](https://echelonfox.com/services/analytics-growth): GA4 setup, custom dashboards, CRO, attribution modeling, and growth strategy that scales what works.
 - [Email & CRM Marketing](https://echelonfox.com/services/email-crm): Klaviyo, HubSpot, automations, segmentation, and campaign strategy that turns subscribers into buyers.
 
+## Verticals
+
+- [E-Commerce Marketing](https://echelonfox.com/ecommerce): Performance marketing for e-commerce brands — SEO, paid media, email, and creative built around profitable revenue growth.
+- [SaaS Marketing](https://echelonfox.com/saas): Pipeline-focused marketing for SaaS companies — SEO, paid media, and content built around qualified trials, demos, and self-serve signups.
+- [Websites for Local Businesses](https://echelonfox.com/websites): Flat-rate website design and build for local businesses — done in weeks, not months, with local SEO basics included.
+
+## Work & Pricing
+
+- [Selected Work](https://echelonfox.com/work): Case studies and selected projects from Echelon Fox — e-commerce SEO and website builds for growing businesses.
+- [Pricing](https://echelonfox.com/pricing): Flat-rate monthly plans for e-commerce and SaaS brands. No retainer traps, no rotating account managers — dedicated strategists, weekly sprints.
+
 ## Contact
 
 - Website: https://echelonfox.com

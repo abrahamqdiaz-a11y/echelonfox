@@ -7,7 +7,7 @@ import OldVsNew from "@/components/OldVsNew";
 import PricingClient from "./PricingClient";
 
 export const metadata: Metadata = {
-  title: "Pricing — Echelon Fox",
+  title: { absolute: "Pricing — Echelon Fox" },
   description:
     "Flat-rate monthly plans for e-commerce and SaaS brands. No retainer traps, no rotating account managers — dedicated strategists, weekly sprints.",
   alternates: { canonical: "https://echelonfox.com/pricing" },
