@@ -6,6 +6,8 @@ import Services from "@/components/Services";
 import Work from "@/components/Work";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
+import GrowthSprint from "@/components/GrowthSprint";
+import WorkPreview from "@/components/WorkPreview";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -35,6 +37,8 @@ export default function Home() {
       <Marquee />
       <Services />
       <Work />
+      <GrowthSprint />
+      <WorkPreview />
       <Stats />
       <About />
       <Testimonials />

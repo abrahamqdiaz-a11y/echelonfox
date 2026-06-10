@@ -12,9 +12,9 @@ const serviceDropdown = [
 ];
 
 const navLinks = [
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/#about" },
-  { label: "Results", href: "/#results" },
   { label: "Contact", href: "/#contact" },
 ];
 
