@@ -62,13 +62,7 @@ export default function WorkCard({ card, compact = false }: WorkCardProps) {
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         ) : (
-          <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#333", fontSize: "2rem", marginBottom: "8px" }}>⬜</div>
-            <div style={{ color: "#333", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              {/* TODO: Replace with real screenshot */}
-              Screenshot — TODO
-            </div>
-          </div>
+          <div style={{ width: "100%", height: "100%", background: "#0f0f0f" }} />
         )}
       </div>
 
@@ -126,12 +120,7 @@ export default function WorkCard({ card, compact = false }: WorkCardProps) {
             </svg>
           </a>
         )}
-        {/* TODO: Uncomment and set link once client permission is obtained */}
-        {card.linkTodo && (
-          <div style={{ marginTop: "auto", paddingTop: "12px", color: "#333", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", fontStyle: "italic" }}>
-            Link — TODO (pending client permission)
-          </div>
-        )}
+        {card.linkTodo && null}
       </div>
     </div>
   );

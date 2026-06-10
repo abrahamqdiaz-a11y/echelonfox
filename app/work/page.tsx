@@ -6,7 +6,7 @@ import WorkCard from "@/components/WorkCard";
 import { projects } from "@/lib/work-data";
 
 export const metadata: Metadata = {
-  title: "Selected Work — Echelon Fox",
+  title: { absolute: "Selected Work — Echelon Fox" },
   description: "Selected projects from Echelon Fox: e-commerce SEO and website builds for growing businesses.",
   alternates: { canonical: "https://echelonfox.com/work" },
   openGraph: {
