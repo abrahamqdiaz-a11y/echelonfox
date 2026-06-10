@@ -1,15 +1,12 @@
 export default function Marquee() {
   const items = [
-    "Social Media Marketing",
-    "Paid Advertising",
     "SEO & Content",
-    "Brand Strategy",
-    "Email Campaigns",
-    "Influencer Marketing",
-    "Analytics & Reporting",
-    "Creative Direction",
-    "Growth Hacking",
-    "Video Marketing",
+    "Paid Media",
+    "Email & CRM",
+    "Analytics & Attribution",
+    "Brand & Creative",
+    "Social Media",
+    "Conversion Optimization",
   ];
 
   return (

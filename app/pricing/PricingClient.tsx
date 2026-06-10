@@ -5,7 +5,7 @@ const tiers = [
   {
     name: "Starter",
     tagline: "One channel, one relationship.",
-    price: "$[TODO]", // TODO: Set Starter monthly price
+    price: "$1,500",
     period: "/mo",
     recommended: false,
     description:
@@ -24,7 +24,7 @@ const tiers = [
   {
     name: "Growth",
     tagline: "Two people, every channel that matters.",
-    price: "$[TODO]", // TODO: Set Growth monthly price
+    price: "$3,500",
     period: "/mo",
     recommended: true,
     description:
@@ -45,7 +45,7 @@ const tiers = [
   {
     name: "Fractional",
     tagline: "A full marketing department, without the headcount.",
-    price: "$[TODO]", // TODO: Set Fractional monthly price
+    price: "$6,500",
     period: "/mo",
     recommended: false,
     description:
@@ -145,7 +145,6 @@ export default function PricingClient() {
                 <span style={{ color: "#555", fontSize: "0.9rem" }}>{tier.period}</span>
               </div>
               <p style={{ color: "#555", fontSize: "0.75rem", marginBottom: "24px" }}>
-                {/* TODO: Set price and add any note (e.g. "billed monthly") */}
                 Billed monthly · cancel with 2-month notice
               </p>
 

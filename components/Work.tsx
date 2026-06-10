@@ -1,29 +1,20 @@
 "use client";
+import Link from "next/link";
 
-const industries = [
+const segments = [
   {
-    sector: "Fashion & E-commerce",
-    desc: "We build paid media systems for direct-to-consumer brands that scale — across Meta, Google, and emerging platforms.",
-    services: ["Paid Ads", "Creative Strategy", "Email"],
+    title: "E-Commerce & DTC",
+    desc: "Online stores and direct-to-consumer brands. SEO, paid media, and email systems built for profitable, repeatable revenue.",
+    href: "/ecommerce",
     bg: "#1a0a00",
+    tags: ["Paid Media", "SEO & Content", "Email & CRM"],
   },
   {
-    sector: "Fintech & B2B",
-    desc: "Full-funnel demand generation for financial services and B2B companies where qualified pipeline is the only metric that matters.",
-    services: ["LinkedIn Ads", "SEO", "CRO"],
+    title: "B2B SaaS",
+    desc: "Software companies that need pipeline, not impressions. Search-led demand generation and content that converts buyers.",
+    href: "/saas",
     bg: "#0a0f1a",
-  },
-  {
-    sector: "Health & Wellness",
-    desc: "Community-led growth strategies that turn health brands into cultural movements — organic, paid, and influencer combined.",
-    services: ["Social Media", "Content", "Influencers"],
-    bg: "#0a1a0a",
-  },
-  {
-    sector: "Real Estate & Luxury",
-    desc: "End-to-end digital marketing for premium real estate brands — from search intent capture to high-production video retargeting.",
-    services: ["Google Ads", "Video", "SEO"],
-    bg: "#1a1500",
+    tags: ["SEO & Content", "Paid Search", "Pipeline Content"],
   },
 ];
 
@@ -34,97 +25,61 @@ export default function Work() {
       style={{
         padding: "120px 32px",
         background: "#0a0a0a",
+        borderTop: "1px solid #1a1a1a",
       }}
     >
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            marginBottom: "72px",
-            flexWrap: "wrap",
-            gap: "24px",
-          }}
-        >
-          <div>
-            <div
+        <div style={{ marginBottom: "72px" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+            <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
+            <span
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                marginBottom: "16px",
+                color: "#FF5500",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
               }}
             >
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span
-                style={{
-                  color: "#FF5500",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Industries We Serve
-              </span>
-            </div>
-            <h2
-              style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                fontWeight: 900,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-                margin: 0,
-              }}
-            >
-              Built for{" "}
-              <span style={{ color: "#FF5500" }}>Your Industry</span>
-            </h2>
+              Who We Work With
+            </span>
           </div>
-          <a
-            href="#contact"
+          <h2
             style={{
-              color: "#FF5500",
-              fontSize: "0.85rem",
-              fontWeight: 700,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              paddingBottom: "2px",
-              borderBottom: "1px solid #FF5500",
-              transition: "opacity 0.2s",
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              fontWeight: 900,
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              margin: 0,
             }}
           >
-            All Case Studies
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
+            Who We{" "}
+            <span style={{ color: "#FF5500" }}>Work With</span>
+          </h2>
         </div>
 
-        {/* Industry cards */}
+        {/* Two equal cards */}
         <div
+          className="who-we-work-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))",
+            gridTemplateColumns: "1fr 1fr",
             gap: "24px",
           }}
         >
-          {industries.map((ind) => (
-            <div
-              key={ind.sector}
+          {segments.map((seg) => (
+            <Link
+              key={seg.title}
+              href={seg.href}
               style={{
                 background: "#111",
                 border: "1px solid #1e1e1e",
-                padding: "40px",
+                padding: "56px 48px",
                 position: "relative",
                 overflow: "hidden",
-                cursor: "pointer",
+                textDecoration: "none",
+                display: "block",
                 transition: "border-color 0.2s, transform 0.2s",
               }}
               onMouseEnter={(e) => {
@@ -136,54 +91,49 @@ export default function Work() {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
               }}
             >
-              {/* Accent dot bg */}
+              {/* Accent glow */}
               <div
                 style={{
                   position: "absolute",
                   top: 0,
                   right: 0,
-                  width: "120px",
-                  height: "120px",
-                  background: `radial-gradient(circle at top right, ${ind.bg}, transparent 70%)`,
+                  width: "200px",
+                  height: "200px",
+                  background: `radial-gradient(circle at top right, ${seg.bg}, transparent 70%)`,
                   pointerEvents: "none",
                 }}
               />
 
-              {/* Sector badge */}
-              <span
+              <h3
                 style={{
-                  display: "inline-block",
-                  background: "#1a1a1a",
-                  border: "1px solid #2a2a2a",
-                  color: "#666",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  padding: "5px 12px",
-                  marginBottom: "24px",
+                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                  fontWeight: 900,
+                  color: "#fff",
+                  margin: "0 0 20px",
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
                 }}
               >
-                {ind.sector}
-              </span>
+                {seg.title}
+              </h3>
 
-              {/* Description */}
               <p
                 style={{
                   color: "#aaa",
-                  fontSize: "0.95rem",
-                  lineHeight: 1.7,
-                  margin: "0 0 28px",
+                  fontSize: "1rem",
+                  lineHeight: 1.75,
+                  margin: "0 0 32px",
+                  maxWidth: "420px",
                 }}
               >
-                {ind.desc}
+                {seg.desc}
               </p>
 
               {/* Tags */}
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {ind.services.map((svc) => (
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "32px" }}>
+                {seg.tags.map((tag) => (
                   <span
-                    key={svc}
+                    key={tag}
                     style={{
                       background: "rgba(255,85,0,0.1)",
                       color: "#FF5500",
@@ -195,14 +145,38 @@ export default function Work() {
                       border: "1px solid rgba(255,85,0,0.2)",
                     }}
                   >
-                    {svc}
+                    {tag}
                   </span>
                 ))}
               </div>
-            </div>
+
+              <span
+                style={{
+                  color: "#FF5500",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </Link>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .who-we-work-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

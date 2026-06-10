@@ -11,7 +11,7 @@ const values = [
   },
   {
     title: "Accountability Built In",
-    desc: "Fixed monthly retainers with clearly scoped deliverables. No scope creep, no surprise invoices — just the work we said we'd do, done exceptionally.",
+    desc: "Flat monthly subscription with clearly scoped deliverables. No scope creep, no surprise invoices — just the work we said we'd do, done exceptionally.",
   },
 ];
 

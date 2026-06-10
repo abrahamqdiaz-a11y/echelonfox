@@ -95,7 +95,7 @@ export default function CTA() {
               textTransform: "uppercase",
             }}
           >
-            Now Accepting New Clients
+            Now Taking On New Clients
           </span>
         </div>
 
@@ -119,29 +119,15 @@ export default function CTA() {
             color: "#aaa",
             fontSize: "1.1rem",
             lineHeight: 1.7,
-            margin: "0 0 12px",
+            margin: "0 0 40px",
             maxWidth: "560px",
             marginLeft: "auto",
             marginRight: "auto",
           }}
         >
-          Let&apos;s build something that your competitors will study and your customers will remember.
-          One conversation. Zero fluff.
-        </p>
-
-        <p
-          style={{
-            color: "#666",
-            fontSize: "0.9rem",
-            lineHeight: 1.65,
-            margin: "0 0 40px",
-            maxWidth: "480px",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          We&apos;ll show you how your marketing stacks up against competitors in your space — and
-          where the biggest quick wins are.
+          Tell us where you are and what you&apos;re trying to grow. We&apos;ll show you how your
+          marketing stacks up against competitors in your space — and where the biggest quick
+          wins are.
         </p>
 
         {/* Form */}

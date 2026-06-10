@@ -66,44 +66,11 @@ export default function Hero() {
       />
 
       <div style={{ maxWidth: "1400px", margin: "0 auto", width: "100%", position: "relative" }}>
-        {/* Label */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "10px",
-            marginBottom: "32px",
-            opacity: 0,
-            animation: "fadeUp 0.6s ease 0.2s forwards",
-          }}
-        >
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              background: "#FF5500",
-              borderRadius: "50%",
-              boxShadow: "0 0 12px #FF5500",
-            }}
-          />
-          <span
-            style={{
-              color: "#FF5500",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-            }}
-          >
-            Performance Marketing for E-Commerce
-          </span>
-        </div>
-
         {/* Main headline */}
         <h1
           ref={headlineRef}
           style={{
-            fontSize: "clamp(3rem, 9vw, 8rem)",
+            fontSize: "clamp(2.5rem, 7vw, 6.5rem)",
             fontWeight: 900,
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
@@ -111,40 +78,10 @@ export default function Hero() {
             maxWidth: "900px",
           }}
         >
-          We Make{" "}
-          <span
-            style={{
-              color: "#FF5500",
-              display: "inline-block",
-              position: "relative",
-            }}
-          >
-            Brands
-            <svg
-              style={{
-                position: "absolute",
-                bottom: "-8px",
-                left: 0,
-                width: "100%",
-              }}
-              viewBox="0 0 200 12"
-              fill="none"
-            >
-              <path
-                d="M2 10 C50 2, 150 2, 198 10"
-                stroke="#FF5500"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-                opacity="0.5"
-              />
-            </svg>
-          </span>
+          Your Marketing Team.{" "}
+          <span style={{ color: "#FF5500" }}>Monthly.</span>
           <br />
-          Impossible{" "}
-          <span style={{ color: "#333" }}>to</span>
-          <br />
-          Ignore.
+          No Hiring.
         </h1>
 
         {/* Sub copy */}
@@ -159,8 +96,9 @@ export default function Hero() {
             animation: "fadeUp 0.6s ease 0.5s forwards",
           }}
         >
-          Echelon Fox is a performance marketing studio for e-commerce brands. We craft campaigns,
-          content, and strategies built for profitable, measurable growth.
+          We embed inside your business — strategy, execution, and weekly sprints across SEO,
+          paid ads, and content. A team that knows your market, not a vendor who learned your
+          name last Tuesday.
         </p>
 
         {/* Trigger-moment positioning line */}
@@ -191,7 +129,7 @@ export default function Hero() {
           }}
         >
           <a
-            href="#work"
+            href="/pricing"
             style={{
               background: "#FF5500",
               color: "white",
@@ -217,13 +155,14 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
             }}
           >
-            See Our Work
+            See Plans &amp; Pricing
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
+          {/* TODO: Replace href with real Calendly URL once set */}
           <a
-            href="#contact"
+            href="mailto:hello@echelonfox.com?subject=Strategy%20Call"
             style={{
               background: "transparent",
               color: "white",
@@ -250,7 +189,10 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.color = "white";
             }}
           >
-            Start a Project
+            Book a Strategy Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </div>
 
