@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -75,31 +75,27 @@ export default function About() {
             marginBottom: "40px",
           }}
         >
-          {/* TODO: Replace this placeholder with a real <Image> pointing to your headshot */}
           <div
             style={{
               width: "64px",
               height: "64px",
               borderRadius: "50%",
-              background: "#1e1e1e",
+              overflow: "hidden",
               border: "2px solid #333",
               flexShrink: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#444",
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
+              position: "relative",
             }}
           >
-            Photo
+            <Image
+              src="/abe-quinn.jpg"
+              alt="Abe Quinn, Founder of Echelon Fox"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
           <div>
-            {/* TODO: Replace with your real name */}
             <div style={{ fontWeight: 800, fontSize: "1rem", color: "#fff", marginBottom: "2px" }}>
-              [TODO — Founder Name]
+              Abe Quinn
             </div>
             <div style={{ fontSize: "0.8rem", color: "#FF5500", fontWeight: 600, letterSpacing: "0.04em" }}>
               Founder, Echelon Fox
@@ -108,9 +104,10 @@ export default function About() {
         </div>
 
         {/* CTA */}
-        {/* TODO: Replace href with real Calendly URL or mailto once set */}
         <a
-          href="mailto:hello@echelonfox.com?subject=Strategy%20Call"
+          href="https://cal.com/abe-quinn/growth-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             background: "#FF5500",
             color: "white",

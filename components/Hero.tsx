@@ -160,9 +160,10 @@ export default function Hero() {
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
-          {/* TODO: Replace href with real Calendly URL once set */}
           <a
-            href="mailto:hello@echelonfox.com?subject=Strategy%20Call"
+            href="https://cal.com/abe-quinn/growth-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               background: "transparent",
               color: "white",
