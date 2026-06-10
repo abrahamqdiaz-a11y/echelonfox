@@ -12,7 +12,7 @@ const services = [
   {
     number: "02",
     title: "SEO & Content Strategy",
-    desc: "Dominate search rankings with content that converts. We build authority, traffic, and leads that compound over time.",
+    desc: "Outperform competitors in search with content that converts. We build authority, traffic, and leads that compound over time.",
     tags: ["Technical SEO", "Content Marketing", "Link Building"],
     href: "/services/seo-content",
   },

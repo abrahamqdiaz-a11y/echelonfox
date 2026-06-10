@@ -154,13 +154,29 @@ export default function Hero() {
             fontSize: "clamp(1rem, 2vw, 1.25rem)",
             lineHeight: 1.7,
             maxWidth: "560px",
-            margin: "0 0 48px",
+            margin: "0 0 20px",
             opacity: 0,
             animation: "fadeUp 0.6s ease 0.5s forwards",
           }}
         >
           Echelon Fox is a performance marketing studio for e-commerce brands. We craft campaigns,
           content, and strategies built for profitable, measurable growth.
+        </p>
+
+        {/* Trigger-moment positioning line */}
+        <p
+          style={{
+            color: "#666",
+            fontSize: "0.9rem",
+            lineHeight: 1.65,
+            maxWidth: "520px",
+            margin: "0 0 48px",
+            opacity: 0,
+            animation: "fadeUp 0.6s ease 0.6s forwards",
+          }}
+        >
+          We work with companies when founder-led marketing stops scaling — there&apos;s revenue,
+          but no one owns growth full-time.
         </p>
 
         {/* CTAs */}
