@@ -95,7 +95,7 @@ export default function Hero() {
               textTransform: "uppercase",
             }}
           >
-            World-Class Digital Marketing
+            Performance Marketing for E-Commerce
           </span>
         </div>
 
@@ -159,8 +159,8 @@ export default function Hero() {
             animation: "fadeUp 0.6s ease 0.5s forwards",
           }}
         >
-          Echelon Fox is the premier digital marketing powerhouse. We craft campaigns,
-          content, and strategies that don&apos;t just compete — they dominate.
+          Echelon Fox is a performance marketing studio for e-commerce brands. We craft campaigns,
+          content, and strategies built for profitable, measurable growth.
         </p>
 
         {/* CTAs */}
@@ -238,44 +238,6 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Platform certifications row */}
-        <div
-          style={{
-            marginTop: "80px",
-            paddingTop: "40px",
-            borderTop: "1px solid #1a1a1a",
-            opacity: 0,
-            animation: "fadeUp 0.6s ease 0.9s forwards",
-          }}
-        >
-          <div style={{ fontSize: "0.7rem", color: "#444", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "20px" }}>
-            Certified Partners
-          </div>
-          <div className="hero-partners" style={{ display: "flex", gap: "32px", flexWrap: "wrap", alignItems: "center" }}>
-            {[
-              { name: "Google", badge: "Partner" },
-              { name: "Meta", badge: "Business Partner" },
-              { name: "HubSpot", badge: "Certified" },
-              { name: "LinkedIn", badge: "Marketing Solutions" },
-            ].map((p) => (
-              <div
-                key={p.name}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "10px 16px",
-                  border: "1px solid #222",
-                  background: "#0d0d0d",
-                }}
-              >
-                <div style={{ width: "6px", height: "6px", background: "#FF5500", borderRadius: "50%" }} />
-                <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#fff" }}>{p.name}</span>
-                <span style={{ fontSize: "0.75rem", color: "#555" }}>{p.badge}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       <style>{`

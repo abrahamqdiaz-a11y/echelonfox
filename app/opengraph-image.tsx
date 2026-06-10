@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Echelon Fox — World-Class Digital Marketing";
+export const alt = "Echelon Fox — Performance Marketing for E-Commerce Brands";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
