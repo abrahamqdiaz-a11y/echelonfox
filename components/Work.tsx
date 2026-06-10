@@ -16,6 +16,13 @@ const segments = [
     bg: "#0a0f1a",
     tags: ["SEO & Content", "Paid Search", "Pipeline Content"],
   },
+  {
+    title: "Local Businesses & Service Providers",
+    desc: "Brick-and-mortar shops, agencies, and service businesses that need a stronger local presence and a steady flow of qualified leads.",
+    href: "/websites",
+    bg: "#0a1a0a",
+    tags: ["Local SEO", "Website Design & Build", "Paid Media"],
+  },
 ];
 
 export default function Work() {
