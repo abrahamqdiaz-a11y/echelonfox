@@ -8,10 +8,12 @@ const serviceLinks = [
   { label: "Brand & Creative", href: "/services/brand-identity" },
   { label: "Email & CRM", href: "/services/email-crm" },
   { label: "Analytics", href: "/services/analytics-growth" },
+  { label: "Websites for Local Businesses", href: "/websites" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/#about" },
+  { label: "Work", href: "/work" },
   { label: "Contact", href: "/#contact" },
 ];
 
