@@ -66,7 +66,7 @@ export default function TermsPage() {
           },
           {
             title: "8. Contact",
-            body: "For questions about these terms, contact us at hello@echelonfox.com.",
+            body: "For questions about these terms, contact us at abe.quinn@echelonfox.com.",
           },
         ].map((section) => (
           <section key={section.title} style={{ marginBottom: "40px" }}>

@@ -157,7 +157,7 @@ export default function WebsitesClient() {
         {/* CTA */}
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
           <a
-            href="mailto:hello@echelonfox.com?subject=Website%20Project"
+            href="mailto:abe.quinn@echelonfox.com?subject=Website%20Project"
             style={{
               background: "#FF5500",
               color: "white",

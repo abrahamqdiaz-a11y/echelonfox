@@ -80,7 +80,7 @@ export default function Footer() {
               A performance marketing studio for e-commerce brands.
             </p>
             <a
-              href="mailto:hello@echelonfox.com"
+              href="mailto:abe.quinn@echelonfox.com"
               style={{
                 color: "#FF5500",
                 fontSize: "0.85rem",
@@ -89,7 +89,7 @@ export default function Footer() {
                 letterSpacing: "0.05em",
               }}
             >
-              hello@echelonfox.com
+              abe.quinn@echelonfox.com
             </a>
           </div>
 

@@ -71,7 +71,7 @@ const organizationSchema = {
   logo: `${BASE_URL}/logo.png`,
   description:
     "A performance marketing studio for e-commerce brands. Paid media, SEO, brand identity, social media, analytics, and email marketing.",
-  email: "hello@echelonfox.com",
+  email: "abe.quinn@echelonfox.com",
   sameAs: [
     "https://www.linkedin.com/company/echelonfox/",
   ],
