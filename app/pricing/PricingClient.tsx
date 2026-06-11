@@ -138,6 +138,9 @@ export default function PricingClient() {
                 {tier.tagline}
               </p>
 
+              <p style={{ color: "#666", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 4px" }}>
+                Starting at
+              </p>
               <div style={{ display: "flex", alignItems: "baseline", gap: "4px", marginBottom: "8px" }}>
                 <span style={{ fontSize: "2.5rem", fontWeight: 900, color: "#fff", letterSpacing: "-0.02em" }}>
                   {tier.price}
