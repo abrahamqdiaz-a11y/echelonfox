@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function CTA() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,6 +19,7 @@ export default function CTA() {
       });
       setStatus("success");
       setFormData({ name: "", email: "", company: "", message: "" });
+      setConsent(false);
     } catch {
       setStatus("error");
     }
@@ -245,6 +248,31 @@ export default function CTA() {
               onFocus={(e) => ((e.target as HTMLTextAreaElement).style.borderColor = "#FF5500")}
               onBlur={(e) => ((e.target as HTMLTextAreaElement).style.borderColor = "#222")}
             />
+            <label
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+                cursor: "pointer",
+                textAlign: "left",
+              }}
+            >
+              <input
+                type="checkbox"
+                name="consent"
+                required
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                style={{ marginTop: "2px", accentColor: "#FF5500", flexShrink: 0, cursor: "pointer" }}
+              />
+              <span style={{ color: "#666", fontSize: "0.8rem", lineHeight: 1.6 }}>
+                I agree to Echelon Fox processing my data to respond to this inquiry. See our{" "}
+                <Link href="/privacy" style={{ color: "#FF5500", textDecoration: "underline" }}>
+                  Privacy Policy
+                </Link>{" "}
+                for details.
+              </span>
+            </label>
             {status === "error" && (
               <p style={{ color: "#ff4444", fontSize: "0.85rem", margin: 0 }}>
                 Something went wrong. Please try again.
@@ -252,9 +280,9 @@ export default function CTA() {
             )}
             <button
               type="submit"
-              disabled={status === "submitting"}
+              disabled={status === "submitting" || !consent}
               style={{
-                background: status === "submitting" ? "#aa3800" : "#FF5500",
+                background: (status === "submitting" || !consent) ? "#aa3800" : "#FF5500",
                 color: "white",
                 fontWeight: 700,
                 fontSize: "0.9rem",
@@ -262,20 +290,21 @@ export default function CTA() {
                 textTransform: "uppercase",
                 padding: "16px 40px",
                 border: "none",
-                cursor: status === "submitting" ? "not-allowed" : "pointer",
+                cursor: (status === "submitting" || !consent) ? "not-allowed" : "pointer",
+                opacity: !consent ? 0.6 : 1,
                 clipPath:
                   "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
                 transition: "background 0.2s, transform 0.2s",
                 width: "100%",
               }}
               onMouseEnter={(e) => {
-                if (status !== "submitting") {
+                if (status !== "submitting" && consent) {
                   (e.currentTarget as HTMLElement).style.background = "#FF7733";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
                 }
               }}
               onMouseLeave={(e) => {
-                if (status !== "submitting") {
+                if (status !== "submitting" && consent) {
                   (e.currentTarget as HTMLElement).style.background = "#FF5500";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }
