@@ -13,24 +13,24 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { absolute: "Echelon Fox — Your Marketing Team, Monthly" },
+  title: { absolute: "SEO, PPC & Website Design Agency | Echelon Fox" },
   description:
-    "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+    "Echelon Fox helps businesses grow with SEO, website design, Google Ads, content marketing, and lead generation strategies that drive measurable results.",
   alternates: {
     canonical: "https://echelonfox.com",
   },
   openGraph: {
-    title: "Echelon Fox — Your Marketing Team, Monthly",
+    title: "SEO, PPC & Website Design Agency | Echelon Fox",
     description:
-      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+      "Echelon Fox helps businesses grow with SEO, website design, Google Ads, content marketing, and lead generation strategies that drive measurable results.",
     url: "https://echelonfox.com",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Echelon Fox — Your Marketing Team, Monthly" }],
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "SEO, PPC & Website Design Agency | Echelon Fox" }],
   },
   twitter: {
-    title: "Echelon Fox — Your Marketing Team, Monthly",
+    title: "SEO, PPC & Website Design Agency | Echelon Fox",
     description:
-      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+      "Echelon Fox helps businesses grow with SEO, website design, Google Ads, content marketing, and lead generation strategies that drive measurable results.",
   },
 };
 
