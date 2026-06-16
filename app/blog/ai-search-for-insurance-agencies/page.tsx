@@ -293,6 +293,7 @@ const takeaways = [
 export default function AISearchInsuranceBlogPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <style>{`.toc-link:hover { color: #FF5500 !important; }`}</style>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -468,10 +469,7 @@ export default function AISearchInsuranceBlogPage() {
                   <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, flexShrink: 0, width: "18px" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <a href={href} style={{ color: "#888", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.15s" }}
-                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FF5500")}
-                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#888")}
-                  >
+                  <a href={href} className="toc-link" style={{ color: "#888", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.15s" }}>
                     {label}
                   </a>
                 </li>
