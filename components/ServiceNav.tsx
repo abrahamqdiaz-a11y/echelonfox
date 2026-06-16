@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const serviceDropdown = [
   { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
@@ -78,23 +79,14 @@ export default function ServiceNav() {
         }}
       >
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <div
-            style={{
-              width: "36px",
-              height: "36px",
-              background: "#FF5500",
-              clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M9 2L14 5.5V12.5L9 16L4 12.5V5.5L9 2Z" fill="white" />
-              <path d="M6 7.5L9 6L12 7.5V10.5L9 12L6 10.5V7.5Z" fill="#FF5500" />
-            </svg>
-          </div>
+          <Image
+            src="/eflogo.logo.png"
+            alt="Echelon Fox"
+            width={160}
+            height={48}
+            style={{ objectFit: "contain", height: "36px", width: "auto" }}
+            priority
+          />
           <span style={{ fontFamily: "var(--font-inter), sans-serif", fontWeight: 900, fontSize: "1.1rem", letterSpacing: "0.05em", color: "#FFFFFF", textTransform: "uppercase" }}>
             ECHELON<span style={{ color: "#FF5500" }}>FOX</span>
           </span>
