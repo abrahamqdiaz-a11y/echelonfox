@@ -15,8 +15,8 @@ const serviceDropdown = [
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
