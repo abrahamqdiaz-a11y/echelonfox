@@ -149,8 +149,7 @@ export default function WebsitesClient() {
             Pricing
           </div>
           <p style={{ color: "#fff", fontSize: "1.1rem", fontWeight: 700, margin: 0 }}>
-            {/* TODO: Set your flat-rate price */}
-            Flat-rate projects starting at $[TODO — set your price]. One price, agreed up front.
+            Flat-rate projects starting at $1,000. One price, agreed up front.
           </p>
         </div>
 
