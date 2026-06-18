@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceDropdown = [
+  { label: "AI Teammates", href: "/ai-agents", desc: "24/7 lead response, front desk, reactivation" },
   { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
   { label: "SEO & Content Strategy", href: "/services/seo-content", desc: "Rankings, authority, organic growth" },
   { label: "Social Media Management", href: "/services/social-media", desc: "Instagram, LinkedIn, TikTok, X" },
