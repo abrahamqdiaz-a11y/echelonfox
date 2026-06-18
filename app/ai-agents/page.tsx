@@ -594,6 +594,7 @@ export default function AiAgentsPage() {
 
         <style>{`
           @media (max-width: 768px) { .cost-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }
+          .teammate-card:hover { background: #0f0f0f !important; }
         `}</style>
       </section>
 
@@ -786,6 +787,7 @@ export default function AiAgentsPage() {
             {teammates.map((t) => (
               <div
                 key={t.name}
+                className="teammate-card"
                 style={{
                   background: "#0a0a0a",
                   padding: "40px",
@@ -794,12 +796,6 @@ export default function AiAgentsPage() {
                   gap: "16px",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "#0f0f0f")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "#0a0a0a")
-                }
               >
                 <div style={{ fontSize: "1.75rem", lineHeight: 1 }}>{t.icon}</div>
                 <div>
@@ -1107,6 +1103,7 @@ export default function AiAgentsPage() {
             {pricingTiers.map((tier) => (
               <div
                 key={tier.name}
+                className={tier.recommended ? "pricing-card pricing-card-recommended" : "pricing-card"}
                 style={{
                   background: tier.recommended ? "#0d0d0b" : "#080808",
                   padding: "48px 36px",
@@ -1115,12 +1112,6 @@ export default function AiAgentsPage() {
                   flexDirection: "column",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = tier.recommended ? "#121210" : "#0d0d0d")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = tier.recommended ? "#0d0d0b" : "#080808")
-                }
               >
                 {tier.recommended && (
                   <div
@@ -1353,6 +1344,8 @@ export default function AiAgentsPage() {
             .pricing-tiers { grid-template-columns: 1fr !important; max-width: 520px; margin-left: auto; margin-right: auto; }
             .onetime-grid  { grid-template-columns: 1fr !important; }
           }
+          .pricing-card:hover { background: #0d0d0d !important; }
+          .pricing-card-recommended:hover { background: #121210 !important; }
         `}</style>
       </section>
 
