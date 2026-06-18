@@ -56,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     {
+      url: `${base}/ai-agents`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
       url: `${base}/blog/ai-search-for-insurance-agencies`,
       lastModified: new Date("2025-06-12"),
       changeFrequency: "monthly" as const,

@@ -3,6 +3,13 @@ import Link from "next/link";
 
 const services = [
   {
+    number: "00",
+    title: "AI Teammates",
+    desc: "AI teammates that never miss a lead — deployed alongside your team, 24/7. Lead response, front desk, reactivation, and intake built for 5–30-person service firms.",
+    tags: ["Lead Response", "Front Desk", "Reactivation", "Bilingual EN/ES"],
+    href: "/ai-agents",
+  },
+  {
     number: "01",
     title: "Paid Media & Advertising",
     desc: "Meta, Google, TikTok, YouTube — we build and manage high-ROAS campaigns that scale. Every dollar works harder.",
