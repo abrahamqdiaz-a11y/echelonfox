@@ -275,6 +275,9 @@ export default function SeoContentPage() {
             Get Your Free Audit
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
+          <Link href="/ai-agents" style={{ background: "transparent", color: "#888", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase", padding: "17px 32px", textDecoration: "none", border: "1px solid #222", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+            See AI Teammates →
+          </Link>
         </div>
       </section>
 
