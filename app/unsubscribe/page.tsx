@@ -14,5 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default function UnsubscribePage() {
-  return <UnsubscribeClient />;
+  return (
+    <>
+      <form name="unsubscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="unsubscribe" />
+        <input type="email" name="email" />
+        <input name="bot-field" />
+      </form>
+      <UnsubscribeClient />
+    </>
+  );
 }
