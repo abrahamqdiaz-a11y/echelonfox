@@ -522,14 +522,14 @@ export default function AiAgentsPage() {
                 }}
               >
                 The math compounds fast. A{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>EDITABLE_BUSINESS_TYPE</span> that
+                <span style={{ color: "#fff", fontWeight: 700 }}>home service company</span> that
                 misses{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>EDITABLE_N</span> calls a week at
+                <span style={{ color: "#fff", fontWeight: 700 }}>10</span> calls a week at
                 a{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>EDITABLE_X%</span> close rate and{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>EDITABLE_$Y</span> average value
+                <span style={{ color: "#fff", fontWeight: 700 }}>30%</span> close rate and{" "}
+                <span style={{ color: "#fff", fontWeight: 700 }}>$1,800</span> average value
                 loses roughly{" "}
-                <span style={{ color: "#FF5500", fontWeight: 800 }}>EDITABLE_$Z a year</span> — to
+                <span style={{ color: "#FF5500", fontWeight: 800 }}>$280,000 a year</span> — to
                 voicemail.
               </p>
               <div
