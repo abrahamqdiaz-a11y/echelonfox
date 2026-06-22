@@ -15,7 +15,7 @@ export default function CTA() {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ "form-name": "contact", ...formData }).toString(),
+        body: new URLSearchParams(new FormData(e.target as HTMLFormElement) as unknown as Record<string, string>).toString(),
       });
       if (!res.ok) {
         setStatus("error");
