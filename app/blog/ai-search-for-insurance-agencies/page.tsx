@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "AI Search for Insurance Agencies: How to Get Found in ChatGPT & Google AI",
   description:
-    "Insurance agencies are losing leads to AI search without knowing it. Learn the EEAT framework and 7-step strategy to get cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
   alternates: {
     canonical: "https://echelonfox.com/blog/ai-search-for-insurance-agencies",
   },
@@ -37,7 +37,7 @@ const articleSchema = {
   headline:
     "AI Search for Insurance Agencies: How to Get Found in ChatGPT, Perplexity, and Google AI",
   description:
-    "Insurance agencies are losing leads to AI search without knowing it. Learn the EEAT framework and 7-step strategy to get cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
   image: "https://echelonfox.com/og-default.png",
   datePublished: "2025-06-12",
   dateModified: "2025-06-12",
