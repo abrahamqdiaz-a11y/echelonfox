@@ -13,16 +13,11 @@ export default function UnsubscribeClient() {
     if (!email) return;
     setLoading(true);
 
-    const form = e.target as HTMLFormElement;
-    const data = new FormData(form);
-    const encoded = new URLSearchParams();
-    data.forEach((value, key) => encoded.append(key, value.toString()));
-
     try {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encoded.toString(),
+        body: new URLSearchParams(new FormData(e.target as HTMLFormElement) as unknown as Record<string, string>).toString(),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {
