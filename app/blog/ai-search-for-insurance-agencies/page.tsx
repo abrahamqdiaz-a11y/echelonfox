@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "AI Search for Insurance Agencies: How to Get Found in ChatGPT & Google AI",
   description:
-    "Insurance agencies are losing leads to AI search without knowing it. Learn the EEAT framework and 7-step strategy to get cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
   alternates: {
     canonical: "https://echelonfox.com/blog/ai-search-for-insurance-agencies",
   },
@@ -37,13 +37,13 @@ const articleSchema = {
   headline:
     "AI Search for Insurance Agencies: How to Get Found in ChatGPT, Perplexity, and Google AI",
   description:
-    "Insurance agencies are losing leads to AI search without knowing it. Learn the EEAT framework and 7-step strategy to get cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
   image: "https://echelonfox.com/og-default.png",
   datePublished: "2025-06-12",
   dateModified: "2025-06-12",
   author: {
     "@type": "Person",
-    name: "Abraham Diaz",
+    name: "Abe Quinn",
     jobTitle: "Founder & CEO",
     worksFor: {
       "@type": "Organization",
@@ -422,10 +422,10 @@ export default function AISearchInsuranceBlogPage() {
                 color: "white",
               }}
             >
-              AD
+              AQ
             </div>
             <div>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abraham Diaz</p>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abe Quinn</p>
               <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder &amp; CEO, Echelon Fox</p>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", gap: "24px", alignItems: "center" }}>
@@ -981,14 +981,14 @@ export default function AISearchInsuranceBlogPage() {
                 color: "white",
               }}
             >
-              AD
+              AQ
             </div>
             <div>
               <p style={{ margin: "0 0 2px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>About the Author</p>
-              <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abraham Diaz</h3>
+              <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abe Quinn</h3>
               <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder &amp; CEO, Echelon Fox</p>
               <p style={{ margin: 0, color: "#777", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                Abraham founded Echelon Fox to build performance marketing programs for service businesses and e-commerce brands that want measurable, compounding growth. He has worked directly with insurance agencies on digital strategy, SEO, and AI search positioning — helping them translate offline expertise into the digital credibility signals that modern search requires. Echelon Fox&apos;s approach to EEAT-driven content and AI search optimization is built on first-hand campaign data, not theory.
+                Abe founded Echelon Fox to build performance marketing programs for service businesses and e-commerce brands that want measurable, compounding growth. He has worked directly with insurance agencies on digital strategy, SEO, and AI search positioning — helping them translate offline expertise into the digital credibility signals that modern search requires. Echelon Fox&apos;s approach to EEAT-driven content and AI search optimization is built on first-hand campaign data, not theory.
               </p>
             </div>
           </div>
