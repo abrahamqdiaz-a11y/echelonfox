@@ -12,11 +12,15 @@ export default function CTA() {
     e.preventDefault();
     setStatus("submitting");
     try {
-      await fetch("/", {
+      const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ "form-name": "contact", ...formData }).toString(),
       });
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
       setStatus("success");
       setFormData({ name: "", email: "", company: "", message: "" });
       setConsent(false);
@@ -156,6 +160,7 @@ export default function CTA() {
             name="contact"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -166,6 +171,9 @@ export default function CTA() {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
+            <div style={{ display: "none" }}>
+              <input name="bot-field" />
+            </div>
             <div className="cta-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               <input
                 type="text"
