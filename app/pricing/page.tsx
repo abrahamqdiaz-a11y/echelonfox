@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "Flat-rate monthly plans. Dedicated strategist, weekly sprints, real-time dashboards.",
     url: "https://echelonfox.com/pricing",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Pricing — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Pricing — Echelon Fox" }],
   },
 };
 

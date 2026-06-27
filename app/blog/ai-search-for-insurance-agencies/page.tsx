@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og-default.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "AI Search for Insurance Agencies — Echelon Fox",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-default.png"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -38,7 +38,7 @@ const articleSchema = {
     "AI Search for Insurance Agencies: How to Get Found in ChatGPT, Perplexity, and Google AI",
   description:
     "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
-  image: "https://echelonfox.com/og-default.png",
+  image: "https://echelonfox.com/opengraph-image",
   datePublished: "2025-06-12",
   dateModified: "2025-06-12",
   author: {

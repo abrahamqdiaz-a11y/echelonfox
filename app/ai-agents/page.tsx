@@ -16,9 +16,9 @@ export const metadata: Metadata = {
       "AI teammates that never miss a lead. Speed-to-lead, front desk coverage, and reactivation — built for insurance, legal, med spa, dental, HVAC, and financial advisory firms.",
     url: "https://echelonfox.com/ai-agents",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "AI Agents — EchelonFox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "AI Agents — EchelonFox" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-default.png"] },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
 
 const serviceSchema = {

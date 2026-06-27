@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "SEO, content, and pipeline strategy for SaaS companies winning against well-funded competitors.",
     url: "https://echelonfox.com/saas",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "SaaS Marketing — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "SaaS Marketing — Echelon Fox" }],
   },
 };
 

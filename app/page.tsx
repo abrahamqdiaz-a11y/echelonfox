@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
     url: "https://echelonfox.com",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Echelon Fox — Your Marketing Team, Monthly" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Echelon Fox — Your Marketing Team, Monthly" }],
   },
   twitter: {
     title: "Echelon Fox — Your Marketing Team, Monthly",

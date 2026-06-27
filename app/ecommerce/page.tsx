@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "SEO, paid media, email, and creative for e-commerce brands that want profitable, measurable growth.",
     url: "https://echelonfox.com/ecommerce",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "E-Commerce Marketing — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "E-Commerce Marketing — Echelon Fox" }],
   },
 };
 

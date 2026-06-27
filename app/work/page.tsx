@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "Selected projects from Echelon Fox: e-commerce SEO and website builds for growing businesses.",
     url: "https://echelonfox.com/work",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Selected Work — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Selected Work — Echelon Fox" }],
   },
 };
 
