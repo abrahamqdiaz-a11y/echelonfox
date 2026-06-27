@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-default.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Echelon Fox — Performance Marketing for E-Commerce Brands",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Echelon Fox — Performance Marketing for E-Commerce Brands",
     description: "Performance marketing for e-commerce brands that want profitable growth.",
     site: "@echelonfox",
-    images: ["/og-default.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

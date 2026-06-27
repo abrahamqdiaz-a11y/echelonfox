@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Flat-rate website design and build for local businesses — done in weeks, not months.",
     url: "https://echelonfox.com/websites",
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Websites for Local Businesses — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Websites for Local Businesses — Echelon Fox" }],
   },
 };
 
