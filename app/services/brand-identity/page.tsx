@@ -98,12 +98,26 @@ const faq = [
   { q: "How do you approach brand positioning for a new market category?", a: "Category creation is one of the most complex and rewarding brand challenges. We start by defining the problem the category solves, why existing solutions fail, and what the new category name and frame should be. Then we build a brand designed to own that frame — including language that shapes how the market talks about the problem. Category design and brand strategy are inseparable." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function BrandIdentityPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 

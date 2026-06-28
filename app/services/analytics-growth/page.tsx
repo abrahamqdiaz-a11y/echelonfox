@@ -107,12 +107,26 @@ const faq = [
   { q: "What is a growth strategy and how is it different from a marketing plan?", a: "A growth strategy defines the highest-leverage growth levers for your specific business at your current stage, and prioritizes investments accordingly. A marketing plan lists activities. A growth strategy answers: what is the one metric that, if improved, would compound into all others? Which channel, when scaled, changes the business? Which funnel step, if fixed, unlocks the most revenue? We build growth strategies around those answers — not activity lists." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function AnalyticsGrowthPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 

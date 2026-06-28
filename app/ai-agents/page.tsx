@@ -4,19 +4,19 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Agents for Local Service Businesses | EchelonFox",
+  title: "AI Agents for Local Service Businesses | Echelon Fox",
   description:
-    "EchelonFox deploys AI teammates that answer every lead, book appointments, and recover lost revenue — 24/7, alongside your existing team. Built for 5–30-person service firms.",
+    "Echelon Fox deploys AI teammates that answer every lead, book appointments, and recover lost revenue — 24/7, alongside your existing team. Built for 5–30-person service firms.",
   alternates: {
     canonical: "https://echelonfox.com/ai-agents",
   },
   openGraph: {
-    title: "AI Agents for Local Service Businesses | EchelonFox",
+    title: "AI Agents for Local Service Businesses | Echelon Fox",
     description:
       "AI teammates that never miss a lead. Speed-to-lead, front desk coverage, and reactivation — built for insurance, legal, med spa, dental, HVAC, and financial advisory firms.",
     url: "https://echelonfox.com/ai-agents",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "AI Agents — EchelonFox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "AI Agents — Echelon Fox" }],
   },
   twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
@@ -26,7 +26,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "AI Teammates for Local Service Businesses",
   serviceType: "AI Automation & Marketing",
-  provider: { "@type": "Organization", name: "EchelonFox", url: "https://echelonfox.com" },
+  provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
   url: "https://echelonfox.com/ai-agents",
   description:
     "EchelonFox deploys managed AI teammates — lead response, front desk, reactivation, reputation, and intake — that work alongside your human team 24/7.",

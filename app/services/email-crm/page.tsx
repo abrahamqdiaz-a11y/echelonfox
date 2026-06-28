@@ -107,12 +107,26 @@ const faq = [
   { q: "Can email marketing work for B2B lead generation?", a: "Yes — email is one of the most effective B2B channels when used correctly. The mechanism is different from e-commerce: B2B email marketing nurtures leads over longer cycles, builds trust through educational content, and moves prospects through defined lifecycle stages toward a sales conversation. The key is building a permission-based list through content offers, events, and partnerships rather than cold outreach." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function EmailCrmPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 
