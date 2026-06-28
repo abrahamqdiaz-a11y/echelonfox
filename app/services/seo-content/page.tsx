@@ -105,12 +105,26 @@ const faq = [
   { q: "Can SEO work alongside paid advertising?", a: "Yes — and the combination is more powerful than either alone. Paid ads give you immediate visibility while organic builds. Organic data reveals which keywords convert, informing your paid strategy. Ranking organically for a keyword reduces the cost pressure of bidding for it. And high organic rankings create a trust signal that improves paid click-through rates." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function SeoContentPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 

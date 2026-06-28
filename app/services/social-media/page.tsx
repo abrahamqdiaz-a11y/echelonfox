@@ -107,12 +107,26 @@ const faq = [
   { q: "What's the difference between organic social and paid social?", a: "Organic social is the content you publish without paying for distribution — it reaches your existing followers and anyone the algorithm serves it to. Paid social uses advertising spend to reach people who don't follow you yet. Both have distinct roles: organic builds brand, community, and trust. Paid drives acquisition and retargeting at scale. Many of our clients do both — we manage them as a unified strategy." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function SocialMediaPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 

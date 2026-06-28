@@ -107,12 +107,26 @@ const faq = [
   { q: "What makes your paid media management different from other agencies?", a: "Most agencies optimize inside the ad platform and call it strategy. We optimize the entire system — creative, landing page, offer, and audience in concert. We treat creative as a performance variable, not a design exercise. And we report on business outcomes — revenue, pipeline, and margin — not impressions and click-through rates." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function PaidMediaPage() {
   return (
     <div className="service-page" style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServiceNav />
 
