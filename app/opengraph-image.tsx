@@ -7,7 +7,7 @@ export const contentType = "image/png";
 
 export default async function OgImage() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://echelonfox.com";
-  const logoSrc = `${baseUrl}/eflogo.logo.png`;
+  const logoSrc = `${baseUrl}/new.logo.efsolutions.png`;
 
   return new ImageResponse(
     (
