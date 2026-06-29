@@ -67,5 +67,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
+    {
+      url: `${base}/blog/local-seo-for-insurance-agents`,
+      lastModified: new Date("2025-06-29"),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
   ];
 }
