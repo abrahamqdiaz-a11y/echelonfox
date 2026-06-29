@@ -6,10 +6,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OgImage() {
-  const logoData = await fetch(
-    new URL("../public/eflogo.logo.png", import.meta.url)
-  ).then((res) => res.arrayBuffer());
-  const logoSrc = `data:image/png;base64,${Buffer.from(logoData).toString("base64")}`;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://echelonfox.com";
+  const logoSrc = `${baseUrl}/eflogo.logo.png`;
 
   return new ImageResponse(
     (
