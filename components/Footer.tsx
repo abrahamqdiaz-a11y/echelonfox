@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const serviceLinks = [
@@ -47,14 +48,12 @@ export default function Footer() {
           {/* Brand col */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-              <div
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  background: "#FF5500",
-                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                  flexShrink: 0,
-                }}
+              <Image
+                src="/eflogo.logo.png"
+                alt="Echelon Fox logo"
+                width={32}
+                height={32}
+                style={{ flexShrink: 0 }}
               />
               <span
                 style={{
