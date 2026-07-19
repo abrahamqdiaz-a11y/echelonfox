@@ -67,5 +67,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
+    {
+      url: `${base}/insights`,
+      lastModified: new Date("2025-07-15"),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${base}/insights/local-seo-for-insurance-agents`,
+      lastModified: new Date("2025-07-15"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
 }
