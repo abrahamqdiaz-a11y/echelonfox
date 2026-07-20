@@ -119,7 +119,8 @@ export default function InsightsPage() {
       {/* ── Articles Grid ── */}
       <section style={{ padding: "80px 32px 120px" }}>
         <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
+          <style>{`.insight-card:hover { background: #0d0d0d !important; }`}</style>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
             {articles.map((article) => (
               <Link
                 key={article.slug}
@@ -127,6 +128,7 @@ export default function InsightsPage() {
                 style={{ textDecoration: "none", display: "block" }}
               >
                 <article
+                  className="insight-card"
                   style={{
                     background: "#080808",
                     padding: "48px",
@@ -136,8 +138,6 @@ export default function InsightsPage() {
                     alignItems: "center",
                     transition: "background 0.15s",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "#0d0d0d")}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = "#080808")}
                 >
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px", flexWrap: "wrap" }}>
