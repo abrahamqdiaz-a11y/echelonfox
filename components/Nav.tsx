@@ -15,6 +15,7 @@ const serviceDropdown = [
 
 const navLinks = [
   { label: "Work", href: "/work" },
+  { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
