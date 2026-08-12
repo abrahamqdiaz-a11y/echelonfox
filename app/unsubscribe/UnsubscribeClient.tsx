@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -8,6 +8,9 @@ function UnsubscribeContent() {
   const params = useSearchParams();
   const contactId = params.get("contact_id");
   const status = params.get("status");
+
+  const [email, setEmail] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "not_found" | "error">("idle");
 
   useEffect(() => {
     if (contactId && !status) {
@@ -78,6 +81,48 @@ function UnsubscribeContent() {
     );
   }
 
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormStatus("submitting");
+    try {
+      const res = await fetch("/api/unsubscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setFormStatus("success");
+      } else if (res.status === 404) {
+        setFormStatus("not_found");
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  }
+
+  if (formStatus === "success") {
+    return (
+      <div style={cardStyle}>
+        <div style={iconWrap}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13l4 4L19 7" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--white)", marginBottom: "12px" }}>
+          You&apos;ve been unsubscribed
+        </h1>
+        <p style={{ color: "var(--gray)", lineHeight: 1.6, marginBottom: "32px" }}>
+          You won&apos;t receive any more emails from us. Sorry to see you go!
+        </p>
+        <Link href="/" style={{ display: "inline-block", padding: "12px 28px", background: "var(--orange)", color: "var(--white)", borderRadius: "8px", fontWeight: 600, fontSize: "0.95rem", textDecoration: "none" }}>
+          Back to Echelon Fox
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div style={cardStyle}>
       <div style={iconWrap}>
@@ -88,9 +133,56 @@ function UnsubscribeContent() {
       <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--white)", marginBottom: "12px" }}>
         Unsubscribe
       </h1>
-      <p style={{ color: "var(--gray)", lineHeight: 1.6 }}>
-        Use the unsubscribe link in one of our emails to be removed from all lists.
+      <p style={{ color: "var(--gray)", lineHeight: 1.6, marginBottom: "28px" }}>
+        Enter your email address to be removed from all mailing lists.
       </p>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <input
+          type="email"
+          required
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "12px 16px",
+            borderRadius: "8px",
+            border: "1px solid var(--border)",
+            background: "rgba(255,255,255,0.05)",
+            color: "var(--white)",
+            fontSize: "0.95rem",
+            outline: "none",
+            boxSizing: "border-box",
+          }}
+        />
+        {formStatus === "not_found" && (
+          <p style={{ color: "#f87171", fontSize: "0.85rem", margin: 0 }}>
+            No account found for that email address.
+          </p>
+        )}
+        {formStatus === "error" && (
+          <p style={{ color: "#f87171", fontSize: "0.85rem", margin: 0 }}>
+            Something went wrong. Please try again.
+          </p>
+        )}
+        <button
+          type="submit"
+          disabled={formStatus === "submitting"}
+          style={{
+            padding: "12px 28px",
+            background: "var(--orange)",
+            color: "var(--white)",
+            borderRadius: "8px",
+            fontWeight: 600,
+            fontSize: "0.95rem",
+            border: "none",
+            cursor: formStatus === "submitting" ? "not-allowed" : "pointer",
+            opacity: formStatus === "submitting" ? 0.7 : 1,
+          }}
+        >
+          {formStatus === "submitting" ? "Unsubscribing…" : "Unsubscribe"}
+        </button>
+      </form>
     </div>
   );
 }
