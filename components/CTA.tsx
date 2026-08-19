@@ -1,7 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+
+const srOnly: React.CSSProperties = {
+  position: "absolute",
+  width: "1px",
+  height: "1px",
+  padding: 0,
+  margin: "-1px",
+  overflow: "hidden",
+  clip: "rect(0,0,0,0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
 
 export default function CTA() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
@@ -161,6 +173,7 @@ export default function CTA() {
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
+            aria-label="Contact form"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -172,51 +185,64 @@ export default function CTA() {
           >
             <input type="hidden" name="form-name" value="contact" />
             <div style={{ display: "none" }}>
-              <input name="bot-field" />
+              <label htmlFor="cta-bot-field">Do not fill this out if you are human</label>
+              <input id="cta-bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
             </div>
             <div className="cta-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                style={{
-                  background: "#111",
-                  border: "1px solid #222",
-                  color: "#fff",
-                  padding: "14px 18px",
-                  fontSize: "0.9rem",
-                  outline: "none",
-                  transition: "border-color 0.2s",
-                  width: "100%",
-                }}
-                onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "#FF5500")}
-                onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "#222")}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                style={{
-                  background: "#111",
-                  border: "1px solid #222",
-                  color: "#fff",
-                  padding: "14px 18px",
-                  fontSize: "0.9rem",
-                  outline: "none",
-                  transition: "border-color 0.2s",
-                  width: "100%",
-                }}
-                onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "#FF5500")}
-                onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "#222")}
-              />
+              <div>
+                <label htmlFor="cta-name" style={srOnly}>Your Name (required)</label>
+                <input
+                  id="cta-name"
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  aria-required="true"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  style={{
+                    background: "#111",
+                    border: "1px solid #222",
+                    color: "#fff",
+                    padding: "14px 18px",
+                    fontSize: "0.9rem",
+                    outline: "none",
+                    transition: "border-color 0.2s",
+                    width: "100%",
+                  }}
+                  onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "#FF5500")}
+                  onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "#222")}
+                />
+              </div>
+              <div>
+                <label htmlFor="cta-email" style={srOnly}>Email Address (required)</label>
+                <input
+                  id="cta-email"
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  aria-required="true"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  style={{
+                    background: "#111",
+                    border: "1px solid #222",
+                    color: "#fff",
+                    padding: "14px 18px",
+                    fontSize: "0.9rem",
+                    outline: "none",
+                    transition: "border-color 0.2s",
+                    width: "100%",
+                  }}
+                  onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "#FF5500")}
+                  onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "#222")}
+                />
+              </div>
             </div>
+            <label htmlFor="cta-company" style={srOnly}>Company or Brand</label>
             <input
+              id="cta-company"
               type="text"
               name="company"
               placeholder="Company / Brand"
@@ -235,10 +261,14 @@ export default function CTA() {
               onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "#FF5500")}
               onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "#222")}
             />
+            <label htmlFor="cta-message" style={srOnly}>Message (required)</label>
             <textarea
+              id="cta-message"
               name="message"
               placeholder="Tell us about your goals and what you're trying to achieve..."
               rows={4}
+              required
+              aria-required="true"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               style={{
@@ -257,6 +287,7 @@ export default function CTA() {
               onBlur={(e) => ((e.target as HTMLTextAreaElement).style.borderColor = "#222")}
             />
             <label
+              htmlFor="cta-consent"
               style={{
                 display: "flex",
                 alignItems: "flex-start",
@@ -266,9 +297,11 @@ export default function CTA() {
               }}
             >
               <input
+                id="cta-consent"
                 type="checkbox"
                 name="consent"
                 required
+                aria-required="true"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
                 style={{ marginTop: "2px", accentColor: "#FF5500", flexShrink: 0, cursor: "pointer" }}
@@ -282,7 +315,7 @@ export default function CTA() {
               </span>
             </label>
             {status === "error" && (
-              <p style={{ color: "#ff4444", fontSize: "0.85rem", margin: 0 }}>
+              <p role="alert" style={{ color: "#ff4444", fontSize: "0.85rem", margin: 0 }}>
                 Something went wrong. Please try again.
               </p>
             )}
