@@ -24,10 +24,11 @@ export default function CTA() {
     e.preventDefault();
     setStatus("submitting");
     try {
-      const res = await fetch("/api/contact", {
+      const domForm = new FormData(e.target as HTMLFormElement);
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(domForm as unknown as URLSearchParams).toString(),
       });
       if (!res.ok) {
         setStatus("error");
@@ -169,6 +170,10 @@ export default function CTA() {
           </div>
         ) : (
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
             aria-label="Contact form"
             style={{
               display: "flex",
@@ -179,6 +184,11 @@ export default function CTA() {
             }}
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="contact" />
+            <div style={{ display: "none" }}>
+              <label htmlFor="cta-bot-field">Do not fill this out if you are human</label>
+              <input id="cta-bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="cta-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               <div>
                 <label htmlFor="cta-name" style={srOnly}>Your Name (required)</label>
