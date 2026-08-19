@@ -37,16 +37,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main style={{ background: "#080808", minHeight: "100vh" }}>
-      {/* Hidden form for Netlify build-time detection */}
-      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" method="POST" hidden>
-        <input type="hidden" name="form-name" value="contact" />
-        <input name="bot-field" type="text" />
-        <input name="name" type="text" />
-        <input name="email" type="email" />
-        <input name="company" type="text" />
-        <textarea name="message" />
-        <input name="consent" type="checkbox" />
-      </form>
       <Nav />
       <Hero />
       <Marquee />
