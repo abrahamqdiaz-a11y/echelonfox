@@ -25,7 +25,8 @@ export default function CTA() {
     setStatus("submitting");
     try {
       const domForm = new FormData(e.target as HTMLFormElement);
-      const res = await fetch("/", {
+      // Netlify only intercepts POSTs to static paths; "/" is served by the Next.js function.
+      const res = await fetch("/netlify-forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(domForm as unknown as URLSearchParams).toString(),
