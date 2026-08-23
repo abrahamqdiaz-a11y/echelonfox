@@ -104,7 +104,7 @@ export default function EcommercePage() {
           </p>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <Link
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -120,8 +120,8 @@ export default function EcommercePage() {
                 gap: "8px",
               }}
             >
-              Book a Free Store Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              Book a Growth Audit
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
@@ -154,9 +154,9 @@ export default function EcommercePage() {
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "48px" }}>
             <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+            <h2 style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", margin: 0 }}>
               What We Do
-            </span>
+            </h2>
           </div>
           <div
             className="ecom-channels-grid"
@@ -205,7 +205,7 @@ export default function EcommercePage() {
         />
         <div style={{ maxWidth: "600px", margin: "0 auto", position: "relative" }}>
           <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 20px" }}>
-            Book a Free Store Audit
+            Book a Growth Audit
           </h2>
           <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 12px" }}>
             No pitch, no obligation.
@@ -215,7 +215,7 @@ export default function EcommercePage() {
             your category — and where revenue is leaking.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             style={{
               background: "#FF5500",
               color: "white",
@@ -231,8 +231,8 @@ export default function EcommercePage() {
               gap: "8px",
             }}
           >
-            Book a Free Store Audit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            Book a Growth Audit
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>

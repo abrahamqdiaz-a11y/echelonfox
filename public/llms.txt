@@ -1,32 +1,39 @@
 # Echelon Fox
 
-> Echelon Fox is a world-class digital marketing media company. We build brands that dominate through data-driven strategy, creative excellence, and relentless execution.
+> Echelon Fox is a founder-led marketing and growth partner for businesses across industries. We work as your marketing team on a monthly subscription — strategy and execution in weekly sprints, no hiring required.
 
 ## About
 
-Echelon Fox is a full-service digital marketing agency serving ambitious brands that want to lead their category. Our work spans paid media, SEO, brand identity, social media management, analytics, and email/CRM marketing.
+Echelon Fox is run by founder Abe Quinn. Clients work directly with the person doing the work rather than a rotating account team. Engagements cover website design and build, SEO and content, paid media, social media, brand identity, email and CRM, analytics and conversion work, and AI agents and business automation. Industries served include retail and e-commerce, insurance, beauty, pet and home services, professional services, and B2B.
+
+- [About Echelon Fox](https://echelonfox.com/about): Who we are, how we work, and what an engagement looks like.
+- [Contact](https://echelonfox.com/contact): Send a message or book a strategy call.
 
 ## Services
 
-- [SEO & Content Strategy](https://echelonfox.com/services/seo-content): Technical SEO, content marketing, and link building programs that drive sustained organic traffic and domain authority.
-- [Paid Media Management](https://echelonfox.com/services/paid-media): Full-funnel paid media campaigns across Meta, Google, TikTok, and YouTube — strategy-first, ROI-focused.
-- [Brand Identity & Creative](https://echelonfox.com/services/brand-identity): Strategy-led branding, design systems, video production, and copywriting for brands that demand attention.
-- [Social Media Management](https://echelonfox.com/services/social-media): Instagram, LinkedIn, TikTok, and X — strategy, content creation, scheduling, and community management.
-- [Analytics & Growth Strategy](https://echelonfox.com/services/analytics-growth): GA4 setup, custom dashboards, CRO, attribution modeling, and growth strategy that scales what works.
-- [Email & CRM Marketing](https://echelonfox.com/services/email-crm): Klaviyo, HubSpot, automations, segmentation, and campaign strategy that turns subscribers into buyers.
+- [Website Design & Build](https://echelonfox.com/websites): Flat-rate website design and build with local SEO basics included.
+- [SEO & Content Strategy](https://echelonfox.com/services/seo-content): Technical SEO, content, and digital PR that build sustained organic visibility.
+- [Paid Media Management](https://echelonfox.com/services/paid-media): Campaigns across Meta, Google, TikTok, and YouTube, managed against cost per lead or sale.
+- [Brand Identity & Creative](https://echelonfox.com/services/brand-identity): Branding, design systems, video, and copywriting.
+- [Social Media Management](https://echelonfox.com/services/social-media): Instagram, LinkedIn, TikTok, and X — strategy, content, scheduling, and community.
+- [Analytics & Growth Strategy](https://echelonfox.com/services/analytics-growth): GA4 setup, dashboards, conversion rate work, and attribution.
+- [Email & CRM Marketing](https://echelonfox.com/services/email-crm): Klaviyo, HubSpot, automations, segmentation, and campaign strategy.
+- [AI Agents & Automation](https://echelonfox.com/ai-agents): Lead response, appointment scheduling, CRM workflows, customer follow-up, and internal process automation.
 
-## Verticals
+## Industries
 
-- [E-Commerce Marketing](https://echelonfox.com/ecommerce): Performance marketing for e-commerce brands — SEO, paid media, email, and creative built around profitable revenue growth.
-- [SaaS Marketing](https://echelonfox.com/saas): Pipeline-focused marketing for SaaS companies — SEO, paid media, and content built around qualified trials, demos, and self-serve signups.
-- [Websites for Local Businesses](https://echelonfox.com/websites): Flat-rate website design and build for local businesses — done in weeks, not months, with local SEO basics included.
+- [E-Commerce & Retail](https://echelonfox.com/ecommerce): SEO, paid media, email, and creative built around profitable revenue growth.
+- [B2B & SaaS](https://echelonfox.com/saas): Pipeline-focused SEO, paid search, and content built around qualified demos and signups.
+- [Local & Service Businesses](https://echelonfox.com/websites): Websites and local search for businesses that serve a geographic market.
 
-## Work & Pricing
+## Work, Pricing & Insights
 
-- [Selected Work](https://echelonfox.com/work): Case studies and selected projects from Echelon Fox — e-commerce SEO and website builds for growing businesses.
-- [Pricing](https://echelonfox.com/pricing): Flat-rate monthly plans for e-commerce and SaaS brands. No retainer traps, no rotating account managers — dedicated strategists, weekly sprints.
+- [Selected Work](https://echelonfox.com/work): Projects across insurance, beauty and e-commerce, and pet services.
+- [Pricing](https://echelonfox.com/pricing): Flat monthly plans starting at $1,500/mo. Advertising spend is billed separately by the ad platforms.
+- [Insights](https://echelonfox.com/insights): Practical guides on local SEO, AI search, and growth.
 
 ## Contact
 
 - Website: https://echelonfox.com
 - Email: abe.quinn@echelonfox.com
+- LinkedIn: https://www.linkedin.com/company/echelonfox/

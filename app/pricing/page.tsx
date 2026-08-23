@@ -9,11 +9,11 @@ import PricingClient from "./PricingClient";
 export const metadata: Metadata = {
   title: { absolute: "Pricing — Echelon Fox" },
   description:
-    "Flat-rate monthly plans for e-commerce and SaaS brands. No retainer traps, no rotating account managers — dedicated strategists, weekly sprints.",
+    "Flat-rate monthly marketing plans from $1,500/mo for businesses across industries. Weekly sprints, live reporting, and 60 days' notice to cancel. Ad spend billed separately.",
   alternates: { canonical: "https://echelonfox.com/pricing" },
   openGraph: {
     title: "Pricing — Echelon Fox",
-    description: "Flat-rate monthly plans. Dedicated strategist, weekly sprints, real-time dashboards.",
+    description: "Flat-rate monthly marketing plans. Weekly sprints, live reporting, 60 days' notice to cancel.",
     url: "https://echelonfox.com/pricing",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Pricing — Echelon Fox" }],
@@ -78,8 +78,9 @@ export default function PricingPage() {
             Output.
           </h1>
           <p style={{ color: "#aaa", fontSize: "clamp(1rem, 2vw, 1.2rem)", lineHeight: 1.75, maxWidth: "560px", margin: 0 }}>
-            One monthly fee. A dedicated strategist who knows your business. Work that ships every
-            week — not sitting in a backlog waiting for a report.
+            One monthly fee, one point of contact who knows your business, and work that ships
+            every week instead of sitting in a backlog waiting for a report. Advertising spend is
+            separate and paid directly to the ad platforms.
           </p>
         </div>
       </section>
@@ -101,12 +102,12 @@ export default function PricingPage() {
             style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}
           >
             {[
-              { title: "Dedicated Strategist", desc: "The same person runs your account start to finish. They know your market, your numbers, and your goals — no handoffs." },
+              { title: "One Point of Contact", desc: "The same person runs your account start to finish and knows your market, your numbers, and your goals. No handoffs to someone new each quarter." },
               { title: "Weekly Sprint Delivery", desc: "Every week has defined actions and defined outputs. Work ships every week, not once a quarter." },
-              { title: "Real-Time Dashboard", desc: "Live reporting tied to revenue and pipeline — not impressions. You see what moved before we tell you about it." },
+              { title: "Live Reporting Dashboard", desc: "Reporting tied to leads, sales, and pipeline rather than impressions — available whenever you want to look, not just at review time." },
               { title: "Monthly Strategy Review", desc: "A structured 60-minute review of what's working, what's being cut, and what the next sprint prioritizes." },
-              { title: "Direct Access", desc: "You communicate directly with the people doing the work. No account manager buffer, no ticketing system." },
-              { title: "2-Month Notice to Cancel", desc: "Month-to-month with a 2-month notice window. No annual traps, no auto-renewal surprises." },
+              { title: "Direct Access", desc: "You talk to the person doing the work. No account-manager buffer, no ticketing system." },
+              { title: "60 Days' Notice to Cancel", desc: "Month to month with a 60-day notice period — no annual contract and no auto-renewal lock-in, but the notice window is real and worth knowing before you start." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -232,20 +233,24 @@ export default function PricingPage() {
           <h2 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 900, letterSpacing: "-0.02em", margin: "0 0 16px" }}>
             Channel Add-Ons
           </h2>
-          <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px", margin: "0 0 48px" }}>
-            Every plan runs on a primary channel. Add more as the business grows.
+          <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", margin: "0 0 48px" }}>
+            Starter runs on one primary channel and Growth on up to three. Any of the channels below
+            can be the one you start with, and additional channels are quoted against the scope you
+            need — volume of output, not a flat surcharge. We&apos;ll price it before you commit.
           </p>
           <div
             className="addons-grid"
             style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}
           >
             {[
-              { label: "Paid Media", note: "Meta, Google, TikTok, YouTube" },
+              { label: "Website & Landing Pages", note: "Design, build, and ongoing page work" },
+              { label: "Paid Media", note: "Meta, Google, TikTok, YouTube — ad spend separate" },
               { label: "SEO & Content", note: "Technical, on-page, content production" },
               { label: "Email & CRM", note: "Klaviyo, HubSpot, lifecycle flows" },
               { label: "Social Media", note: "Strategy, content, scheduling, community" },
               { label: "Brand & Creative", note: "Ad creative, landing pages, copy" },
               { label: "Analytics & CRO", note: "GA4, dashboards, conversion rate work" },
+              { label: "AI & Automation", note: "Lead response, scheduling, CRM workflows" },
             ].map((a) => (
               <div
                 key={a.label}
@@ -253,16 +258,13 @@ export default function PricingPage() {
               >
                 <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "#fff", marginBottom: "4px" }}>{a.label}</div>
                 <div style={{ color: "#666", fontSize: "0.8rem" }}>{a.note}</div>
-                <div style={{ color: "#444", fontSize: "0.75rem", fontWeight: 700, marginTop: "12px", letterSpacing: "0.05em" }}>
-                  {/* TODO: Set add-on pricing */}
-                  +$[TODO]/mo
-                </div>
               </div>
             ))}
           </div>
-          <p style={{ color: "#555", fontSize: "0.8rem", marginTop: "16px" }}>
-            {/* TODO: Confirm add-on pricing before publishing */}
-            Add-on pricing applied per active channel. Contact us for bundle rates.
+          <p style={{ color: "#777", fontSize: "0.85rem", marginTop: "20px", lineHeight: 1.7, maxWidth: "620px" }}>
+            Advertising budget is separate from all fees on this page. You pay Google, Meta, or
+            whichever platform you advertise on directly, so you keep ownership of the accounts and
+            can see exactly what was spent.
           </p>
         </div>
       </section>
@@ -301,7 +303,7 @@ export default function PricingPage() {
             plan would actually move the needle — or whether we&apos;re even the right fit.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             style={{
               background: "#FF5500",
               color: "white",
@@ -317,8 +319,8 @@ export default function PricingPage() {
               gap: "8px",
             }}
           >
-            Book a Free Audit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            Book a Growth Audit
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>

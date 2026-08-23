@@ -1,29 +1,48 @@
 "use client";
 
 export interface WorkCardData {
+  /** Client category, or the client's real name once permission to publish it is on file. */
   name: string;
   category: string;
-  description: string;
-  /** Set to a real URL string once client permission is obtained */
+  /** What the client was up against before the work started. */
+  challenge: string;
+  /** The services delivered on this project. */
+  services: string[];
+  /** What was actually built or run. */
+  implementation: string;
+  /** What shipped and what changed. Never add metrics that aren't verified and cleared. */
+  outcome: string;
+  /** Live URL — only once the client has agreed to be linked. */
   link?: string;
-  /** Set to a real image src string once screenshot is available */
+  /** Screenshot — only once the client has agreed to it being shown. */
   image?: string;
-  /** Used for TODO banners shown in development */
-  nameTodo?: boolean;
-  linkTodo?: boolean;
-  imageTodo?: boolean;
 }
 
 interface WorkCardProps {
   card: WorkCardData;
+  /** Compact cards show the challenge only; full cards show the whole case study. */
   compact?: boolean;
 }
 
-export default function WorkCard({ card, compact = false }: WorkCardProps) {
-  const imageHeight = compact ? "140px" : "220px";
+const sectionLabel: React.CSSProperties = {
+  color: "#FF5500",
+  fontSize: "0.65rem",
+  fontWeight: 700,
+  letterSpacing: "0.18em",
+  textTransform: "uppercase",
+  margin: "0 0 6px",
+};
 
+const bodyText: React.CSSProperties = {
+  color: "#8a8a8a",
+  fontSize: "0.875rem",
+  lineHeight: 1.7,
+  margin: 0,
+};
+
+export default function WorkCard({ card, compact = false }: WorkCardProps) {
   return (
-    <div
+    <article
       style={{
         background: "#0f0f0f",
         border: "1px solid #1e1e1e",
@@ -40,69 +59,99 @@ export default function WorkCard({ card, compact = false }: WorkCardProps) {
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
       }}
     >
-      {/* Image slot */}
-      <div
-        style={{
-          height: imageHeight,
-          background: "#141414",
-          borderBottom: "1px solid #1e1e1e",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          overflow: "hidden",
-          flexShrink: 0,
-        }}
-      >
-        {card.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={card.image}
-            alt={`${card.name} screenshot`}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        ) : (
-          <div style={{ width: "100%", height: "100%", background: "#0f0f0f" }} />
-        )}
-      </div>
-
-      {/* Content */}
-      <div style={{ padding: compact ? "20px" : "28px", display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-        {/* Category label */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <div style={{ width: "4px", height: "4px", background: "#FF5500", borderRadius: "50%", flexShrink: 0 }} />
-          <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            {card.category}
-          </span>
-        </div>
-
-        {/* Name */}
-        <h3
+      {card.image && (
+        <div
           style={{
-            fontSize: compact ? "1rem" : "1.2rem",
-            fontWeight: 800,
-            margin: 0,
-            color: card.nameTodo ? "#666" : "#fff",
-            fontStyle: card.nameTodo ? "italic" : "normal",
+            height: compact ? "140px" : "220px",
+            background: "#141414",
+            borderBottom: "1px solid #1e1e1e",
+            overflow: "hidden",
+            flexShrink: 0,
           }}
         >
-          {card.name}
-        </h3>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={card.image}
+            alt={`Screenshot of the ${card.name} website built by Echelon Fox`}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
+      )}
 
-        {/* Description */}
-        <p style={{ color: "#666", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>
-          {card.description}
-        </p>
+      <div
+        style={{
+          padding: compact ? "28px 24px" : "36px 32px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "18px",
+          flex: 1,
+        }}
+      >
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+            <div style={{ width: "4px", height: "4px", background: "#FF5500", borderRadius: "50%", flexShrink: 0 }} />
+            <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              {card.category}
+            </span>
+          </div>
+          <h3
+            style={{
+              fontSize: compact ? "1.05rem" : "1.25rem",
+              fontWeight: 800,
+              margin: 0,
+              color: "#fff",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {card.name}
+          </h3>
+        </div>
 
-        {/* Link */}
-        {card.link && !card.linkTodo && (
+        <div>
+          <p style={sectionLabel}>The Challenge</p>
+          <p style={bodyText}>{card.challenge}</p>
+        </div>
+
+        {!compact && (
+          <>
+            <div>
+              <p style={sectionLabel}>What We Did</p>
+              <p style={bodyText}>{card.implementation}</p>
+            </div>
+
+            <div>
+              <p style={sectionLabel}>Where It Landed</p>
+              <p style={bodyText}>{card.outcome}</p>
+            </div>
+          </>
+        )}
+
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "auto", paddingTop: "4px" }}>
+          {card.services.map((service) => (
+            <span
+              key={service}
+              style={{
+                background: "#141414",
+                border: "1px solid #222",
+                color: "#888",
+                fontSize: "0.68rem",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "5px 10px",
+              }}
+            >
+              {service}
+            </span>
+          ))}
+        </div>
+
+        {card.link && (
           <a
             href={card.link}
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              marginTop: "auto",
-              paddingTop: "12px",
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
@@ -114,14 +163,13 @@ export default function WorkCard({ card, compact = false }: WorkCardProps) {
               textDecoration: "none",
             }}
           >
-            View Live Site
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            View live site
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         )}
-        {card.linkTodo && null}
       </div>
-    </div>
+    </article>
   );
 }

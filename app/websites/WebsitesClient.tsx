@@ -125,9 +125,9 @@ export default function WebsitesClient() {
               >
                 <div style={{ width: "8px", height: "8px", background: "#FF5500" }} />
               </div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 800, margin: "0 0 12px", letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontSize: "1.1rem", fontWeight: 800, margin: "0 0 12px", letterSpacing: "-0.01em" }}>
                 {item.title}
-              </h3>
+              </h2>
               <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: 1.7, margin: 0 }}>
                 {item.desc}
               </p>
@@ -149,14 +149,14 @@ export default function WebsitesClient() {
             Pricing
           </div>
           <p style={{ color: "#fff", fontSize: "1.1rem", fontWeight: 700, margin: 0 }}>
-            Flat-rate projects starting at $1,000. One price, agreed up front.
+            Flat-rate projects starting at $1,000. One price, agreed up front, before work starts.
           </p>
         </div>
 
         {/* CTA */}
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
-          <a
-            href="mailto:abe.quinn@echelonfox.com?subject=Website%20Project"
+          <Link
+            href="/contact"
             style={{
               background: "#FF5500",
               color: "white",
@@ -175,11 +175,11 @@ export default function WebsitesClient() {
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#FF7733")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#FF5500")}
           >
-            Get a Quote
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            Book a Strategy Call
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
           <Link
             href="/work"
             style={{
@@ -195,6 +195,12 @@ export default function WebsitesClient() {
           >
             See our work →
           </Link>
+          <a
+            href="mailto:abe.quinn@echelonfox.com?subject=Website%20Project"
+            style={{ color: "#666", fontSize: "0.85rem", fontWeight: 600, letterSpacing: "0.05em", textDecoration: "none" }}
+          >
+            Or email us directly
+          </a>
         </div>
       </div>
 

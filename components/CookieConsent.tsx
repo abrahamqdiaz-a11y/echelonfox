@@ -1,28 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 
+const STORAGE_KEY = "echelonfox-cookie-consent";
+
+/** localStorage is an external store, so read it through useSyncExternalStore. */
+const subscribe = () => () => {};
+
+function getStoredValue() {
+  try {
+    return localStorage.getItem(STORAGE_KEY) ?? "";
+  } catch {
+    // Storage unavailable (private mode, blocked site data) — treat as dismissed.
+    return "dismissed";
+  }
+}
+
+/** On the server, and during hydration, render nothing. */
+const getServerValue = () => "dismissed";
+
+/**
+ * This site sets no analytics, advertising, or cross-site tracking cookies, so
+ * there is nothing to consent to — this is an informational notice, not a
+ * consent gate. If tracking is ever added, this must become a real consent
+ * mechanism that blocks those scripts until the visitor opts in.
+ */
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  const stored = useSyncExternalStore(subscribe, getStoredValue, getServerValue);
+  const [dismissedNow, setDismissedNow] = useState(false);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("echelonfox-cookie-consent");
-    if (!stored) setVisible(true);
-  }, []);
-
-  const dismiss = (choice: "accepted" | "declined") => {
-    localStorage.setItem("echelonfox-cookie-consent", choice);
-    setVisible(false);
+  const dismiss = () => {
+    try {
+      localStorage.setItem(STORAGE_KEY, "dismissed");
+    } catch {
+      // Ignore — hiding it for this session is still better than nothing.
+    }
+    setDismissedNow(true);
   };
 
-  if (!visible) return null;
+  if (stored || dismissedNow) return null;
 
   return (
     <div
-      role="dialog"
-      aria-label="Cookie consent notice"
-      aria-live="polite"
+      role="region"
+      aria-label="Cookie notice"
       style={{
         position: "fixed",
         bottom: "24px",
@@ -41,51 +63,32 @@ export default function CookieConsent() {
         boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
       }}
     >
-      <p style={{ color: "#888", fontSize: "0.85rem", lineHeight: 1.6, margin: 0, flex: 1, minWidth: "200px" }}>
-        We use essential cookies to operate this site. No tracking or advertising
-        cookies are set without your consent. See our{" "}
-        <Link
-          href="/privacy"
-          style={{ color: "#FF5500", textDecoration: "underline" }}
-        >
+      <p style={{ color: "#999", fontSize: "0.85rem", lineHeight: 1.6, margin: 0, flex: 1, minWidth: "200px" }}>
+        We don&apos;t use analytics, advertising, or tracking cookies on this site — only what&apos;s
+        needed to make it work. Details are in our{" "}
+        <Link href="/privacy" style={{ color: "#FF5500", textDecoration: "underline" }}>
           Privacy Policy
-        </Link>{" "}
-        for details.
+        </Link>
+        .
       </p>
-      <div style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
-        <button
-          onClick={() => dismiss("declined")}
-          style={{
-            background: "transparent",
-            border: "1px solid #333",
-            color: "#666",
-            padding: "8px 16px",
-            fontSize: "0.8rem",
-            cursor: "pointer",
-            fontWeight: 600,
-            letterSpacing: "0.05em",
-            fontFamily: "inherit",
-          }}
-        >
-          Decline
-        </button>
-        <button
-          onClick={() => dismiss("accepted")}
-          style={{
-            background: "#FF5500",
-            border: "none",
-            color: "#fff",
-            padding: "8px 20px",
-            fontSize: "0.8rem",
-            cursor: "pointer",
-            fontWeight: 700,
-            letterSpacing: "0.05em",
-            fontFamily: "inherit",
-          }}
-        >
-          Accept
-        </button>
-      </div>
+      <button
+        onClick={dismiss}
+        style={{
+          background: "#FF5500",
+          border: "none",
+          color: "#fff",
+          padding: "12px 24px",
+          fontSize: "0.8rem",
+          cursor: "pointer",
+          fontWeight: 700,
+          letterSpacing: "0.05em",
+          fontFamily: "inherit",
+          flexShrink: 0,
+          minHeight: "44px",
+        }}
+      >
+        Got it
+      </button>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -96,9 +97,9 @@ export default function Hero() {
             animation: "fadeUp 0.6s ease 0.5s forwards",
           }}
         >
-          We embed inside your business — strategy, execution, and weekly sprints across SEO,
-          paid ads, and content. A team that knows your market, not a vendor who learned your
-          name last Tuesday.
+          A founder-led marketing team you subscribe to monthly. We help you attract more
+          customers, convert more of the traffic you already have, and put marketing systems in
+          place that keep working — websites, search, ads, content, email, and automation.
         </p>
 
         {/* Trigger-moment positioning line */}
@@ -113,8 +114,9 @@ export default function Hero() {
             animation: "fadeUp 0.6s ease 0.6s forwards",
           }}
         >
-          We work with companies when founder-led marketing stops scaling — there&apos;s revenue,
-          but no one owns growth full-time.
+          We work with businesses across industries — retail and e-commerce, insurance, beauty,
+          pet and home services, professional services, and B2B — usually at the point where
+          founder-led marketing stops scaling and nobody owns growth full-time.
         </p>
 
         {/* CTAs */}
@@ -128,8 +130,8 @@ export default function Hero() {
             animation: "fadeUp 0.6s ease 0.7s forwards",
           }}
         >
-          <a
-            href="/pricing"
+          <Link
+            href="/contact"
             style={{
               background: "#FF5500",
               color: "white",
@@ -155,15 +157,13 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
             }}
           >
-            See Plans &amp; Pricing
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            Book a Growth Audit
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
-          <a
-            href="https://cal.com/abe-quinn/growth-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
+          </Link>
+          <Link
+            href="/pricing"
             style={{
               background: "transparent",
               color: "white",
@@ -190,11 +190,11 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.color = "white";
             }}
           >
-            Book a Strategy Call
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            See Plans &amp; Pricing
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
 
       </div>

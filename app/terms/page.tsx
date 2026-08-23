@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for Echelon Fox.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "https://echelonfox.com/terms" },
 };
 
 const sections = [
@@ -56,7 +59,9 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main style={{ background: "#080808", minHeight: "100vh", color: "#fff", padding: "120px 32px 80px" }}>
+    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
+      <Nav />
+      <main style={{ padding: "140px 32px 80px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, marginBottom: "8px" }}>
           Terms of Service
@@ -83,6 +88,8 @@ export default function TermsPage() {
           </Link>
         </div>
       </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

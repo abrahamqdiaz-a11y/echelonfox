@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Most insurance agencies are invisible in ChatGPT, Perplexity & Google AI Overviews — losing warm leads. Here's the EEAT framework to get cited and recommended.",
   alternates: {
-    canonical: "https://echelonfox.com/blog/ai-search-for-insurance-agencies",
+    canonical: "https://echelonfox.com/insights/ai-search-for-insurance-agencies",
   },
   openGraph: {
     title: "AI Search for Insurance Agencies — Echelon Fox",
     description:
       "How insurance agencies can show up in ChatGPT, Perplexity, and Google AI Overviews. A complete EEAT strategy guide from Echelon Fox.",
-    url: "https://echelonfox.com/blog/ai-search-for-insurance-agencies",
+    url: "https://echelonfox.com/insights/ai-search-for-insurance-agencies",
     type: "article",
     images: [
       {
@@ -44,7 +44,7 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Abe Quinn",
-    jobTitle: "Founder & CEO",
+    jobTitle: "Founder",
     worksFor: {
       "@type": "Organization",
       name: "Echelon Fox",
@@ -62,7 +62,7 @@ const articleSchema = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://echelonfox.com/blog/ai-search-for-insurance-agencies",
+    "@id": "https://echelonfox.com/insights/ai-search-for-insurance-agencies",
   },
   keywords: [
     "AI search insurance agencies",
@@ -340,7 +340,7 @@ export default function AISearchInsuranceBlogPage() {
           <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
             <Link href="/" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Home</Link>
             <span style={{ color: "#333" }}>/</span>
-            <Link href="/blog" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Blog</Link>
+            <Link href="/insights" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Insights</Link>
             <span style={{ color: "#333" }}>/</span>
             <span style={{ color: "#FF5500", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>AI Search for Insurance</span>
           </nav>
@@ -426,7 +426,7 @@ export default function AISearchInsuranceBlogPage() {
             </div>
             <div>
               <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abe Quinn</p>
-              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder &amp; CEO, Echelon Fox</p>
+              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder, Echelon Fox</p>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", gap: "24px", alignItems: "center" }}>
               <div style={{ textAlign: "right" }}>
@@ -952,6 +952,29 @@ export default function AISearchInsuranceBlogPage() {
         </div>
       </section>
 
+      {/* ── Where to go next ── */}
+      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a" }}>
+        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", margin: "0 0 20px", letterSpacing: "0.02em" }}>
+            Where to go next
+          </h2>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
+            {[
+              { href: "/insights/local-seo-for-insurance-agents", label: "Local SEO for Insurance Agents", desc: "The companion guide: Google Business Profile, citations, reviews, and schema." },
+              { href: "/services/seo-content", label: "SEO & Content Strategy", desc: "How we run search work as an ongoing programme." },
+              { href: "/contact", label: "Book a Growth Audit", desc: "We'll look at where you currently appear and what's missing." },
+            ].map((item) => (
+              <li key={item.href} style={{ background: "#0a0a0a" }}>
+                <Link href={item.href} style={{ display: "block", padding: "22px 24px", textDecoration: "none" }}>
+                  <span style={{ display: "block", color: "#FF5500", fontSize: "0.9rem", fontWeight: 800, marginBottom: "6px" }}>{item.label}</span>
+                  <span style={{ display: "block", color: "#777", fontSize: "0.85rem", lineHeight: 1.65 }}>{item.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ── Author Bio ── */}
       <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
@@ -986,9 +1009,9 @@ export default function AISearchInsuranceBlogPage() {
             <div>
               <p style={{ margin: "0 0 2px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>About the Author</p>
               <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abe Quinn</h3>
-              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder &amp; CEO, Echelon Fox</p>
+              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder, Echelon Fox</p>
               <p style={{ margin: 0, color: "#777", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                Abe founded Echelon Fox to build performance marketing programs for service businesses and e-commerce brands that want measurable, compounding growth. He has worked directly with insurance agencies on digital strategy, SEO, and AI search positioning — helping them translate offline expertise into the digital credibility signals that modern search requires. Echelon Fox&apos;s approach to EEAT-driven content and AI search optimization is built on first-hand campaign data, not theory.
+                Abe founded Echelon Fox as a founder-led marketing and growth partner for businesses across industries — websites, SEO, paid media, email, and automation on a monthly subscription. He works directly with insurance agencies on search visibility and website builds, alongside clients in e-commerce, beauty, pet services, and B2B. This guide sets out how he approaches E-E-A-T and AI search rather than making a claim about any specific client&apos;s results.
               </p>
             </div>
           </div>
@@ -1030,7 +1053,7 @@ export default function AISearchInsuranceBlogPage() {
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -1046,8 +1069,8 @@ export default function AISearchInsuranceBlogPage() {
                 gap: "8px",
               }}
             >
-              Get a Free Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              Book a Growth Audit
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>

@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import WebsitesClient from "./WebsitesClient";
 
 export const metadata: Metadata = {
-  title: { absolute: "Websites for Local Businesses — Echelon Fox" },
+  title: { absolute: "Website Design & Build for Local Businesses — Echelon Fox" },
   description:
-    "Flat-rate website design and build for local businesses — done in weeks, not months, with local SEO basics included.",
+    "Flat-rate website design and build for local and service businesses — insurance, beauty, pet care, home services and more. Done in weeks, with local SEO basics included.",
   alternates: { canonical: "https://echelonfox.com/websites" },
   openGraph: {
     title: "Websites for Local Businesses — Echelon Fox",
@@ -21,7 +21,9 @@ export default function WebsitesPage() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
       <Nav />
-      <WebsitesClient />
+      <main>
+        <WebsitesClient />
+      </main>
       <Footer />
     </div>
   );

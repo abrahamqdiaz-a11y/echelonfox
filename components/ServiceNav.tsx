@@ -4,21 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceDropdown = [
-  { label: "AI Teammates", href: "/ai-agents", desc: "24/7 lead response, front desk, reactivation" },
-  { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
+  { label: "Websites & Landing Pages", href: "/websites", desc: "Design, build, and conversion-focused pages" },
   { label: "SEO & Content Strategy", href: "/services/seo-content", desc: "Rankings, authority, organic growth" },
+  { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
+  { label: "Email & CRM Marketing", href: "/services/email-crm", desc: "Klaviyo, HubSpot, automations" },
   { label: "Social Media Management", href: "/services/social-media", desc: "Instagram, LinkedIn, TikTok, X" },
   { label: "Brand Identity & Creative", href: "/services/brand-identity", desc: "Branding, design, video, copy" },
-  { label: "Email & CRM Marketing", href: "/services/email-crm", desc: "Klaviyo, HubSpot, automations" },
   { label: "Analytics & Growth Strategy", href: "/services/analytics-growth", desc: "GA4, dashboards, CRO, attribution" },
+  { label: "AI Agents & Automation", href: "/ai-agents", desc: "Lead response, scheduling, CRM workflows" },
 ];
 
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function ServiceNav() {
@@ -83,7 +84,7 @@ export default function ServiceNav() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <Image
             src="/eflogo.logo.png"
-            alt="Echelon Fox"
+            alt=""
             width={160}
             height={48}
             style={{ objectFit: "contain", height: "36px", width: "auto" }}
@@ -94,7 +95,7 @@ export default function ServiceNav() {
           </span>
         </Link>
 
-        <ul style={{ display: "flex", gap: "40px", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }} className="hidden md:flex">
+        <ul className="nav-desktop-links" style={{ gap: "40px", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
           {/* Services dropdown */}
           <li ref={dropdownRef} style={{ position: "relative" }}>
             <button
@@ -118,7 +119,7 @@ export default function ServiceNav() {
               onMouseLeave={(e) => { if (!servicesOpen) (e.currentTarget as HTMLElement).style.color = "#CCCCCC"; }}
             >
               Services
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transition: "transform 0.2s", transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+              <svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transition: "transform 0.2s", transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
@@ -168,20 +169,19 @@ export default function ServiceNav() {
           ))}
         </ul>
 
-        <Link href="/#contact" className="hidden md:inline-flex"
+        <Link href="/contact" className="nav-desktop-cta"
           style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "10px 24px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))", transition: "background 0.2s" }}
           onMouseEnter={(e) => ((e.target as HTMLElement).style.background = "#FF7733")}
           onMouseLeave={(e) => ((e.target as HTMLElement).style.background = "#FF5500")}
         >
-          Start a Project
+          Book a Strategy Call
         </Link>
 
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}
+        <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)}
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
@@ -210,14 +210,14 @@ export default function ServiceNav() {
             maxHeight: "calc(100dvh - 72px)",
             overflowY: "auto",
           }}
-          className="md:hidden"
+          className="nav-mobile-drawer"
         >
           <button
             onClick={() => setMobileServicesOpen((o) => !o)}
             style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", background: "none", border: "none", borderBottom: "1px solid #222", cursor: "pointer", color: "#CCCCCC", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "12px 0", minHeight: "44px" }}
           >
             Services
-            <svg width="14" height="14" viewBox="0 0 10 10" fill="none" style={{ transition: "transform 0.2s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}>
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 10 10" fill="none" style={{ transition: "transform 0.2s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}>
               <path d="M2 3.5L5 6.5L8 3.5" stroke="#FF5500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -242,16 +242,29 @@ export default function ServiceNav() {
               {l.label}
             </Link>
           ))}
-          <Link href="/#contact" onClick={() => setMenuOpen(false)}
+          <Link href="/contact" onClick={() => setMenuOpen(false)}
             style={{ display: "block", marginTop: "20px", background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "14px 28px", textDecoration: "none", textAlign: "center" }}
           >
-            Start a Project
+            Book a Strategy Call
           </Link>
         </div>
       )}
 
       <style>{`
-        @media (max-width: 768px) {
+        /* Mobile first: hamburger only. Inline styles beat utility classes, so
+           visibility is controlled here rather than with a Tailwind hidden class. */
+        .nav-desktop-links { display: none; }
+        .nav-desktop-cta   { display: none; }
+        .nav-hamburger     { display: flex; }
+
+        @media (min-width: 768px) {
+          .nav-desktop-links { display: flex; }
+          .nav-desktop-cta   { display: inline-flex; }
+          .nav-hamburger     { display: none; }
+          .nav-mobile-drawer { display: none; }
+        }
+
+        @media (max-width: 767px) {
           .nav-inner { padding: 0 20px !important; }
         }
       `}</style>

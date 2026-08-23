@@ -1,5 +1,6 @@
 export default function Marquee() {
   const items = [
+    "Website Design & Build",
     "SEO & Content",
     "Paid Media",
     "Email & CRM",
@@ -7,6 +8,7 @@ export default function Marquee() {
     "Brand & Creative",
     "Social Media",
     "Conversion Optimization",
+    "AI & Automation",
   ];
 
   return (

@@ -4,16 +4,16 @@ import ServiceNav from "@/components/ServiceNav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Insights — Insurance Agency & Service Business Marketing | Echelon Fox",
+  title: "Insights — Marketing & Growth Guides | Echelon Fox",
   description:
-    "Practical marketing intelligence for insurance agents and service businesses. Local SEO, AI search, paid media, and growth strategy — from the team at Echelon Fox.",
+    "Practical marketing guides for growing businesses — local SEO, AI search, paid media, websites, and growth strategy from Echelon Fox.",
   alternates: {
     canonical: "https://echelonfox.com/insights",
   },
   openGraph: {
     title: "Insights — Echelon Fox",
     description:
-      "Practical marketing intelligence for insurance agents and service businesses. Local SEO, AI search, paid media, and growth strategy.",
+      "Practical marketing guides for growing businesses — local SEO, AI search, paid media, websites, and growth strategy.",
     url: "https://echelonfox.com/insights",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Echelon Fox Insights" }],
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 const articles = [
   {
     slug: "local-seo-for-insurance-agents",
-    section: "insights",
     category: "Local SEO",
     title: "Local SEO for Insurance Agents: The Complete Guide to Dominating Your Market",
     excerpt:
@@ -33,7 +32,6 @@ const articles = [
   },
   {
     slug: "ai-search-for-insurance-agencies",
-    section: "blog",
     category: "AI Search",
     title: "AI Search for Insurance Agencies: How to Get Found in ChatGPT & Google AI",
     excerpt:
@@ -111,7 +109,7 @@ export default function InsightsPage() {
               margin: 0,
             }}
           >
-            Practical marketing intelligence for insurance agents and service businesses. Strategy, SEO, and growth frameworks built from first-hand campaign data — not recycled best practices.
+            Practical guides on search, content, and growth for businesses that want marketing to work like a system. Some are written for a specific industry — the thinking applies more broadly.
           </p>
         </div>
       </section>
@@ -124,7 +122,7 @@ export default function InsightsPage() {
             {articles.map((article) => (
               <Link
                 key={article.slug}
-                href={`/${article.section}/${article.slug}`}
+                href={`/insights/${article.slug}`}
                 style={{ textDecoration: "none", display: "block" }}
               >
                 <article
@@ -189,7 +187,7 @@ export default function InsightsPage() {
                         justifyContent: "center",
                       }}
                     >
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>

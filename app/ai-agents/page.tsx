@@ -4,16 +4,16 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Agents for Local Service Businesses | Echelon Fox",
+  title: "AI Agents & Business Automation | Echelon Fox",
   description:
-    "Echelon Fox deploys AI teammates that answer every lead, book appointments, and recover lost revenue — 24/7, alongside your existing team. Built for 5–30-person service firms.",
+    "Echelon Fox builds practical AI automation for growing businesses: instant lead response, appointment scheduling, CRM workflows, customer follow-up, and internal process automation.",
   alternates: {
     canonical: "https://echelonfox.com/ai-agents",
   },
   openGraph: {
-    title: "AI Agents for Local Service Businesses | Echelon Fox",
+    title: "AI Agents & Business Automation | Echelon Fox",
     description:
-      "AI teammates that never miss a lead. Speed-to-lead, front desk coverage, and reactivation — built for insurance, legal, med spa, dental, HVAC, and financial advisory firms.",
+      "Lead response, appointment scheduling, CRM workflows, follow-up, and internal automation — configured inside the tools your business already uses.",
     url: "https://echelonfox.com/ai-agents",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "AI Agents — Echelon Fox" }],
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "AI Teammates for Local Service Businesses",
-  serviceType: "AI Automation & Marketing",
+  name: "AI Agents & Business Automation",
+  serviceType: "Business Process Automation",
   provider: { "@type": "Organization", name: "Echelon Fox", url: "https://echelonfox.com" },
   url: "https://echelonfox.com/ai-agents",
   description:
-    "EchelonFox deploys managed AI teammates — lead response, front desk, reactivation, reputation, and intake — that work alongside your human team 24/7.",
+    "Echelon Fox configures and manages AI agents and automations for lead response, appointment scheduling, CRM workflows, customer follow-up, review requests, and internal admin — built inside the tools a business already uses, with human handoff rules.",
   areaServed: { "@type": "AdministrativeArea", name: "United States" },
 };
 
@@ -39,10 +39,18 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is an AI teammate?",
+      name: "What exactly is an AI agent?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "An AI teammate is a configured, managed agent that handles a specific job in your business — answering leads, booking appointments, or re-engaging cold contacts. It works inside your existing tools (CRM, phone, calendar) and hands off to your staff when human judgment is needed.",
+        text: "An AI agent is a configured, managed assistant that handles one specific job in your business — replying to new enquiries, booking appointments, chasing a follow-up, or moving records through your CRM. It runs inside the tools you already use (your CRM, calendar, phone, inbox, or forms) and hands the conversation to a person when judgment is needed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What can it actually do?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The most common builds are: instant reply to inbound enquiries from forms, calls, or chat; qualifying questions and appointment booking against a live calendar; CRM workflows such as creating records, tagging, and routing to the right person; follow-up sequences by email and SMS for enquiries that went quiet; review requests after a completed job; and internal admin like intake forms, document collection, and summarising conversations for your team.",
       },
     },
     {
@@ -50,7 +58,7 @@ const faqSchema = {
       name: "Will it sound robotic?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. We train each teammate on your business — your tone, your services, your common questions. Interactions are conversational and on-brand. We test extensively before launch.",
+        text: "We configure each agent on your services, your common questions, and the tone you want, and we test it against real scenarios before launch. It should read like a well-briefed member of staff. You review and approve the wording before it goes live.",
       },
     },
     {
@@ -58,15 +66,23 @@ const faqSchema = {
       name: "What happens when it can't handle something?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Every teammate has defined escalation rules. When a conversation falls outside its scope, it routes to the right person on your team with full context — the transcript, the lead's details, and a summary — so your staff never starts from scratch.",
+        text: "Every agent has escalation rules you approve. When a conversation falls outside its scope, it routes to the right person on your team with the transcript, the contact's details, and a summary — so nobody starts from scratch.",
       },
     },
     {
       "@type": "Question",
-      name: "Is it compliant with TCPA and call-recording laws?",
+      name: "What about consent, recording, and data protection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We build compliance into the setup: SMS consent flows, call-recording disclosures, and PII handling appropriate for regulated industries like insurance and legal. We are not your attorney, but we take compliance seriously and design accordingly.",
+        text: "We build the standard safeguards into the setup: SMS opt-in and opt-out handling, call-recording disclosure where you record, and sensible limits on what data the agent collects and stores. We are not lawyers and we do not certify your compliance — your obligations under TCPA, state recording laws, and any industry regulation remain yours, and we recommend having your counsel review the flows before launch.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you need to replace our current systems?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. We build on top of what you already run. If your CRM, calendar, or phone system has an API or a supported integration, we work with it. If something genuinely can't connect, we'll tell you that during the audit rather than after you've paid for a build.",
       },
     },
     {
@@ -74,7 +90,7 @@ const faqSchema = {
       name: "How fast can we launch?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Opportunity Audit takes about one week. A standard Build takes two to four weeks depending on integration complexity. Most clients go live within a month of starting.",
+        text: "The audit takes about a week. A straightforward build is usually two to four weeks depending on how many systems have to talk to each other.",
       },
     },
     {
@@ -82,47 +98,54 @@ const faqSchema = {
       name: "What does it cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Opportunity Audit is $750–$1,500 flat, credited toward your build. Build starts at $1,500 per teammate. Ongoing managed service starts at $500/month for a single teammate.",
+        text: "The AI Opportunity Audit is $750–$1,500 flat and is credited toward a build. Builds start at $1,500 per agent. Ongoing management starts at $500/month. Any usage costs charged by the underlying platforms — telephony minutes, SMS, or model usage — are billed separately at cost.",
       },
     },
   ],
 };
 
-const teammates = [
+const agents = [
   {
-    name: "Lead Response Teammate",
-    job: "Replies to every inbound lead in seconds, qualifies, and books.",
-    outcome: "Kills speed-to-lead drop-off. Most leads go cold within 5 minutes of not hearing back — this teammate answers in under 60 seconds, every time.",
+    name: "Lead Response",
+    job: "Replies to new enquiries within seconds, asks qualifying questions, and books the appointment.",
+    outcome: "Most enquiries go to whoever answers first. This agent replies to web forms, calls, and chat around the clock so a lead never waits until the next working morning for a first response.",
     icon: "⚡",
-    tags: ["Speed-to-Lead", "Qualification", "Booking"],
+    tags: ["Web Forms", "Qualification", "Booking"],
   },
   {
-    name: "Front Desk Teammate",
-    job: "Answers calls 24/7, books appointments, routes everything else with context.",
-    outcome: "Bilingual EN/ES. Covers nights, weekends, and lunch hours your staff can't. Every call gets answered — none go to voicemail.",
+    name: "Appointment Scheduling",
+    job: "Books, confirms, reschedules, and reminds — against your live calendar.",
+    outcome: "Handles the back-and-forth of finding a time, writes the booking to your calendar, and sends confirmations and reminders so fewer appointments are missed.",
+    icon: "📅",
+    tags: ["Calendar Sync", "Reminders", "Rescheduling"],
+  },
+  {
+    name: "Call & Front Desk Coverage",
+    job: "Answers calls outside office hours, captures details, and routes with context.",
+    outcome: "Covers evenings, weekends, and the hours your team is on other calls. Available in English and Spanish. Anything it can't resolve is passed to a person with a summary.",
     icon: "📞",
-    tags: ["Call Handling", "Scheduling", "Bilingual EN/ES"],
+    tags: ["Call Handling", "Bilingual EN/ES", "Routing"],
   },
   {
-    name: "Reactivation Teammate",
-    job: "Works your cold CRM, re-engages dead leads, surfaces lost revenue.",
-    outcome: "The money in your CRM isn't gone — it's dormant. This teammate runs re-engagement sequences across SMS and email and resurfaces warm prospects your team never had time to follow up with.",
+    name: "Follow-Up & Reactivation",
+    job: "Works through quiet enquiries and old CRM records with a structured sequence.",
+    outcome: "Runs the follow-up nobody has time for — a sequence of email and SMS touches across your existing contacts, surfacing the people who respond so your team only handles live conversations.",
     icon: "🔁",
-    tags: ["CRM Reactivation", "SMS", "Email"],
+    tags: ["Email & SMS", "CRM Lists", "Sequences"],
   },
   {
-    name: "Reputation Teammate",
-    job: "Requests reviews at the right moment and drafts responses.",
-    outcome: "More reviews, posted faster, with replies that sound human. Review velocity is one of the top local ranking factors — this teammate builds it on autopilot.",
+    name: "CRM & Internal Workflows",
+    job: "Creates records, tags, routes, and keeps your pipeline tidy without manual entry.",
+    outcome: "The unglamorous work: writing enquiries into the CRM with the right fields, assigning owners, chasing missing information, and summarising conversations so your team's notes stay usable.",
+    icon: "🗂️",
+    tags: ["Data Entry", "Routing", "Summaries"],
+  },
+  {
+    name: "Reviews & Reputation",
+    job: "Asks for a review at the right moment and drafts replies for your approval.",
+    outcome: "Sends a review request after a completed job or renewal and drafts responses to new reviews. You approve anything that gets posted publicly.",
     icon: "⭐",
-    tags: ["Review Requests", "Responses", "Local SEO"],
-  },
-  {
-    name: "Intake & Admin Teammate",
-    job: "Handles new-client intake, scheduling, and routine admin for high-volume practices.",
-    outcome: "Designed for insurance agencies, legal offices, dental and med spa practices — anywhere intake paperwork, scheduling, and follow-ups eat staff time that should go to clients.",
-    icon: "📋",
-    tags: ["Intake", "Scheduling", "Document Collection"],
+    tags: ["Review Requests", "Draft Replies", "Local SEO"],
   },
 ];
 
@@ -131,71 +154,71 @@ const steps = [
     step: "01",
     phase: "Discover",
     title: "AI Opportunity Audit",
-    desc: "We map where your team is losing revenue to missed calls, slow follow-up, and unworked leads. We identify which workflows a teammate can own and model the projected return before you commit to a build. Fixed fee — credited toward your Build.",
+    desc: "We map how enquiries reach you today, where they stall, and which repetitive tasks are eating staff hours. You get a written recommendation of which workflows are worth automating, which aren't, and what each would take to build. Fixed fee, credited toward a build.",
     detail: "$750–$1,500 · ~1 week",
   },
   {
     step: "02",
     phase: "Build",
     title: "Setup & Configuration",
-    desc: "We configure your teammate end-to-end: integrated with your CRM, calendar, and phone system, trained on your business, and tested against real scenarios. Human-handoff rules are baked in from day one.",
-    detail: "From $1,500/teammate · 2–4 weeks",
+    desc: "We configure the agent end to end — connected to your CRM, calendar, phone, or inbox, briefed on your services, and tested against real scenarios you approve. Escalation rules and human handoff are defined before launch, not after.",
+    detail: "From $1,500/agent · 2–4 weeks",
   },
   {
     step: "03",
     phase: "Run",
-    title: "Managed Service",
-    desc: "Your teammates go live and we keep them running — monitoring performance, tuning responses, pushing model updates, and delivering a monthly report. An unwatched agent that breaks quietly is a liability. We own the watching.",
+    title: "Ongoing Management",
+    desc: "We keep it working: reviewing transcripts, tuning responses, updating it when your services or hours change, fixing integrations when a connected tool changes, and sending you a monthly summary of what it handled.",
     detail: "From $500/mo · ongoing",
   },
 ];
 
 const pricingTiers = [
   {
-    name: "Single Teammate",
+    name: "Single Agent",
     price: "$500",
     period: "/mo",
     recommended: false,
-    desc: "One production agent, fully monitored, with a monthly performance report. Right for firms starting with one workflow.",
+    desc: "One agent in production, reviewed and maintained, with a monthly summary of what it handled. The right starting point for one workflow.",
     includes: [
-      "1 AI teammate in production",
-      "24/7 uptime monitoring",
-      "Monthly performance report",
-      "Response tuning & model updates",
+      "1 AI agent in production",
+      "Transcript review & response tuning",
+      "Monthly performance summary",
+      "Updates when your services or hours change",
       "Human-handoff configuration",
-      "Direct Slack or email access",
+      "Direct email or Slack access",
     ],
-    cta: "Get Started",
+    cta: "Book a Growth Audit",
   },
   {
-    name: "Team",
+    name: "Multi-Agent",
     price: "$1,200",
     period: "/mo",
     recommended: true,
-    desc: "Up to three agents working together, with priority monitoring and integration support. Best for firms ready to cover multiple workflows at once.",
+    desc: "Up to three agents working together, with integration support as your stack changes. For businesses covering several workflows at once.",
     includes: [
-      "Up to 3 AI teammates in production",
-      "Priority 24/7 monitoring",
+      "Up to 3 AI agents in production",
+      "Priority response on issues",
       "CRM & calendar integration support",
-      "Monthly performance report",
-      "Bi-weekly optimization review",
-      "Direct Slack or email access",
+      "Monthly performance summary",
+      "Fortnightly optimisation review",
+      "Direct email or Slack access",
     ],
-    cta: "Build Your Team",
+    cta: "Book a Growth Audit",
   },
   {
     name: "Embedded",
     price: "From $2,500",
     period: "/mo",
     recommended: false,
-    desc: "Full orchestration across all your workflows, bundled with an EchelonFox marketing retainer. For firms that want their AI teammates and their growth team under one roof.",
+    desc: "Automation across your workflows, bundled with an Echelon Fox marketing plan — so the automation and the campaigns feeding it are handled together.",
     includes: [
-      "Unlimited AI teammates in production",
-      "Full workflow orchestration",
-      "Bundled marketing retainer",
-      "Weekly strategy review",
-      "Priority monitoring & SLA",
-      "Board-level reporting on request",
+      "Agents across your active workflows",
+      "Workflow design & orchestration",
+      "Bundled marketing plan",
+      "Monthly strategy review",
+      "Priority response on issues",
+      "Reporting tailored to your leadership",
     ],
     cta: "Enquire About Embedded",
   },
@@ -204,75 +227,83 @@ const pricingTiers = [
 const comparisonRows = [
   {
     metric: "Monthly cost",
-    teammate: "$500–$1,200",
-    hire: "~$3,000–$4,500",
-    voicemail: "$0 — plus every missed lead",
+    teammate: "$500–$1,200 management, plus build",
+    hire: "Salary, payroll tax, and benefits for the role",
+    voicemail: "$0 — plus whatever the missed enquiries were worth",
   },
   {
     metric: "Hours covered",
-    teammate: "24/7, including nights & weekends",
-    hire: "~40 hrs/week, business hours",
-    voicemail: "Passive — no active coverage",
+    teammate: "Outside office hours, including nights and weekends",
+    hire: "Contracted hours, business days",
+    voicemail: "None — the caller leaves a message or doesn't",
   },
   {
-    metric: "Speed to lead",
-    teammate: "Under 60 seconds",
-    hire: "Minutes to hours depending on workload",
-    voicemail: "Zero — lead self-serves or moves on",
+    metric: "First response",
+    teammate: "Seconds, consistently",
+    hire: "Depends on what else is in the queue",
+    voicemail: "Whenever someone checks the messages",
   },
   {
-    metric: "Leads captured",
-    teammate: "Every inbound, every time",
-    hire: "Depends on capacity and multitasking",
-    voicemail: "Near zero — most callers don't leave messages",
+    metric: "Judgment & relationships",
+    teammate: "Escalates anything outside its defined scope",
+    hire: "Handles nuance, exceptions, and difficult conversations",
+    voicemail: "None",
   },
   {
     metric: "Ramp time",
-    teammate: "2–4 weeks to go live",
-    hire: "30–90 days to full productivity",
-    voicemail: "Immediate — and immediately ineffective",
+    teammate: "2–4 weeks to build and launch",
+    hire: "Recruitment plus onboarding",
+    voicemail: "Immediate — and immediately limited",
   },
   {
-    metric: "Sick days / turnover",
-    teammate: "None",
-    hire: "Industry average: 3–5 sick days/yr + turnover risk",
-    voicemail: "N/A",
+    metric: "Best used for",
+    teammate: "High-volume, repeatable steps",
+    hire: "Work that needs a person",
+    voicemail: "A fallback, not a system",
   },
 ];
 
 const faq = [
   {
-    q: "What is an AI teammate?",
-    a: "An AI teammate is a configured, managed agent that handles a specific job in your business — answering leads, booking appointments, or re-engaging cold contacts. It works inside your existing tools (CRM, phone, calendar) and hands off to your staff when human judgment is needed.",
+    q: "What exactly is an AI agent?",
+    a: "An AI agent is a configured, managed assistant that handles one specific job in your business — replying to new enquiries, booking appointments, chasing a follow-up, or moving records through your CRM. It runs inside the tools you already use (your CRM, calendar, phone, inbox, or forms) and hands the conversation to a person when judgment is needed.",
+  },
+  {
+    q: "What can it actually do?",
+    a: "The most common builds are: instant reply to inbound enquiries from forms, calls, or chat; qualifying questions and appointment booking against a live calendar; CRM workflows such as creating records, tagging, and routing to the right person; follow-up sequences by email and SMS for enquiries that went quiet; review requests after a completed job; and internal admin like intake forms, document collection, and summarising conversations for your team.",
   },
   {
     q: "Will it sound robotic?",
-    a: "No. We train each teammate on your business — your tone, your services, your common questions. Interactions are conversational and on-brand. We test extensively before launch.",
+    a: "We configure each agent on your services, your common questions, and the tone you want, and we test it against real scenarios before launch. It should read like a well-briefed member of staff. You review and approve the wording before it goes live.",
   },
   {
     q: "What happens when it can't handle something?",
-    a: "Every teammate has defined escalation rules. When a conversation falls outside its scope, it routes to the right person on your team with full context — the transcript, the lead's details, and a summary — so your staff never starts from scratch.",
+    a: "Every agent has escalation rules you approve. When a conversation falls outside its scope, it routes to the right person on your team with the transcript, the contact's details, and a summary — so nobody starts from scratch.",
   },
   {
-    q: "Is it compliant with TCPA and call-recording laws?",
-    a: "Yes. We build compliance into the setup: SMS consent flows, call-recording disclosures, and PII handling appropriate for regulated industries like insurance and legal. We are not your attorney, but we take compliance seriously and design accordingly.",
+    q: "What about consent, recording, and data protection?",
+    a: "We build the standard safeguards into the setup: SMS opt-in and opt-out handling, call-recording disclosure where you record, and sensible limits on what data the agent collects and stores. We are not lawyers and we do not certify your compliance — your obligations under TCPA, state recording laws, and any industry regulation remain yours, and we recommend having your counsel review the flows before launch.",
+  },
+  {
+    q: "Do you need to replace our current systems?",
+    a: "No. We build on top of what you already run. If your CRM, calendar, or phone system has an API or a supported integration, we work with it. If something genuinely can't connect, we'll tell you that during the audit rather than after you've paid for a build.",
   },
   {
     q: "How fast can we launch?",
-    a: "The Opportunity Audit takes about one week. A standard Build takes two to four weeks depending on integration complexity. Most clients go live within a month of starting.",
+    a: "The audit takes about a week. A straightforward build is usually two to four weeks depending on how many systems have to talk to each other.",
   },
   {
     q: "What does it cost?",
-    a: "The Opportunity Audit is $750–$1,500 flat, credited toward your build. Build starts at $1,500 per teammate. Ongoing managed service starts at $500/month for a single teammate.",
+    a: "The AI Opportunity Audit is $750–$1,500 flat and is credited toward a build. Builds start at $1,500 per agent. Ongoing management starts at $500/month. Any usage costs charged by the underlying platforms — telephony minutes, SMS, or model usage — are billed separately at cost.",
   },
 ];
 
 const whoWeWorkWith = [
-  { label: "Insurance Agencies", desc: "Lead response and intake for high-inbound agencies. We already run teammates for insurance clients — including Lamb." },
-  { label: "Bilingual Legal Offices", desc: "Front desk and intake coverage in English and Spanish. No missed consultations, no lost referrals." },
-  { label: "Med Spas & Cosmetic Dental", desc: "Appointment booking and reactivation for high-value services where a single no-show costs real money." },
-  { label: "HVAC & Home Services", desc: "24/7 call handling during peak season when your office is overwhelmed and leads go cold fast." },
-  { label: "Financial Advisory Firms", desc: "Compliant lead qualification and intake for AUM-driven practices where every qualified prospect matters." },
+  { label: "Insurance Agencies", desc: "Quote requests answered immediately, intake details collected before the first call, and renewal follow-up that doesn't depend on someone remembering." },
+  { label: "Beauty, Wellness & Clinics", desc: "Bookings, confirmations, and reminders handled automatically, so fewer slots go empty and the front desk isn't on the phone all day." },
+  { label: "Pet & Home Services", desc: "After-hours calls captured with the details you need to quote, plus follow-up on the enquiries that went quiet mid-season." },
+  { label: "E-Commerce & Retail", desc: "Order and shipping questions answered instantly, with anything unusual routed to a person who can actually resolve it." },
+  { label: "Professional & B2B Firms", desc: "Enquiry qualification, scheduling, and CRM hygiene so fee-earners spend their time on the work rather than on admin." },
 ];
 
 export default function AiAgentsPage() {
@@ -345,7 +376,7 @@ export default function AiAgentsPage() {
                 textTransform: "uppercase",
               }}
             >
-              AI Teammates
+              AI Agents & Automation
             </span>
           </div>
 
@@ -375,7 +406,7 @@ export default function AiAgentsPage() {
                 textTransform: "uppercase",
               }}
             >
-              AI Teammates — Now Available
+              AI Agents & Automation
             </span>
           </div>
 
@@ -389,9 +420,8 @@ export default function AiAgentsPage() {
               maxWidth: "900px",
             }}
           >
-            AI teammates that{" "}
-            <span style={{ color: "#FF5500" }}>never miss</span>
-            <br />a lead.
+            Automate the follow-up{" "}
+            <span style={{ color: "#FF5500" }}>that never happens.</span>
           </h1>
 
           <p
@@ -403,14 +433,14 @@ export default function AiAgentsPage() {
               margin: "0 0 48px",
             }}
           >
-            They work alongside your team — 24/7 — capturing the revenue you currently lose to
-            voicemail and slow follow-up. Built for established service businesses that are tired of
-            stretched staff and missed opportunities.
+            AI agents that reply to enquiries in seconds, book appointments, keep your CRM tidy,
+            and chase the follow-ups your team never gets to — configured inside the tools you
+            already use, with clear rules for when a person takes over.
           </p>
 
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <Link
-              href="EDITABLE_BOOKING_LINK"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -428,7 +458,7 @@ export default function AiAgentsPage() {
               }}
             >
               Book an AI Opportunity Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M3 8h10M9 4l4 4-4 4"
                   stroke="white"
@@ -480,7 +510,7 @@ export default function AiAgentsPage() {
                 textTransform: "uppercase",
               }}
             >
-              The Real Cost
+              The Real Question
             </span>
           </div>
 
@@ -498,8 +528,8 @@ export default function AiAgentsPage() {
                   margin: "0 0 24px",
                 }}
               >
-                You&apos;re losing six figures a year{" "}
-                <span style={{ color: "#FF5500" }}>to voicemail.</span>
+                The enquiries you never{" "}
+                <span style={{ color: "#FF5500" }}>get back to.</span>
               </h2>
               <p
                 style={{
@@ -509,9 +539,10 @@ export default function AiAgentsPage() {
                   margin: "0 0 24px",
                 }}
               >
-                Most small businesses aren&apos;t losing leads to competitors. They&apos;re losing
-                them to nobody — a ringing phone at 6 PM, a web form that sat in an inbox over the
-                weekend, a follow-up that never happened because your team was already at capacity.
+                Most businesses don&apos;t lose enquiries to a competitor with a better pitch. They
+                lose them to nobody — a phone ringing at 6 PM, a web form sitting in an inbox over
+                the weekend, a follow-up that never happened because the team was already at
+                capacity.
               </p>
               <p
                 style={{
@@ -521,16 +552,11 @@ export default function AiAgentsPage() {
                   margin: "0 0 32px",
                 }}
               >
-                The math compounds fast. A{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>home service company</span> that
-                misses{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>10</span> calls a week at
-                a{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>30%</span> close rate and{" "}
-                <span style={{ color: "#fff", fontWeight: 700 }}>$1,800</span> average value
-                loses roughly{" "}
-                <span style={{ color: "#FF5500", fontWeight: 800 }}>$280,000 a year</span> — to
-                voicemail.
+                Whether that&apos;s worth fixing depends entirely on your numbers — how many
+                enquiries you get, how many you currently reach in time, what one closed job is
+                worth, and how much staff time the chasing eats. Those four figures decide whether
+                automation pays for itself or isn&apos;t worth the build. Working them out is the
+                first thing we do together, using your data rather than an industry average.
               </p>
               <div
                 style={{
@@ -548,17 +574,19 @@ export default function AiAgentsPage() {
                     margin: 0,
                   }}
                 >
-                  Studies show <strong style={{ color: "#fff" }}>78% of customers buy from the first business that responds.</strong>{" "}
-                  Speed-to-lead isn&apos;t a nice-to-have — it&apos;s a close rate multiplier.
+                  <strong style={{ color: "#fff" }}>If the numbers don&apos;t justify it, we&apos;ll
+                  tell you.</strong>{" "}
+                  Plenty of businesses are better served by fixing their intake process or their
+                  website before adding automation on top of it.
                 </p>
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                { stat: "78%", label: "of customers buy from the first business that responds" },
-                { stat: "5 min", label: "is how long before a lead's probability of converting drops by 80%" },
-                { stat: "EDITABLE", label: "average annual revenue lost per missed call in your vertical" },
+                { stat: "01", label: "How many enquiries reach you each month — across calls, forms, chat, and referrals?" },
+                { stat: "02", label: "How many get a reply within the hour, and how many wait until the next working day?" },
+                { stat: "03", label: "What is one closed job worth to you, and how many hours a week go on chasing?" },
               ].map((item) => (
                 <div
                   key={item.stat}
@@ -594,7 +622,7 @@ export default function AiAgentsPage() {
 
         <style>{`
           @media (max-width: 768px) { .cost-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }
-          .teammate-card:hover { background: #0f0f0f !important; }
+          .agent-card:hover { background: #0f0f0f !important; }
         `}</style>
       </section>
 
@@ -630,8 +658,9 @@ export default function AiAgentsPage() {
               Discover → Build → Run
             </h2>
             <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", margin: 0 }}>
-              Every engagement follows the same spine. No skipping steps — the audit prevents bad
-              builds, and the managed service prevents silent failures.
+              Every engagement follows the same three steps. The audit exists so nobody pays to
+              build something that won&apos;t pay for itself, and the ongoing management exists
+              because an automation nobody checks quietly drifts out of date.
             </p>
           </div>
 
@@ -723,16 +752,17 @@ export default function AiAgentsPage() {
           >
             <p style={{ color: "#aaa", fontSize: "0.9rem", lineHeight: 1.65, margin: 0 }}>
               <strong style={{ color: "#fff" }}>
-                An unwatched agent that breaks quietly is a liability — we own the watching.
+                An automation nobody reviews will eventually get something wrong quietly.
               </strong>{" "}
-              Run is where the value compounds: continuous tuning, model updates, and a performance
-              loop that keeps your teammates improving month over month.
+              That&apos;s what the ongoing plan covers: we read transcripts, tune the responses,
+              update the agent when your services, prices, or hours change, and repair integrations
+              when a connected tool changes on us.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── 4. Meet the teammates ───────────────────────────────── */}
+      {/* ─── 4. What we build ────────────────────────────────────── */}
       <section
         style={{
           padding: "100px 32px",
@@ -755,7 +785,7 @@ export default function AiAgentsPage() {
                   textTransform: "uppercase",
                 }}
               >
-                The Roster
+                What We Build
               </span>
             </div>
             <h2
@@ -767,11 +797,11 @@ export default function AiAgentsPage() {
                 margin: "0 0 16px",
               }}
             >
-              Meet Your Teammates
+              What an agent can take off your team
             </h2>
             <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", margin: 0 }}>
-              Each teammate is built for a specific job. Most clients start with one and add more as
-              the first proves its return.
+              Each agent is built for one specific job in your business. Most clients start with a
+              single workflow and add more once the first one has proved itself.
             </p>
           </div>
 
@@ -784,10 +814,10 @@ export default function AiAgentsPage() {
               border: "1px solid #1a1a1a",
             }}
           >
-            {teammates.map((t) => (
+            {agents.map((t) => (
               <div
                 key={t.name}
-                className="teammate-card"
+                className="agent-card"
                 style={{
                   background: "#0a0a0a",
                   padding: "40px",
@@ -882,8 +912,9 @@ export default function AiAgentsPage() {
               Built with humans in the loop.
             </h2>
             <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, maxWidth: "620px", margin: 0 }}>
-              Your teammates handle volume. Your people handle judgment. We design the boundary
-              between the two with care.
+              Agents handle volume and repetition. Your people handle judgment, relationships, and
+              anything that needs a human answer. The boundary between the two is something you
+              define and can change.
             </p>
           </div>
 
@@ -897,19 +928,19 @@ export default function AiAgentsPage() {
             {[
               {
                 title: "Defined escalation rules",
-                desc: "Every teammate has hard limits. When a conversation exceeds its scope, it routes to the right person on your team — with the full transcript, lead context, and a summary. Your staff never starts cold.",
+                desc: "Every agent has hard limits. When a conversation exceeds its scope, it routes to the right person on your team — with the full transcript, the contact's details, and a summary. Your staff never starts cold.",
               },
               {
                 title: "Full transcripts, always",
-                desc: "Every interaction is logged. You can review any conversation at any time. No black box — you see exactly what your teammate said and when.",
+                desc: "Every interaction is logged. You can review any conversation at any time. No black box — you see exactly what the agent said and when.",
               },
               {
-                title: "Compliance-aware by default",
-                desc: "TCPA-compliant SMS consent flows, call-recording disclosures, and PII handling appropriate for regulated industries. Built in from day one — not bolted on after launch.",
+                title: "Consent and disclosure built in",
+                desc: "SMS opt-in and opt-out handling, call-recording disclosure where you record, and limits on what personal data the agent collects. We build these in from the start — but we don't certify your compliance, and we'd expect your counsel to review the flows before launch.",
               },
               {
                 title: "You stay in control",
-                desc: "You approve the escalation rules. You set the tone. You define the scope. We configure and operate — but the decisions about what your teammate can and can't do belong to you.",
+                desc: "You approve the escalation rules. You set the tone. You define the scope. We configure and operate — but the decisions about what an agent can and can't do belong to you, and you can switch it off at any time.",
               },
             ].map((item, i) => (
               <div
@@ -986,10 +1017,11 @@ export default function AiAgentsPage() {
                 margin: "0 0 8px",
               }}
             >
-              Three ways to engage
+              Audit, build, then manage
             </h2>
             <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, margin: 0 }}>
-              Start with the Audit. Every dollar you spend on it comes back if you build.
+              Start with the audit — its fee is credited against a build if you go ahead. Platform
+              usage costs (telephony, SMS, model usage) are billed separately at cost.
             </p>
           </div>
 
@@ -1011,25 +1043,25 @@ export default function AiAgentsPage() {
                 name: "AI Opportunity Audit",
                 price: "$750–$1,500",
                 note: "flat fee · credited toward build",
-                desc: "We map your revenue leaks, identify which workflows a teammate can own, and model projected ROI before you commit to anything.",
+                desc: "We map how enquiries reach you, where they stall, and which repetitive tasks cost the most staff time — then recommend what's worth automating and what isn't.",
                 includes: [
-                  "Revenue & workflow audit",
-                  "Competitor analysis",
-                  "Teammate recommendations",
-                  "Projected ROI model",
-                  "Full audit report",
+                  "Enquiry & workflow mapping",
+                  "Systems and integration review",
+                  "Recommended workflows to automate",
+                  "Cost and effort estimate per workflow",
+                  "Written audit report",
                 ],
               },
               {
                 phase: "Build",
-                name: "Teammate Setup",
+                name: "Agent Setup",
                 price: "From $1,500",
-                note: "per teammate · one-time",
-                desc: "End-to-end configuration: integrated with your CRM, calendar, and phone, trained on your business, tested, and launched.",
+                note: "per agent · one-time",
+                desc: "End-to-end configuration: connected to your CRM, calendar, phone, or inbox, briefed on your services, tested against scenarios you approve, and launched.",
                 includes: [
                   "CRM & calendar integration",
                   "Phone / SMS configuration",
-                  "Custom training on your business",
+                  "Configuration on your services & tone",
                   "Human-handoff rules",
                   "Launch testing & QA",
                 ],
@@ -1086,7 +1118,7 @@ export default function AiAgentsPage() {
                 textTransform: "uppercase",
               }}
             >
-              Run — Monthly Managed Service
+              Run — Monthly Management
             </span>
           </div>
           <div
@@ -1183,7 +1215,7 @@ export default function AiAgentsPage() {
                   ))}
                 </ul>
                 <Link
-                  href="EDITABLE_BOOKING_LINK"
+                  href="/contact"
                   style={{
                     marginTop: "32px",
                     display: "flex",
@@ -1205,7 +1237,7 @@ export default function AiAgentsPage() {
                   }}
                 >
                   {tier.cta}
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none">
                     <path
                       d="M3 8h10M9 4l4 4-4 4"
                       stroke="currentColor"
@@ -1232,7 +1264,7 @@ export default function AiAgentsPage() {
                   textTransform: "uppercase",
                 }}
               >
-                How It Stacks Up
+                Where Each One Fits
               </span>
             </div>
           </div>
@@ -1261,7 +1293,7 @@ export default function AiAgentsPage() {
                   >
                     &nbsp;
                   </th>
-                  {["AI Teammate", "Full-Time Hire", "Voicemail"].map((col, i) => (
+                  {["AI Agent", "Full-Time Hire", "Voicemail"].map((col, i) => (
                     <th
                       key={col}
                       style={{
@@ -1366,7 +1398,7 @@ export default function AiAgentsPage() {
                   textTransform: "uppercase",
                 }}
               >
-                Who We Work With
+                Where This Fits
               </span>
             </div>
             <h2
@@ -1378,12 +1410,12 @@ export default function AiAgentsPage() {
                 margin: "0 0 16px",
               }}
             >
-              Already running for real clients.
+              Common places this pays off.
             </h2>
             <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, maxWidth: "620px", margin: 0 }}>
-              These teammates are in production — not prototypes. EchelonFox runs AI agents for
-              clients across insurance, legal, and service businesses today. EDITABLE_STAT_1.
-              EDITABLE_STAT_2.
+              The pattern is the same across industries: enquiries arrive faster than a small team
+              can answer them, and the follow-up is the first thing to slip. These are the setups we
+              build most often — the specific workflows depend on how your business actually runs.
             </p>
           </div>
 
@@ -1503,19 +1535,21 @@ export default function AiAgentsPage() {
               margin: "0 0 20px",
             }}
           >
-            Find out exactly what your team is losing —{" "}
-            <span style={{ color: "#FF5500" }}>before another lead goes to voicemail.</span>
+            Find out what&apos;s worth automating —{" "}
+            <span style={{ color: "#FF5500" }}>and what isn&apos;t.</span>
           </h2>
           <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, margin: "0 0 16px" }}>
-            The Opportunity Audit maps your revenue leaks and shows you the ROI before you spend a
-            dollar on a build. Fixed fee, credited back if you move forward.
+            The AI Opportunity Audit maps how enquiries reach you, where they stall, and what each
+            automation would cost to build against what it would save. Fixed fee, credited toward a
+            build if you move forward.
           </p>
           <p style={{ color: "#444", fontSize: "0.85rem", margin: "0 0 40px" }}>
-            Built for 5–30-person service businesses. Not a sales call — a working audit.
+            A working session, not a sales call. If automation isn&apos;t the right next step for
+            your business, the audit will say so.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="EDITABLE_BOOKING_LINK"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -1533,7 +1567,7 @@ export default function AiAgentsPage() {
               }}
             >
               Book an AI Opportunity Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M3 8h10M9 4l4 4-4 4"
                   stroke="white"

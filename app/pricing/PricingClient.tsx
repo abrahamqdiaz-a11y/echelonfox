@@ -4,62 +4,59 @@ import Link from "next/link";
 const tiers = [
   {
     name: "Starter",
-    tagline: "One channel, one relationship.",
+    tagline: "One channel, done properly.",
     price: "$1,500",
     period: "/mo",
     recommended: false,
     description:
-      "For brands that need to own one growth channel properly before scaling to more. One strategist, one channel, weekly output.",
+      "For businesses that need to own one growth channel properly before adding more. One channel, weekly output, and a plan you can see progress against.",
     teamNote: null,
     includes: [
       "1 primary channel (your choice)",
-      "Dedicated strategist",
       "Weekly sprint delivery",
-      "Real-time dashboard",
+      "Live reporting dashboard",
       "Monthly strategy review",
-      "Direct Slack or email access",
+      "Direct Slack or email access to Abe",
     ],
     cta: "Start with Starter",
   },
   {
     name: "Growth",
-    tagline: "Two people, every channel that matters.",
+    tagline: "The channels that matter, running together.",
     price: "$3,500",
     period: "/mo",
     recommended: true,
     description:
-      "For brands that have product-market fit and need full-funnel execution across multiple channels at once.",
+      "For businesses with steady demand that need several channels working at once — search, ads, and follow-up feeding each other rather than running in isolation.",
     teamNote:
-      "You'll have a dedicated strategist running your account and a specialist executing your primary channels — two people who know your business, not a rotating team.",
+      "Abe stays your point of contact and runs the strategy. Where a sprint needs a specialist — an editor, a designer, a developer — we bring in a vetted freelancer and stay accountable for the output.",
     includes: [
       "Up to 3 channels",
-      "Dedicated strategist + channel specialist",
       "Weekly sprint delivery",
-      "Real-time dashboard",
+      "Live reporting dashboard",
       "Monthly strategy review",
       "Direct Slack or email access",
-      "Quarterly competitive audit",
+      "Quarterly competitive review",
     ],
     cta: "Start with Growth",
   },
   {
     name: "Fractional",
-    tagline: "A full marketing department, without the headcount.",
+    tagline: "Marketing leadership without the hire.",
     price: "$6,500",
     period: "/mo",
     recommended: false,
     description:
-      "For scaling companies that need every channel firing and a senior strategist accountable to revenue at the executive level.",
+      "For companies that want every active channel covered plus someone senior accountable for the growth number — at a fraction of the cost of building the function in-house.",
     teamNote:
-      "You'll have a dedicated strategist plus a full specialist bench across every active channel — a marketing department without the fixed cost of building one.",
+      "The fractional equivalent of a marketing lead: strategy, prioritisation, and reporting from Abe, with specialist help brought in per sprint as the work requires.",
     includes: [
-      "All channels",
-      "Senior dedicated strategist + full specialist bench",
+      "All active channels",
       "Weekly sprint delivery",
-      "Real-time dashboard",
+      "Live reporting dashboard",
       "Weekly strategy sync (30 min)",
       "Direct Slack or email access",
-      "Monthly competitive audit",
+      "Monthly competitive review",
       "Board-level reporting on request",
     ],
     cta: "Enquire About Fractional",
@@ -147,8 +144,9 @@ export default function PricingClient() {
                 </span>
                 <span style={{ color: "#555", fontSize: "0.9rem" }}>{tier.period}</span>
               </div>
-              <p style={{ color: "#555", fontSize: "0.75rem", marginBottom: "24px" }}>
-                Billed monthly · cancel with 2-month notice
+              <p style={{ color: "#555", fontSize: "0.75rem", marginBottom: "24px", lineHeight: 1.6 }}>
+                Billed monthly · 60 days&apos; notice to cancel · advertising spend billed separately
+                by the ad platforms
               </p>
 
               <p style={{ color: "#999", fontSize: "0.875rem", lineHeight: 1.7, margin: "0 0 24px" }}>
@@ -181,7 +179,7 @@ export default function PricingClient() {
               </ul>
 
               <Link
-                href="/#contact"
+                href="/contact"
                 style={{
                   marginTop: "32px",
                   display: "flex",
@@ -210,7 +208,7 @@ export default function PricingClient() {
                 }}
               >
                 {tier.cta}
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>

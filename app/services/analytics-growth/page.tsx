@@ -95,7 +95,7 @@ const whoFor = [
   { label: "Scaling E-commerce Brands", desc: "Brands who are spending on multiple paid channels and need accurate attribution to know where to put the next dollar — and where to cut." },
   { label: "B2B & SaaS Companies", desc: "Companies with complex, multi-touch buying journeys who need to understand which marketing activities are actually generating pipeline and closed revenue." },
   { label: "Growth Teams & In-House Marketers", desc: "Internal marketing teams who have the execution capacity but need a rigorous measurement framework and decision-making system to operate against." },
-  { label: "Funded Startups", desc: "Companies that have raised and need to deploy capital efficiently. Analytics and attribution infrastructure is the prerequisite for every scaling decision that follows." },
+  { label: "Local & Multi-Location Businesses", desc: "Insurance agencies, clinics, salons, and service companies that need to know which calls, forms, and bookings came from which channel — before deciding where the next month's budget goes." },
 ];
 
 const faq = [
@@ -151,9 +151,9 @@ export default function AnalyticsGrowthPage() {
             GA4 configuration, multi-touch attribution, CRO testing, and growth strategy built around your actual business metrics — not dashboard vanity numbers.
           </p>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-            <Link href="/#contact" style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "16px 36px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-              Get an Analytics Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <Link href="/contact" style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "16px 36px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              Book a Growth Audit
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
             <Link href="/#services" style={{ background: "transparent", color: "white", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "15px 35px", textDecoration: "none", border: "1px solid #333", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))" }}>All Services</Link>
           </div>
@@ -283,9 +283,9 @@ export default function AnalyticsGrowthPage() {
           <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, margin: "0 0 40px" }}>
             Start with a free analytics audit. We&apos;ll review your tracking setup, attribution model, and reporting — and show you what decisions you can&apos;t currently make because of data gaps.
           </p>
-          <Link href="/#contact" style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 48px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "10px" }}>
-            Get Your Free Audit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          <Link href="/contact" style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 48px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "10px" }}>
+            Book a Growth Audit
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
         </div>
       </section>

@@ -4,21 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceDropdown = [
-  { label: "AI Teammates", href: "/ai-agents", desc: "24/7 lead response, front desk, reactivation" },
-  { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
+  { label: "Websites & Landing Pages", href: "/websites", desc: "Design, build, and conversion-focused pages" },
   { label: "SEO & Content Strategy", href: "/services/seo-content", desc: "Rankings, authority, organic growth" },
+  { label: "Paid Media & Advertising", href: "/services/paid-media", desc: "Meta, Google, TikTok, YouTube" },
+  { label: "Email & CRM Marketing", href: "/services/email-crm", desc: "Klaviyo, HubSpot, automations" },
   { label: "Social Media Management", href: "/services/social-media", desc: "Instagram, LinkedIn, TikTok, X" },
   { label: "Brand Identity & Creative", href: "/services/brand-identity", desc: "Branding, design, video, copy" },
-  { label: "Email & CRM Marketing", href: "/services/email-crm", desc: "Klaviyo, HubSpot, automations" },
   { label: "Analytics & Growth Strategy", href: "/services/analytics-growth", desc: "GA4, dashboards, CRO, attribution" },
+  { label: "AI Agents & Automation", href: "/ai-agents", desc: "Lead response, scheduling, CRM workflows" },
 ];
 
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -84,7 +85,7 @@ export default function Nav() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <Image
             src="/eflogo.logo.png"
-            alt="Echelon Fox"
+            alt=""
             width={160}
             height={48}
             style={{ objectFit: "contain", height: "36px", width: "auto" }}
@@ -129,7 +130,7 @@ export default function Nav() {
               onMouseLeave={(e) => { if (!servicesOpen) (e.currentTarget as HTMLElement).style.color = "#CCCCCC"; }}
             >
               Services
-              <svg
+              <svg aria-hidden="true"
                 width="10"
                 height="10"
                 viewBox="0 0 10 10"
@@ -201,7 +202,7 @@ export default function Nav() {
 
           {navLinks.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 style={{
                   color: "#CCCCCC",
@@ -216,14 +217,14 @@ export default function Nav() {
                 onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#CCCCCC")}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Desktop CTA — hidden on mobile via CSS */}
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="nav-desktop-cta"
           style={{
             background: "#FF5500",
@@ -240,8 +241,8 @@ export default function Nav() {
           onMouseEnter={(e) => ((e.target as HTMLElement).style.background = "#FF7733")}
           onMouseLeave={(e) => ((e.target as HTMLElement).style.background = "#FF5500")}
         >
-          Start a Project
-        </a>
+          Book a Strategy Call
+        </Link>
 
         {/* Hamburger — shown on mobile via CSS, 44×44px touch target */}
         <button
@@ -321,7 +322,7 @@ export default function Nav() {
             }}
           >
             Services
-            <svg
+            <svg aria-hidden="true"
               width="14"
               height="14"
               viewBox="0 0 10 10"
@@ -362,7 +363,7 @@ export default function Nav() {
           )}
 
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
@@ -384,12 +385,12 @@ export default function Nav() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#CCCCCC")}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
 
           <div style={{ padding: "20px 20px 0" }}>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => setMenuOpen(false)}
               style={{
                 display: "flex",
@@ -408,11 +409,11 @@ export default function Nav() {
                 transition: "background 0.2s",
               }}
             >
-              Start a Project
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              Book a Strategy Call
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       )}
