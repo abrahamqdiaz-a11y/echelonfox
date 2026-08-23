@@ -4,22 +4,22 @@ const pillars = [
   {
     icon: "→",
     label: "Strategy First",
-    sub: "Every campaign starts with a clear brief, audience map, and measurable goal — before a single dollar is spent.",
+    sub: "Every campaign starts with a clear brief, an audience map, and a measurable goal — before a single dollar is spent.",
   },
   {
     icon: "◈",
-    label: "Full-Funnel Expertise",
-    sub: "From awareness to conversion, we architect the entire customer journey across paid, owned, and earned channels.",
+    label: "Full-Funnel Thinking",
+    sub: "From first impression to follow-up, we work the whole customer journey — the site, the search results, the ads, and everything after the enquiry lands.",
   },
   {
     icon: "▲",
     label: "Transparent Reporting",
-    sub: "Real-time dashboards and weekly performance reviews — you always know exactly what your budget is doing.",
+    sub: "A live dashboard plus a scheduled strategy review — you always know what the work cost and what it produced.",
   },
   {
     icon: "●",
     label: "Data-Driven Decisions",
-    sub: "We test, learn, and iterate continuously. No gut-feel campaigns — every move is backed by signal and attribution.",
+    sub: "We test, learn, and iterate. No gut-feel campaigns — moves are backed by the numbers your tracking actually reports.",
   },
 ];
 

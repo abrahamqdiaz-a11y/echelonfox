@@ -94,12 +94,13 @@ const included = [
 const whoFor = [
   { label: "E-commerce Brands", desc: "Direct-to-consumer brands scaling from 6 to 8 figures who need structured paid acquisition and retention systems, not one-off campaigns." },
   { label: "B2B & SaaS Companies", desc: "Technology and professional services companies building pipeline through LinkedIn, Google Search, and retargeting across the buying committee." },
-  { label: "Lead Generation Businesses", desc: "Service businesses, agencies, and professional firms who need qualified inbound leads — not just traffic — at a sustainable cost per acquisition." },
+  { label: "Lead Generation & Local Businesses", desc: "Insurance agencies, clinics, home and pet services, and professional firms that need qualified inbound enquiries — not just traffic — at a sustainable cost per acquisition." },
   { label: "Growth-Stage Startups", desc: "Venture-backed startups with a proven product and initial traction who need to scale paid acquisition efficiently before Series A/B milestones." },
 ];
 
 const faq = [
-  { q: "How much should I spend on paid advertising?", a: "There is no universal minimum, but meaningful testing requires enough volume to gather statistical significance. For most brands, we recommend a minimum of $5,000/month in ad spend to begin structured testing. As channels are validated and ROAS targets are hit, budgets are scaled deliberately. We always deploy capital in proportion to your current unit economics — not arbitrarily." },
+  { q: "How much should I spend on paid advertising?", a: "There is no universal minimum, but testing needs enough volume to tell a real result from noise. For most businesses that means a few thousand dollars a month before structured testing is worth doing — we'll give you a realistic figure for your market and cost per lead before you commit. Budgets scale deliberately as channels prove out, in proportion to your unit economics." },
+  { q: "Is advertising spend included in your fee?", a: "No. Your management fee covers strategy, campaign build, creative direction, optimisation, and reporting. The advertising budget is separate and paid directly by you to Google, Meta, or whichever platform you advertise on — the accounts stay in your name, so you own the data and the history, and you can see exactly what was spent." },
   { q: "How long does it take to see results from paid ads?", a: "Paid media can show signal quickly — often within the first 4–6 weeks — but sustainable, scalable results typically emerge over a 90-day period. The first month is audit and infrastructure. The second month is structured testing. By month three, you have data-backed clarity on what scales. Agencies promising immediate results are selling you vanity metrics." },
   { q: "What platforms should my business be advertising on?", a: "Platform selection is a function of your customer profile, AOV, and product type. E-commerce brands typically start with Meta and Google. B2B companies often prioritize LinkedIn and Google Search. Consumer apps lean into TikTok and Meta. We don't recommend platforms speculatively — we map channels to where your specific buyer actually spends time and makes decisions." },
   { q: "Do you handle ad creative, or do we need to provide it?", a: "We provide full creative strategy: briefs, format recommendations, hook frameworks, and iteration direction. For production, we work with your internal team or our network of vetted creative partners. We can also manage UGC sourcing and influencer content briefs. What we won't do is run campaigns with unstrategized creative — it's too significant a performance variable." },
@@ -160,11 +161,11 @@ export default function PaidMediaPage() {
           </p>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <Link
-              href="/#contact"
+              href="/contact"
               style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "16px 36px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              Get a Free Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              Book a Growth Audit
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
             <Link
               href="/#services"
@@ -343,11 +344,11 @@ export default function PaidMediaPage() {
             Get a free audit of your current ad accounts. We&apos;ll identify the biggest waste and opportunity in your current setup — no commitment required.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             style={{ background: "#FF5500", color: "white", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 48px", textDecoration: "none", clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))", display: "inline-flex", alignItems: "center", gap: "10px" }}
           >
-            Request a Free Audit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            Book a Growth Audit
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
         </div>
       </section>

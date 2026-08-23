@@ -13,31 +13,31 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { absolute: "Echelon Fox — Your Marketing Team, Monthly" },
+  title: { absolute: "Echelon Fox — Marketing as a Service. Monthly. No Hiring." },
   description:
-    "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+    "A founder-led marketing team you subscribe to monthly. Websites, SEO, paid media, content, email, analytics, and AI automation — run in weekly sprints for businesses across industries.",
   alternates: {
     canonical: "https://echelonfox.com",
   },
   openGraph: {
-    title: "Echelon Fox — Your Marketing Team, Monthly",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     description:
-      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+      "A founder-led marketing team you subscribe to monthly. Websites, SEO, paid media, content, email, analytics, and AI automation — run in weekly sprints.",
     url: "https://echelonfox.com",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Echelon Fox — Your Marketing Team, Monthly" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Echelon Fox — Marketing as a Service. Monthly. No Hiring." }],
   },
   twitter: {
-    title: "Echelon Fox — Your Marketing Team, Monthly",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     description:
-      "Echelon Fox is an embedded marketing team you subscribe to monthly. SEO, paid media, and content run in weekly sprints — strategy and execution, no hiring.",
+      "A founder-led marketing team you subscribe to monthly. Websites, SEO, paid media, content, email, analytics, and AI automation.",
   },
 };
 
 export default function Home() {
   return (
-    <main style={{ background: "#080808", minHeight: "100vh" }}>
-      {/* Static form for Netlify build-time detection — must match all fields in CTA.tsx */}
+    <div style={{ background: "#080808", minHeight: "100vh" }}>
+      {/* Static form for Netlify build-time detection — must match all fields in ContactForm.tsx */}
       <form name="contact" data-netlify="true" netlify-honeypot="bot-field" method="POST" hidden>
         <input type="hidden" name="form-name" value="contact" />
         <input name="bot-field" type="text" />
@@ -48,17 +48,19 @@ export default function Home() {
         <input name="consent" type="checkbox" />
       </form>
       <Nav />
-      <Hero />
-      <Marquee />
-      <Services />
-      <Work />
-      <GrowthSprint />
-      <WorkPreview />
-      <Stats />
-      <About />
-      <Testimonials />
-      <CTA />
+      <main>
+        <Hero />
+        <Marquee />
+        <Services />
+        <Work />
+        <GrowthSprint />
+        <WorkPreview />
+        <Stats />
+        <About />
+        <Testimonials />
+        <CTA />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

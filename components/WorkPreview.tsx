@@ -6,7 +6,7 @@ import { projects } from "@/lib/work-data";
 export default function WorkPreview() {
   return (
     <section
-      id="work"
+      id="selected-work"
       style={{
         padding: "120px 32px",
         background: "#0a0a0a",
@@ -63,7 +63,7 @@ export default function WorkPreview() {
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
           >
             View All Work
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>

@@ -40,7 +40,7 @@ function UnsubscribeContent() {
     return (
       <div style={cardStyle}>
         <div style={iconWrap}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M5 13l4 4L19 7" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
@@ -81,7 +81,7 @@ function UnsubscribeContent() {
   return (
     <div style={cardStyle}>
       <div style={iconWrap}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="var(--orange)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 const values = [
   {
@@ -6,12 +7,12 @@ const values = [
     desc: "We don't celebrate impressions — we celebrate revenue. Every report ties directly to your business outcomes, not agency optics.",
   },
   {
-    title: "Your Brand, Our Obsession",
-    desc: "We embed deep into your category, your competitors, and your customers before writing a single line of copy or setting a single bid.",
+    title: "Your Business, Learned Properly",
+    desc: "We dig into your category, your competitors, and your customers before writing a line of copy or setting a bid — whatever industry you're in.",
   },
   {
     title: "Accountability Built In",
-    desc: "Flat monthly subscription with clearly scoped deliverables. No scope creep, no surprise invoices — just the work we said we'd do, done exceptionally.",
+    desc: "Flat monthly subscription with clearly scoped deliverables. No scope creep, no surprise invoices — just the work we said we'd do. Advertising spend is separate and paid directly to the ad platforms.",
   },
 ];
 
@@ -130,10 +131,10 @@ export default function Testimonials() {
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: "64px" }}>
           <p style={{ color: "#555", fontSize: "0.9rem", marginBottom: "24px" }}>
-            Ready to work with an agency that puts your growth first?
+            Ready to work with a partner who puts your growth first?
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -157,11 +158,11 @@ export default function Testimonials() {
               ((e.currentTarget as HTMLElement).style.background = "#FF5500")
             }
           >
-            Let&apos;s Talk
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            Book a Strategy Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

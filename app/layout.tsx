@@ -13,18 +13,18 @@ const BASE_URL = "https://echelonfox.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Echelon Fox — Performance Marketing for E-Commerce Brands",
+    default: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     template: "%s | Echelon Fox",
   },
   description:
-    "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
+    "Echelon Fox is a founder-led marketing and growth partner for businesses across industries. Websites, SEO, paid media, content, branding, email, CRM, analytics, and AI automation on a monthly subscription.",
   metadataBase: new URL(BASE_URL),
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Echelon Fox — Performance Marketing for E-Commerce Brands",
-    description: "Echelon Fox is a performance marketing studio for e-commerce brands. Paid media, email/CRM, and creative built for profitable, measurable growth.",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
+    description: "A founder-led marketing and growth partner for businesses across industries. Websites, SEO, paid media, content, email, analytics, and AI automation — monthly, no hiring.",
     url: BASE_URL,
     siteName: "Echelon Fox",
     type: "website",
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Echelon Fox — Performance Marketing for E-Commerce Brands",
+        alt: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Echelon Fox — Performance Marketing for E-Commerce Brands",
-    description: "Performance marketing for e-commerce brands that want profitable growth.",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
+    description: "A founder-led marketing and growth partner for businesses across industries — monthly, no hiring.",
     site: "@echelonfox",
     images: ["/opengraph-image"],
   },
@@ -69,9 +69,14 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Echelon Fox",
   url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/eflogo.logo.png`,
   description:
-    "A performance marketing studio for e-commerce brands. Paid media, SEO, brand identity, social media, analytics, and email marketing.",
+    "A founder-led marketing and growth partner for businesses across industries. Website design and build, SEO, paid media, content, brand identity, social media, email and CRM, analytics, and AI automation.",
+  founder: {
+    "@type": "Person",
+    name: "Abe Quinn",
+    jobTitle: "Founder",
+  },
   email: "abe.quinn@echelonfox.com",
   sameAs: [
     "https://www.linkedin.com/company/echelonfox/",
@@ -82,14 +87,16 @@ const organizationSchema = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Digital Marketing Services",
+    name: "Marketing & Growth Services",
     itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Design & Development" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO & Content Strategy" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Paid Media Management" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brand Identity & Creative" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Social Media Management" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics & Growth Strategy" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email & CRM Marketing" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Agents & Business Automation" } },
     ],
   },
 };
@@ -99,11 +106,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "Echelon Fox",
   url: BASE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
+  publisher: { "@type": "Organization", name: "Echelon Fox", url: BASE_URL },
 };
 
 export default function RootLayout({

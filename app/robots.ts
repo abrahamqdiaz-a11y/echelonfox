@@ -5,7 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/admin", "/api", "/unsubscribe"],
     },
     sitemap: "https://echelonfox.com/sitemap.xml",
+    host: "https://echelonfox.com",
   };
 }

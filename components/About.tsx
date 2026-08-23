@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -45,8 +46,9 @@ export default function About() {
           {[
             "Most marketing agencies sell you a retainer and then hand you off to a junior account manager you've never met. You get a monthly PDF full of impressions, a quarterly call where nothing changes, and the slow realization that nobody at the agency actually knows your business.",
             "I started Echelon Fox because I think that model is broken.",
-            "Every client gets a strategist who learns their market, their competitors, and their numbers — and stays in the room as the business changes. Execution runs in weekly sprints so work actually ships, not sits in a backlog. And everything we report ties back to one question: did it grow your business?",
-            "We're small by design. That means you work directly with the people doing the work. No layers, no telephone game, no re-explaining your strategy to someone new every quarter.",
+            "I learn your market, your competitors, and your numbers, and I stay in the room as the business changes. Work runs in weekly sprints so it ships instead of sitting in a backlog. Where a job needs a specialist — a video editor, a developer, a designer — I bring in someone I've worked with and stay accountable for the result.",
+            "That's worked for retail and e-commerce brands, insurance agencies, beauty businesses, pet and home services, and B2B companies. The channels change by industry; the way we work doesn't.",
+            "We're small by design. You work directly with the person doing the work — no layers, no telephone game, no re-explaining your strategy to someone new every quarter.",
             "If that sounds like what you've been looking for, let's talk.",
           ].map((para, i) => (
             <p
@@ -104,10 +106,8 @@ export default function About() {
         </div>
 
         {/* CTA */}
-        <a
-          href="https://cal.com/abe-quinn/growth-meeting"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/contact"
           style={{
             background: "#FF5500",
             color: "white",
@@ -127,10 +127,10 @@ export default function About() {
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#FF5500")}
         >
           Book a Strategy Call
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </Link>
       </div>
     </section>
   );

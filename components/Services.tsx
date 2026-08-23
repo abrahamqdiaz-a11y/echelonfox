@@ -3,53 +3,60 @@ import Link from "next/link";
 
 const services = [
   {
-    number: "00",
-    title: "AI Teammates",
-    desc: "AI teammates that never miss a lead — deployed alongside your team, 24/7. Lead response, front desk, reactivation, and intake built for 5–30-person service firms.",
-    tags: ["Lead Response", "Front Desk", "Reactivation", "Bilingual EN/ES"],
-    href: "/ai-agents",
-  },
-  {
     number: "01",
-    title: "Paid Media & Advertising",
-    desc: "Meta, Google, TikTok, YouTube — we build and manage high-ROAS campaigns that scale. Every dollar works harder.",
-    tags: ["Meta Ads", "Google Ads", "TikTok Ads", "YouTube"],
-    href: "/services/paid-media",
+    title: "Websites & Landing Pages",
+    desc: "Design and build for sites that load fast, read clearly, and turn visitors into enquiries. Plus the ongoing improvements most sites never get.",
+    tags: ["Design & Build", "Landing Pages", "Local SEO Setup"],
+    href: "/websites",
   },
   {
     number: "02",
     title: "SEO & Content Strategy",
-    desc: "Outperform competitors in search with content that converts. We build authority, traffic, and leads that compound over time.",
-    tags: ["Technical SEO", "Content Marketing", "Link Building"],
+    desc: "Get found for the searches your customers actually make. Technical fixes, page structure, and content that compounds into traffic and leads.",
+    tags: ["Technical SEO", "Local SEO", "Content Marketing"],
     href: "/services/seo-content",
   },
   {
     number: "03",
-    title: "Social Media Management",
-    desc: "From strategy to posting to community — we run your social presence like a media brand. Consistent, creative, relentless.",
-    tags: ["Instagram", "LinkedIn", "TikTok", "X / Twitter"],
-    href: "/services/social-media",
+    title: "Paid Media & Advertising",
+    desc: "Meta, Google, TikTok, and YouTube campaigns built and managed against cost per lead or sale — not impressions. Ad spend is billed separately by the platforms.",
+    tags: ["Meta Ads", "Google Ads", "TikTok Ads", "YouTube"],
+    href: "/services/paid-media",
   },
   {
     number: "04",
-    title: "Brand Identity & Creative",
-    desc: "Your brand is your first impression. We build identities that demand attention and creative that makes people stop scrolling.",
-    tags: ["Branding", "Design", "Video", "Copywriting"],
-    href: "/services/brand-identity",
-  },
-  {
-    number: "05",
     title: "Email & CRM Marketing",
-    desc: "Turn your list into a revenue engine. Automated flows, segmentation, and campaigns that convert subscribers into customers.",
+    desc: "Turn your list and your CRM into a follow-up system. Automated flows, segmentation, and campaigns that bring people back instead of letting leads go cold.",
     tags: ["Klaviyo", "HubSpot", "Automations", "A/B Testing"],
     href: "/services/email-crm",
   },
   {
+    number: "05",
+    title: "Social Media Management",
+    desc: "Strategy, content, scheduling, and community — a consistent presence on the channels where your customers already spend their time.",
+    tags: ["Instagram", "LinkedIn", "TikTok", "X / Twitter"],
+    href: "/services/social-media",
+  },
+  {
     number: "06",
+    title: "Brand Identity & Creative",
+    desc: "Your brand is the first impression. Identity, messaging, and creative that make people stop, understand what you do, and trust it.",
+    tags: ["Branding", "Design", "Video", "Copywriting"],
+    href: "/services/brand-identity",
+  },
+  {
+    number: "07",
     title: "Analytics & Growth Strategy",
-    desc: "Data without strategy is noise. We turn your numbers into a roadmap — tracking what matters and scaling what works.",
+    desc: "Data without strategy is noise. Clean tracking, dashboards you'll actually read, and conversion work that lifts results from the traffic you already have.",
     tags: ["GA4", "Dashboards", "CRO", "Attribution"],
     href: "/services/analytics-growth",
+  },
+  {
+    number: "08",
+    title: "AI Agents & Automation",
+    desc: "Practical automation inside the tools you already use — instant lead response, appointment scheduling, CRM workflows, follow-up sequences, and internal admin.",
+    tags: ["Lead Response", "Scheduling", "CRM Workflows", "Follow-Up"],
+    href: "/ai-agents",
   },
 ];
 
@@ -92,12 +99,25 @@ export default function Services() {
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             margin: 0,
-            maxWidth: "600px",
+            maxWidth: "760px",
           }}
         >
-          Services Built to{" "}
-          <span style={{ color: "#FF5500" }}>Dominate</span>
+          Everything a Growing Business{" "}
+          <span style={{ color: "#FF5500" }}>Needs to Market Itself</span>
         </h2>
+        <p
+          style={{
+            color: "#888",
+            fontSize: "1rem",
+            lineHeight: 1.75,
+            maxWidth: "640px",
+            margin: "24px 0 0",
+          }}
+        >
+          Three jobs, whatever your industry: bring the right people in, convert more of the ones
+          already looking, and follow up reliably so nothing leaks. Your plan uses the handful of
+          services that move those numbers for your business — not all eight at once.
+        </p>
       </div>
 
       {/* Grid */}
@@ -206,7 +226,7 @@ export default function Services() {
             </div>
             <div style={{ marginTop: "20px", display: "flex", alignItems: "center", gap: "6px", color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
               Learn More
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </div>
           </Link>
         ))}

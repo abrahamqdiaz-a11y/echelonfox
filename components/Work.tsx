@@ -3,25 +3,25 @@ import Link from "next/link";
 
 const segments = [
   {
-    title: "E-Commerce & DTC",
-    desc: "Online stores and direct-to-consumer brands. SEO, paid media, and email systems built for profitable, repeatable revenue.",
+    title: "Local & Service Businesses",
+    desc: "Insurance agencies, beauty and wellness, pet care, home services, clinics, and professional firms — businesses that win a geographic market on visibility, reviews, and fast follow-up.",
+    href: "/websites",
+    bg: "#0a1a0a",
+    tags: ["Website Design & Build", "Local SEO", "Lead Follow-Up"],
+  },
+  {
+    title: "E-Commerce & Retail",
+    desc: "Online stores and direct-to-consumer brands. Search, paid media, and email systems built around profitable, repeatable revenue rather than traffic for its own sake.",
     href: "/ecommerce",
     bg: "#1a0a00",
     tags: ["Paid Media", "SEO & Content", "Email & CRM"],
   },
   {
-    title: "B2B SaaS",
-    desc: "Software companies that need pipeline, not impressions. Search-led demand generation and content that converts buyers.",
+    title: "B2B & SaaS",
+    desc: "Companies that need pipeline, not impressions. Search-led demand generation and content that answers the questions buyers ask before they ever fill in a form.",
     href: "/saas",
     bg: "#0a0f1a",
     tags: ["SEO & Content", "Paid Search", "Pipeline Content"],
-  },
-  {
-    title: "Local Businesses & Service Providers",
-    desc: "Brick-and-mortar shops, agencies, and service businesses that need a stronger local presence and a steady flow of qualified leads.",
-    href: "/websites",
-    bg: "#0a1a0a",
-    tags: ["Local SEO", "Website Design & Build", "Paid Media"],
   },
 ];
 
@@ -64,14 +64,18 @@ export default function Work() {
             Who We{" "}
             <span style={{ color: "#FF5500" }}>Work With</span>
           </h2>
+          <p style={{ color: "#888", fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", margin: "20px 0 0" }}>
+            We&apos;re not built around one industry. What our clients share is a real business, real
+            revenue, and nobody in-house who owns growth full-time.
+          </p>
         </div>
 
-        {/* Two equal cards */}
+        {/* Segment cards */}
         <div
           className="who-we-work-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "24px",
           }}
         >
@@ -170,7 +174,7 @@ export default function Work() {
                 }}
               >
                 Learn More
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="#FF5500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
@@ -180,6 +184,9 @@ export default function Work() {
       </div>
 
       <style>{`
+        @media (max-width: 1100px) {
+          .who-we-work-grid { grid-template-columns: 1fr 1fr !important; }
+        }
         @media (max-width: 768px) {
           .who-we-work-grid { grid-template-columns: 1fr !important; }
         }

@@ -104,7 +104,7 @@ export default function SaasPage() {
           </p>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <Link
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -121,7 +121,7 @@ export default function SaasPage() {
               }}
             >
               Book a Free Growth Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
@@ -154,9 +154,9 @@ export default function SaasPage() {
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "48px" }}>
             <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+            <h2 style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", margin: 0 }}>
               What We Do
-            </span>
+            </h2>
           </div>
           <div
             className="saas-channels-grid"
@@ -215,7 +215,7 @@ export default function SaasPage() {
             your funnel compares to the competitors winning those clicks.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             style={{
               background: "#FF5500",
               color: "white",
@@ -232,7 +232,7 @@ export default function SaasPage() {
             }}
           >
             Book a Free Growth Audit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>

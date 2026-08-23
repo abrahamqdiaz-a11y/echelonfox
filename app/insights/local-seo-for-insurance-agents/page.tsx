@@ -44,7 +44,7 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Abe Quinn",
-    jobTitle: "Founder & CEO",
+    jobTitle: "Founder",
     worksFor: {
       "@type": "Organization",
       name: "Echelon Fox",
@@ -110,7 +110,7 @@ const faqSchema = {
       name: "How many Google reviews does an insurance agent need to rank locally?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The competitive floor varies by market, but 25–50 Google reviews at 4.5+ stars is a reasonable minimum target before expecting consistent map pack visibility. In major metro markets, top-ranked agencies typically have 100+ reviews. More important than hitting a specific number is maintaining a steady review velocity — 2–4 new reviews per month outperforms a one-time burst followed by inactivity.",
+        text: "There is no threshold Google publishes, and it varies by market. The practical approach is to look at what the agencies currently ranking in your map pack have, and aim to match or beat it — in metro markets that is often well into three figures, in smaller markets far less. Steady accumulation matters more than a target number: a regular trickle of new reviews reads as an active business in a way that a one-off burst followed by silence does not.",
       },
     },
     {
@@ -147,7 +147,7 @@ const faq = [
   },
   {
     q: "How many Google reviews does an insurance agent need to rank locally?",
-    a: "The competitive floor varies by market, but 25–50 Google reviews at 4.5+ stars is a reasonable minimum target before expecting consistent map pack visibility. In major metro markets, top-ranked agencies typically have 100+ reviews. More important than hitting a specific number is maintaining a steady review velocity — 2–4 new reviews per month outperforms a one-time burst followed by inactivity.",
+    a: "There is no threshold Google publishes, and it varies by market. The practical approach is to look at what the agencies currently ranking in your map pack have, and aim to match or beat it — in metro markets that is often well into three figures, in smaller markets far less. Steady accumulation matters more than a target number: a regular trickle of new reviews reads as an active business in a way that a one-off burst followed by silence does not.",
   },
   {
     q: "What local citations matter most for insurance agents?",
@@ -163,7 +163,7 @@ const pillars = [
   {
     num: "01",
     title: "Google Business Profile — Your Most Powerful Local Asset",
-    body: "Your Google Business Profile is the single most important local SEO lever an insurance agent controls. It drives map pack placement, populates Google AI Overviews for local queries, and provides the structured data Google uses to recommend agencies in conversational search. Start here before anything else. Claim and verify your listing if you haven't. Set your primary category to \"Insurance Agency\" and add every relevant secondary category that reflects your specialties — \"Life Insurance Agency,\" \"Auto Insurance Agency,\" \"Home Insurance Agency.\" Complete every field: business description (750 characters, use them), service areas, hours, phone number, and website URL. Upload a minimum of 20 photos — exterior, interior, team headshots, and branded imagery. Publish Google Posts at least twice a month; consistent posting signals business activity to Google's ranking algorithm. In the Products/Services section, list each coverage line you offer as a separate service entry with its own description. Respond to every Q&A submitted to your profile. An actively maintained GBP with strong review velocity consistently outranks abandoned profiles, regardless of office size or advertising spend.",
+    body: "Your Google Business Profile is the single most important local SEO lever an insurance agent controls. It drives map pack placement, populates Google AI Overviews for local queries, and provides the structured data Google uses to recommend agencies in conversational search. Start here before anything else. Claim and verify your listing if you haven't. Set your primary category to \"Insurance Agency\" and add every relevant secondary category that reflects your specialties — \"Life Insurance Agency,\" \"Auto Insurance Agency,\" \"Home Insurance Agency.\" Complete every field: business description (750 characters, use them), service areas, hours, phone number, and website URL. Upload a minimum of 20 photos — exterior, interior, team headshots, and branded imagery. Publish Google Posts at least twice a month; consistent posting signals business activity to Google's ranking algorithm. In the Products/Services section, list each coverage line you offer as a separate service entry with its own description. Respond to every Q&A submitted to your profile. An actively maintained profile with a steady flow of reviews is consistently better placed than an abandoned one — often regardless of how big the office is or what it spends on advertising.",
   },
   {
     num: "02",
@@ -178,7 +178,7 @@ const pillars = [
   {
     num: "04",
     title: "Review Strategy — Volume, Velocity, and Response",
-    body: "Reviews are among the most concrete trust signals Google uses for local ranking — and the most direct proxy for reputation that AI systems can evaluate. An insurance agent with 80 Google reviews at 4.7 stars consistently outranks an agent with 12 reviews at 5.0 stars, all else being equal. Volume and velocity matter more than perfection. Build a systematic review acquisition process around two trigger points: policy completion and annual renewal. At each moment, send a personal SMS or email to the client with a direct link to your Google review page — not a third-party form, not a multi-step redirect. The friction between intent and action is where reviews are lost. Aim for 2–4 new reviews per month as a steady state. A burst of 30 reviews collected during a one-week campaign followed by months of inactivity creates a recency gap that Google weights negatively. Respond to every review within 48 hours — positive and negative. Your response to a 1-star review is visible to every future prospect evaluating your agency. Handle it with professionalism, acknowledge the client's concern, and offer resolution offline. This response behavior is itself a trust signal. Diversify your review footprint beyond Google: Facebook, Trustpilot, and Yelp all feed into the web-wide entity reputation that AI systems evaluate when generating insurance recommendations.",
+    body: "Reviews are among the most concrete trust signals available for local ranking, and the most direct proxy for reputation an AI system can evaluate. As a rule of thumb, a deep body of strong reviews tends to beat a small number of perfect ones — an agent with 80 reviews at 4.7 stars is usually in a better position than one with 12 at 5.0, all else being equal. Volume and velocity matter more than perfection. Build a systematic review acquisition process around two trigger points: policy completion and annual renewal. At each moment, send a personal SMS or email to the client with a direct link to your Google review page — not a third-party form, not a multi-step redirect. The friction between intent and action is where reviews are lost. Aim for 2–4 new reviews per month as a steady state. A burst of 30 reviews collected during a one-week campaign followed by months of inactivity creates a recency gap that Google weights negatively. Respond to every review within 48 hours — positive and negative. Your response to a 1-star review is visible to every future prospect evaluating your agency. Handle it with professionalism, acknowledge the client's concern, and offer resolution offline. This response behavior is itself a trust signal. Diversify your review footprint beyond Google: Facebook, Trustpilot, and Yelp all feed into the web-wide entity reputation that AI systems evaluate when generating insurance recommendations.",
   },
   {
     num: "05",
@@ -225,7 +225,7 @@ const mistakes = [
   },
   {
     title: "Missing or Invalid Schema Markup",
-    desc: "The majority of independent insurance agency websites have no schema markup at all, or have schema copied from a template with placeholder data still intact. Schema is the highest-ROI technical SEO investment for local insurance agents — it tells Google and AI systems exactly what your agency is, who works there, and how clients rate you. Missing it means competing with both hands tied.",
+    desc: "In the agency sites we audit, schema markup is usually either missing entirely or copied from a template with placeholder data still in it. Schema is one of the highest-return technical SEO tasks available to a local insurance agent — it tells Google and AI systems exactly what your agency is, who works there, and how clients rate you. Missing it means competing with both hands tied.",
   },
 ];
 
@@ -376,7 +376,7 @@ export default function LocalSEOInsuranceAgentsPage() {
             </div>
             <div>
               <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abe Quinn</p>
-              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder &amp; CEO, Echelon Fox</p>
+              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder, Echelon Fox</p>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", gap: "24px", alignItems: "center" }}>
               <div style={{ textAlign: "right" }}>
@@ -441,7 +441,7 @@ export default function LocalSEOInsuranceAgentsPage() {
               Those queries produce three places where agents can appear: the Google map pack (the three local business listings that appear above organic results), organic web results, and increasingly, AI-generated answer panels that synthesize a recommendation from GBP data, review signals, and content. Dominating local search means showing up credibly in all three.
             </p>
             <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 28px" }}>
-              The commercial value of these clicks is exceptional. Insurance leads from local organic search convert at 3–5x the rate of paid leads, because the prospect has already chosen to search rather than be interrupted. They&apos;re actively looking for what you offer. Local SEO captures that intent at its peak — and unlike paid ads, the rankings you build compound over time without a cost-per-click attached to each visitor.
+              These clicks tend to be worth more than most other traffic an agency buys, because the prospect chose to search rather than being interrupted — they&apos;re actively looking for what you offer. How much more is worth measuring in your own accounts rather than assuming from an industry average. What is structurally true: unlike paid ads, rankings you build keep sending visitors without a cost-per-click attached to each one.
             </p>
 
             <blockquote
@@ -650,10 +650,10 @@ export default function LocalSEOInsuranceAgentsPage() {
             >
               <p style={{ margin: 0, color: "#888", fontSize: "0.88rem", lineHeight: 1.7 }}>
                 <strong style={{ color: "#eee" }}>Also read:</strong> If your market includes significant competition for AI search visibility, see our companion guide on{" "}
-                <Link href="/blog/ai-search-for-insurance-agencies" style={{ color: "#FF5500", textDecoration: "none" }}>
+                <Link href="/insights/ai-search-for-insurance-agencies" style={{ color: "#FF5500", textDecoration: "none" }}>
                   AI Search for Insurance Agencies
                 </Link>{" "}
-                — the EEAT framework that gets agencies cited in ChatGPT, Perplexity, and Google AI Overviews.
+                — the E-E-A-T approach we use to give agencies a better chance of being cited in ChatGPT, Perplexity, and Google AI Overviews.
               </p>
             </div>
           </section>
@@ -670,10 +670,10 @@ export default function LocalSEOInsuranceAgentsPage() {
               }}
             >
               {[
-                { stat: "3–5×", label: "Higher conversion rate for local organic leads vs. paid insurance leads" },
-                { stat: "4–8 wks", label: "Typical time to first map pack movement after GBP optimization" },
-                { stat: "46%", label: "Of all Google searches have local intent — insurance queries skew higher" },
-                { stat: "78%", label: "Of local mobile searches result in an offline purchase or contact within 24 hours" },
+                { stat: "8", label: "Pillars in the framework below — work them in order rather than picking favourites" },
+                { stat: "4–8 wks", label: "Typical window before GBP work shows movement, in our experience — competitive markets take longer" },
+                { stat: "2–4", label: "New Google reviews per month is a more useful target than a one-off review push" },
+                { stat: "3", label: "Places you can appear on a local query: the map pack, organic results, and AI answers" },
               ].map((item) => (
                 <div key={item.stat} style={{ background: "#0a0a0a", padding: "28px 24px", textAlign: "center" }}>
                   <p style={{ margin: "0 0 8px", fontSize: "1.8rem", fontWeight: 900, color: "#FF5500", letterSpacing: "-0.02em" }}>{item.stat}</p>
@@ -826,12 +826,35 @@ export default function LocalSEOInsuranceAgentsPage() {
             <div>
               <p style={{ margin: "0 0 2px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>About the Author</p>
               <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abe Quinn</h3>
-              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder &amp; CEO, Echelon Fox</p>
+              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder, Echelon Fox</p>
               <p style={{ margin: 0, color: "#777", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                Abe founded Echelon Fox to build performance marketing programs for service businesses and e-commerce brands that want measurable, compounding growth. He has worked directly with insurance agencies on local SEO, digital strategy, and AI search positioning — helping independent agents translate offline expertise into the digital credibility that modern search requires. Echelon Fox&apos;s local SEO frameworks are built on first-hand campaign data, not templates.
+                Abe founded Echelon Fox as a founder-led marketing and growth partner for businesses across industries — websites, SEO, paid media, email, and automation on a monthly subscription. He works directly with insurance agencies on local SEO, website builds, and search visibility, alongside clients in e-commerce, beauty, pet services, and B2B. This guide reflects how he approaches the work rather than a claim about any specific client&apos;s results.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Where to go next ── */}
+      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a" }}>
+        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", margin: "0 0 20px", letterSpacing: "0.02em" }}>
+            Where to go next
+          </h2>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
+            {[
+              { href: "/insights/ai-search-for-insurance-agencies", label: "AI Search for Insurance Agencies", desc: "The companion guide on getting cited in ChatGPT, Perplexity, and AI Overviews." },
+              { href: "/websites", label: "Website Design & Build", desc: "Where the service and location pages in this guide actually get built." },
+              { href: "/contact", label: "Book a Growth Audit", desc: "We'll review your profile, citations, and pages, and tell you what to fix first." },
+            ].map((item) => (
+              <li key={item.href} style={{ background: "#0a0a0a" }}>
+                <Link href={item.href} style={{ display: "block", padding: "22px 24px", textDecoration: "none" }}>
+                  <span style={{ display: "block", color: "#FF5500", fontSize: "0.9rem", fontWeight: 800, marginBottom: "6px" }}>{item.label}</span>
+                  <span style={{ display: "block", color: "#777", fontSize: "0.85rem", lineHeight: 1.65 }}>{item.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -870,7 +893,7 @@ export default function LocalSEOInsuranceAgentsPage() {
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#FF5500",
                 color: "white",
@@ -886,8 +909,8 @@ export default function LocalSEOInsuranceAgentsPage() {
                 gap: "8px",
               }}
             >
-              Get a Free Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              Book a Growth Audit
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>

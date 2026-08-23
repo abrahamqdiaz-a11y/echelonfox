@@ -1,13 +1,14 @@
 "use client";
+import { Fragment } from "react";
 
 const rows = [
   {
     bad: "Rotating account managers who re-learn your business every quarter",
-    good: "A dedicated strategist who knows your market, competitors, and numbers",
+    good: "One person who knows your market, your competitors, and your numbers — start to finish",
   },
   {
     bad: "Monthly PDF reports filled with impressions and click counts",
-    good: "Real-time dashboards tied to revenue, pipeline, and actual growth",
+    good: "Live reporting tied to leads, revenue, and pipeline rather than impressions",
   },
   {
     bad: "File a ticket and wait for the next sprint cycle",
@@ -15,15 +16,15 @@ const rows = [
   },
   {
     bad: "Scope creep, change orders, and surprise invoices",
-    good: "Flat monthly subscription — same fee, no surprises, cancel anytime",
+    good: "Flat monthly subscription — same fee every month, no change orders, ad spend billed separately",
   },
   {
     bad: "Strategy and execution live in different departments",
-    good: "One team does the thinking and the doing — no telephone game",
+    good: "The person planning the work is the person doing it — no telephone game",
   },
   {
     bad: "Annual contracts with auto-renewal traps",
-    good: "Month-to-month with a 2-month notice period — you stay because it works",
+    good: "No annual contract — month to month with 60 days' notice, so you stay because it works",
   },
 ];
 
@@ -71,9 +72,8 @@ export default function OldVsNew() {
 
           {/* Rows */}
           {rows.map((row, i) => (
-            <>
+            <Fragment key={row.bad}>
               <div
-                key={`bad-${i}`}
                 style={{
                   background: i % 2 === 0 ? "#0c0a09" : "#0a0808",
                   padding: "20px 28px",
@@ -87,7 +87,6 @@ export default function OldVsNew() {
                 <p style={{ color: "#888", fontSize: "0.9rem", lineHeight: 1.65, margin: 0 }}>{row.bad}</p>
               </div>
               <div
-                key={`good-${i}`}
                 style={{
                   background: i % 2 === 0 ? "#09100b" : "#080d09",
                   padding: "20px 28px",
@@ -100,7 +99,7 @@ export default function OldVsNew() {
                 <span style={{ color: "#FF5500", flexShrink: 0, marginTop: "2px", fontSize: "0.9rem" }}>→</span>
                 <p style={{ color: "#c8c8c8", fontSize: "0.9rem", lineHeight: 1.65, margin: 0 }}>{row.good}</p>
               </div>
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
