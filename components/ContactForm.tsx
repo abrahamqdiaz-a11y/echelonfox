@@ -61,7 +61,10 @@ export default function ContactForm({
     setStatus("submitting");
     try {
       const domForm = new FormData(e.currentTarget);
-      const res = await fetch("/", {
+      // Netlify only intercepts POSTs to static paths; "/" is served by the
+      // Next.js function, which swallows the submission. POST to the static
+      // form-definition file instead. See PR #48.
+      const res = await fetch("/netlify-forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(domForm as unknown as URLSearchParams).toString(),
@@ -130,7 +133,7 @@ export default function ContactForm({
     <form
       name="contact"
       method="POST"
-      action="/"
+      action="/netlify-forms.html"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-label="Contact Echelon Fox"
