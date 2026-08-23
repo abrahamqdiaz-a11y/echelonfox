@@ -13,7 +13,7 @@ const BASE_URL = "https://echelonfox.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Echelon Fox — Your Marketing Team. Monthly. No Hiring.",
+    default: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     template: "%s | Echelon Fox",
   },
   description:
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Echelon Fox — Your Marketing Team. Monthly. No Hiring.",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     description: "A founder-led marketing and growth partner for businesses across industries. Websites, SEO, paid media, content, email, analytics, and AI automation — monthly, no hiring.",
     url: BASE_URL,
     siteName: "Echelon Fox",
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Echelon Fox — Your Marketing Team. Monthly. No Hiring.",
+        alt: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Echelon Fox — Your Marketing Team. Monthly. No Hiring.",
+    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
     description: "A founder-led marketing and growth partner for businesses across industries — monthly, no hiring.",
     site: "@echelonfox",
     images: ["/opengraph-image"],

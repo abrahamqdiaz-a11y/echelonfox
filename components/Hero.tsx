@@ -71,18 +71,18 @@ export default function Hero() {
         <h1
           ref={headlineRef}
           style={{
-            fontSize: "clamp(2.5rem, 7vw, 6.5rem)",
+            fontSize: "clamp(2.5rem, 6.4vw, 6rem)",
             fontWeight: 900,
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
             margin: "0 0 32px",
-            maxWidth: "900px",
+            maxWidth: "1100px",
           }}
         >
-          Your Marketing Team.{" "}
-          <span style={{ color: "#FF5500" }}>Monthly.</span>
+          Marketing as a{" "}
+          <span style={{ color: "#FF5500" }}>Service.</span>
           <br />
-          No Hiring.
+          Monthly. No Hiring.
         </h1>
 
         {/* Sub copy */}
