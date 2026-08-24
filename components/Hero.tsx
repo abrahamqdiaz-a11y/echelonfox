@@ -92,7 +92,7 @@ export default function Hero() {
             fontSize: "clamp(1rem, 2vw, 1.25rem)",
             lineHeight: 1.7,
             maxWidth: "560px",
-            margin: "0 0 20px",
+            margin: "0 0 48px",
             opacity: 0,
             animation: "fadeUp 0.6s ease 0.5s forwards",
           }}
@@ -100,23 +100,6 @@ export default function Hero() {
           A founder-led marketing team you subscribe to monthly. We help you attract more
           customers, convert more of the traffic you already have, and put marketing systems in
           place that keep working — websites, search, ads, content, email, and automation.
-        </p>
-
-        {/* Trigger-moment positioning line */}
-        <p
-          style={{
-            color: "#666",
-            fontSize: "0.9rem",
-            lineHeight: 1.65,
-            maxWidth: "520px",
-            margin: "0 0 48px",
-            opacity: 0,
-            animation: "fadeUp 0.6s ease 0.6s forwards",
-          }}
-        >
-          We work with businesses across industries — retail and e-commerce, insurance, beauty,
-          pet and home services, professional services, and B2B — usually at the point where
-          founder-led marketing stops scaling and nobody owns growth full-time.
         </p>
 
         {/* CTAs */}
@@ -127,7 +110,7 @@ export default function Hero() {
             gap: "16px",
             flexWrap: "wrap",
             opacity: 0,
-            animation: "fadeUp 0.6s ease 0.7s forwards",
+            animation: "fadeUp 0.6s ease 0.6s forwards",
           }}
         >
           <Link
