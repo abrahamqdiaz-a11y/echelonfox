@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { buildEmailHtml } from "@/lib/email-template";
+import { buildEmailHtml, buildUnsubscribeHeaders } from "@/lib/email-template";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -28,15 +28,21 @@ export async function POST(req: NextRequest) {
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // Check for duplicate
-    const { data: existing } = await supabase
+    // Someone who unsubscribed is opted out of every campaign, not just the one
+    // they clicked from — so never re-add them through a different signup form.
+    const { data: priorRows } = await supabase
       .from("contacts")
-      .select("id")
-      .eq("email", email)
-      .eq("campaign_id", campaign_id)
-      .maybeSingle();
+      .select("id, campaign_id, status")
+      .eq("email", email);
 
-    if (existing) {
+    if (priorRows?.some((row) => row.status === "unsubscribed")) {
+      return NextResponse.json(
+        { ok: true, unsubscribed: true },
+        { headers: CORS_HEADERS }
+      );
+    }
+
+    if (priorRows?.some((row) => row.campaign_id === campaign_id)) {
       return NextResponse.json({ ok: true, duplicate: true }, { headers: CORS_HEADERS });
     }
 
@@ -123,6 +129,7 @@ export async function POST(req: NextRequest) {
             to: email,
             subject: step1.subject,
             html,
+            headers: buildUnsubscribeHeaders(baseUrl, contact.id),
           }),
         });
         const data = await res.json();
