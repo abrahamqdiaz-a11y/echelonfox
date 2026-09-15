@@ -5,6 +5,17 @@ export interface EmailSettings {
   brand_color: string;
 }
 
+/**
+ * RFC 8058 one-click unsubscribe headers. Gmail and Yahoo require these of
+ * bulk senders; without them mail is far likelier to land in spam.
+ */
+export function buildUnsubscribeHeaders(baseUrl: string, contactId: string) {
+  return {
+    "List-Unsubscribe": `<${baseUrl}/api/unsubscribe?contact_id=${contactId}>`,
+    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+  };
+}
+
 export function buildEmailHtml({
   bodyHtml,
   firstName,

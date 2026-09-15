@@ -150,6 +150,12 @@ serve(async (req) => {
           to: contact.email,
           subject: emailStep.subject,
           html,
+          headers: {
+            // RFC 8058 one-click unsubscribe — required of bulk senders by
+            // Gmail and Yahoo.
+            "List-Unsubscribe": `<${APP_URL}/api/unsubscribe?contact_id=${contact.id}>`,
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          },
         }),
       });
 
