@@ -12,6 +12,13 @@ const moved = (source: string, destination: string) => ({ source, destination, s
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Sep 2026: the local SEO and AI search guides were merged into one.
+      // Listed before the /blog rule so old /blog links don't hop twice.
+      moved("/insights/local-seo-for-insurance-agents", "/insights/search-visibility-for-insurance-agencies"),
+      moved("/insights/ai-search-for-insurance-agencies", "/insights/search-visibility-for-insurance-agencies"),
+      moved("/blog/local-seo-for-insurance-agents", "/insights/search-visibility-for-insurance-agencies"),
+      moved("/blog/ai-search-for-insurance-agencies", "/insights/search-visibility-for-insurance-agencies"),
+
       // Articles were consolidated under /insights — keep old /blog URLs working.
       { source: "/blog", destination: "/insights", permanent: true },
       { source: "/blog/:slug*", destination: "/insights/:slug*", permanent: true },
