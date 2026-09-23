@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
-import { ArticleHeader, AuthorBio, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
+import { ArticleHeader, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
 
 export const metadata: Metadata = {
   title: "AI Search for Insurance Agencies: How to Get Found in ChatGPT & Google AI",
@@ -42,14 +42,9 @@ const articleSchema = {
   datePublished: "2025-06-12",
   dateModified: "2025-06-12",
   author: {
-    "@type": "Person",
-    name: "Abe Quinn",
-    jobTitle: "Founder",
-    worksFor: {
-      "@type": "Organization",
-      name: "Echelon Fox",
-      url: "https://echelonfox.com",
-    },
+    "@type": "Organization",
+    name: "EchelonFox",
+    url: "https://echelonfox.com",
   },
   publisher: {
     "@type": "Organization",
@@ -556,9 +551,6 @@ export default function AISearchInsuranceBlogPage() {
               <Faq items={faq} />
             </section>
 
-            <AuthorBio>
-              Abe founded EchelonFox to help established companies find the commercial constraint holding growth back and build what comes next. He works directly with insurance agencies on search visibility and website builds, alongside clients in other industries. This guide sets out how he approaches E-E-A-T and AI search rather than making a claim about any specific client&apos;s results.
-            </AuthorBio>
 
             <NextLinks
               items={[
@@ -574,7 +566,7 @@ export default function AISearchInsuranceBlogPage() {
       <FinalCta
         eyebrow="Where do you appear today?"
         title="Find out what's keeping your agency out of the answer."
-        body="Tell Abe about your agency. He'll look at where you currently appear, what's missing, and what to fix first."
+        body="Tell us about your agency. We'll look at where you currently appear, what's missing, and what to fix first."
       />
     </PageShell>
   );

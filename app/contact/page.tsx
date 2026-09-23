@@ -6,12 +6,12 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Contact — Start a conversation | EchelonFox" },
   description:
-    "Tell Abe Quinn what the business does and where growth feels stuck. Send a message or book a call. Every enquiry gets a personal reply within one business day.",
+    "Tell us what the business does and where growth feels stuck. Send a message or book a call. Every enquiry gets a reply within one business day.",
   alternates: { canonical: "https://echelonfox.com/contact" },
   openGraph: {
     title: "Contact EchelonFox — Start a conversation",
     description:
-      "Send a message or book a call with Abe Quinn. You'll get an honest answer on whether EchelonFox is the right fit.",
+      "Send a message or book a call. You'll get an honest answer on whether EchelonFox is the right fit.",
     url: "https://echelonfox.com/contact",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact EchelonFox" }],
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 const expectations = [
   {
-    title: "A reply from Abe, not a bot",
-    desc: "Every enquiry goes straight to the founder. You'll hear back within one business day.",
+    title: "A reply from a person, not a bot",
+    desc: "Every enquiry is read by the team that would do the work. You'll hear back within one business day.",
   },
   {
     title: "A working call, not a pitch",
@@ -29,7 +29,7 @@ const expectations = [
   },
   {
     title: "An honest answer on fit",
-    desc: "If EchelonFox isn't what you need right now, Abe will say so and point you somewhere useful.",
+    desc: "If EchelonFox isn't what you need right now, we'll say so and point you somewhere useful.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
               Start a conversation.
             </h1>
             <p className="lead" style={{ marginTop: "1.75rem" }}>
-              Tell Abe what the business does, where growth feels stuck, and what you&apos;ve already tried.
+              Tell us what the business does, where growth feels stuck, and what you&apos;ve already tried.
             </p>
 
             <ol className="ruled-list" style={{ marginTop: "2.5rem", borderTopColor: "var(--ink)" }}>
@@ -69,7 +69,7 @@ export default function ContactPage() {
               <p style={{ margin: 0 }}>
                 <span className="muted">Prefer to pick a time? </span>
                 <a className="text-link" href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">
-                  Book a call with Abe directly
+                  Book a call directly
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </p>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Arrow from "./Arrow";
 
@@ -42,22 +41,9 @@ export function ArticleHeader({
         <p className="lead muted" style={{ marginTop: "1.5rem" }}>
           {standfirst}
         </p>
-        <div
-          className="person"
-          style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid var(--rule)", justifyContent: "space-between", flexWrap: "wrap" }}
-        >
-          <span className="person">
-            <Image src="/images/abe-quinn.jpg" alt="" width={112} height={112} />
-            <span className="small">
-              <strong style={{ fontWeight: 500 }}>Abe Quinn</strong>
-              <br />
-              <span className="muted">Founder, EchelonFox</span>
-            </span>
-          </span>
-          <span className="small muted">
-            Published <time dateTime={dateTime}>{date}</time>
-          </span>
-        </div>
+        <p className="small muted" style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid var(--rule)" }}>
+          EchelonFox · Published <time dateTime={dateTime}>{date}</time>
+        </p>
       </div>
     </header>
   );
@@ -123,27 +109,6 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
         </details>
       ))}
     </div>
-  );
-}
-
-export function AuthorBio({ children }: { children: React.ReactNode }) {
-  return (
-    <aside className="panel" aria-label="About the author" style={{ marginTop: "3.5rem" }}>
-      <div className="person" style={{ alignItems: "flex-start" }}>
-        <Image src="/images/abe-quinn.jpg" alt="" width={112} height={112} />
-        <div>
-          <p className="label" style={{ marginBottom: "0.25rem" }}>
-            About the author
-          </p>
-          <p className="serif" style={{ fontSize: "1.35rem", margin: "0 0 0.5rem" }}>
-            Abe Quinn
-          </p>
-          <p className="small muted" style={{ margin: 0 }}>
-            {children}
-          </p>
-        </div>
-      </div>
-    </aside>
   );
 }
 

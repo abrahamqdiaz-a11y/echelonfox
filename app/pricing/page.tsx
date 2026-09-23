@@ -62,7 +62,7 @@ const tiers = [
       "Weekly sprint delivery",
       "Live reporting dashboard",
       "Monthly strategy review",
-      "Direct Slack or email access to Abe",
+      "Direct Slack or email access to your strategy lead",
     ],
     cta: "Start with Starter",
   },
@@ -73,7 +73,7 @@ const tiers = [
     description:
       "For businesses with steady demand that need several parts of the system working at once — search, ads, and follow-up feeding each other rather than running in isolation.",
     teamNote:
-      "Abe stays your point of contact and runs the strategy. Where a sprint needs a specialist — an editor, a designer, a developer — we bring in a vetted freelancer and stay accountable for the output.",
+      "Your strategy lead stays your point of contact and runs the strategy. Where a sprint needs a specialist — an editor, a designer, a developer — we bring in a vetted freelancer and stay accountable for the output.",
     includes: [
       "Up to 3 channels",
       "Weekly sprint delivery",
@@ -91,7 +91,7 @@ const tiers = [
     description:
       "For companies that want every active channel covered plus someone senior accountable for the growth number — at a fraction of the cost of building the function in-house.",
     teamNote:
-      "The fractional equivalent of a marketing lead: strategy, prioritisation, and reporting from Abe, with specialist help brought in per sprint as the work requires.",
+      "The fractional equivalent of a marketing lead: strategy, prioritisation, and reporting from a senior strategy lead, with specialist help brought in per sprint as the work requires.",
     includes: [
       "All active channels",
       "Weekly sprint delivery",
@@ -108,7 +108,7 @@ const tiers = [
 const everyPlan = [
   {
     title: "One point of contact",
-    desc: "The same person runs your account start to finish and knows your market, your numbers, and your goals. No handoffs to someone new each quarter.",
+    desc: "The same strategy lead runs your account start to finish and knows your market, your numbers, and your goals. No handoffs to someone new each quarter.",
   },
   {
     title: "Weekly sprint delivery",
@@ -124,7 +124,7 @@ const everyPlan = [
   },
   {
     title: "Direct access",
-    desc: "You talk to the person doing the work. No account-manager buffer, no ticketing system.",
+    desc: "You talk to the people doing the work. No account-manager buffer, no ticketing system.",
   },
   {
     title: "60 days' notice to cancel",

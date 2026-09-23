@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
-import { ArticleHeader, AuthorBio, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
+import { ArticleHeader, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
 
 export const metadata: Metadata = {
   title: "Local SEO for Insurance Agents: The Complete Guide to Dominating Your Market",
@@ -43,14 +43,9 @@ const articleSchema = {
   datePublished: "2025-07-15",
   dateModified: "2025-07-15",
   author: {
-    "@type": "Person",
-    name: "Abe Quinn",
-    jobTitle: "Founder",
-    worksFor: {
-      "@type": "Organization",
-      name: "Echelon Fox",
-      url: "https://echelonfox.com",
-    },
+    "@type": "Organization",
+    name: "EchelonFox",
+    url: "https://echelonfox.com",
   },
   publisher: {
     "@type": "Organization",
@@ -437,9 +432,6 @@ export default function LocalSEOInsuranceAgentsPage() {
               <Faq items={faq} />
             </section>
 
-            <AuthorBio>
-              Abe founded EchelonFox to help established companies find the commercial constraint holding growth back and build what comes next. He works directly with insurance agencies on local SEO, website builds, and search visibility, alongside clients in other industries. This guide reflects how he approaches the work rather than a claim about any specific client&apos;s results.
-            </AuthorBio>
 
             <NextLinks
               items={[
@@ -455,7 +447,7 @@ export default function LocalSEOInsuranceAgentsPage() {
       <FinalCta
         eyebrow="Ready to own your local market?"
         title="Find out what's holding your agency's visibility back."
-        body="Tell Abe about your agency and your market. He'll look at your profile, citations, and pages, and tell you what to fix first."
+        body="Tell us about your agency and your market. We'll look at your profile, citations, and pages, and tell you what to fix first."
       />
     </PageShell>
   );
