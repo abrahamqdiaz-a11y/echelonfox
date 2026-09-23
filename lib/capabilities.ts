@@ -29,11 +29,12 @@ export const capabilities: Capability[] = [
       "Understand how the business makes money, find the constraint that matters most, and make sure the company describes itself in a way its best customers recognise.",
     metaTitle: "Commercial Diagnosis and Positioning",
     metaDescription:
-      "Sales and customer analysis, segmentation, and positioning for established companies. Find the commercial constraint holding growth back and decide what to fix first.",
+      "Sales, customer, and operations analysis, segmentation, and positioning for established companies. Find the constraint holding growth back and decide what to fix first.",
     signs: [
       "Revenue is growing unevenly, or not at all, and nobody can say exactly why.",
       "Marketing spend and staffing are set by habit rather than by where sales come from.",
       "Different people in the company describe what you do in different ways.",
+      "The team is busy, but in the wrong places: effort and scheduling don't match when customers actually buy.",
       "You're about to invest in a new website, agency, or CRM and want to be sure it solves the right problem.",
     ],
     includes: [
@@ -44,6 +45,7 @@ export const capabilities: Capability[] = [
           "Customer segmentation, including your highest-value buyer groups",
           "Timing patterns: which days, weeks, and seasons carry the business",
           "A review of the path from first contact to first purchase to repeat business",
+          "A review of operations: staffing, scheduling, and the handoffs between sales, marketing, and delivery",
           "A review of current spend, tools, and vendors",
           "A written read on where growth is stuck and what to fix first",
         ],

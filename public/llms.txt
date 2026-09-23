@@ -4,11 +4,11 @@
 
 ## About
 
-EchelonFox is led by founder Abe Quinn, who reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. His background includes enterprise B2B sales, founding a startup acquired by Staples, and operations and kitchen experience. He is an American based in Finland, working with U.S. businesses.
+EchelonFox reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. The team's experience includes enterprise B2B sales, building a startup through to an acquisition by Staples, and operations.
 
 Engagements follow four stages: Diagnose → Design → Build → Improve. Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution, chosen after the commercial problem is diagnosed.
 
-- [About](https://echelonfox.com/about): How Abe reads a business, finds the constraint, and leads the build.
+- [About](https://echelonfox.com/about): We find the gaps that hold a growing business back, in how it sells, markets, and operates, then lead the work to fix them.
 - [Contact](https://echelonfox.com/contact): Send a message or book a call.
 
 ## Services

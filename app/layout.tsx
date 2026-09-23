@@ -81,13 +81,7 @@ const organizationSchema = {
   name: SITE.name,
   url: SITE.url,
   logo: `${SITE.url}/eflogo.logo.png`,
-  image: `${SITE.url}/images/abe-quinn.jpg`,
   description: SITE.description,
-  founder: {
-    "@type": "Person",
-    name: "Abe Quinn",
-    jobTitle: "Founder",
-  },
   email: SITE.email,
   sameAs: [SITE.linkedin],
   areaServed: { "@type": "Country", name: "United States" },

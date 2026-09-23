@@ -74,7 +74,7 @@ export default function WorkPage() {
           <p className="body muted">
             Clients are described by category until they&apos;ve given written permission to be named. Figures
             are only published when they come from a client&apos;s own analytics or accounts and the client has
-            agreed to share them. On a call, Abe can walk you through the work in more detail and say which parts
+            agreed to share them. On a call, we can walk you through the work in more detail and say which parts
             of a result the work can fairly claim.
           </p>
         </div>

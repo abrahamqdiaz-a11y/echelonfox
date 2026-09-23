@@ -8,8 +8,8 @@ import { SITE } from "@/lib/site";
  */
 export default function FinalCta({
   eyebrow = "Start a conversation",
-  title = "Tell Abe where growth feels stuck.",
-  body = "Send a short note about the business and what you've tried. Every enquiry goes straight to Abe, and you'll hear back within one business day.",
+  title = "Tell us where growth feels stuck.",
+  body = "Send a short note about the business and what you've tried. We read every enquiry and reply within one business day.",
   label = "Start a conversation",
 }: {
   eyebrow?: string;
@@ -38,7 +38,7 @@ export default function FinalCta({
             <p className="small muted" style={{ margin: 0 }}>
               Prefer to pick a time?{" "}
               <a className="text-link" href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">
-                Book a call with Abe directly
+                Book a call directly
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
               .

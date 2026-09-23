@@ -63,7 +63,7 @@ export default function ContactForm({
           Thanks — your message is in.
         </p>
         <p className="muted" style={{ margin: "0 0 1.5rem" }}>
-          Abe reads every enquiry personally and replies within one business day. If you&apos;d rather
+          We read every enquiry and reply within one business day. If you&apos;d rather
           pick a time now, you can book straight into the calendar.
         </p>
         <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn--ghost">

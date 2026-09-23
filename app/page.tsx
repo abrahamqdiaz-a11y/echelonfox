@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import PenMark from "@/components/site/PenMark";
@@ -47,9 +46,9 @@ const reads = [
     body: "The path from first contact to first purchase to repeat business, and what the company does, or doesn't do, at each step.",
   },
   {
-    label: "Process",
+    label: "Operations",
     title: "Where it slows down",
-    body: "Handoffs between marketing, sales, and delivery. Follow-up that depends on memory. Tools that don't talk to each other.",
+    body: "Handoffs between marketing, sales, and delivery. Follow-up that depends on memory. Staff stretched in the wrong places. Tools that don't talk to each other.",
   },
   {
     label: "Priority",
@@ -77,7 +76,7 @@ const path = [
     num: "03",
     name: "Build",
     sub: "Lead the work.",
-    body: "Build what the plan calls for: pages, campaigns, CRM workflows, automations, or process changes. Abe leads it directly and brings in a specialist where a job needs one.",
+    body: "Build what the plan calls for: pages, campaigns, CRM workflows, automations, or process changes. We lead it directly and bring in a specialist where a job needs one.",
     out: "Work shipped in weekly sprints.",
   },
   {
@@ -140,15 +139,8 @@ export default function Home() {
                 </dd>
               </div>
               <div>
-                <dt>Led by</dt>
-                <dd className="person">
-                  <Image src="/images/abe-quinn.jpg" alt="Abe Quinn" width={112} height={112} priority />
-                  <span>
-                    Abe Quinn, founder.
-                    <br />
-                    You work with him directly.
-                  </span>
-                </dd>
+                <dt>How</dt>
+                <dd>Diagnose first. Then design, build, and improve what the diagnosis says matters most.</dd>
               </div>
             </dl>
           </div>
@@ -192,7 +184,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3 — How does Abe diagnose the problem and decide what to fix? */}
+        {/* 3 — How is the problem diagnosed, and how is the fix decided? */}
         <section className="section section--card" aria-labelledby="approach-title" id="approach">
           <div className="container">
             <div className="section-head">
@@ -201,8 +193,8 @@ export default function Home() {
                 Start with how the business makes money.
               </h2>
               <p className="lead muted">
-                Before recommending a channel or a tool, Abe reads the business the way an operator would: where
-                revenue comes from, how customers are won and kept, and where that process slows down. The aim is
+                Before recommending a channel or a tool, we read the business the way an operator would: where
+                revenue comes from, how customers are won and kept, and how the business runs day to day. The aim is
                 to find the one constraint that, once fixed, makes the rest of the work easier.
               </p>
             </div>
@@ -227,18 +219,21 @@ export default function Home() {
                   It&apos;s built to be useful on its own, before anything is implemented.
                 </p>
               </div>
-              <figure className="person" style={{ margin: 0, alignItems: "flex-start" }}>
-                <Image src="/images/abe-quinn.jpg" alt="Portrait of Abe Quinn" width={112} height={112} />
-                <figcaption className="small muted">
-                  <strong style={{ color: "var(--ink)", fontWeight: 500 }}>Abe Quinn</strong> has sold enterprise
-                  B2B, founded a startup that was acquired by Staples, and worked in operations and professional
-                  kitchens. The common thread: understand how the work actually gets done before deciding what to
-                  change.{" "}
+              <div className="stack" style={{ ["--stack" as string]: "1rem" }}>
+                <p className="label">What we look at</p>
+                <ul className="check-list small">
+                  <li>Sales, POS, and CRM records you already have</li>
+                  <li>Which customers, products, and days carry the business</li>
+                  <li>The path from first contact to repeat purchase</li>
+                  <li>Staffing, scheduling, and the day-to-day processes behind a sale</li>
+                  <li>Current spend, tools, and vendors</li>
+                </ul>
+                <p className="small muted" style={{ margin: 0 }}>
                   <Link href="/about" className="text-link">
-                    More about Abe
+                    More about how we work
                   </Link>
-                </figcaption>
-              </figure>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -395,11 +390,11 @@ export default function Home() {
               <div className="stack">
                 <p className="eyebrow">Start a conversation</p>
                 <h2 id="contact-title" className="h2">
-                  Tell Abe where growth feels stuck.
+                  Tell us where growth feels stuck.
                 </h2>
                 <p className="body muted">
-                  Send a short note about the business and what you&apos;ve tried. Abe reads every enquiry
-                  personally and replies within one business day.
+                  Send a short note about the business and what you&apos;ve tried. We read every enquiry and
+                  reply within one business day.
                 </p>
                 <ul className="ruled-list small" style={{ marginTop: "2rem" }}>
                   <li>
@@ -411,12 +406,12 @@ export default function Home() {
                   </li>
                   <li>
                     <strong style={{ fontWeight: 500 }}>An honest answer on fit.</strong>{" "}
-                    <span className="muted">If EchelonFox isn&apos;t what you need right now, Abe will say so.</span>
+                    <span className="muted">If EchelonFox isn&apos;t what you need right now, we&apos;ll say so.</span>
                   </li>
                   <li>
                     <span className="muted">Prefer to pick a time? </span>
                     <a className="text-link" href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">
-                      Book a call with Abe directly
+                      Book a call directly
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   </li>
