@@ -1,47 +1,58 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import { SITE } from "@/lib/site";
 
-const inter = Inter({
+// next/font self-hosts these files on our own domain and preloads them, so no
+// visitor request goes to Google (see the privacy policy, section 5).
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500"],
+  variable: "--font-newsreader",
   display: "swap",
+  fallback: ["Iowan Old Style", "Palatino Linotype", "Palatino", "Georgia", "serif"],
 });
 
-const BASE_URL = "https://echelonfox.com";
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-sans",
+  display: "swap",
+  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-plex-mono",
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
-    template: "%s | Echelon Fox",
+    default: `${SITE.name} — Commercial growth strategy and implementation`,
+    template: `%s | ${SITE.name}`,
   },
-  description:
-    "Echelon Fox is a founder-led marketing and growth partner for businesses across industries. Websites, SEO, paid media, content, branding, email, CRM, analytics, and AI automation on a monthly subscription.",
-  metadataBase: new URL(BASE_URL),
+  description: SITE.description,
+  metadataBase: new URL(SITE.url),
   alternates: {
-    canonical: BASE_URL,
+    canonical: SITE.url,
   },
   openGraph: {
-    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
-    description: "A founder-led marketing and growth partner for businesses across industries. Websites, SEO, paid media, content, email, analytics, and AI automation — monthly, no hiring.",
-    url: BASE_URL,
-    siteName: "Echelon Fox",
+    title: `${SITE.name} — Find what's holding growth back. Build what comes next.`,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${SITE.name} — Find what's holding growth back. Build what comes next.` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Echelon Fox — Marketing as a Service. Monthly. No Hiring.",
-    description: "A founder-led marketing and growth partner for businesses across industries — monthly, no hiring.",
+    title: `${SITE.name} — Find what's holding growth back. Build what comes next.`,
+    description: SITE.description,
     site: "@echelonfox",
     images: ["/opengraph-image"],
   },
@@ -59,44 +70,35 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FF5500",
+  themeColor: "#F4F0E8",
   width: "device-width",
   initialScale: 1,
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Echelon Fox",
-  url: BASE_URL,
-  logo: `${BASE_URL}/eflogo.logo.png`,
-  description:
-    "A founder-led marketing and growth partner for businesses across industries. Website design and build, SEO, paid media, content, brand identity, social media, email and CRM, analytics, and AI automation.",
+  "@type": "ProfessionalService",
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/eflogo.logo.png`,
+  image: `${SITE.url}/images/abe-quinn.jpg`,
+  description: SITE.description,
   founder: {
     "@type": "Person",
     name: "Abe Quinn",
     jobTitle: "Founder",
   },
-  email: "abe.quinn@echelonfox.com",
-  sameAs: [
-    "https://www.linkedin.com/company/echelonfox/",
-  ],
-  serviceArea: {
-    "@type": "AdministrativeArea",
-    name: "Worldwide",
-  },
+  email: SITE.email,
+  sameAs: [SITE.linkedin],
+  areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Marketing & Growth Services",
+    name: "Commercial growth strategy and implementation",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Design & Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO & Content Strategy" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Paid Media Management" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brand Identity & Creative" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Social Media Management" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics & Growth Strategy" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email & CRM Marketing" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Agents & Business Automation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial diagnosis and positioning", url: `${SITE.url}/services/commercial-diagnosis` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Customer acquisition and conversion", url: `${SITE.url}/services/customer-acquisition` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sales process, CRM, and follow-up", url: `${SITE.url}/services/sales-process-crm` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Practical AI and automation", url: `${SITE.url}/services/ai-automation` } },
     ],
   },
 };
@@ -104,9 +106,9 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Echelon Fox",
-  url: BASE_URL,
-  publisher: { "@type": "Organization", name: "Echelon Fox", url: BASE_URL },
+  name: SITE.name,
+  url: SITE.url,
+  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function RootLayout({
@@ -115,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -126,7 +128,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="antialiased">
+      <body>
         {children}
         <CookieConsent />
       </body>

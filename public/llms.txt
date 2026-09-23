@@ -1,35 +1,27 @@
-# Echelon Fox
+# EchelonFox
 
-> Echelon Fox is a founder-led marketing and growth partner for businesses across industries. We work as your marketing team on a monthly subscription — strategy and execution in weekly sprints, no hiring required.
+> EchelonFox provides commercial growth strategy and implementation for established companies. It works with leaders of proven companies, typically 10–30 people, whose growth has become fragmented: it identifies the commercial constraint that matters most, then connects positioning, customer acquisition, sales processes, and technology into a clearer way to grow.
 
 ## About
 
-Echelon Fox is run by founder Abe Quinn. Clients work directly with the person doing the work rather than a rotating account team. Engagements cover website design and build, SEO and content, paid media, social media, brand identity, email and CRM, analytics and conversion work, and AI agents and business automation. Industries served include retail and e-commerce, insurance, beauty, pet and home services, professional services, and B2B.
+EchelonFox is led by founder Abe Quinn, who reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. His background includes enterprise B2B sales, founding a startup acquired by Staples, and operations and kitchen experience. He is an American based in Finland, working with U.S. businesses.
 
-- [About Echelon Fox](https://echelonfox.com/about): Who we are, how we work, and what an engagement looks like.
-- [Contact](https://echelonfox.com/contact): Send a message or book a strategy call.
+Engagements follow four stages: Diagnose → Design → Build → Improve. Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution, chosen after the commercial problem is diagnosed.
+
+- [About](https://echelonfox.com/about): How Abe reads a business, finds the constraint, and leads the build.
+- [Contact](https://echelonfox.com/contact): Send a message or book a call.
 
 ## Services
 
-- [Website Design & Build](https://echelonfox.com/websites): Flat-rate website design and build with local SEO basics included.
-- [SEO & Content Strategy](https://echelonfox.com/services/seo-content): Technical SEO, content, and digital PR that build sustained organic visibility.
-- [Paid Media Management](https://echelonfox.com/services/paid-media): Campaigns across Meta, Google, TikTok, and YouTube, managed against cost per lead or sale.
-- [Brand Identity & Creative](https://echelonfox.com/services/brand-identity): Branding, design systems, video, and copywriting.
-- [Social Media Management](https://echelonfox.com/services/social-media): Instagram, LinkedIn, TikTok, and X — strategy, content, scheduling, and community.
-- [Analytics & Growth Strategy](https://echelonfox.com/services/analytics-growth): GA4 setup, dashboards, conversion rate work, and attribution.
-- [Email & CRM Marketing](https://echelonfox.com/services/email-crm): Klaviyo, HubSpot, automations, segmentation, and campaign strategy.
-- [AI Agents & Automation](https://echelonfox.com/ai-agents): Lead response, appointment scheduling, CRM workflows, customer follow-up, and internal process automation.
-
-## Industries
-
-- [E-Commerce & Retail](https://echelonfox.com/ecommerce): SEO, paid media, email, and creative built around profitable revenue growth.
-- [B2B & SaaS](https://echelonfox.com/saas): Pipeline-focused SEO, paid search, and content built around qualified demos and signups.
-- [Local & Service Businesses](https://echelonfox.com/websites): Websites and local search for businesses that serve a geographic market.
+- [Commercial diagnosis and positioning](https://echelonfox.com/services/commercial-diagnosis): Sales and customer analysis, segmentation, positioning, and measurement.
+- [Customer acquisition and conversion](https://echelonfox.com/services/customer-acquisition): Websites, search, local visibility, Google Shopping, and paid media. Website projects are flat-rate from $1,000.
+- [Sales process, CRM, and follow-up](https://echelonfox.com/services/sales-process-crm): CRM setup, pipeline design, and lifecycle email and SMS.
+- [Practical AI and automation](https://echelonfox.com/services/ai-automation): Lead response, scheduling, CRM workflows, follow-up, and admin automation, with human handoff.
 
 ## Work, Pricing & Insights
 
-- [Selected Work](https://echelonfox.com/work): Projects across insurance, beauty and e-commerce, and pet services.
-- [Pricing](https://echelonfox.com/pricing): Flat monthly plans starting at $1,500/mo. Advertising spend is billed separately by the ad platforms.
+- [Work](https://echelonfox.com/work): Case studies in the format asked for → broader issue found → what was built → outcome where evidence exists.
+- [Pricing](https://echelonfox.com/pricing): Flat monthly plans starting at $1,500/mo, 60 days' notice to cancel. Advertising spend is billed separately by the ad platforms.
 - [Insights](https://echelonfox.com/insights): Practical guides on local SEO, AI search, and growth.
 
 ## Contact

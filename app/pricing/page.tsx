@@ -1,218 +1,317 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import GrowthSprint from "@/components/GrowthSprint";
-import OldVsNew from "@/components/OldVsNew";
-import PricingClient from "./PricingClient";
+import PageShell from "@/components/site/PageShell";
+import PageHero from "@/components/site/PageHero";
+import FinalCta from "@/components/site/FinalCta";
+import Arrow from "@/components/site/Arrow";
+
+/*
+ * Every price, inclusion, and term on this page is a business commitment carried
+ * over from the previous pricing page. Reframe freely; change the numbers and
+ * terms only when the offer itself changes.
+ */
+
+const TITLE = "Pricing";
+const DESCRIPTION =
+  "Flat-rate monthly plans from $1,500/mo. Every engagement starts with a diagnosis of where growth is stuck. Weekly sprints, live reporting, and 60 days' notice to cancel. Ad spend billed separately.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Pricing — Echelon Fox" },
-  description:
-    "Flat-rate monthly marketing plans from $1,500/mo for businesses across industries. Weekly sprints, live reporting, and 60 days' notice to cancel. Ad spend billed separately.",
+  title: { absolute: "Pricing — EchelonFox" },
+  description: DESCRIPTION,
   alternates: { canonical: "https://echelonfox.com/pricing" },
   openGraph: {
-    title: "Pricing — Echelon Fox",
-    description: "Flat-rate monthly marketing plans. Weekly sprints, live reporting, 60 days' notice to cancel.",
+    title: "Pricing — EchelonFox",
+    description: "Flat-rate monthly plans. Diagnosis first, then weekly sprints, live reporting, and 60 days' notice to cancel.",
     url: "https://echelonfox.com/pricing",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Pricing — Echelon Fox" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${TITLE} — EchelonFox` }],
   },
 };
 
+const start = [
+  {
+    when: "Week 1",
+    name: "Diagnose",
+    title: "Deep-dive kickoff",
+    desc: "We review your business goals, sales data, current marketing, analytics, competitive landscape, and the channels you've tried — and identify what's working, what's wasted, and where the constraint is.",
+  },
+  {
+    when: "Week 2",
+    name: "Design",
+    title: "Roadmap delivery",
+    desc: "You get a clear, prioritized plan: what to fix first, which actions, in which order, and what each is worth. No 40-page strategy deck — a working document we execute against starting week three.",
+  },
+  {
+    when: "Week 3+",
+    name: "Build & improve",
+    title: "Sprint one kicks off",
+    desc: "Defined actions, defined outputs, shipped weekly, with a monthly strategy review of what's working, what's being cut, and what the next sprint prioritizes.",
+  },
+];
+
+const tiers = [
+  {
+    name: "Starter",
+    tagline: "One priority, done properly.",
+    price: "$1,500",
+    description:
+      "For businesses that need to fix one part of the system properly before adding more. One primary channel, weekly output, and a plan you can see progress against.",
+    teamNote: null as string | null,
+    includes: [
+      "1 primary channel (your choice)",
+      "Weekly sprint delivery",
+      "Live reporting dashboard",
+      "Monthly strategy review",
+      "Direct Slack or email access to Abe",
+    ],
+    cta: "Start with Starter",
+  },
+  {
+    name: "Growth",
+    tagline: "The parts that matter, working together.",
+    price: "$3,500",
+    description:
+      "For businesses with steady demand that need several parts of the system working at once — search, ads, and follow-up feeding each other rather than running in isolation.",
+    teamNote:
+      "Abe stays your point of contact and runs the strategy. Where a sprint needs a specialist — an editor, a designer, a developer — we bring in a vetted freelancer and stay accountable for the output.",
+    includes: [
+      "Up to 3 channels",
+      "Weekly sprint delivery",
+      "Live reporting dashboard",
+      "Monthly strategy review",
+      "Direct Slack or email access",
+      "Quarterly competitive review",
+    ],
+    cta: "Start with Growth",
+  },
+  {
+    name: "Fractional",
+    tagline: "Commercial leadership without the hire.",
+    price: "$6,500",
+    description:
+      "For companies that want every active channel covered plus someone senior accountable for the growth number — at a fraction of the cost of building the function in-house.",
+    teamNote:
+      "The fractional equivalent of a marketing lead: strategy, prioritisation, and reporting from Abe, with specialist help brought in per sprint as the work requires.",
+    includes: [
+      "All active channels",
+      "Weekly sprint delivery",
+      "Live reporting dashboard",
+      "Weekly strategy sync (30 min)",
+      "Direct Slack or email access",
+      "Monthly competitive review",
+      "Board-level reporting on request",
+    ],
+    cta: "Enquire About Fractional",
+  },
+];
+
+const everyPlan = [
+  {
+    title: "One point of contact",
+    desc: "The same person runs your account start to finish and knows your market, your numbers, and your goals. No handoffs to someone new each quarter.",
+  },
+  {
+    title: "Weekly sprint delivery",
+    desc: "Every week has defined actions and defined outputs. Work ships every week, not once a quarter.",
+  },
+  {
+    title: "Live reporting dashboard",
+    desc: "Reporting tied to leads, sales, and pipeline rather than impressions — available whenever you want to look, not just at review time.",
+  },
+  {
+    title: "Monthly strategy review",
+    desc: "A structured 60-minute review of what's working, what's being cut, and what the next sprint prioritizes.",
+  },
+  {
+    title: "Direct access",
+    desc: "You talk to the person doing the work. No account-manager buffer, no ticketing system.",
+  },
+  {
+    title: "60 days' notice to cancel",
+    desc: "Month to month with a 60-day notice period — no annual contract and no auto-renewal lock-in, but the notice window is real and worth knowing before you start.",
+  },
+];
+
+const terms = [
+  ["Fee", "Flat monthly subscription — same fee every month, no change orders, no surprise invoices."],
+  ["Billing", "Billed monthly. Prices shown are starting points for each plan."],
+  ["Commitment", "No annual contract — month to month with 60 days' notice."],
+  ["Ad spend", "Separate from all fees on this page, paid directly to the ad platforms."],
+];
+
+const fixedScope = [
+  {
+    name: "Website project",
+    price: "From $1,000",
+    detail: "Flat-rate design and build. One price, agreed up front, before work starts. Local SEO basics included.",
+    href: "/services/customer-acquisition",
+  },
+  {
+    name: "AI Opportunity Audit",
+    price: "$750–$1,500",
+    detail: "Flat fee, about a week, credited toward a build if you go ahead.",
+    href: "/services/ai-automation#pricing",
+  },
+  {
+    name: "AI agent setup",
+    price: "From $1,500",
+    detail: "Per agent, one-time, typically 2–4 weeks.",
+    href: "/services/ai-automation#pricing",
+  },
+  {
+    name: "AI agent management",
+    price: "From $500/mo",
+    detail: "Single Agent $500/mo · Multi-Agent $1,200/mo · Embedded from $2,500/mo. Platform usage billed separately at cost.",
+    href: "/services/ai-automation#pricing",
+  },
+];
+
+const addOns = [
+  {
+    group: "Diagnosis and positioning",
+    items: [
+      { label: "Brand & Creative", note: "Ad creative, landing pages, copy" },
+      { label: "Analytics & CRO", note: "GA4, dashboards, conversion rate work" },
+    ],
+  },
+  {
+    group: "Acquisition and conversion",
+    items: [
+      { label: "Website & Landing Pages", note: "Design, build, and ongoing page work" },
+      { label: "SEO & Content", note: "Technical, on-page, content production" },
+      { label: "Paid Media", note: "Meta, Google, TikTok, YouTube — ad spend separate" },
+      { label: "Social Media", note: "Strategy, content, scheduling, community" },
+    ],
+  },
+  {
+    group: "Sales process and CRM",
+    items: [{ label: "Email & CRM", note: "Klaviyo, HubSpot, lifecycle flows" }],
+  },
+  {
+    group: "AI and automation",
+    items: [{ label: "AI & Automation", note: "Lead response, scheduling, CRM workflows" }],
+  },
+];
+
 export default function PricingPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
-      <Nav />
+    <PageShell>
+      <PageHero
+        eyebrow="Pricing"
+        title="Diagnosis first. Then a plan sized to the work."
+        lead="Every engagement starts by finding the constraint. The plan sets how much can be built at once: one priority, several parts working together, or senior leadership across all of it. Fees are flat and monthly; advertising spend is separate and paid directly to the ad platforms."
+      />
 
-      {/* Hero */}
-      <section
-        style={{
-          padding: "160px 32px 100px",
-          position: "relative",
-          overflow: "hidden",
-          borderBottom: "1px solid #1a1a1a",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,85,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.04) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "10%",
-            right: "-5%",
-            width: "500px",
-            height: "500px",
-            background: "radial-gradient(circle, rgba(255,85,0,0.08) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ maxWidth: "1400px", margin: "0 auto", position: "relative" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-            <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 12px #FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Pricing
-            </span>
+      {/* How an engagement starts */}
+      <section className="section section--card" aria-labelledby="start-title">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">How every plan starts</p>
+            <h2 id="start-title" className="h2">
+              The first two weeks are the diagnosis.
+            </h2>
+            <p className="lead muted">
+              Before anything is built or bought, we learn how the business makes money. Every engagement starts
+              the same way.
+            </p>
           </div>
-          <h1
-            style={{
-              fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-              fontWeight: 900,
-              lineHeight: 0.95,
-              letterSpacing: "-0.03em",
-              margin: "0 0 28px",
-              maxWidth: "800px",
-            }}
-          >
-            Flat Rate.{" "}
-            <span style={{ color: "#FF5500" }}>Weekly</span>
-            <br />
-            Output.
-          </h1>
-          <p style={{ color: "#aaa", fontSize: "clamp(1rem, 2vw, 1.2rem)", lineHeight: 1.75, maxWidth: "560px", margin: 0 }}>
-            One monthly fee, one point of contact who knows your business, and work that ships
-            every week instead of sitting in a backlog waiting for a report. Advertising spend is
-            separate and paid directly to the ad platforms.
-          </p>
+          <ol className="path path--3">
+            {start.map((s, i) => (
+              <li key={s.title} className={`path-step${i === 0 ? " path-step--active" : ""}`}>
+                <span className="path-step__num">
+                  {String(i + 1).padStart(2, "0")} · {s.when}
+                </span>
+                <h3 className="path-step__name">{s.name}</h3>
+                <p className="path-step__sub">{s.title}</p>
+                <p className="small muted" style={{ margin: 0 }}>
+                  {s.desc}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* How We Work — Growth Sprint */}
-      <GrowthSprint />
-
-      {/* Every Plan Includes */}
-      <section style={{ padding: "100px 32px", background: "#0a0a0a", borderBottom: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "48px" }}>
-            <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Every Plan Includes
-            </span>
+      {/* Plans */}
+      <section className="section" aria-labelledby="plans-title" id="plans">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Monthly plans</p>
+            <h2 id="plans-title" className="h2">
+              Three plans, sized by how much can move at once.
+            </h2>
           </div>
-          <div
-            className="every-plan-grid"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}
-          >
-            {[
-              { title: "One Point of Contact", desc: "The same person runs your account start to finish and knows your market, your numbers, and your goals. No handoffs to someone new each quarter." },
-              { title: "Weekly Sprint Delivery", desc: "Every week has defined actions and defined outputs. Work ships every week, not once a quarter." },
-              { title: "Live Reporting Dashboard", desc: "Reporting tied to leads, sales, and pipeline rather than impressions — available whenever you want to look, not just at review time." },
-              { title: "Monthly Strategy Review", desc: "A structured 60-minute review of what's working, what's being cut, and what the next sprint prioritizes." },
-              { title: "Direct Access", desc: "You talk to the person doing the work. No account-manager buffer, no ticketing system." },
-              { title: "60 Days' Notice to Cancel", desc: "Month to month with a 60-day notice period — no annual contract and no auto-renewal lock-in, but the notice window is real and worth knowing before you start." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                style={{
-                  background: "#0f0f0f",
-                  border: "1px solid #1e1e1e",
-                  padding: "28px 24px",
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                }}
-              >
-                <div style={{ width: "6px", height: "6px", background: "#FF5500", borderRadius: "50%", flexShrink: 0, marginTop: "7px" }} />
+
+          <div className="plans">
+            {tiers.map((tier) => (
+              <article key={tier.name} className="plan" aria-labelledby={`plan-${tier.name}`}>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "#fff", marginBottom: "6px" }}>{item.title}</div>
-                  <p style={{ color: "#999", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
+                  <h3 id={`plan-${tier.name}`} className="h3" style={{ fontSize: "1.9rem" }}>
+                    {tier.name}
+                  </h3>
+                  <p className="muted small" style={{ margin: "0.3rem 0 0" }}>
+                    {tier.tagline}
+                  </p>
                 </div>
-              </div>
+                <div>
+                  <p className="label" style={{ marginBottom: "0.5rem" }}>
+                    Starting at
+                  </p>
+                  <p className="plan__price" style={{ margin: 0 }}>
+                    {tier.price}
+                    <span>/mo</span>
+                  </p>
+                  <p className="plan__terms" style={{ marginTop: "0.75rem" }}>
+                    Billed monthly · 60 days&apos; notice to cancel · advertising spend billed separately by the
+                    ad platforms
+                  </p>
+                </div>
+                <p className="small" style={{ margin: 0 }}>
+                  {tier.description}
+                </p>
+                {tier.teamNote && <p className="plan__note muted">{tier.teamNote}</p>}
+                <ul className="check-list small">
+                  {tier.includes.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="btn btn--ghost btn--block">
+                  {tier.cta}
+                  <Arrow />
+                </Link>
+              </article>
             ))}
           </div>
+
+          <dl className="grid-4" style={{ marginTop: "2rem" }}>
+            {terms.map(([k, v]) => (
+              <div key={k}>
+                <dt className="label">{k}</dt>
+                <dd className="small" style={{ margin: "0.5rem 0 0" }}>
+                  {v}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* Old vs New comparison */}
-      <OldVsNew />
-
-      {/* Pricing tiers — client component handles hover */}
-      <PricingClient />
-
-      {/* What the First Two Weeks Look Like */}
-      <section style={{ padding: "100px 32px", background: "#0a0a0a", borderBottom: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-            <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Getting Started
-            </span>
+      {/* Every plan includes */}
+      <section className="section section--card" aria-labelledby="includes-title">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Every plan includes</p>
+            <h2 id="includes-title" className="h2">
+              The same way of working, whatever the size.
+            </h2>
           </div>
-          <h2
-            style={{
-              fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-              fontWeight: 900,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              margin: "0 0 16px",
-            }}
-          >
-            What the First Two Weeks Look Like
-          </h2>
-          <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 56px", maxWidth: "580px" }}>
-            Before we touch a single ad or publish a single page, we learn your business. Every
-            engagement starts the same way.
-          </p>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "0px", borderLeft: "2px solid #1e1e1e" }}>
-            {[
-              {
-                n: "1",
-                title: "Deep-dive kickoff",
-                desc: "We review your business goals, current marketing, analytics, competitive landscape, and the channels you've tried. We identify what's working, what's wasted, and where the biggest growth levers are.",
-              },
-              {
-                n: "2",
-                title: "Roadmap delivery",
-                desc: "You get a clear, prioritized plan: which channels, which actions, in which order, and what each is worth. No 40-page strategy deck — a working document we execute against starting week three.",
-              },
-              {
-                n: "3",
-                title: "Sprint one kicks off",
-                desc: "Defined actions, defined outputs, from day one of the engagement. You'll see work ship before most agencies have finished their onboarding questionnaire.",
-              },
-            ].map((item) => (
-              <div
-                key={item.n}
-                style={{
-                  paddingLeft: "32px",
-                  paddingBottom: "40px",
-                  position: "relative",
-                }}
-              >
-                {/* Timeline dot */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "-9px",
-                    top: "3px",
-                    width: "16px",
-                    height: "16px",
-                    borderRadius: "50%",
-                    background: "#080808",
-                    border: "2px solid #FF5500",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#FF5500" }} />
-                </div>
-                <div style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>
-                  Week {item.n === "3" ? "3+" : item.n}
-                </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 800, margin: "0 0 10px", color: "#fff" }}>
+          <div className="grid-3">
+            {everyPlan.map((item) => (
+              <div key={item.title}>
+                <h3 className="cell-title" style={{ marginTop: 0 }}>
                   {item.title}
                 </h3>
-                <p style={{ color: "#aaa", fontSize: "0.9rem", lineHeight: 1.75, margin: 0 }}>
+                <p className="small muted" style={{ margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
@@ -221,124 +320,93 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Channel Add-Ons */}
-      <section style={{ padding: "100px 32px", borderBottom: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-            <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Add-Ons
-            </span>
+      {/* Channels and scope */}
+      <section className="section" aria-labelledby="scope-title">
+        <div className="container split">
+          <div className="stack">
+            <p className="eyebrow">What a channel can be</p>
+            <h2 id="scope-title" className="h2">
+              Channels are chosen by the diagnosis.
+            </h2>
+            <p className="body muted">
+              Starter runs on one primary channel and Growth on up to three. Any of the channels here can be the
+              one you start with, and additional channels are quoted against the scope you need — volume of
+              output, not a flat surcharge. We&apos;ll price it before you commit.
+            </p>
+            <p className="body muted small">
+              Advertising budget is separate from all fees on this page. You pay Google, Meta, or whichever
+              platform you advertise on directly, so you keep ownership of the accounts and can see exactly what
+              was spent.
+            </p>
           </div>
-          <h2 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 900, letterSpacing: "-0.02em", margin: "0 0 16px" }}>
-            Channel Add-Ons
-          </h2>
-          <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", margin: "0 0 48px" }}>
-            Starter runs on one primary channel and Growth on up to three. Any of the channels below
-            can be the one you start with, and additional channels are quoted against the scope you
-            need — volume of output, not a flat surcharge. We&apos;ll price it before you commit.
-          </p>
-          <div
-            className="addons-grid"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}
-          >
-            {[
-              { label: "Website & Landing Pages", note: "Design, build, and ongoing page work" },
-              { label: "Paid Media", note: "Meta, Google, TikTok, YouTube — ad spend separate" },
-              { label: "SEO & Content", note: "Technical, on-page, content production" },
-              { label: "Email & CRM", note: "Klaviyo, HubSpot, lifecycle flows" },
-              { label: "Social Media", note: "Strategy, content, scheduling, community" },
-              { label: "Brand & Creative", note: "Ad creative, landing pages, copy" },
-              { label: "Analytics & CRO", note: "GA4, dashboards, conversion rate work" },
-              { label: "AI & Automation", note: "Lead response, scheduling, CRM workflows" },
-            ].map((a) => (
-              <div
-                key={a.label}
-                style={{ background: "#080808", padding: "28px 24px" }}
-              >
-                <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "#fff", marginBottom: "4px" }}>{a.label}</div>
-                <div style={{ color: "#666", fontSize: "0.8rem" }}>{a.note}</div>
+          <div className="stack" style={{ ["--stack" as string]: "2rem" }}>
+            {addOns.map((g) => (
+              <div key={g.group}>
+                <h3 className="label" style={{ marginBottom: "0.75rem" }}>
+                  {g.group}
+                </h3>
+                <ul className="ruled-list" style={{ borderTopColor: "var(--ink)" }}>
+                  {g.items.map((a) => (
+                    <li key={a.label} style={{ padding: "0.9rem 0", display: "flex", flexWrap: "wrap", gap: "4px 16px", justifyContent: "space-between" }}>
+                      <span style={{ fontWeight: 500 }}>{a.label}</span>
+                      <span className="small muted">{a.note}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
-          <p style={{ color: "#777", fontSize: "0.85rem", marginTop: "20px", lineHeight: 1.7, maxWidth: "620px" }}>
-            Advertising budget is separate from all fees on this page. You pay Google, Meta, or
-            whichever platform you advertise on directly, so you keep ownership of the accounts and
-            can see exactly what was spent.
-          </p>
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section
-        style={{
-          padding: "120px 32px",
-          background: "#0a0a0a",
-          position: "relative",
-          overflow: "hidden",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-            width: "700px",
-            height: "350px",
-            background: "radial-gradient(ellipse, rgba(255,85,0,0.07) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ maxWidth: "640px", margin: "0 auto", position: "relative" }}>
-          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 20px" }}>
-            Not Sure Which Plan?
-          </h2>
-          <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 12px" }}>
-            Book a free audit. No pitch, no pressure.
-          </p>
-          <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: 1.65, margin: "0 0 40px" }}>
-            We&apos;ll assess where you are today, how it compares to others in your space, and which
-            plan would actually move the needle — or whether we&apos;re even the right fit.
-          </p>
-          <Link
-            href="/contact"
-            style={{
-              background: "#FF5500",
-              color: "white",
-              fontWeight: 700,
-              fontSize: "0.85rem",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: "16px 40px",
-              textDecoration: "none",
-              clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            Book a Growth Audit
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+      {/* Fixed-scope work */}
+      <section className="section section--card" aria-labelledby="fixed-title">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Fixed-scope work</p>
+            <h2 id="fixed-title" className="h2">
+              Projects outside a monthly plan.
+            </h2>
+          </div>
+          <div className="table-scroll" tabIndex={0} role="region" aria-label="Fixed-scope prices">
+            <table className="price-table">
+              <thead>
+                <tr>
+                  <th scope="col">Work</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">
+                    <span className="sr-only">Link</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {fixedScope.map((f) => (
+                  <tr key={f.name}>
+                    <th scope="row" style={{ fontWeight: 500 }}>
+                      {f.name}
+                    </th>
+                    <td className="price">{f.price}</td>
+                    <td className="muted">{f.detail}</td>
+                    <td style={{ whiteSpace: "nowrap" }}>
+                      <Link href={f.href} className="text-link">
+                        Details<span className="sr-only"> about {f.name}</span>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <Footer />
-
-      <style>{`
-        @media (max-width: 768px) {
-          .every-plan-grid { grid-template-columns: 1fr 1fr !important; }
-          .addons-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 480px) {
-          .every-plan-grid { grid-template-columns: 1fr !important; }
-          .addons-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </div>
+      <FinalCta
+        eyebrow="Not sure where to start?"
+        title="Start with a free conversation."
+        body="No pitch, no pressure. We'll look at where you are today, where growth seems to be stuck, and which plan would actually move the needle — or whether we're even the right fit."
+        label="Book a free conversation"
+      />
+    </PageShell>
   );
 }

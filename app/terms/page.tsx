@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import PageShell from "@/components/site/PageShell";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -59,37 +58,33 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
-      <Nav />
-      <main style={{ padding: "140px 32px 80px" }}>
-      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, marginBottom: "8px" }}>
-          Terms of Service
-        </h1>
-        <p style={{ color: "#555", marginBottom: "48px", fontSize: "0.9rem" }}>
+    <PageShell>
+      <div className="container container--narrow page-hero">
+        <p className="eyebrow">Legal</p>
+        <h1 className="h1">Terms of Service</h1>
+        <p className="small muted" style={{ marginTop: "1rem" }}>
           Last updated: June 15, 2026
         </p>
 
-        {sections.map((section) => (
-          <section key={section.title} style={{ marginBottom: "40px" }}>
-            <h2 style={{ fontSize: "1.1rem", fontWeight: 800, marginBottom: "12px", color: "#fff" }}>
-              {section.title}
-            </h2>
-            <p style={{ color: "#666", lineHeight: 1.8, fontSize: "0.95rem" }}>{section.body}</p>
-          </section>
-        ))}
-
-        <div style={{ marginTop: "60px", paddingTop: "32px", borderTop: "1px solid #1a1a1a" }}>
-          <Link
-            href="/"
-            style={{ color: "#FF5500", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", letterSpacing: "0.05em" }}
-          >
-            ← Back to Home
-          </Link>
+        <div style={{ marginTop: "3rem", borderTop: "1px solid var(--ink)" }}>
+          {sections.map((section) => (
+            <section key={section.title} style={{ padding: "1.75rem 0", borderBottom: "1px solid var(--rule)" }}>
+              <h2 className="serif" style={{ fontSize: "1.4rem", lineHeight: 1.3, margin: "0 0 0.75rem" }}>
+                {section.title}
+              </h2>
+              <p className="muted" style={{ margin: 0, lineHeight: 1.75 }}>
+                {section.body}
+              </p>
+            </section>
+          ))}
         </div>
+
+        <p style={{ marginTop: "2.5rem" }}>
+          <Link href="/" className="text-link">
+            Back to home
+          </Link>
+        </p>
       </div>
-      </main>
-      <Footer />
-    </div>
+    </PageShell>
   );
 }

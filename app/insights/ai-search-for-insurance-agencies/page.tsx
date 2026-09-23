@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import ServiceNav from "@/components/ServiceNav";
-import Footer from "@/components/Footer";
+import PageShell from "@/components/site/PageShell";
+import FinalCta from "@/components/site/FinalCta";
+import { ArticleHeader, AuthorBio, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
 
 export const metadata: Metadata = {
   title: "AI Search for Insurance Agencies: How to Get Found in ChatGPT & Google AI",
@@ -201,7 +201,6 @@ const eeatPillars = [
   {
     letter: "E",
     label: "Experience",
-    color: "#FF5500",
     desc: "Demonstrated first-hand experience with insurance products and client outcomes. This includes published case studies showing how coverage protected real clients, testimonials with specific outcome details, documented claims advocacy stories, and agent bios with years of hands-on practice. AI systems look for evidence that advice comes from people who have actually navigated insurance complexity — not content written by generalists who researched the topic for 30 minutes.",
     signals: [
       "Client case studies with specific outcomes",
@@ -214,7 +213,6 @@ const eeatPillars = [
   {
     letter: "E",
     label: "Expertise",
-    color: "#FF7733",
     desc: "Professional credentials and subject matter depth that only a trained insurance professional possesses. Licensing is the floor — the EEAT ceiling includes advanced designations, carrier specializations, and demonstrated mastery of complex coverage scenarios. Content that reflects genuine expertise answers questions with nuance: explaining coverage exclusions, state-specific regulatory context, underwriting considerations, and risk management strategy. Generalist content that could have been written by anyone signals low expertise.",
     signals: [
       "State insurance license numbers and verification links",
@@ -227,7 +225,6 @@ const eeatPillars = [
   {
     letter: "A",
     label: "Authoritativeness",
-    color: "#FF5500",
     desc: "The degree to which your agency is recognized as a trustworthy source by other authoritative entities — regulators, associations, media, and industry bodies. Authoritativeness is not self-declared; it is conferred by external recognition. An agency mentioned in the local newspaper, listed in the state DOI directory, and quoted in industry publications carries far more AI authority than an agency with a well-optimized website but zero external recognition. Building authority requires deliberate outreach and community positioning over time.",
     signals: [
       "State DOI agency directory listings",
@@ -240,7 +237,6 @@ const eeatPillars = [
   {
     letter: "T",
     label: "Trustworthiness",
-    color: "#FF7733",
     desc: "The technical and behavioral signals that confirm your agency operates with integrity and transparency. Trustworthiness is evaluated at the domain level (HTTPS, privacy policy, terms of service, clear contact information) and the entity level (consistent NAP data, review response behavior, transparent pricing, disclosed licensing). For insurance agencies specifically, displaying license numbers, providing accurate coverage information without misleading omissions, and making it easy for prospects to verify credentials are fundamental trust-building actions.",
     signals: [
       "HTTPS security and core technical standards",
@@ -290,171 +286,96 @@ const takeaways = [
   "Industry citations from state DOI directories, insurance associations, and local press are external authority signals that AI models weight heavily.",
 ];
 
+const platforms = [
+  {
+    platform: "Google AI Overviews",
+    desc: "Appears directly in Google search results above organic rankings for many queries. Synthesizes information from multiple web sources and attributes them. The most impactful AI search surface for insurance agencies because it intercepts existing Google search volume.",
+  },
+  {
+    platform: "ChatGPT Search",
+    desc: "OpenAI's web-connected search mode. Used by millions of consumers for research including insurance comparisons, agent recommendations, and coverage questions. Pulls from the live web and cites sources it considers authoritative.",
+  },
+  {
+    platform: "Perplexity AI",
+    desc: "An AI answer engine with heavy citation culture — it shows users exactly which sources it used, making source selection highly visible. Insurance agencies cited by Perplexity get direct referral traffic. Often used by detail-oriented researchers.",
+  },
+  {
+    platform: "Microsoft Copilot",
+    desc: "Powered by GPT-4 and integrated into Bing search and Windows. Serves a large professional and enterprise audience — relevant for commercial lines insurance agencies targeting business clients.",
+  },
+];
+
+const facts = [
+  { stat: "YMYL", label: "Classification for all insurance content — Google's highest scrutiny tier" },
+  { stat: "4 Layers", label: "Of EEAT evaluation applied to every insurance agency recommendation" },
+  { stat: "Local + Broad", label: "Dual AI search exposure: local agency queries and coverage education queries" },
+];
+
+const exposure = [
+  "Local discovery queries: \"independent insurance agent in [city],\" \"best home insurance agency near me\" — where Google Business Profile and review data dominate AI responses",
+  "Educational content queries: \"what does umbrella liability cover,\" \"how much life insurance does a 40-year-old need\" — where your content library can position you as the authoritative source",
+];
+
+const schemaTypes = [
+  {
+    type: "InsuranceAgency",
+    where: "Every location page",
+    purpose: "Identifies your business as a licensed insurance agency to AI parsers. Includes NAP data, geo-coordinates, service hours, service areas, and price range.",
+    priority: "Critical",
+  },
+  {
+    type: "Person",
+    where: "Every agent bio page",
+    purpose: "Establishes individual agents as credentialed professionals. List licenses under hasCredential, include jobTitle, and link to the organization.",
+    priority: "Critical",
+  },
+  {
+    type: "FAQPage",
+    where: "Educational content pages",
+    purpose: "Enables AI systems and Google to extract Q&A pairs for direct inclusion in AI Overviews and featured snippets. Highest-ROI content schema for educational articles.",
+    priority: "High",
+  },
+  {
+    type: "BreadcrumbList",
+    where: "All pages",
+    purpose: "Communicates site structure and page hierarchy to AI crawlers. Improves contextual understanding of where content fits within your agency's information architecture.",
+    priority: "High",
+  },
+  {
+    type: "AggregateRating",
+    where: "Homepage or location pages",
+    purpose: "Provides structured review score data. AI systems use this to compare agency reputations and include rating data in local recommendations.",
+    priority: "Medium",
+  },
+  {
+    type: "Service",
+    where: "Product/service pages",
+    purpose: "Describes specific coverage lines (auto, home, life, commercial) as distinct service offerings, helping AI understand your agency's specialization.",
+    priority: "Medium",
+  },
+];
+
 export default function AISearchInsuranceBlogPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
-      <style>{`.toc-link:hover { color: #FF5500 !important; }`}</style>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <PageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <ServiceNav />
-
-      {/* ── Article Header ── */}
-      <section
-        style={{
-          padding: "140px 32px 72px",
-          borderBottom: "1px solid #1a1a1a",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,85,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            pointerEvents: "none",
-          }}
+      <article>
+        <ArticleHeader
+          crumb="AI Search for Insurance"
+          category="Insurance Agency Marketing"
+          readTime="14 min read"
+          title="AI Search for Insurance Agencies: How to Get Found in ChatGPT, Perplexity & Google AI"
+          standfirst="Insurance agencies are losing warm leads to AI search without knowing it. This is the complete framework for building the Experience, Expertise, Authoritativeness, and Trustworthiness signals that get your agency cited — and recommended — by every major AI platform."
+          date="June 12, 2025"
+          dateTime="2025-06-12"
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "5%",
-            right: "-10%",
-            width: "600px",
-            height: "600px",
-            background: "radial-gradient(circle, rgba(255,85,0,0.07) 0%, transparent 65%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ maxWidth: "860px", margin: "0 auto", position: "relative" }}>
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
-            <Link href="/" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#333" }}>/</span>
-            <Link href="/insights" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Insights</Link>
-            <span style={{ color: "#333" }}>/</span>
-            <span style={{ color: "#FF5500", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>AI Search for Insurance</span>
-          </nav>
 
-          {/* Category + read time */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px", flexWrap: "wrap" }}>
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background: "rgba(255,85,0,0.1)",
-                border: "1px solid rgba(255,85,0,0.25)",
-                color: "#FF5500",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                padding: "5px 12px",
-              }}
-            >
-              <span style={{ width: "6px", height: "6px", background: "#FF5500", borderRadius: "50%", flexShrink: 0 }} />
-              Insurance Agency Marketing
-            </span>
-            <span style={{ color: "#444", fontSize: "0.78rem", fontWeight: 500 }}>14 min read</span>
-          </div>
-
-          {/* Title */}
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5.5vw, 3.6rem)",
-              fontWeight: 900,
-              lineHeight: 1.06,
-              letterSpacing: "-0.03em",
-              margin: "0 0 24px",
-              maxWidth: "820px",
-            }}
-          >
-            AI Search for Insurance Agencies:{" "}
-            <span style={{ color: "#FF5500" }}>How to Get Found</span> in ChatGPT, Perplexity &amp; Google AI
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              color: "#888",
-              fontSize: "clamp(1rem, 2vw, 1.15rem)",
-              lineHeight: 1.75,
-              maxWidth: "680px",
-              margin: "0 0 40px",
-            }}
-          >
-            Insurance agencies are losing warm leads to AI search without knowing it. This is the complete framework for building the Experience, Expertise, Authoritativeness, and Trustworthiness signals that get your agency cited — and recommended — by every major AI platform.
-          </p>
-
-          {/* Author bar */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "20px",
-              paddingTop: "28px",
-              borderTop: "1px solid #1a1a1a",
-              flexWrap: "wrap",
-            }}
-          >
-            <div
-              style={{
-                width: "44px",
-                height: "44px",
-                background: "linear-gradient(135deg, #FF5500, #FF7733)",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                fontWeight: 900,
-                fontSize: "1rem",
-                color: "white",
-              }}
-            >
-              AQ
-            </div>
-            <div>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abe Quinn</p>
-              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder, Echelon Fox</p>
-            </div>
-            <div style={{ marginLeft: "auto", display: "flex", gap: "24px", alignItems: "center" }}>
-              <div style={{ textAlign: "right" }}>
-                <p style={{ margin: 0, fontSize: "0.78rem", color: "#555", fontWeight: 500 }}>Published</p>
-                <p style={{ margin: 0, fontSize: "0.82rem", color: "#888", fontWeight: 600 }}>June 12, 2025</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Article Body ── */}
-      <article style={{ padding: "72px 32px 0" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-
-          {/* Table of Contents */}
-          <div
-            style={{
-              background: "#0f0f0f",
-              border: "1px solid #1e1e1e",
-              borderLeft: "3px solid #FF5500",
-              padding: "28px 32px",
-              marginBottom: "64px",
-            }}
-          >
-            <p style={{ margin: "0 0 16px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>In This Article</p>
-            <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
+        <div className="section section--card" style={{ paddingTop: "clamp(3rem, 2rem + 3vw, 4.5rem)" }}>
+          <div className="container container--narrow article-body">
+            <Toc
+              items={[
                 ["The AI Search Wake-Up Call", "#intro"],
                 ["What AI Search Actually Is", "#what-is-ai-search"],
                 ["Why Insurance Is Uniquely Affected", "#insurance-unique"],
@@ -464,641 +385,197 @@ export default function AISearchInsuranceBlogPage() {
                 ["Mistakes Most Agencies Make", "#common-mistakes"],
                 ["Key Takeaways", "#takeaways"],
                 ["FAQ", "#faq"],
-              ].map(([label, href], i) => (
-                <li key={href} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, flexShrink: 0, width: "18px" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <a href={href} className="toc-link" style={{ color: "#888", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.15s" }}>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
+              ]}
+            />
 
-          {/* ── Section: Intro ── */}
-          <section id="intro" style={{ marginBottom: "72px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Wake-Up Call</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              The AI Search Wake-Up Call
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              When a small business owner in your city types &ldquo;best commercial insurance agency near me&rdquo; into ChatGPT, something has fundamentally changed about what happens next. Instead of a list of ten blue links where your agency might appear at position seven, an AI system generates a curated answer — often recommending two or three specific agencies by name, explaining their specialties, and synthesizing review data into a confident recommendation.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              If your agency isn&apos;t one of those recommendations, the prospect may never encounter you at all.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 28px" }}>
-              This isn&apos;t a future problem. Google AI Overviews are now appearing for the majority of insurance-related searches. ChatGPT Search, Perplexity, and Microsoft Copilot together serve millions of insurance research queries every month. The agencies that get cited in these responses didn&apos;t get there by accident — they built the specific digital infrastructure that AI systems use to evaluate credibility, expertise, and trustworthiness.
-            </p>
-
-            {/* Pull quote */}
-            <blockquote
-              style={{
-                borderLeft: "3px solid #FF5500",
-                margin: "40px 0",
-                padding: "20px 28px",
-                background: "#0d0d0d",
-              }}
-            >
-              <p style={{ color: "#ddd", fontSize: "1.1rem", fontStyle: "italic", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
-                &ldquo;The agencies winning AI search aren&apos;t just optimizing for keywords. They&apos;re building verifiable credibility signals that AI models can evaluate — credentials, citations, reviews, and structured data that prove expertise and trustworthiness.&rdquo;
+            <section id="intro" className="article-section">
+              <p className="eyebrow">The Wake-Up Call</p>
+              <h2>The AI Search Wake-Up Call</h2>
+              <p>
+                When a small business owner in your city types &ldquo;best commercial insurance agency near me&rdquo; into ChatGPT, something has fundamentally changed about what happens next. Instead of a list of ten blue links where your agency might appear at position seven, an AI system generates a curated answer — often recommending two or three specific agencies by name, explaining their specialties, and synthesizing review data into a confident recommendation.
               </p>
-            </blockquote>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: 0 }}>
-              This guide breaks down exactly how AI search evaluates insurance agencies, the EEAT framework that governs those evaluations, and the seven-step optimization strategy that gets your agency into the conversation — and keeps it there.
-            </p>
-          </section>
-
-          {/* ── Section: What Is AI Search ── */}
-          <section id="what-is-ai-search" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The New Landscape</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              What AI Search Actually Is
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              AI search refers to search and discovery systems that use large language models to generate synthesized answers — rather than returning a list of links for users to evaluate themselves. There are several distinct platforms your agency needs to understand:
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", marginBottom: "28px" }}>
-              {[
-                {
-                  platform: "Google AI Overviews",
-                  desc: "Appears directly in Google search results above organic rankings for many queries. Synthesizes information from multiple web sources and attributes them. The most impactful AI search surface for insurance agencies because it intercepts existing Google search volume.",
-                },
-                {
-                  platform: "ChatGPT Search",
-                  desc: "OpenAI&apos;s web-connected search mode. Used by millions of consumers for research including insurance comparisons, agent recommendations, and coverage questions. Pulls from the live web and cites sources it considers authoritative.",
-                },
-                {
-                  platform: "Perplexity AI",
-                  desc: "An AI answer engine with heavy citation culture — it shows users exactly which sources it used, making source selection highly visible. Insurance agencies cited by Perplexity get direct referral traffic. Often used by detail-oriented researchers.",
-                },
-                {
-                  platform: "Microsoft Copilot",
-                  desc: "Powered by GPT-4 and integrated into Bing search and Windows. Serves a large professional and enterprise audience — relevant for commercial lines insurance agencies targeting business clients.",
-                },
-              ].map((item) => (
-                <div key={item.platform} style={{ background: "#0a0a0a", padding: "24px 28px", display: "grid", gridTemplateColumns: "200px 1fr", gap: "20px", alignItems: "start" }}>
-                  <p style={{ margin: 0, fontWeight: 800, fontSize: "0.9rem", color: "#FF5500", letterSpacing: "0.02em" }}>{item.platform}</p>
-                  <p style={{ margin: 0, color: "#777", fontSize: "0.9rem", lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: item.desc }} />
-                </div>
-              ))}
-            </div>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              The critical distinction between AI search and traditional search: in traditional search, your agency competes for a ranked list position and the user decides whether to click. In AI search, the AI system makes a recommendation on your behalf — or doesn&apos;t. You either make the cut when the AI assembles its answer, or you are invisible to that prospect entirely.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: 0 }}>
-              This shifts the optimization target from &ldquo;rank high enough for users to click&rdquo; to &ldquo;build enough credibility signals that AI systems select and cite you.&rdquo; Those are related but meaningfully different objectives.
-            </p>
-          </section>
-
-          {/* ── Section: Why Insurance Is Unique ── */}
-          <section id="insurance-unique" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>High Stakes</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              Why Insurance Is Uniquely Affected
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Insurance occupies a special position in how AI systems evaluate content quality. Google classifies insurance as YMYL — Your Money or Your Life — content. This category includes financial advice, medical information, legal guidance, and insurance products: topics where bad information can cause serious real-world harm to consumers.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 28px" }}>
-              For YMYL content, both Google&apos;s quality rater guidelines and the AI systems trained on web data apply the highest level of EEAT scrutiny. An AI system recommending a specific insurance agency is making an implicit endorsement of a financial professional — it will not recommend an agency it cannot verify as credible, licensed, and trustworthy. This is both the challenge and the opportunity for agencies that commit to building robust EEAT signals.
-            </p>
-
-            {/* Stat callout */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
-                gap: "1px",
-                background: "#1a1a1a",
-                border: "1px solid #1a1a1a",
-                marginBottom: "28px",
-              }}
-            >
-              {[
-                { stat: "YMYL", label: "Classification for all insurance content — Google's highest scrutiny tier" },
-                { stat: "4 Layers", label: "Of EEAT evaluation applied to every insurance agency recommendation" },
-                { stat: "Local + Broad", label: "Dual AI search exposure: local agency queries and coverage education queries" },
-              ].map((item) => (
-                <div key={item.stat} style={{ background: "#0a0a0a", padding: "28px 24px", textAlign: "center" }}>
-                  <p style={{ margin: "0 0 8px", fontSize: "1.8rem", fontWeight: 900, color: "#FF5500", letterSpacing: "-0.02em" }}>{item.stat}</p>
-                  <p style={{ margin: 0, fontSize: "0.82rem", color: "#666", lineHeight: 1.5 }}>{item.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Insurance agencies also benefit from two distinct AI search exposure opportunities that many other local businesses don&apos;t have:
-            </p>
-            <ul style={{ listStyle: "none", margin: "0 0 20px", padding: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-              {[
-                "Local discovery queries: \"independent insurance agent in [city],\" \"best home insurance agency near me\" — where Google Business Profile and review data dominate AI responses",
-                "Educational content queries: \"what does umbrella liability cover,\" \"how much life insurance does a 40-year-old need\" — where your content library can position you as the authoritative source",
-              ].map((item) => (
-                <li key={item} style={{ display: "flex", gap: "12px", color: "#888", fontSize: "0.95rem", lineHeight: 1.7 }}>
-                  <span style={{ color: "#FF5500", flexShrink: 0, marginTop: "3px" }}>→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: 0 }}>
-              A comprehensive AI search strategy addresses both surfaces — the local entity signals that drive discovery, and the content quality signals that drive educational citation.
-            </p>
-          </section>
-
-          {/* ── Section: EEAT Framework ── */}
-          <section id="eeat-framework" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Evaluation Framework</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              The EEAT Framework for Insurance Agencies
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 40px" }}>
-              EEAT — Experience, Expertise, Authoritativeness, Trustworthiness — is Google&apos;s documented framework for evaluating content quality. AI systems use these same dimensions, because they were largely trained on Google-indexed content and share underlying assumptions about what makes a source credible. Here is what each dimension means in concrete terms for insurance agencies.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-              {eeatPillars.map((pillar) => (
-                <div
-                  key={pillar.label}
-                  style={{
-                    background: "#0f0f0f",
-                    border: "1px solid #1e1e1e",
-                    padding: "36px",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "-8px",
-                      right: "20px",
-                      fontSize: "6rem",
-                      fontWeight: 900,
-                      color: "#141414",
-                      lineHeight: 1,
-                      userSelect: "none",
-                      pointerEvents: "none",
-                      letterSpacing: "-0.05em",
-                    }}
-                  >
-                    {pillar.letter}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "16px" }}>
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        background: "rgba(255,85,0,0.1)",
-                        border: `1px solid ${pillar.color}`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 900,
-                        fontSize: "1.1rem",
-                        color: pillar.color,
-                        flexShrink: 0,
-                      }}
-                    >
-                      {pillar.letter}
-                    </div>
-                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>
-                      {pillar.label}
-                    </h3>
-                  </div>
-                  <p style={{ color: "#888", fontSize: "0.92rem", lineHeight: 1.8, margin: "0 0 20px" }}>{pillar.desc}</p>
-                  <div>
-                    <p style={{ margin: "0 0 10px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF5500" }}>Key Signals</p>
-                    <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "7px" }}>
-                      {pillar.signals.map((signal) => (
-                        <li key={signal} style={{ display: "flex", gap: "10px", color: "#666", fontSize: "0.85rem" }}>
-                          <span style={{ color: "#FF5500", flexShrink: 0 }}>→</span>
-                          {signal}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Section: 7-Step Strategy ── */}
-          <section id="seven-steps" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Playbook</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              The 7-Step AI Search Optimization Framework
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 40px" }}>
-              These steps are ordered by impact-to-effort ratio for agencies starting from a typical baseline. Implement them sequentially — each step builds on the foundation of the last.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-              {steps.map((step) => (
-                <div
-                  key={step.num}
-                  style={{
-                    background: "#080808",
-                    padding: "40px",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "-12px",
-                      right: "20px",
-                      fontSize: "5.5rem",
-                      fontWeight: 900,
-                      color: "#111",
-                      lineHeight: 1,
-                      userSelect: "none",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    {step.num}
-                  </div>
-                  <div style={{ color: "#FF5500", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "10px" }}>
-                    Step {step.num}
-                  </div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, margin: "0 0 16px", letterSpacing: "-0.01em", maxWidth: "600px" }}>
-                    {step.title}
-                  </h3>
-                  <p style={{ color: "#777", fontSize: "0.92rem", lineHeight: 1.8, margin: 0, maxWidth: "680px" }}>
-                    {step.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Section: Schema Markup ── */}
-          <section id="schema-markup" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Technical Foundation</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              Schema Markup Quick Reference
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 32px" }}>
-              Schema markup tells AI systems and search engines exactly what your agency is, who works there, what services you offer, where you operate, and how clients rate you — without ambiguity. Here is a practical reference for the schema types every insurance agency website should implement.
-            </p>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", marginBottom: "28px" }}>
-              {[
-                {
-                  type: "InsuranceAgency",
-                  where: "Every location page",
-                  purpose: "Identifies your business as a licensed insurance agency to AI parsers. Includes NAP data, geo-coordinates, service hours, service areas, and price range.",
-                  priority: "Critical",
-                },
-                {
-                  type: "Person",
-                  where: "Every agent bio page",
-                  purpose: "Establishes individual agents as credentialed professionals. List licenses under hasCredential, include jobTitle, and link to the organization.",
-                  priority: "Critical",
-                },
-                {
-                  type: "FAQPage",
-                  where: "Educational content pages",
-                  purpose: "Enables AI systems and Google to extract Q&A pairs for direct inclusion in AI Overviews and featured snippets. Highest-ROI content schema for educational articles.",
-                  priority: "High",
-                },
-                {
-                  type: "BreadcrumbList",
-                  where: "All pages",
-                  purpose: "Communicates site structure and page hierarchy to AI crawlers. Improves contextual understanding of where content fits within your agency's information architecture.",
-                  priority: "High",
-                },
-                {
-                  type: "AggregateRating",
-                  where: "Homepage or location pages",
-                  purpose: "Provides structured review score data. AI systems use this to compare agency reputations and include rating data in local recommendations.",
-                  priority: "Medium",
-                },
-                {
-                  type: "Service",
-                  where: "Product/service pages",
-                  purpose: "Describes specific coverage lines (auto, home, life, commercial) as distinct service offerings, helping AI understand your agency's specialization.",
-                  priority: "Medium",
-                },
-              ].map((row) => (
-                <div key={row.type} style={{ background: "#0a0a0a", padding: "24px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px", gap: "8px", flexWrap: "wrap" }}>
-                    <p style={{ margin: 0, fontWeight: 800, fontSize: "0.88rem", color: "#FF5500", fontFamily: "monospace" }}>{row.type}</p>
-                    <span
-                      style={{
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.15em",
-                        textTransform: "uppercase",
-                        padding: "3px 8px",
-                        background: row.priority === "Critical" ? "rgba(255,85,0,0.15)" : row.priority === "High" ? "rgba(255,85,0,0.08)" : "rgba(255,255,255,0.05)",
-                        color: row.priority === "Critical" ? "#FF5500" : row.priority === "High" ? "#FF7733" : "#666",
-                        border: `1px solid ${row.priority === "Critical" ? "rgba(255,85,0,0.3)" : row.priority === "High" ? "rgba(255,85,0,0.15)" : "#222"}`,
-                      }}
-                    >
-                      {row.priority}
-                    </span>
-                  </div>
-                  <p style={{ margin: "0 0 6px", fontSize: "0.75rem", color: "#444", fontWeight: 600 }}>Used on: {row.where}</p>
-                  <p style={{ margin: 0, color: "#666", fontSize: "0.84rem", lineHeight: 1.65 }}>{row.purpose}</p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid #1e1e1e",
-                borderLeft: "3px solid #FF5500",
-                padding: "20px 24px",
-              }}
-            >
-              <p style={{ margin: 0, color: "#888", fontSize: "0.88rem", lineHeight: 1.7 }}>
-                <strong style={{ color: "#eee" }}>Validation:</strong> After implementing schema, use Google&apos;s Rich Results Test (search.google.com/test/rich-results) and Schema Markup Validator (validator.schema.org) to verify correct implementation. Errors in schema markup can actively mislead AI parsers — validate before deploying.
+              <p>If your agency isn&apos;t one of those recommendations, the prospect may never encounter you at all.</p>
+              <p>
+                This isn&apos;t a future problem. Google AI Overviews are now appearing for the majority of insurance-related searches. ChatGPT Search, Perplexity, and Microsoft Copilot together serve millions of insurance research queries every month. The agencies that get cited in these responses didn&apos;t get there by accident — they built the specific digital infrastructure that AI systems use to evaluate credibility, expertise, and trustworthiness.
               </p>
-            </div>
-          </section>
+              <blockquote className="callout">
+                <p className="serif" style={{ fontSize: "1.45rem", lineHeight: 1.35, margin: 0 }}>
+                  &ldquo;The agencies winning AI search aren&apos;t just optimizing for keywords. They&apos;re building verifiable credibility signals that AI models can evaluate — credentials, citations, reviews, and structured data that prove expertise and trustworthiness.&rdquo;
+                </p>
+              </blockquote>
+              <p>
+                This guide breaks down exactly how AI search evaluates insurance agencies, the EEAT framework that governs those evaluations, and the seven-step optimization strategy that gets your agency into the conversation — and keeps it there.
+              </p>
+            </section>
 
-          {/* ── Section: Common Mistakes ── */}
-          <section id="common-mistakes" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>What Not to Do</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              Mistakes Most Insurance Agencies Make in AI Search
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 36px" }}>
-              These are the patterns we see consistently in agencies that are invisible in AI search — agencies that may have strong offline reputations but have not translated that credibility into the digital signals AI systems can evaluate.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-              {mistakes.map((item, i) => (
-                <div key={i} style={{ background: "#080808", padding: "28px 32px", display: "grid", gridTemplateColumns: "auto 1fr", gap: "20px", alignItems: "start" }}>
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      background: "rgba(255,85,0,0.1)",
-                      border: "1px solid rgba(255,85,0,0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      fontSize: "0.7rem",
-                      fontWeight: 900,
-                      color: "#FF5500",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
+            <section id="what-is-ai-search" className="article-section">
+              <p className="eyebrow">The New Landscape</p>
+              <h2>What AI Search Actually Is</h2>
+              <p>
+                AI search refers to search and discovery systems that use large language models to generate synthesized answers — rather than returning a list of links for users to evaluate themselves. There are several distinct platforms your agency needs to understand:
+              </p>
+              <dl className="def-list">
+                {platforms.map((p) => (
+                  <div key={p.platform}>
+                    <dt>{p.platform}</dt>
+                    <dd>{p.desc}</dd>
                   </div>
-                  <div>
-                    <h3 style={{ margin: "0 0 8px", fontSize: "0.95rem", fontWeight: 800, color: "#eee" }}>{item.title}</h3>
-                    <p style={{ margin: 0, color: "#666", fontSize: "0.88rem", lineHeight: 1.75 }}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </dl>
+              <p>
+                The critical distinction between AI search and traditional search: in traditional search, your agency competes for a ranked list position and the user decides whether to click. In AI search, the AI system makes a recommendation on your behalf — or doesn&apos;t. You either make the cut when the AI assembles its answer, or you are invisible to that prospect entirely.
+              </p>
+              <p>
+                This shifts the optimization target from &ldquo;rank high enough for users to click&rdquo; to &ldquo;build enough credibility signals that AI systems select and cite you.&rdquo; Those are related but meaningfully different objectives.
+              </p>
+            </section>
 
-          {/* ── Key Takeaways ── */}
-          <section id="takeaways" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid #1e1e1e",
-                borderTop: "3px solid #FF5500",
-                padding: "40px",
-              }}
-            >
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
-                <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 10px #FF5500" }} />
-                <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Key Takeaways</span>
+            <section id="insurance-unique" className="article-section">
+              <p className="eyebrow">High Stakes</p>
+              <h2>Why Insurance Is Uniquely Affected</h2>
+              <p>
+                Insurance occupies a special position in how AI systems evaluate content quality. Google classifies insurance as YMYL — Your Money or Your Life — content. This category includes financial advice, medical information, legal guidance, and insurance products: topics where bad information can cause serious real-world harm to consumers.
+              </p>
+              <p>
+                For YMYL content, both Google&apos;s quality rater guidelines and the AI systems trained on web data apply the highest level of EEAT scrutiny. An AI system recommending a specific insurance agency is making an implicit endorsement of a financial professional — it will not recommend an agency it cannot verify as credible, licensed, and trustworthy. This is both the challenge and the opportunity for agencies that commit to building robust EEAT signals.
+              </p>
+              <div className="fact-row" style={{ marginBottom: "2rem" }}>
+                {facts.map((f) => (
+                  <div key={f.stat}>
+                    <p className="fact">{f.stat}</p>
+                    <p>{f.label}</p>
+                  </div>
+                ))}
               </div>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
-                {takeaways.map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                    <span
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "22px",
-                        height: "22px",
-                        background: "#FF5500",
-                        flexShrink: 0,
-                        fontSize: "0.65rem",
-                        fontWeight: 900,
-                        color: "white",
-                        marginTop: "2px",
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <p style={{ margin: 0, color: "#aaa", fontSize: "0.92rem", lineHeight: 1.75 }}>{item}</p>
-                  </li>
+              <p>
+                Insurance agencies also benefit from two distinct AI search exposure opportunities that many other local businesses don&apos;t have:
+              </p>
+              <ul>
+                {exposure.map((e) => (
+                  <li key={e}>{e}</li>
                 ))}
               </ul>
-            </div>
-          </section>
+              <p>
+                A comprehensive AI search strategy addresses both surfaces — the local entity signals that drive discovery, and the content quality signals that drive educational citation.
+              </p>
+            </section>
 
+            <section id="eeat-framework" className="article-section">
+              <p className="eyebrow">The Evaluation Framework</p>
+              <h2>The EEAT Framework for Insurance Agencies</h2>
+              <p>
+                EEAT — Experience, Expertise, Authoritativeness, Trustworthiness — is Google&apos;s documented framework for evaluating content quality. AI systems use these same dimensions, because they were largely trained on Google-indexed content and share underlying assumptions about what makes a source credible. Here is what each dimension means in concrete terms for insurance agencies.
+              </p>
+              {eeatPillars.map((pillar) => (
+                <div key={pillar.label} style={{ borderTop: "1px solid var(--ink)", padding: "1.5rem 0 0.5rem", marginTop: "1.5rem" }}>
+                  <h3 style={{ marginTop: 0 }}>
+                    <span className="label" style={{ marginRight: "0.75rem" }} aria-hidden="true">
+                      {pillar.letter}
+                    </span>
+                    {pillar.label}
+                  </h3>
+                  <p className="muted">{pillar.desc}</p>
+                  <p className="label" style={{ marginBottom: "0.5rem" }}>
+                    Key signals
+                  </p>
+                  <ul className="check-list small" style={{ paddingLeft: 0, listStyle: "none" }}>
+                    {pillar.signals.map((signal) => (
+                      <li key={signal}>{signal}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+
+            <section id="seven-steps" className="article-section">
+              <p className="eyebrow">The Playbook</p>
+              <h2>The 7-Step AI Search Optimization Framework</h2>
+              <p>
+                These steps are ordered by impact-to-effort ratio for agencies starting from a typical baseline. Implement them sequentially — each step builds on the foundation of the last.
+              </p>
+              <NumberedList items={steps.map((st) => ({ title: st.title, body: st.body }))} />
+            </section>
+
+            <section id="schema-markup" className="article-section">
+              <p className="eyebrow">Technical Foundation</p>
+              <h2>Schema Markup Quick Reference</h2>
+              <p>
+                Schema markup tells AI systems and search engines exactly what your agency is, who works there, what services you offer, where you operate, and how clients rate you — without ambiguity. Here is a practical reference for the schema types every insurance agency website should implement.
+              </p>
+              <div className="table-scroll" tabIndex={0} role="region" aria-label="Schema types reference (scrolls horizontally)">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Schema type</th>
+                      <th scope="col">Used on</th>
+                      <th scope="col">Purpose</th>
+                      <th scope="col">Priority</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {schemaTypes.map((row) => (
+                      <tr key={row.type}>
+                        <th scope="row" style={{ fontFamily: "var(--font-mono)", fontWeight: 400, fontSize: "0.85rem" }}>
+                          {row.type}
+                        </th>
+                        <td>{row.where}</td>
+                        <td className="muted">{row.purpose}</td>
+                        <td>{row.priority}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="callout small">
+                <strong style={{ fontWeight: 500 }}>Validation:</strong> After implementing schema, use Google&apos;s Rich Results Test (search.google.com/test/rich-results) and Schema Markup Validator (validator.schema.org) to verify correct implementation. Errors in schema markup can actively mislead AI parsers — validate before deploying.
+              </p>
+            </section>
+
+            <section id="common-mistakes" className="article-section">
+              <p className="eyebrow">What Not to Do</p>
+              <h2>Mistakes Most Insurance Agencies Make in AI Search</h2>
+              <p>
+                These are the patterns we see consistently in agencies that are invisible in AI search — agencies that may have strong offline reputations but have not translated that credibility into the digital signals AI systems can evaluate.
+              </p>
+              <NumberedList items={mistakes.map((m) => ({ title: m.title, body: m.desc }))} />
+            </section>
+
+            <section id="takeaways" className="article-section">
+              <p className="eyebrow">Key Takeaways</p>
+              <h2>Key Takeaways</h2>
+              <ol>
+                {takeaways.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ol>
+            </section>
+
+            <section id="faq" className="article-section">
+              <p className="eyebrow">Common Questions</p>
+              <h2>Frequently Asked Questions</h2>
+              <Faq items={faq} />
+            </section>
+
+            <AuthorBio>
+              Abe founded EchelonFox to help established companies find the commercial constraint holding growth back and build what comes next. He works directly with insurance agencies on search visibility and website builds, alongside clients in other industries. This guide sets out how he approaches E-E-A-T and AI search rather than making a claim about any specific client&apos;s results.
+            </AuthorBio>
+
+            <NextLinks
+              items={[
+                { href: "/insights/local-seo-for-insurance-agents", label: "Local SEO for Insurance Agents", desc: "The companion guide: Google Business Profile, citations, reviews, and schema." },
+                { href: "/services/customer-acquisition", label: "Customer acquisition and conversion", desc: "How search work fits alongside the rest of the acquisition system." },
+                { href: "/work/independent-insurance-agency", label: "Case study: independent insurance agency", desc: "A website rebuild that turned out to be about how prospects ask for a quote." },
+              ]}
+            />
+          </div>
         </div>
       </article>
 
-      {/* ── FAQ ── */}
-      <section id="faq" style={{ padding: "72px 32px", borderTop: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "48px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Common Questions</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: 0 }}>
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {faq.map((item, i) => (
-              <div key={i} style={{ borderTop: "1px solid #1a1a1a", padding: "28px 0" }}>
-                <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#eee", margin: "0 0 12px" }}>{item.q}</h3>
-                <p style={{ color: "#777", fontSize: "0.9rem", lineHeight: 1.8, margin: 0 }}>{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Where to go next ── */}
-      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", margin: "0 0 20px", letterSpacing: "0.02em" }}>
-            Where to go next
-          </h2>
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-            {[
-              { href: "/insights/local-seo-for-insurance-agents", label: "Local SEO for Insurance Agents", desc: "The companion guide: Google Business Profile, citations, reviews, and schema." },
-              { href: "/services/seo-content", label: "SEO & Content Strategy", desc: "How we run search work as an ongoing programme." },
-              { href: "/contact", label: "Book a Growth Audit", desc: "We'll look at where you currently appear and what's missing." },
-            ].map((item) => (
-              <li key={item.href} style={{ background: "#0a0a0a" }}>
-                <Link href={item.href} style={{ display: "block", padding: "22px 24px", textDecoration: "none" }}>
-                  <span style={{ display: "block", color: "#FF5500", fontSize: "0.9rem", fontWeight: 800, marginBottom: "6px" }}>{item.label}</span>
-                  <span style={{ display: "block", color: "#777", fontSize: "0.85rem", lineHeight: 1.65 }}>{item.desc}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── Author Bio ── */}
-      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div
-            style={{
-              background: "#0f0f0f",
-              border: "1px solid #1e1e1e",
-              padding: "36px",
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              gap: "28px",
-              alignItems: "start",
-            }}
-          >
-            <div
-              style={{
-                width: "72px",
-                height: "72px",
-                background: "linear-gradient(135deg, #FF5500, #FF7733)",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                fontWeight: 900,
-                fontSize: "1.4rem",
-                color: "white",
-              }}
-            >
-              AQ
-            </div>
-            <div>
-              <p style={{ margin: "0 0 2px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>About the Author</p>
-              <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abe Quinn</h3>
-              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder, Echelon Fox</p>
-              <p style={{ margin: 0, color: "#777", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                Abe founded Echelon Fox as a founder-led marketing and growth partner for businesses across industries — websites, SEO, paid media, email, and automation on a monthly subscription. He works directly with insurance agencies on search visibility and website builds, alongside clients in e-commerce, beauty, pet services, and B2B. This guide sets out how he approaches E-E-A-T and AI search rather than making a claim about any specific client&apos;s results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section style={{ padding: "100px 32px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,85,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(255,85,0,0.06) 0%, transparent 65%)", pointerEvents: "none" }} />
-        <div style={{ position: "relative", maxWidth: "680px", margin: "0 auto" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-            <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 12px #FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Ready to Dominate AI Search?</span>
-          </div>
-          <h2
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 900,
-              lineHeight: 1.06,
-              letterSpacing: "-0.025em",
-              margin: "0 0 20px",
-            }}
-          >
-            Let&apos;s Build Your Agency&apos;s{" "}
-            <span style={{ color: "#FF5500" }}>AI Search Presence</span>
-          </h2>
-          <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, margin: "0 0 40px" }}>
-            We audit insurance agency digital footprints, identify the specific EEAT gaps suppressing AI visibility, and build the content and technical infrastructure to fix them. Start with a free audit.
-          </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/contact"
-              style={{
-                background: "#FF5500",
-                color: "white",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "16px 40px",
-                textDecoration: "none",
-                clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Book a Growth Audit
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link
-              href="/services/seo-content"
-              style={{
-                background: "transparent",
-                color: "white",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "15px 39px",
-                textDecoration: "none",
-                border: "1px solid #333",
-                clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Our SEO Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+      <FinalCta
+        eyebrow="Where do you appear today?"
+        title="Find out what's keeping your agency out of the answer."
+        body="Tell Abe about your agency. He'll look at where you currently appear, what's missing, and what to fix first."
+      />
+    </PageShell>
   );
 }

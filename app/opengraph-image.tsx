@@ -1,116 +1,87 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Echelon Fox — Marketing as a Service. Monthly. No Hiring.";
+export const alt = "EchelonFox — Find what's holding growth back. Build what comes next.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Generated once at build time. Fonts are bundled locally (SIL Open Font License).
 export default async function OgImage() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://echelonfox.com";
-  const logoSrc = `${baseUrl}/new.logo.efsolutions.png`;
+  const [serif, mono, fox] = await Promise.all([
+    readFile(join(process.cwd(), "app/_og/Newsreader-Regular.ttf")),
+    readFile(join(process.cwd(), "app/_og/IBMPlexMono-Regular.ttf")),
+    readFile(join(process.cwd(), "public/images/fox-mark.png")),
+  ]);
+  const foxSrc = `data:image/png;base64,${fox.toString("base64")}`;
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "#080808",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "sans-serif",
-          position: "relative",
-          overflow: "hidden",
+          justifyContent: "space-between",
+          background: "#F4F0E8",
+          color: "#17181C",
+          padding: "64px 72px",
+          fontFamily: "Newsreader",
         }}
       >
-        {/* Orange glow top-right */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background: "rgba(255,85,0,0.22)",
-            filter: "blur(80px)",
-            display: "flex",
-          }}
-        />
-        {/* Subtle bottom-left glow */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-80px",
-            left: "-80px",
-            width: "350px",
-            height: "350px",
-            borderRadius: "50%",
-            background: "rgba(255,85,0,0.10)",
-            filter: "blur(60px)",
-            display: "flex",
-          }}
-        />
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <img src={foxSrc} width={96} height={38} alt="" />
+            <div style={{ fontSize: 36, display: "flex" }}>EchelonFox</div>
+          </div>
+          <div
+            style={{
+              fontFamily: "IBM Plex Mono",
+              fontSize: 18,
+              letterSpacing: 2.5,
+              textTransform: "uppercase",
+              color: "#5E5A53",
+              display: "flex",
+            }}
+          >
+            Commercial growth strategy &amp; implementation
+          </div>
+        </div>
 
-        {/* Logo */}
-        <img
-          src={logoSrc}
-          width={120}
-          height={120}
-          style={{ marginBottom: "28px", borderRadius: "16px" }}
-          alt=""
-        />
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 84, lineHeight: 1.04, letterSpacing: -1.8 }}>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <span>Find what&apos;s&nbsp;</span>
+            <span style={{ borderBottom: "5px solid #B0351E", paddingBottom: 2 }}>holding growth back</span>
+            <span>.</span>
+          </div>
+          <div style={{ display: "flex", marginTop: 8 }}>Build what comes next.</div>
+        </div>
 
-        {/* Brand name */}
         <div
           style={{
-            color: "#FF5500",
-            fontSize: "22px",
-            fontWeight: 700,
-            letterSpacing: "0.18em",
+            display: "flex",
+            justifyContent: "space-between",
+            borderTop: "1px solid #D8D0C2",
+            paddingTop: 22,
+            fontFamily: "IBM Plex Mono",
+            fontSize: 18,
+            letterSpacing: 2,
             textTransform: "uppercase",
-            marginBottom: "20px",
+            color: "#5E5A53",
           }}
         >
-          Echelon Fox
-        </div>
-
-        {/* Headline */}
-        <div
-          style={{
-            color: "#ffffff",
-            fontSize: "52px",
-            fontWeight: 800,
-            lineHeight: 1.15,
-            textAlign: "center",
-            maxWidth: "820px",
-            padding: "0 40px",
-          }}
-        >
-          We Make Brands Impossible to Ignore.
-        </div>
-
-        {/* Divider */}
-        <div
-          style={{
-            width: "60px",
-            height: "3px",
-            background: "#FF5500",
-            marginTop: "32px",
-            marginBottom: "24px",
-            borderRadius: "2px",
-            display: "flex",
-          }}
-        />
-
-        {/* URL */}
-        <div style={{ color: "#666666", fontSize: "20px", letterSpacing: "0.05em" }}>
-          echelonfox.com
+          <span>Diagnose · Design · Build · Improve</span>
+          <span>echelonfox.com</span>
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: "Newsreader", data: serif, weight: 400, style: "normal" },
+        { name: "IBM Plex Mono", data: mono, weight: 400, style: "normal" },
+      ],
+    }
   );
 }

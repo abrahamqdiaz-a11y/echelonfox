@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ServiceNav from "@/components/ServiceNav";
-import Footer from "@/components/Footer";
+import PageShell from "@/components/site/PageShell";
+import FinalCta from "@/components/site/FinalCta";
+import { ArticleHeader, AuthorBio, Faq, NextLinks, NumberedList, Toc } from "@/components/site/Article";
 
 export const metadata: Metadata = {
   title: "Local SEO for Insurance Agents: The Complete Guide to Dominating Your Market",
@@ -240,171 +241,77 @@ const takeaways = [
   "Educational content targeting local insurance questions builds compounding topical authority and positions your agency as the cited source in AI-generated answers.",
 ];
 
+const factors = [
+  {
+    factor: "Relevance",
+    desc: "How closely your business profile and website match what the searcher is looking for. Controlled by: GBP category selections, service listings, website content, and keyword signals across your online presence.",
+  },
+  {
+    factor: "Distance",
+    desc: "How far your business is from the searcher's location (or the location specified in the query). Partially outside your control — but service area settings and location page content extend your proximity footprint.",
+  },
+  {
+    factor: "Prominence",
+    desc: "How well-known and reputable your business is, as determined by Google's systems. Driven by: review volume and rating, citation count and quality, backlink authority, and overall web presence depth.",
+  },
+];
+
+const queryTypes = [
+  {
+    type: "Intent-to-Hire Queries",
+    examples: "\"insurance agent near me,\" \"independent insurance agent [city],\" \"home insurance agency [zip]\"",
+    strategy: "GBP optimization, review velocity, and NAP citation consistency drive map pack placement for these high-commercial-intent queries.",
+  },
+  {
+    type: "Educational Queries",
+    examples: "\"how much home insurance do I need in [state],\" \"what does renters insurance cover,\" \"auto insurance requirements [state]\"",
+    strategy: "On-site educational content targeting these informational queries builds topical authority and positions your agency as the trusted expert before the prospect is ready to buy.",
+  },
+];
+
+const auditSteps = [
+  {
+    title: "Map the current map pack",
+    body: "Search your primary local keywords (\"{coverage type} insurance agent {your city}\") from a device located in your market area. Note the three businesses in the map pack: their review count, review rating, GBP completeness (photos, posts, Q&A), and how long they've been established. This sets your competitive baseline.",
+  },
+  {
+    title: "Analyze their citation profiles",
+    body: "Use a free tool like Moz Local or BrightLocal's citation tracker to see where your top competitors are listed. Note which high-authority sources (state DOI, insurance associations, BBB) they have that you don't. These are your priority citation gaps.",
+  },
+  {
+    title: "Review their on-site content",
+    body: "Visit the websites of the top two or three local competitors. Note their service page structure, content depth, presence of location-specific content, and whether they have a blog or educational content hub. Look for obvious gaps — thin service pages, no FAQ sections, no schema markup — that you can exploit with better content.",
+  },
+];
+
+const facts = [
+  { stat: "8", label: "Pillars in the framework below — work them in order rather than picking favourites" },
+  { stat: "4–8 wks", label: "Typical window before GBP work shows movement, in our experience — competitive markets take longer" },
+  { stat: "2–4", label: "New Google reviews per month is a more useful target than a one-off review push" },
+  { stat: "3", label: "Places you can appear on a local query: the map pack, organic results, and AI answers" },
+];
+
 export default function LocalSEOInsuranceAgentsPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
-      <style>{`.toc-link:hover { color: #FF5500 !important; }`}</style>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <PageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <ServiceNav />
-
-      {/* ── Article Header ── */}
-      <section
-        style={{
-          padding: "140px 32px 72px",
-          borderBottom: "1px solid #1a1a1a",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,85,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            pointerEvents: "none",
-          }}
+      <article>
+        <ArticleHeader
+          crumb="Local SEO for Insurance Agents"
+          category="Insurance Agency Marketing"
+          readTime="16 min read"
+          title="Local SEO for Insurance Agents: The Complete Guide to Dominating Your Market"
+          standfirst="When a prospect in your city searches for an insurance agent, you're competing in the map pack, organic results, and AI-generated answers simultaneously. This is the eight-pillar local SEO framework built specifically for independent insurance agents who want to own their market."
+          date="July 15, 2025"
+          dateTime="2025-07-15"
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "5%",
-            right: "-10%",
-            width: "600px",
-            height: "600px",
-            background: "radial-gradient(circle, rgba(255,85,0,0.07) 0%, transparent 65%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ maxWidth: "860px", margin: "0 auto", position: "relative" }}>
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
-            <Link href="/" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#333" }}>/</span>
-            <Link href="/insights" style={{ color: "#555", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none" }}>Insights</Link>
-            <span style={{ color: "#333" }}>/</span>
-            <span style={{ color: "#FF5500", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Local SEO for Insurance Agents</span>
-          </nav>
 
-          {/* Category + read time */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px", flexWrap: "wrap" }}>
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background: "rgba(255,85,0,0.1)",
-                border: "1px solid rgba(255,85,0,0.25)",
-                color: "#FF5500",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                padding: "5px 12px",
-              }}
-            >
-              <span style={{ width: "6px", height: "6px", background: "#FF5500", borderRadius: "50%", flexShrink: 0 }} />
-              Insurance Agency Marketing
-            </span>
-            <span style={{ color: "#444", fontSize: "0.78rem", fontWeight: 500 }}>16 min read</span>
-          </div>
-
-          {/* Title */}
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5.5vw, 3.6rem)",
-              fontWeight: 900,
-              lineHeight: 1.06,
-              letterSpacing: "-0.03em",
-              margin: "0 0 24px",
-              maxWidth: "820px",
-            }}
-          >
-            Local SEO for Insurance Agents:{" "}
-            <span style={{ color: "#FF5500" }}>The Complete Guide</span> to Dominating Your Market
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              color: "#888",
-              fontSize: "clamp(1rem, 2vw, 1.15rem)",
-              lineHeight: 1.75,
-              maxWidth: "680px",
-              margin: "0 0 40px",
-            }}
-          >
-            When a prospect in your city searches for an insurance agent, you&apos;re competing in the map pack, organic results, and AI-generated answers simultaneously. This is the eight-pillar local SEO framework built specifically for independent insurance agents who want to own their market.
-          </p>
-
-          {/* Author bar */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "20px",
-              paddingTop: "28px",
-              borderTop: "1px solid #1a1a1a",
-              flexWrap: "wrap",
-            }}
-          >
-            <div
-              style={{
-                width: "44px",
-                height: "44px",
-                background: "linear-gradient(135deg, #FF5500, #FF7733)",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                fontWeight: 900,
-                fontSize: "1rem",
-                color: "white",
-              }}
-            >
-              AQ
-            </div>
-            <div>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: "0.9rem", color: "#eee" }}>Abe Quinn</p>
-              <p style={{ margin: 0, fontSize: "0.78rem", color: "#555" }}>Founder, Echelon Fox</p>
-            </div>
-            <div style={{ marginLeft: "auto", display: "flex", gap: "24px", alignItems: "center" }}>
-              <div style={{ textAlign: "right" }}>
-                <p style={{ margin: 0, fontSize: "0.78rem", color: "#555", fontWeight: 500 }}>Published</p>
-                <p style={{ margin: 0, fontSize: "0.82rem", color: "#888", fontWeight: 600 }}>July 15, 2025</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Article Body ── */}
-      <article style={{ padding: "72px 32px 0" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-
-          {/* Table of Contents */}
-          <div
-            style={{
-              background: "#0f0f0f",
-              border: "1px solid #1e1e1e",
-              borderLeft: "3px solid #FF5500",
-              padding: "28px 32px",
-              marginBottom: "64px",
-            }}
-          >
-            <p style={{ margin: "0 0 16px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>In This Article</p>
-            <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
+        <div className="section section--card" style={{ paddingTop: "clamp(3rem, 2rem + 3vw, 4.5rem)" }}>
+          <div className="container container--narrow article-body">
+            <Toc
+              items={[
                 ["Why Local SEO Is the Highest-ROI Channel for Independent Agents", "#intro"],
                 ["How Local Search Works for Insurance Agents", "#how-local-search-works"],
                 ["The 8-Pillar Local SEO Framework", "#eight-pillars"],
@@ -412,533 +319,144 @@ export default function LocalSEOInsuranceAgentsPage() {
                 ["Common Mistakes That Kill Local Rankings", "#common-mistakes"],
                 ["Key Takeaways", "#takeaways"],
                 ["FAQ", "#faq"],
-              ].map(([label, href], i) => (
-                <li key={href} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, flexShrink: 0, width: "18px" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <a href={href} className="toc-link" style={{ color: "#888", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.15s" }}>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
+              ]}
+            />
 
-          {/* ── Section: Intro ── */}
-          <section id="intro" style={{ marginBottom: "72px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Opportunity</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              Why Local SEO Is the Highest-ROI Channel for Independent Agents
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Independent insurance agents sell on trust and relationships — and local search is the first place that trust either gets established or handed to a competitor. When someone moves to a new city, gets their first home, or decides their current agent isn&apos;t cutting it, their search starts with a local query: &ldquo;independent insurance agent near me,&rdquo; &ldquo;home insurance agent in [city],&rdquo; &ldquo;best auto insurance agent [zip code].&rdquo;
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Those queries produce three places where agents can appear: the Google map pack (the three local business listings that appear above organic results), organic web results, and increasingly, AI-generated answer panels that synthesize a recommendation from GBP data, review signals, and content. Dominating local search means showing up credibly in all three.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 28px" }}>
-              These clicks tend to be worth more than most other traffic an agency buys, because the prospect chose to search rather than being interrupted — they&apos;re actively looking for what you offer. How much more is worth measuring in your own accounts rather than assuming from an industry average. What is structurally true: unlike paid ads, rankings you build keep sending visitors without a cost-per-click attached to each one.
-            </p>
-
-            <blockquote
-              style={{
-                borderLeft: "3px solid #FF5500",
-                margin: "40px 0",
-                padding: "20px 28px",
-                background: "#0d0d0d",
-              }}
-            >
-              <p style={{ color: "#ddd", fontSize: "1.1rem", fontStyle: "italic", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
-                &ldquo;Local SEO is the only marketing channel where a single agent with one office can consistently outrank national carriers in their own backyard — if they do the work.&rdquo;
+            <section id="intro" className="article-section">
+              <p className="eyebrow">The Opportunity</p>
+              <h2>Why Local SEO Is the Highest-ROI Channel for Independent Agents</h2>
+              <p>
+                Independent insurance agents sell on trust and relationships — and local search is the first place that trust either gets established or handed to a competitor. When someone moves to a new city, gets their first home, or decides their current agent isn&apos;t cutting it, their search starts with a local query: &ldquo;independent insurance agent near me,&rdquo; &ldquo;home insurance agent in [city],&rdquo; &ldquo;best auto insurance agent [zip code].&rdquo;
               </p>
-            </blockquote>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: 0 }}>
-              Most independent agents are leaving this opportunity on the table. Their Google Business Profiles are incomplete or abandoned. Their websites have no local content. Their citation profiles are inconsistent. This guide walks through the complete framework for fixing that — from the foundational work most agents skip to the content strategy that builds long-term authority.
-            </p>
-          </section>
-
-          {/* ── Section: How Local Search Works ── */}
-          <section id="how-local-search-works" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Mechanics</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              How Local Search Works for Insurance Agents
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Google&apos;s local algorithm uses three primary ranking factors. Understanding them is prerequisite to prioritizing the right work:
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", marginBottom: "32px" }}>
-              {[
-                {
-                  factor: "Relevance",
-                  desc: "How closely your business profile and website match what the searcher is looking for. Controlled by: GBP category selections, service listings, website content, and keyword signals across your online presence.",
-                },
-                {
-                  factor: "Distance",
-                  desc: "How far your business is from the searcher's location (or the location specified in the query). Partially outside your control — but service area settings and location page content extend your proximity footprint.",
-                },
-                {
-                  factor: "Prominence",
-                  desc: "How well-known and reputable your business is, as determined by Google's systems. Driven by: review volume and rating, citation count and quality, backlink authority, and overall web presence depth.",
-                },
-              ].map((item) => (
-                <div key={item.factor} style={{ background: "#0a0a0a", padding: "24px 28px", display: "grid", gridTemplateColumns: "160px 1fr", gap: "20px", alignItems: "start" }}>
-                  <p style={{ margin: 0, fontWeight: 800, fontSize: "0.9rem", color: "#FF5500", letterSpacing: "0.02em" }}>{item.factor}</p>
-                  <p style={{ margin: 0, color: "#777", fontSize: "0.9rem", lineHeight: 1.7 }}>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              The local search landscape for insurance agents operates across two distinct query types, each requiring different optimization strategies:
-            </p>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", marginBottom: "28px" }}>
-              {[
-                {
-                  type: "Intent-to-Hire Queries",
-                  examples: "\"insurance agent near me,\" \"independent insurance agent [city],\" \"home insurance agency [zip]\"",
-                  strategy: "GBP optimization, review velocity, and NAP citation consistency drive map pack placement for these high-commercial-intent queries.",
-                },
-                {
-                  type: "Educational Queries",
-                  examples: "\"how much home insurance do I need in [state],\" \"what does renters insurance cover,\" \"auto insurance requirements [state]\"",
-                  strategy: "On-site educational content targeting these informational queries builds topical authority and positions your agency as the trusted expert before the prospect is ready to buy.",
-                },
-              ].map((item) => (
-                <div key={item.type} style={{ background: "#0a0a0a", padding: "28px" }}>
-                  <p style={{ margin: "0 0 10px", fontWeight: 800, fontSize: "0.9rem", color: "#FF5500" }}>{item.type}</p>
-                  <p style={{ margin: "0 0 8px", fontSize: "0.8rem", color: "#555", fontStyle: "italic" }}>e.g. {item.examples}</p>
-                  <p style={{ margin: 0, color: "#666", fontSize: "0.85rem", lineHeight: 1.7 }}>{item.strategy}</p>
-                </div>
-              ))}
-            </div>
-
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: 0 }}>
-              A complete local SEO strategy for insurance agents addresses both query types — the transactional visibility that drives immediate calls and the educational content that builds the authority and trust signals that sustain rankings long-term. The eight pillars below cover both.
-            </p>
-          </section>
-
-          {/* ── Section: 8 Pillars ── */}
-          <section id="eight-pillars" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>The Framework</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              The 8-Pillar Local SEO Framework for Insurance Agents
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 40px" }}>
-              These eight pillars are ordered by impact-to-effort ratio for agents starting from a typical baseline. Work through them sequentially — each builds on the foundation of the last.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-              {pillars.map((pillar) => (
-                <div
-                  key={pillar.num}
-                  style={{
-                    background: "#080808",
-                    padding: "40px",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "-12px",
-                      right: "20px",
-                      fontSize: "5.5rem",
-                      fontWeight: 900,
-                      color: "#111",
-                      lineHeight: 1,
-                      userSelect: "none",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    {pillar.num}
-                  </div>
-                  <div style={{ color: "#FF5500", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "10px" }}>
-                    Pillar {pillar.num}
-                  </div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, margin: "0 0 16px", letterSpacing: "-0.01em", maxWidth: "600px" }}>
-                    {pillar.title}
-                  </h3>
-                  <p style={{ color: "#777", fontSize: "0.92rem", lineHeight: 1.8, margin: 0, maxWidth: "680px" }}>
-                    {pillar.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Section: Competitive Audit ── */}
-          <section id="competitive-audit" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Know Your Competition</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 24px" }}>
-              Competitive Intelligence: How to Audit Your Local Market
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 20px" }}>
-              Before investing in local SEO, audit who is currently winning in your market and why. This tells you exactly what level of effort is required to compete — and where the fastest gaps exist to close.
-            </p>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 28px" }}>
-              Run a local audit in three steps:
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "36px" }}>
-              {[
-                {
-                  step: "01",
-                  title: "Map the current map pack",
-                  body: "Search your primary local keywords (\"{coverage type} insurance agent {your city}\") from a device located in your market area. Note the three businesses in the map pack: their review count, review rating, GBP completeness (photos, posts, Q&A), and how long they've been established. This sets your competitive baseline.",
-                },
-                {
-                  step: "02",
-                  title: "Analyze their citation profiles",
-                  body: "Use a free tool like Moz Local or BrightLocal's citation tracker to see where your top competitors are listed. Note which high-authority sources (state DOI, insurance associations, BBB) they have that you don't. These are your priority citation gaps.",
-                },
-                {
-                  step: "03",
-                  title: "Review their on-site content",
-                  body: "Visit the websites of the top two or three local competitors. Note their service page structure, content depth, presence of location-specific content, and whether they have a blog or educational content hub. Look for obvious gaps — thin service pages, no FAQ sections, no schema markup — that you can exploit with better content.",
-                },
-              ].map((item) => (
-                <div key={item.step} style={{ background: "#0f0f0f", border: "1px solid #1e1e1e", padding: "28px", display: "grid", gridTemplateColumns: "auto 1fr", gap: "20px", alignItems: "start" }}>
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      background: "rgba(255,85,0,0.1)",
-                      border: "1px solid rgba(255,85,0,0.25)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: 900,
-                      fontSize: "0.75rem",
-                      color: "#FF5500",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {item.step}
-                  </div>
-                  <div>
-                    <h3 style={{ margin: "0 0 8px", fontSize: "0.95rem", fontWeight: 800, color: "#eee" }}>{item.title}</h3>
-                    <p style={{ margin: 0, color: "#666", fontSize: "0.88rem", lineHeight: 1.75 }}>{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid #1e1e1e",
-                borderLeft: "3px solid #FF5500",
-                padding: "20px 24px",
-              }}
-            >
-              <p style={{ margin: 0, color: "#888", fontSize: "0.88rem", lineHeight: 1.7 }}>
-                <strong style={{ color: "#eee" }}>Also read:</strong> If your market includes significant competition for AI search visibility, see our companion guide on{" "}
-                <Link href="/insights/ai-search-for-insurance-agencies" style={{ color: "#FF5500", textDecoration: "none" }}>
-                  AI Search for Insurance Agencies
-                </Link>{" "}
-                — the E-E-A-T approach we use to give agencies a better chance of being cited in ChatGPT, Perplexity, and Google AI Overviews.
+              <p>
+                Those queries produce three places where agents can appear: the Google map pack (the three local business listings that appear above organic results), organic web results, and increasingly, AI-generated answer panels that synthesize a recommendation from GBP data, review signals, and content. Dominating local search means showing up credibly in all three.
               </p>
-            </div>
-          </section>
+              <p>
+                These clicks tend to be worth more than most other traffic an agency buys, because the prospect chose to search rather than being interrupted — they&apos;re actively looking for what you offer. How much more is worth measuring in your own accounts rather than assuming from an industry average. What is structurally true: unlike paid ads, rankings you build keep sending visitors without a cost-per-click attached to each one.
+              </p>
+              <blockquote className="callout">
+                <p className="serif" style={{ fontSize: "1.45rem", lineHeight: 1.35, margin: 0 }}>
+                  &ldquo;Local SEO is the only marketing channel where a single agent with one office can consistently outrank national carriers in their own backyard — if they do the work.&rdquo;
+                </p>
+              </blockquote>
+              <p>
+                Most independent agents are leaving this opportunity on the table. Their Google Business Profiles are incomplete or abandoned. Their websites have no local content. Their citation profiles are inconsistent. This guide walks through the complete framework for fixing that — from the foundational work most agents skip to the content strategy that builds long-term authority.
+              </p>
+            </section>
 
-          {/* ── Section: Stats ── */}
-          <section style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
-                gap: "1px",
-                background: "#1a1a1a",
-                border: "1px solid #1a1a1a",
-              }}
-            >
-              {[
-                { stat: "8", label: "Pillars in the framework below — work them in order rather than picking favourites" },
-                { stat: "4–8 wks", label: "Typical window before GBP work shows movement, in our experience — competitive markets take longer" },
-                { stat: "2–4", label: "New Google reviews per month is a more useful target than a one-off review push" },
-                { stat: "3", label: "Places you can appear on a local query: the map pack, organic results, and AI answers" },
-              ].map((item) => (
-                <div key={item.stat} style={{ background: "#0a0a0a", padding: "28px 24px", textAlign: "center" }}>
-                  <p style={{ margin: "0 0 8px", fontSize: "1.8rem", fontWeight: 900, color: "#FF5500", letterSpacing: "-0.02em" }}>{item.stat}</p>
-                  <p style={{ margin: 0, fontSize: "0.82rem", color: "#666", lineHeight: 1.5 }}>{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Section: Common Mistakes ── */}
-          <section id="common-mistakes" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>What Not to Do</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 16px" }}>
-              Common Mistakes That Kill Local Rankings
-            </h2>
-            <p style={{ color: "#999", fontSize: "1rem", lineHeight: 1.85, margin: "0 0 36px" }}>
-              These patterns appear in nearly every insurance agent&apos;s local SEO audit. Fixing them often produces faster ranking improvements than adding new content or citations.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-              {mistakes.map((item, i) => (
-                <div key={i} style={{ background: "#080808", padding: "28px 32px", display: "grid", gridTemplateColumns: "auto 1fr", gap: "20px", alignItems: "start" }}>
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      background: "rgba(255,85,0,0.1)",
-                      border: "1px solid rgba(255,85,0,0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      fontSize: "0.7rem",
-                      fontWeight: 900,
-                      color: "#FF5500",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
+            <section id="how-local-search-works" className="article-section">
+              <p className="eyebrow">The Mechanics</p>
+              <h2>How Local Search Works for Insurance Agents</h2>
+              <p>
+                Google&apos;s local algorithm uses three primary ranking factors. Understanding them is prerequisite to prioritizing the right work:
+              </p>
+              <dl className="def-list">
+                {factors.map((f) => (
+                  <div key={f.factor}>
+                    <dt>{f.factor}</dt>
+                    <dd>{f.desc}</dd>
                   </div>
-                  <div>
-                    <h3 style={{ margin: "0 0 8px", fontSize: "0.95rem", fontWeight: 800, color: "#eee" }}>{item.title}</h3>
-                    <p style={{ margin: 0, color: "#666", fontSize: "0.88rem", lineHeight: 1.75 }}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Key Takeaways ── */}
-          <section id="takeaways" style={{ marginBottom: "72px", paddingTop: "48px", borderTop: "1px solid #111" }}>
-            <div
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid #1e1e1e",
-                borderTop: "3px solid #FF5500",
-                padding: "40px",
-              }}
-            >
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
-                <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 10px #FF5500" }} />
-                <span style={{ color: "#FF5500", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Key Takeaways</span>
-              </div>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
-                {takeaways.map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                    <span
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "22px",
-                        height: "22px",
-                        background: "#FF5500",
-                        flexShrink: 0,
-                        fontSize: "0.65rem",
-                        fontWeight: 900,
-                        color: "white",
-                        marginTop: "2px",
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <p style={{ margin: 0, color: "#aaa", fontSize: "0.92rem", lineHeight: 1.75 }}>{item}</p>
-                  </li>
                 ))}
-              </ul>
-            </div>
-          </section>
+              </dl>
+              <p>
+                The local search landscape for insurance agents operates across two distinct query types, each requiring different optimization strategies:
+              </p>
+              <dl className="def-list">
+                {queryTypes.map((q) => (
+                  <div key={q.type}>
+                    <dt>{q.type}</dt>
+                    <dd>
+                      <em>e.g. {q.examples}</em>
+                      <br />
+                      {q.strategy}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p>
+                A complete local SEO strategy for insurance agents addresses both query types — the transactional visibility that drives immediate calls and the educational content that builds the authority and trust signals that sustain rankings long-term. The eight pillars below cover both.
+              </p>
+            </section>
 
+            <section id="eight-pillars" className="article-section">
+              <p className="eyebrow">The Framework</p>
+              <h2>The 8-Pillar Local SEO Framework for Insurance Agents</h2>
+              <p>
+                These eight pillars are ordered by impact-to-effort ratio for agents starting from a typical baseline. Work through them sequentially — each builds on the foundation of the last.
+              </p>
+              <NumberedList items={pillars.map((p) => ({ title: p.title, body: p.body }))} />
+            </section>
+
+            <section id="competitive-audit" className="article-section">
+              <p className="eyebrow">Know Your Competition</p>
+              <h2>Competitive Intelligence: How to Audit Your Local Market</h2>
+              <p>
+                Before investing in local SEO, audit who is currently winning in your market and why. This tells you exactly what level of effort is required to compete — and where the fastest gaps exist to close.
+              </p>
+              <p>Run a local audit in three steps:</p>
+              <NumberedList items={auditSteps} />
+              <p className="callout small">
+                <strong style={{ fontWeight: 500 }}>Also read:</strong> If your market includes significant competition for AI search visibility, see our companion guide on{" "}
+                <Link href="/insights/ai-search-for-insurance-agencies">AI Search for Insurance Agencies</Link> — the E-E-A-T approach we use to give agencies a better chance of being cited in ChatGPT, Perplexity, and Google AI Overviews.
+              </p>
+            </section>
+
+            <section className="article-section" aria-label="At a glance">
+              <div className="fact-row">
+                {facts.map((f) => (
+                  <div key={f.stat}>
+                    <p className="fact">{f.stat}</p>
+                    <p>{f.label}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section id="common-mistakes" className="article-section">
+              <p className="eyebrow">What Not to Do</p>
+              <h2>Common Mistakes That Kill Local Rankings</h2>
+              <p>
+                These patterns appear in nearly every insurance agent&apos;s local SEO audit. Fixing them often produces faster ranking improvements than adding new content or citations.
+              </p>
+              <NumberedList items={mistakes.map((m) => ({ title: m.title, body: m.desc }))} />
+            </section>
+
+            <section id="takeaways" className="article-section">
+              <p className="eyebrow">Key Takeaways</p>
+              <h2>Key Takeaways</h2>
+              <ol>
+                {takeaways.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ol>
+            </section>
+
+            <section id="faq" className="article-section">
+              <p className="eyebrow">Common Questions</p>
+              <h2>Frequently Asked Questions</h2>
+              <Faq items={faq} />
+            </section>
+
+            <AuthorBio>
+              Abe founded EchelonFox to help established companies find the commercial constraint holding growth back and build what comes next. He works directly with insurance agencies on local SEO, website builds, and search visibility, alongside clients in other industries. This guide reflects how he approaches the work rather than a claim about any specific client&apos;s results.
+            </AuthorBio>
+
+            <NextLinks
+              items={[
+                { href: "/insights/ai-search-for-insurance-agencies", label: "AI Search for Insurance Agencies", desc: "The companion guide on getting cited in ChatGPT, Perplexity, and AI Overviews." },
+                { href: "/services/customer-acquisition", label: "Customer acquisition and conversion", desc: "Where the service and location pages in this guide actually get built." },
+                { href: "/work/independent-insurance-agency", label: "Case study: independent insurance agency", desc: "A website rebuild that turned out to be about how prospects ask for a quote." },
+              ]}
+            />
+          </div>
         </div>
       </article>
 
-      {/* ── FAQ ── */}
-      <section id="faq" style={{ padding: "72px 32px", borderTop: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "48px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Common Questions</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.025em", lineHeight: 1.1, margin: 0 }}>
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {faq.map((item, i) => (
-              <div key={i} style={{ borderTop: "1px solid #1a1a1a", padding: "28px 0" }}>
-                <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#eee", margin: "0 0 12px" }}>{item.q}</h3>
-                <p style={{ color: "#777", fontSize: "0.9rem", lineHeight: 1.8, margin: 0 }}>{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Author Bio ── */}
-      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div
-            style={{
-              background: "#0f0f0f",
-              border: "1px solid #1e1e1e",
-              padding: "36px",
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              gap: "28px",
-              alignItems: "start",
-            }}
-          >
-            <div
-              style={{
-                width: "72px",
-                height: "72px",
-                background: "linear-gradient(135deg, #FF5500, #FF7733)",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                fontWeight: 900,
-                fontSize: "1.4rem",
-                color: "white",
-              }}
-            >
-              AQ
-            </div>
-            <div>
-              <p style={{ margin: "0 0 2px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF5500" }}>About the Author</p>
-              <h3 style={{ margin: "0 0 4px", fontSize: "1.1rem", fontWeight: 900, color: "#fff" }}>Abe Quinn</h3>
-              <p style={{ margin: "0 0 14px", fontSize: "0.8rem", color: "#555", fontWeight: 600 }}>Founder, Echelon Fox</p>
-              <p style={{ margin: 0, color: "#777", fontSize: "0.88rem", lineHeight: 1.75 }}>
-                Abe founded Echelon Fox as a founder-led marketing and growth partner for businesses across industries — websites, SEO, paid media, email, and automation on a monthly subscription. He works directly with insurance agencies on local SEO, website builds, and search visibility, alongside clients in e-commerce, beauty, pet services, and B2B. This guide reflects how he approaches the work rather than a claim about any specific client&apos;s results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Where to go next ── */}
-      <section style={{ padding: "56px 32px", borderTop: "1px solid #1a1a1a" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", margin: "0 0 20px", letterSpacing: "0.02em" }}>
-            Where to go next
-          </h2>
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}>
-            {[
-              { href: "/insights/ai-search-for-insurance-agencies", label: "AI Search for Insurance Agencies", desc: "The companion guide on getting cited in ChatGPT, Perplexity, and AI Overviews." },
-              { href: "/websites", label: "Website Design & Build", desc: "Where the service and location pages in this guide actually get built." },
-              { href: "/contact", label: "Book a Growth Audit", desc: "We'll review your profile, citations, and pages, and tell you what to fix first." },
-            ].map((item) => (
-              <li key={item.href} style={{ background: "#0a0a0a" }}>
-                <Link href={item.href} style={{ display: "block", padding: "22px 24px", textDecoration: "none" }}>
-                  <span style={{ display: "block", color: "#FF5500", fontSize: "0.9rem", fontWeight: 800, marginBottom: "6px" }}>{item.label}</span>
-                  <span style={{ display: "block", color: "#777", fontSize: "0.85rem", lineHeight: 1.65 }}>{item.desc}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section style={{ padding: "100px 32px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,85,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(255,85,0,0.06) 0%, transparent 65%)", pointerEvents: "none" }} />
-        <div style={{ position: "relative", maxWidth: "680px", margin: "0 auto" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-            <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 12px #FF5500" }} />
-            <span style={{ color: "#FF5500", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>Ready to Own Your Local Market?</span>
-          </div>
-          <h2
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 900,
-              lineHeight: 1.06,
-              letterSpacing: "-0.025em",
-              margin: "0 0 20px",
-            }}
-          >
-            Let&apos;s Build Your Agency&apos;s{" "}
-            <span style={{ color: "#FF5500" }}>Local Search Dominance</span>
-          </h2>
-          <p style={{ color: "#666", fontSize: "1rem", lineHeight: 1.7, margin: "0 0 40px" }}>
-            We audit insurance agent digital footprints, identify the specific gaps suppressing local visibility, and build the GBP, citation, content, and schema infrastructure to fix them. Start with a free audit.
-          </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/contact"
-              style={{
-                background: "#FF5500",
-                color: "white",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "16px 40px",
-                textDecoration: "none",
-                clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Book a Growth Audit
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link
-              href="/services/seo-content"
-              style={{
-                background: "transparent",
-                color: "white",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "15px 39px",
-                textDecoration: "none",
-                border: "1px solid #333",
-                clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Our SEO Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+      <FinalCta
+        eyebrow="Ready to own your local market?"
+        title="Find out what's holding your agency's visibility back."
+        body="Tell Abe about your agency and your market. He'll look at your profile, citations, and pages, and tell you what to fix first."
+      />
+    </PageShell>
   );
 }

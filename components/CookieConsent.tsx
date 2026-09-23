@@ -42,51 +42,12 @@ export default function CookieConsent() {
   if (stored || dismissedNow) return null;
 
   return (
-    <div
-      role="region"
-      aria-label="Cookie notice"
-      style={{
-        position: "fixed",
-        bottom: "24px",
-        left: "24px",
-        right: "24px",
-        maxWidth: "600px",
-        background: "#111",
-        border: "1px solid #2a2a2a",
-        padding: "20px 24px",
-        zIndex: 9999,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "16px",
-        flexWrap: "wrap",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
-      }}
-    >
-      <p style={{ color: "#999", fontSize: "0.85rem", lineHeight: 1.6, margin: 0, flex: 1, minWidth: "200px" }}>
+    <div role="region" aria-label="Cookie notice" className="cookie-notice">
+      <p>
         We don&apos;t use analytics, advertising, or tracking cookies on this site — only what&apos;s
-        needed to make it work. Details are in our{" "}
-        <Link href="/privacy" style={{ color: "#FF5500", textDecoration: "underline" }}>
-          Privacy Policy
-        </Link>
-        .
+        needed to make it work. Details are in our <Link href="/privacy">Privacy Policy</Link>.
       </p>
-      <button
-        onClick={dismiss}
-        style={{
-          background: "#FF5500",
-          border: "none",
-          color: "#fff",
-          padding: "12px 24px",
-          fontSize: "0.8rem",
-          cursor: "pointer",
-          fontWeight: 700,
-          letterSpacing: "0.05em",
-          fontFamily: "inherit",
-          flexShrink: 0,
-          minHeight: "44px",
-        }}
-      >
+      <button type="button" onClick={dismiss} className="btn">
         Got it
       </button>
     </div>
