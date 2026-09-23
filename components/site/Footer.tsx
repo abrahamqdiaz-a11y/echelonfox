@@ -5,7 +5,6 @@ import { capabilities } from "@/lib/capabilities";
 const company = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ];

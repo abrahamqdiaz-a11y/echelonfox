@@ -6,9 +6,9 @@ import Arrow from "@/components/site/Arrow";
 import { getCapability, capabilities } from "@/lib/capabilities";
 
 /*
- * Prices, inclusions, and FAQ answers on this page were carried over verbatim
- * from the former /ai-agents page (which now 301s here). Change them only when
- * the offer itself changes.
+ * Inclusions and FAQ answers on this page were carried over from the former
+ * /ai-agents page (which now 301s here). Prices were removed in Sep 2026:
+ * engagements are scoped after the diagnosis.
  */
 
 const URL = "https://echelonfox.com/services/ai-automation";
@@ -105,12 +105,11 @@ const safeguards = [
   },
 ];
 
-const oneTime = [
+const stages = [
   {
     phase: "Discover",
     name: "AI Opportunity Audit",
-    price: "$750–$1,500",
-    note: "flat fee · credited toward build · ~1 week",
+    timing: "About a week",
     desc: "We map how enquiries reach you, where they stall, and which repetitive tasks cost the most staff time — then recommend what's worth automating and what isn't.",
     includes: [
       "Enquiry & workflow mapping",
@@ -123,8 +122,7 @@ const oneTime = [
   {
     phase: "Build",
     name: "Agent Setup",
-    price: "From $1,500",
-    note: "per agent · one-time · 2–4 weeks",
+    timing: "Usually 2–4 weeks",
     desc: "End-to-end configuration: connected to your CRM, calendar, phone, or inbox, briefed on your services, tested against scenarios you approve, and launched.",
     includes: [
       "CRM & calendar integration",
@@ -134,49 +132,17 @@ const oneTime = [
       "Launch testing & QA",
     ],
   },
-];
-
-const tiers = [
   {
-    name: "Single Agent",
-    price: "$500",
-    period: "/mo",
-    desc: "One agent in production, reviewed and maintained, with a monthly summary of what it handled. The right starting point for one workflow.",
+    phase: "Run",
+    name: "Ongoing Management",
+    timing: "Ongoing",
+    desc: "We keep it working: reviewing transcripts, tuning responses, updating it when your services or hours change, fixing integrations when a connected tool changes, and sending you a monthly summary of what it handled.",
     includes: [
-      "1 AI agent in production",
       "Transcript review & response tuning",
       "Monthly performance summary",
       "Updates when your services or hours change",
-      "Human-handoff configuration",
-      "Direct email or Slack access",
-    ],
-  },
-  {
-    name: "Multi-Agent",
-    price: "$1,200",
-    period: "/mo",
-    desc: "Up to three agents working together, with integration support as your stack changes. For businesses covering several workflows at once.",
-    includes: [
-      "Up to 3 AI agents in production",
-      "Priority response on issues",
       "CRM & calendar integration support",
-      "Monthly performance summary",
-      "Fortnightly optimisation review",
       "Direct email or Slack access",
-    ],
-  },
-  {
-    name: "Embedded",
-    price: "From $2,500",
-    period: "/mo",
-    desc: "Automation across your workflows, bundled with an Echelon Fox marketing plan — so the automation and the campaigns feeding it are handled together.",
-    includes: [
-      "Agents across your active workflows",
-      "Workflow design & orchestration",
-      "Bundled marketing plan",
-      "Monthly strategy review",
-      "Priority response on issues",
-      "Reporting tailored to your leadership",
     ],
   },
 ];
@@ -211,8 +177,8 @@ const faq = [
     a: "The audit takes about a week. A straightforward build is usually two to four weeks depending on how many systems have to talk to each other.",
   },
   {
-    q: "What does it cost?",
-    a: "The AI Opportunity Audit is $750–$1,500 flat and is credited toward a build. Builds start at $1,500 per agent. Ongoing management starts at $500/month. Any usage costs charged by the underlying platforms — telephony minutes, SMS, or model usage — are billed separately at cost.",
+    q: "How is it priced?",
+    a: "Every build is scoped after the audit, and we'll price it before you commit. Any usage costs charged by the underlying platforms — telephony minutes, SMS, or model usage — are billed separately at cost.",
   },
 ];
 
@@ -351,62 +317,40 @@ export default function AiAutomationPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="ai-pricing-title" id="pricing">
+      <section className="section" aria-labelledby="stages-title" id="process">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Pricing</p>
-            <h2 id="ai-pricing-title" className="h2">
+            <p className="eyebrow">How it runs</p>
+            <h2 id="stages-title" className="h2">
               Audit, build, then manage.
             </h2>
             <p className="lead muted">
-              Start with the audit — its fee is credited against a build if you go ahead. Platform usage costs
-              (telephony, SMS, model usage) are billed separately at cost.
+              The audit exists so nobody pays to build something that won&apos;t pay for itself, and the ongoing
+              management exists because an automation nobody checks quietly drifts out of date.
             </p>
           </div>
-
-          <div className="grid-2">
-            {oneTime.map((o) => (
-              <div key={o.name} className="stack" style={{ ["--stack" as string]: "1rem" }}>
-                <p className="label">{o.phase}</p>
-                <h3 className="h3">{o.name}</h3>
-                <p className="plan__price" style={{ margin: 0 }}>
-                  {o.price}
-                </p>
-                <p className="plan__terms">{o.note}</p>
+          <ol className="plans" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {stages.map((st) => (
+              <li key={st.name} className="plan">
+                <div>
+                  <p className="label">
+                    {st.phase} · {st.timing}
+                  </p>
+                  <h3 className="h3" style={{ marginTop: "0.5rem" }}>
+                    {st.name}
+                  </h3>
+                </div>
                 <p className="small muted" style={{ margin: 0 }}>
-                  {o.desc}
+                  {st.desc}
                 </p>
                 <ul className="check-list small">
-                  {o.includes.map((i) => (
+                  {st.includes.map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
-              </div>
+              </li>
             ))}
-          </div>
-
-          <h3 className="label" style={{ margin: "3rem 0 1rem" }}>
-            Run — monthly management
-          </h3>
-          <div className="plans">
-            {tiers.map((t) => (
-              <div key={t.name} className="plan">
-                <h4 className="h3">{t.name}</h4>
-                <p className="plan__price" style={{ margin: 0 }}>
-                  {t.price}
-                  <span>{t.period}</span>
-                </p>
-                <p className="small muted" style={{ margin: 0 }}>
-                  {t.desc}
-                </p>
-                <ul className="check-list small">
-                  {t.includes.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -450,7 +394,7 @@ export default function AiAutomationPage() {
       <FinalCta
         eyebrow="AI Opportunity Audit"
         title="Find out what's worth automating, and what isn't."
-        body="The AI Opportunity Audit maps how enquiries reach you, where they stall, and what each automation would cost to build against what it would save. Fixed fee, credited toward a build if you move forward. If automation isn't the right next step for your business, the audit will say so."
+        body="The AI Opportunity Audit maps how enquiries reach you, where they stall, and what each automation would cost to build against what it would save. If automation isn't the right next step for your business, the audit will say so."
         label="Book an AI Opportunity Audit"
       />
     </PageShell>

@@ -13,6 +13,5 @@ export const PRIMARY_NAV = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
   { label: "Insights", href: "/insights" },
 ] as const;

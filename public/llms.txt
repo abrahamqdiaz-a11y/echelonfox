@@ -14,14 +14,13 @@ Engagements follow four stages: Diagnose → Design → Build → Improve. Websi
 ## Services
 
 - [Commercial diagnosis and positioning](https://echelonfox.com/services/commercial-diagnosis): Sales and customer analysis, segmentation, positioning, and measurement.
-- [Customer acquisition and conversion](https://echelonfox.com/services/customer-acquisition): Websites, search, local visibility, Google Shopping, and paid media. Website projects are flat-rate from $1,000.
+- [Customer acquisition and conversion](https://echelonfox.com/services/customer-acquisition): Websites, search, local visibility, Google Shopping, and paid media.
 - [Sales process, CRM, and follow-up](https://echelonfox.com/services/sales-process-crm): CRM setup, pipeline design, and lifecycle email and SMS.
 - [Practical AI and automation](https://echelonfox.com/services/ai-automation): Lead response, scheduling, CRM workflows, follow-up, and admin automation, with human handoff.
 
-## Work, Pricing & Insights
+## Work & Insights
 
 - [Work](https://echelonfox.com/work): Case studies in the format asked for → broader issue found → what was built → outcome where evidence exists.
-- [Pricing](https://echelonfox.com/pricing): Flat monthly plans starting at $1,500/mo, 60 days' notice to cancel. Advertising spend is billed separately by the ad platforms.
 - [Insights](https://echelonfox.com/insights): Practical guides on local SEO, AI search, and growth.
 
 ## Contact

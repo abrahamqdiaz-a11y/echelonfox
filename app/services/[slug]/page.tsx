@@ -9,7 +9,7 @@ import { getCase } from "@/lib/work-data";
 
 type Params = { slug: string };
 
-// "ai-automation" has its own page (app/services/ai-automation), because it carries pricing and an FAQ.
+// "ai-automation" has its own page (app/services/ai-automation), because it carries an FAQ and its own process.
 export function generateStaticParams(): Params[] {
   return capabilities.filter((c) => c.slug !== "ai-automation").map((c) => ({ slug: c.slug }));
 }
@@ -124,29 +124,6 @@ export default async function CapabilityPage({ params }: { params: Promise<Param
             ))}
           </div>
 
-          {c.slug === "customer-acquisition" && (
-            <div className="panel" style={{ marginTop: "2rem" }}>
-              <div className="split" style={{ gap: "1rem 3rem" }}>
-                <p className="label">Pricing notes</p>
-                <div className="stack small" style={{ ["--stack" as string]: "0.75rem" }}>
-                  <p style={{ margin: 0 }}>
-                    <strong style={{ fontWeight: 500 }}>Website projects</strong> are flat-rate, starting at
-                    $1,000. One price, agreed up front, before work starts. Done in weeks, not months, with local
-                    SEO basics included.
-                  </p>
-                  <p className="muted" style={{ margin: 0 }}>
-                    Advertising spend is separate from all fees. You pay Google, Meta, or whichever platform you
-                    advertise on directly, so you keep ownership of the accounts and can see exactly what was
-                    spent. Ongoing work runs on the{" "}
-                    <Link href="/pricing" className="text-link">
-                      monthly plans
-                    </Link>
-                    .
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
