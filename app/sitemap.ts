@@ -15,7 +15,6 @@ type Entry = {
 const entries: Entry[] = [
   { path: "", lastModified: REDESIGN, changeFrequency: "monthly", priority: 1 },
   { path: "/contact", lastModified: REDESIGN, changeFrequency: "monthly", priority: 0.9 },
-  { path: "/pricing", lastModified: REDESIGN, changeFrequency: "monthly", priority: 0.9 },
   { path: "/about", lastModified: REDESIGN, changeFrequency: "monthly", priority: 0.8 },
 
   // Services: the four capability groups (old single-channel pages 301 here)

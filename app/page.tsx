@@ -107,7 +107,7 @@ export default function Home() {
 
       <PageShell>
         {/* 1 — What commercial problem does EchelonFox solve? */}
-        <section className="home-hero" aria-labelledby="hero-title">
+        <section className="home-hero" aria-labelledby="hero-title" id="home">
           <div className="container home-hero__grid">
             <div>
               <p className="eyebrow">Commercial growth strategy &amp; implementation</p>
@@ -185,6 +185,9 @@ export default function Home() {
         </section>
 
         {/* 3 — How is the problem diagnosed, and how is the fix decided? */}
+        {/* Anchors from the previous homepage (#about, #selected-work, #results, #testimonials) land on
+            the closest new section, so old links and bookmarks don't dead-end. */}
+        <span id="about" aria-hidden="true" />
         <section className="section section--card" aria-labelledby="approach-title" id="approach">
           <div className="container">
             <div className="section-head">
@@ -281,7 +284,7 @@ export default function Home() {
               ))}
             </ol>
 
-            <div style={{ marginTop: "clamp(3.5rem, 2rem + 4vw, 5.5rem)" }}>
+            <div id="services" style={{ marginTop: "clamp(3.5rem, 2rem + 4vw, 5.5rem)", scrollMarginTop: "calc(var(--header-h) + 16px)" }}>
               <div className="split" style={{ marginBottom: "2rem", alignItems: "end" }}>
                 <h3 className="h3">What gets built</h3>
                 <p className="body muted">
@@ -310,6 +313,9 @@ export default function Home() {
         </section>
 
         {/* 5 — What relevant work supports the claim? */}
+        <span id="selected-work" aria-hidden="true" />
+        <span id="results" aria-hidden="true" />
+        <span id="testimonials" aria-hidden="true" />
         <section className="section section--card" aria-labelledby="work-title" id="work">
           <div className="container">
             <div className="section-head">

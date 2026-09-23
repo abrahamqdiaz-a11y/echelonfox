@@ -89,7 +89,7 @@ export const capabilities: Capability[] = [
       {
         heading: "Website and pages",
         items: [
-          "Website design and build, mobile-first, around what your customers are looking for",
+          "Website design and build, mobile-first, around what your customers are looking for — done in weeks, not months, with local SEO basics included",
           "Landing pages for a specific buyer group or offer",
           "Conversion work on forms, quote requests, and booking",
           "Launch and handoff: you own everything, handed over working with simple instructions — no hostage hosting",
@@ -109,6 +109,7 @@ export const capabilities: Capability[] = [
           "Campaigns on Google, Meta, TikTok, and YouTube, built per buyer group",
           "Promotions timed to when customers actually buy",
           "Social media strategy, content, and scheduling where it fits the plan",
+          "Ad spend paid directly to the platforms, so you keep ownership of the accounts and see exactly what was spent",
         ],
       },
     ],

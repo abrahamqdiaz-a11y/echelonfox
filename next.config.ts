@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
       moved("/services/email-crm", "/services/sales-process-crm"),
       moved("/ai-agents", "/services/ai-automation"),
 
+      // Pricing retired: engagements are scoped after the diagnosis.
+      moved("/pricing", "/contact"),
+
       // Industry landing pages retired: EchelonFox isn't defined by one industry.
       moved("/ecommerce", "/services"),
       moved("/saas", "/services"),
