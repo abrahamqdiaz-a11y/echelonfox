@@ -109,8 +109,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           </div>
           {!c.outcome && (
             <p className="small muted" style={{ marginTop: "1.5rem", maxWidth: "44rem" }}>
-              No outcome figures are published for this project. EchelonFox only publishes results that come
-              from a client&apos;s own data, with their agreement.
+              We don&apos;t publish outcome figures for this project. We only publish results that come from a
+              client&apos;s own data, with their agreement.
             </p>
           )}
         </div>

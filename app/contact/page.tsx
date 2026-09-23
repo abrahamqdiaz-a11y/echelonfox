@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact EchelonFox — Start a conversation",
     description:
-      "Send a message or book a call. You'll get an honest answer on whether EchelonFox is the right fit.",
+      "Send a message or book a call. You'll get an honest answer on whether we're the right fit.",
     url: "https://echelonfox.com/contact",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact EchelonFox" }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const expectations = [
   {
     title: "A reply from a person, not a bot",
-    desc: "Every enquiry is read by the team that would do the work. You'll hear back within one business day.",
+    desc: "Every enquiry is read personally. You'll hear back within one business day.",
   },
   {
     title: "A working call, not a pitch",
@@ -29,7 +29,7 @@ const expectations = [
   },
   {
     title: "An honest answer on fit",
-    desc: "If EchelonFox isn't what you need right now, we'll say so and point you somewhere useful.",
+    desc: "If we're not what you need right now, we'll say so and point you somewhere useful.",
   },
 ];
 
