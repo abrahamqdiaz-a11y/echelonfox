@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/site/illustrations/Icon";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
@@ -67,6 +68,7 @@ export default async function CapabilityPage({ params }: { params: Promise<Param
               <li aria-current="page">{c.short}</li>
             </ol>
           </nav>
+          <Icon name={c.slug} size="lg" />
           <h1 id="cap-title" className="h1" style={{ maxWidth: "18ch" }}>
             {c.name}
           </h1>

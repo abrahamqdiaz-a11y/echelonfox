@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
 import Marked from "@/components/site/Marked";
+import WeekPattern from "@/components/site/illustrations/WeekPattern";
 import Arrow from "@/components/site/Arrow";
 import { getCase, publishedCases } from "@/lib/work-data";
 import { getCapability } from "@/lib/capabilities";
@@ -51,13 +52,20 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
     {
       label: "What was found",
       content: (
-        <ul className="check-list">
-          {c.found.map((f) => (
-            <li key={f}>
-              <Marked text={f} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="check-list">
+            {c.found.map((f) => (
+              <li key={f}>
+                <Marked text={f} />
+              </li>
+            ))}
+          </ul>
+          {c.slug === "beauty-supply-retailer-maryland" && (
+            <div style={{ marginTop: "2rem", maxWidth: "36rem" }}>
+              <WeekPattern />
+            </div>
+          )}
+        </>
       ),
     },
     {

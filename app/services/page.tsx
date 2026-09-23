@@ -4,6 +4,7 @@ import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
+import Icon from "@/components/site/illustrations/Icon";
 import { capabilities } from "@/lib/capabilities";
 
 const TITLE = "Services — Four capabilities beneath the strategy";
@@ -38,6 +39,7 @@ export default function ServicesPage() {
             {capabilities.map((c, i) => (
               <article key={c.slug} className="case-row" aria-labelledby={`cap-${c.slug}`}>
                 <div className="case-row__head">
+                  <Icon name={c.slug} size="lg" />
                   <span className="label">{String(i + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="split split--even" style={{ gap: "1.5rem 3rem" }}>
