@@ -37,8 +37,7 @@ const entries: Entry[] = [
 
   // Insights
   { path: "/insights", lastModified: REDESIGN, changeFrequency: "monthly", priority: 0.7 },
-  { path: "/insights/local-seo-for-insurance-agents", lastModified: "2025-07-15", changeFrequency: "yearly", priority: 0.6 },
-  { path: "/insights/ai-search-for-insurance-agencies", lastModified: "2025-06-12", changeFrequency: "yearly", priority: 0.6 },
+  { path: "/insights/search-visibility-for-insurance-agencies", lastModified: REDESIGN, changeFrequency: "yearly", priority: 0.6 },
 
   // Legal
   { path: "/privacy", lastModified: "2026-08-23", changeFrequency: "yearly", priority: 0.3 },

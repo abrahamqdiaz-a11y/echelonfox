@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import PenMark from "@/components/site/PenMark";
+import StatementMark from "@/components/site/StatementMark";
 import Marked from "@/components/site/Marked";
 import Arrow from "@/components/site/Arrow";
 import ContactForm from "@/components/ContactForm";
@@ -108,11 +109,13 @@ export default function Home() {
       <PageShell>
         {/* 1 — What commercial problem does EchelonFox solve? */}
         <section className="home-hero" aria-labelledby="hero-title" id="home">
-          <div className="container home-hero__grid">
+          <div className="container">
             <div>
               <p className="eyebrow">Commercial growth strategy &amp; implementation</p>
               <h1 id="hero-title" className="display">
-                Find what&apos;s <PenMark>holding growth back</PenMark>. Build what comes next.
+                Find what&apos;s <span className="nowrap"><PenMark>holding growth back</PenMark>.</span>
+                <br />
+                Build what comes next.
               </h1>
               <p className="lead">{SITE.description}</p>
               <div className="actions">
@@ -126,23 +129,22 @@ export default function Home() {
               </div>
             </div>
 
-            <dl className="margin-note" aria-label="At a glance">
-              <div>
-                <dt>For</dt>
-                <dd>Leaders of proven companies, typically 10–30 people, whose growth has become fragmented.</dd>
-              </div>
-              <div>
-                <dt>Not</dt>
-                <dd>
-                  A website shop or an ad agency. Websites, search, campaigns, CRM, and AI are chosen after the
-                  problem is diagnosed.
-                </dd>
-              </div>
-              <div>
-                <dt>How</dt>
-                <dd>Diagnose first. Then design, build, and improve what the diagnosis says matters most.</dd>
-              </div>
-            </dl>
+          </div>
+        </section>
+
+        {/* The problem, stated plainly. No columns or labels: an editorial statement. */}
+        <section className="statement" aria-labelledby="statement-title" id="statement">
+          <div className="container">
+            <h2 id="statement-title" className="statement__title">
+              Growth rarely stalls for lack of tactics.
+            </h2>
+            <p className="statement__body">
+              It stalls when a company outgrows the way it was built: sales, marketing, and operations stop pulling
+              in the same direction, and too much still runs through the owner. We start by finding{" "}
+              <StatementMark>the constraint that matters most</StatementMark>, then design and build the
+              fix, and lead the work until it&apos;s running. Websites, campaigns, CRM, and AI are tools we choose
+              after that, not before.
+            </p>
           </div>
         </section>
 
@@ -153,11 +155,10 @@ export default function Home() {
               <div className="stack">
                 <p className="eyebrow">Who it&apos;s for</p>
                 <h2 id="who-title" className="h2">
-                  Proven companies where growth has become fragmented.
+                  Leaders of proven companies whose growth has outpaced their systems.
                 </h2>
                 <p className="body muted">
-                  You have customers who pay, a team of roughly 10 to 30 people, and a business that works. What
-                  stopped working is the way growth happens: it&apos;s spread across people, tools, and vendors
+                  You have customers who pay and a business that works. What stopped working is the way growth happens: it&apos;s spread across people, tools, and vendors
                   that don&apos;t add up to one system.
                 </p>
               </div>
@@ -241,17 +242,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The dark band — used once on this page. */}
-        <section className="band" aria-label="How EchelonFox works">
-          <div className="container">
-            <blockquote style={{ margin: 0, maxWidth: "58rem" }}>
-              <p className="pull">
-                Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution. They get chosen
-                after the problem is diagnosed, not before.
-              </p>
-            </blockquote>
-          </div>
-        </section>
 
         {/* 4 — What happens after the diagnosis? */}
         <section className="section" aria-labelledby="path-title" id="path">
@@ -412,7 +402,7 @@ export default function Home() {
                   </li>
                   <li>
                     <strong style={{ fontWeight: 500 }}>An honest answer on fit.</strong>{" "}
-                    <span className="muted">If EchelonFox isn&apos;t what you need right now, we&apos;ll say so.</span>
+                    <span className="muted">If we&apos;re not the right fit right now, we&apos;ll say so.</span>
                   </li>
                   <li>
                     <span className="muted">Prefer to pick a time? </span>

@@ -1,10 +1,10 @@
 # EchelonFox
 
-> EchelonFox provides commercial growth strategy and implementation for established companies. It works with leaders of proven companies, typically 10–30 people, whose growth has become fragmented: it identifies the commercial constraint that matters most, then connects positioning, customer acquisition, sales processes, and technology into a clearer way to grow.
+> EchelonFox provides commercial growth strategy and implementation for established companies. It works with leaders of proven companies whose growth has outpaced their systems: it identifies the commercial constraint that matters most, then connects positioning, customer acquisition, sales processes, and technology into a clearer way to grow.
 
 ## About
 
-EchelonFox reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. The team's experience includes enterprise B2B sales, building a startup through to an acquisition by Staples, and operations.
+EchelonFox reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. The experience behind it includes enterprise B2B sales, founding a startup acquired by Staples, and operations.
 
 Engagements follow four stages: Diagnose → Design → Build → Improve. Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution, chosen after the commercial problem is diagnosed.
 

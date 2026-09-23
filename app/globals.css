@@ -749,15 +749,18 @@ a {
   padding-bottom: clamp(3.5rem, 2rem + 6vw, 7.5rem);
 }
 
-.home-hero__grid {
-  display: grid;
-  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
-  align-items: end;
+.nowrap {
+  white-space: nowrap;
 }
 
-@media (min-width: 1000px) {
-  .home-hero__grid {
-    grid-template-columns: minmax(0, 8.4fr) minmax(0, 3.6fr);
+/* Keep the headline's three-line shape now that the hero is a single column. */
+.home-hero .display {
+  max-width: 11em;
+}
+
+@media (max-width: 359px) {
+  .nowrap {
+    white-space: normal;
   }
 }
 
@@ -1693,4 +1696,40 @@ a {
 .table-scroll:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 4px;
+}
+
+/* ─── Homepage statement ───────────────────────────────────────────────── */
+
+.statement {
+  padding-top: clamp(4rem, 2.5rem + 6vw, 9rem);
+  padding-bottom: clamp(4rem, 2.5rem + 6vw, 9rem);
+  border-top: 1px solid var(--rule);
+}
+
+.statement__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 1.2rem + 3.8vw, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.statement__body {
+  font-size: var(--text-lead);
+  line-height: 1.65;
+  max-width: 60ch;
+  margin: clamp(1.75rem, 1.2rem + 1.5vw, 2.75rem) 0 0;
+  text-wrap: pretty;
+}
+
+/* Red pen on "the constraint that matters most", switched on by StatementMark
+   only when the hero's underline can't be on screen at the same time. */
+.statement__mark.is-marked {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
 }

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
 
-const TITLE = "About EchelonFox — How we work";
+const TITLE = "About EchelonFox — How I work";
 const DESCRIPTION =
-  "EchelonFox reads how a business makes money, finds the commercial constraint holding growth back, and leads the work to fix it. Experience in enterprise B2B sales, building a company through to acquisition, and operations sits behind the approach.";
+  "I find the gaps that hold a growing business back, in how it sells, markets, and operates, then lead the work to fix them. Enterprise B2B sales, founding a startup acquired by Staples, and operations experience sit behind the approach.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -23,7 +23,7 @@ const approach = [
   {
     num: "01",
     title: "Reading the business",
-    body: "Every engagement starts with how the company makes money: which customers matter most, what they buy and when, how they find you, and what happens after they do. We look at the numbers you already have, such as sales records, POS exports, and CRM history, before forming an opinion.",
+    body: "Every engagement starts with how the company makes money: which customers matter most, what they buy and when, how they find you, and what happens after they do. I look at the numbers you already have, such as sales records, POS exports, and CRM history, before forming an opinion.",
   },
   {
     num: "02",
@@ -33,7 +33,7 @@ const approach = [
   {
     num: "03",
     title: "Leading the build",
-    body: "We don't hand over a deck and leave. We lead the implementation, from positioning and acquisition to sales follow-up and the tools underneath, and stay accountable for it. Where a job needs a specialist, such as a developer, a designer, or a video editor, we bring in people we've worked with.",
+    body: "I don't hand over a deck and leave. I lead the implementation, from positioning and acquisition to sales follow-up and the tools underneath, and I stay accountable for it. Where a job needs a specialist, such as a developer, a designer, or a video editor, I bring in people I've worked with.",
   },
 ];
 
@@ -44,26 +44,26 @@ const background = [
   },
   {
     label: "Building a company to acquisition",
-    body: "Experience taking a startup through to an acquisition by Staples, which means treating sales, product, and operations as one system.",
+    body: "I founded a startup that was acquired by Staples. Building a company through to an acquisition means treating sales, product, and operations as one system.",
   },
   {
     label: "Operations",
-    body: "Including professional kitchens. A respect for process under pressure: a system is only as good as what happens on the busiest day of the week.",
+    body: "Including professional kitchens, which leave you with a respect for process under pressure: a system is only as good as what happens on the busiest day of the week.",
   },
 ];
 
 const principles = [
   {
-    title: "You work with the people doing the work.",
+    title: "You should work with the person doing the work.",
     body: "No account-manager layer, no handoffs to someone new each quarter, and no re-explaining your strategy.",
   },
   {
-    title: "Numbers you can trace.",
-    body: "Reporting is tied to leads, sales, and pipeline rather than impressions. Results are only claimed where the client's own data supports them.",
+    title: "Numbers should be traceable.",
+    body: "I tie reporting to leads, sales, and pipeline rather than impressions, and I only claim results the client's own data supports.",
   },
   {
-    title: "Senior attention, not a template.",
-    body: "Every engagement gets a senior read on the business. Specialists are brought in for specific jobs, and we stay accountable for the result.",
+    title: "A business deserves a real read, not a template.",
+    body: "Every engagement starts from how that company actually works. I bring in specialists for specific jobs, and I stay accountable for the result.",
   },
 ];
 
@@ -78,19 +78,19 @@ export default function AboutPage() {
               Understand how the business makes money. Then change what&apos;s in the way.
             </h1>
             <p className="lead" style={{ marginTop: "1.75rem" }}>
-              We find the gaps that hold a growing business back, in how it sells, markets, and operates, then
+              I find the gaps that hold a growing business back, in how it sells, markets, and operates, then
               lead the work to fix them with better processes, the right systems, and automation where it actually
               helps.
             </p>
           </div>
           <dl className="margin-note" aria-label="At a glance">
             <div>
-              <dt>What we do</dt>
+              <dt>What I do</dt>
               <dd>Growth strategy and implementation across sales, marketing, and operations.</dd>
             </div>
             <div>
               <dt>Who it&apos;s for</dt>
-              <dd>Established companies, typically 10–30 people, whose growth has become fragmented.</dd>
+              <dd>Leaders of proven companies whose growth has outpaced their systems.</dd>
             </div>
             <div>
               <dt>How</dt>
@@ -125,7 +125,7 @@ export default function AboutPage() {
       <section className="band" aria-labelledby="vision-label">
         <div className="container">
           <p id="vision-label" className="label" style={{ marginBottom: "1.25rem" }}>
-            What we&apos;re working toward
+            What I&apos;m working toward
           </p>
           <p className="pull" style={{ maxWidth: "56rem" }}>
             Companies that grow steadily because their systems work: they know where revenue comes from, their
@@ -143,7 +143,7 @@ export default function AboutPage() {
               Where the approach comes from.
             </h2>
             <p className="body muted">
-              Our background is in selling, building, and running businesses, which is why the work starts with
+              My background is in selling, building, and running businesses, which is why the work starts with
               how a company earns its revenue rather than with a channel.
             </p>
           </div>
@@ -165,9 +165,9 @@ export default function AboutPage() {
       <section className="section section--card" aria-labelledby="principles-title">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Working together</p>
+            <p className="eyebrow">What I believe</p>
             <h2 id="principles-title" className="h2">
-              What you can expect.
+              Three things I hold to.
             </h2>
           </div>
           <div className="grid-3">
@@ -186,8 +186,8 @@ export default function AboutPage() {
       </section>
 
       <FinalCta
-        title="Want our read on your business?"
-        body="Tell us what the business does and where growth feels stuck. You'll hear back within one business day, with an honest answer on whether EchelonFox is the right fit."
+        title="Want my read on your business?"
+        body="Tell me what the business does and where growth feels stuck. You'll hear back within one business day, with an honest answer on whether this is the right fit."
       />
     </PageShell>
   );
