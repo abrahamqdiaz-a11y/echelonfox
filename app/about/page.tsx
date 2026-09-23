@@ -1,227 +1,207 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import About from "@/components/About";
-import GrowthSprint from "@/components/GrowthSprint";
-import Testimonials from "@/components/Testimonials";
+import Image from "next/image";
+import PageShell from "@/components/site/PageShell";
+import FinalCta from "@/components/site/FinalCta";
+
+const TITLE = "About Abe Quinn and EchelonFox";
+const DESCRIPTION =
+  "Abe Quinn reads how a business makes money, finds the commercial constraint holding growth back, and leads the work to fix it. Enterprise B2B sales, a startup acquired by Staples, and operations experience behind the approach.";
 
 export const metadata: Metadata = {
-  title: { absolute: "About Echelon Fox — Founder-Led Marketing & Growth" },
-  description:
-    "Echelon Fox is a founder-led marketing and growth partner run by Abe Quinn. Websites, SEO, paid media, content, branding, email, CRM, analytics, and AI automation for businesses across industries.",
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   alternates: { canonical: "https://echelonfox.com/about" },
   openGraph: {
-    title: "About Echelon Fox — Founder-Led Marketing & Growth",
-    description:
-      "A founder-led marketing and growth partner. You work directly with the person doing the work — no account-manager layers.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "https://echelonfox.com/about",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "About Echelon Fox" }],
+    type: "profile",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: TITLE }],
   },
 };
 
-const facts = [
-  { label: "Founded & led by", value: "Abe Quinn" },
-  { label: "Engagement model", value: "Monthly subscription" },
-  { label: "Delivery rhythm", value: "Weekly sprints" },
-  { label: "Industries", value: "Cross-industry" },
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Abe Quinn",
+  jobTitle: "Founder",
+  image: "https://echelonfox.com/images/abe-quinn.jpg",
+  worksFor: { "@type": "Organization", name: "EchelonFox", url: "https://echelonfox.com" },
+  nationality: { "@type": "Country", name: "United States" },
+  homeLocation: { "@type": "Country", name: "Finland" },
+};
+
+const approach = [
+  {
+    num: "01",
+    title: "Reading the business",
+    body: "Every engagement starts with how the company makes money: which customers matter most, what they buy and when, how they find you, and what happens after they do. Abe looks at the numbers you already have, such as sales records, POS exports, and CRM history, before forming an opinion.",
+  },
+  {
+    num: "02",
+    title: "Finding the constraint",
+    body: "Most growing companies have more than one problem, but usually one that holds the others in place. Naming it clearly, and saying plainly what can wait, is the most useful thing a diagnosis does.",
+  },
+  {
+    num: "03",
+    title: "Leading the build",
+    body: "Abe doesn't hand over a deck and leave. He leads the implementation, from positioning and acquisition to sales follow-up and the tools underneath, and stays accountable for it. Where a job needs a specialist, such as a developer, a designer, or a video editor, he brings in someone he's worked with.",
+  },
 ];
 
-const disciplines = [
-  { title: "Websites", desc: "Design, build, and ongoing improvement of sites that load fast and convert.", href: "/websites" },
-  { title: "SEO & Content", desc: "Technical fixes, on-page work, and content that earns search visibility.", href: "/services/seo-content" },
-  { title: "Paid Media", desc: "Search, social, and video campaigns managed against cost per lead or sale.", href: "/services/paid-media" },
-  { title: "Brand & Creative", desc: "Identity, messaging, and the creative that carries it across channels.", href: "/services/brand-identity" },
-  { title: "Email & CRM", desc: "Lifecycle email, segmentation, and CRM workflows that follow up reliably.", href: "/services/email-crm" },
-  { title: "Social Media", desc: "Channel strategy, content production, scheduling, and community.", href: "/services/social-media" },
-  { title: "Analytics & CRO", desc: "GA4, dashboards, and conversion work so decisions rest on real numbers.", href: "/services/analytics-growth" },
-  { title: "AI Automation", desc: "Lead response, scheduling, and CRM automation built into your existing tools.", href: "/ai-agents" },
+const background = [
+  {
+    label: "Enterprise B2B sales",
+    body: "How buying decisions get made inside companies, and how much depends on what happens after the first conversation.",
+  },
+  {
+    label: "Founder",
+    body: "Founded a startup that was acquired by Staples. Building a company through to an acquisition means treating sales, product, and operations as one system.",
+  },
+  {
+    label: "Operations and kitchens",
+    body: "A respect for process under pressure. A system is only as good as what happens on the busiest day of the week.",
+  },
+  {
+    label: "Based in Finland",
+    body: "An American working from Finland with U.S. businesses.",
+  },
+];
+
+const principles = [
+  {
+    title: "You work with the person doing the work.",
+    body: "No account-manager layer, no handoffs to someone new each quarter, and no re-explaining your strategy.",
+  },
+  {
+    title: "Numbers you can trace.",
+    body: "Reporting is tied to leads, sales, and pipeline rather than impressions. Results are only claimed where the client's own data supports them.",
+  },
+  {
+    title: "Small by design.",
+    body: "You get a senior read on your business, not a template. Specialists are brought in for specific jobs, and Abe stays accountable for the result.",
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "#fff" }}>
-      <Nav />
+    <PageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
 
-      <main>
-        {/* Hero */}
-        <section
-          style={{
-            padding: "160px 32px 90px",
-            position: "relative",
-            overflow: "hidden",
-            borderBottom: "1px solid #1a1a1a",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundImage:
-                "linear-gradient(rgba(255,85,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.04) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "10%",
-              right: "-5%",
-              width: "500px",
-              height: "500px",
-              background: "radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ maxWidth: "1400px", margin: "0 auto", position: "relative" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-              <div style={{ width: "8px", height: "8px", background: "#FF5500", borderRadius: "50%", boxShadow: "0 0 12px #FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                About
-              </span>
-            </div>
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 6.5vw, 5rem)",
-                fontWeight: 900,
-                lineHeight: 1,
-                letterSpacing: "-0.03em",
-                margin: "0 0 28px",
-                maxWidth: "860px",
-              }}
-            >
-              A Marketing Partner{" "}
-              <span style={{ color: "#FF5500" }}>You Actually Talk To.</span>
+      <section className="page-hero" aria-labelledby="about-title">
+        <div className="container split split--hero" style={{ alignItems: "end" }}>
+          <div>
+            <p className="eyebrow">About</p>
+            <h1 id="about-title" className="h1">
+              Understand how the business makes money. Then change what&apos;s in the way.
             </h1>
-            <p style={{ color: "#aaa", fontSize: "clamp(1rem, 2vw, 1.2rem)", lineHeight: 1.75, maxWidth: "620px", margin: "0 0 48px" }}>
-              Echelon Fox is a founder-led marketing and growth partner. We help businesses attract
-              customers, convert more of the traffic they already have, and put practical marketing
-              systems in place — across whatever channels the business actually needs.
+            <p className="lead" style={{ marginTop: "1.75rem" }}>
+              EchelonFox is Abe Quinn&apos;s practice. He works with established companies to find the commercial
+              constraint holding growth back, design a better system around it, and lead the work to build it.
             </p>
-
-            <div
-              className="about-facts"
-              style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", maxWidth: "900px" }}
-            >
-              {facts.map((f) => (
-                <div key={f.label} style={{ background: "#0a0a0a", padding: "24px 20px" }}>
-                  <div style={{ color: "#555", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>
-                    {f.label}
-                  </div>
-                  <div style={{ color: "#fff", fontSize: "0.95rem", fontWeight: 800 }}>{f.value}</div>
-                </div>
-              ))}
-            </div>
           </div>
-        </section>
-
-        {/* Founder letter (shared with the homepage) */}
-        <About />
-
-        {/* What we do */}
-        <section style={{ padding: "100px 32px", background: "#0a0a0a", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
-          <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#FF5500" }} />
-              <span style={{ color: "#FF5500", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                What We Do
-              </span>
+          <figure style={{ margin: 0, maxWidth: "440px", width: "100%", justifySelf: "end" }}>
+            <div className="portrait">
+              <Image
+                src="/images/abe-quinn.jpg"
+                alt="Abe Quinn, founder of EchelonFox, in a blue hoodie against a white brick wall"
+                fill
+                sizes="(min-width: 900px) 440px, 100vw"
+                priority
+              />
             </div>
-            <h2 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 900, letterSpacing: "-0.02em", margin: "0 0 16px" }}>
-              One partner across the whole stack
+            <figcaption className="caption">Abe Quinn, founder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="section section--card" aria-labelledby="approach-title">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">The approach</p>
+            <h2 id="approach-title" className="h2">
+              Read the business. Find the constraint. Lead the build.
             </h2>
-            <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", margin: "0 0 48px" }}>
-              Most businesses don&apos;t need every channel at once. They need the two or three that
-              matter, run properly, with everything else ready when the business is. Your plan starts
-              with the channels that will move the number you care about.
-            </p>
-            <div
-              className="about-disciplines"
-              style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a" }}
-            >
-              {disciplines.map((d) => (
-                <Link
-                  key={d.title}
-                  href={d.href}
-                  style={{ background: "#080808", padding: "28px 24px", textDecoration: "none", display: "block" }}
-                >
-                  <h3 style={{ color: "#fff", fontSize: "0.98rem", fontWeight: 800, margin: "0 0 8px" }}>{d.title}</h3>
-                  <p style={{ color: "#777", fontSize: "0.85rem", lineHeight: 1.65, margin: 0 }}>{d.desc}</p>
-                </Link>
-              ))}
-            </div>
           </div>
-        </section>
+          <ol className="path path--3">
+            {approach.map((a) => (
+              <li key={a.num} className="path-step">
+                <span className="path-step__num">{a.num}</span>
+                <h3 className="path-step__name">{a.title}</h3>
+                <p className="small muted" style={{ margin: 0 }}>
+                  {a.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-        {/* How we work */}
-        <GrowthSprint />
+      <section className="band" aria-label="On channels">
+        <div className="container">
+          <blockquote style={{ margin: 0, maxWidth: "56rem" }}>
+            <p className="pull">
+              Most businesses don&apos;t need every channel at once. They need the two or three that matter, run
+              properly, with everything else ready when the business is.
+            </p>
+          </blockquote>
+        </div>
+      </section>
 
-        {/* Principles */}
-        <Testimonials />
-
-        {/* CTA */}
-        <section style={{ padding: "110px 32px", background: "#0a0a0a", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)",
-              width: "700px",
-              height: "350px",
-              background: "radial-gradient(ellipse, rgba(255,85,0,0.07) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ maxWidth: "640px", margin: "0 auto", position: "relative" }}>
-            <h2 style={{ fontSize: "clamp(1.9rem, 4.5vw, 3rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 20px" }}>
-              Want to see what we&apos;d do first?
+      <section className="section" aria-labelledby="background-title">
+        <div className="container split">
+          <div className="stack">
+            <p className="eyebrow">Background</p>
+            <h2 id="background-title" className="h2">
+              Where the approach comes from.
             </h2>
-            <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.75, margin: "0 0 36px" }}>
-              Book a growth audit. We&apos;ll walk your site, search presence, and funnel, and show
-              you the changes worth making — whether or not you work with us.
+            <p className="body muted">
+              Abe&apos;s background is in selling, building, and running businesses, which is why the work starts with how a company earns its revenue rather than with a
+              channel.
             </p>
-            <Link
-              href="/contact"
-              style={{
-                background: "#FF5500",
-                color: "white",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "16px 40px",
-                textDecoration: "none",
-                clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Book a Growth Audit
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
           </div>
-        </section>
-      </main>
+          <dl className="ruled-list" style={{ borderTopColor: "var(--ink)" }}>
+            {background.map((b) => (
+              <div key={b.label} style={{ padding: "1.4rem 0", borderBottom: "1px solid var(--rule)" }}>
+                <dt className="serif" style={{ fontSize: "1.45rem", lineHeight: 1.25 }}>
+                  {b.label}
+                </dt>
+                <dd className="muted" style={{ margin: "0.4rem 0 0" }}>
+                  {b.body}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
 
-      <Footer />
+      <section className="section section--card" aria-labelledby="principles-title">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Working together</p>
+            <h2 id="principles-title" className="h2">
+              What you can expect.
+            </h2>
+          </div>
+          <div className="grid-3">
+            {principles.map((p) => (
+              <div key={p.title}>
+                <h3 className="cell-title" style={{ marginTop: 0 }}>
+                  {p.title}
+                </h3>
+                <p className="small muted" style={{ margin: 0 }}>
+                  {p.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <style>{`
-        @media (max-width: 1000px) {
-          .about-disciplines { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 700px) {
-          .about-facts { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 520px) {
-          .about-disciplines { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </div>
+      <FinalCta
+        title="Want Abe's read on your business?"
+        body="Tell him what the business does and where growth feels stuck. You'll hear back within one business day, with an honest answer on whether EchelonFox is the right fit."
+      />
+    </PageShell>
   );
 }
