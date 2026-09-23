@@ -254,7 +254,7 @@ export default function Home() {
 
 
         {/* 4 — What happens after the diagnosis? */}
-        <section className="section" aria-labelledby="path-title" id="path">
+        <section className="section section--sand" aria-labelledby="path-title" id="path">
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">What happens after the diagnosis</p>

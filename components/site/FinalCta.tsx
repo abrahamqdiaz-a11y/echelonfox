@@ -18,9 +18,9 @@ export default function FinalCta({
   label?: string;
 }) {
   return (
-    <section className="section" aria-labelledby="final-cta-title">
+    <section className="section final-cta" aria-labelledby="final-cta-title">
       <div className="container">
-        <div className="split split--wide-left" style={{ alignItems: "end" }}>
+        <div className="final-cta__panel split split--wide-left" style={{ alignItems: "end" }}>
           <div>
             <p className="eyebrow">{eyebrow}</p>
             <h2 id="final-cta-title" className="h2">

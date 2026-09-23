@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import Motion from "@/components/site/Motion";
 import { SITE } from "@/lib/site";
 
 // next/font self-hosts these files on our own domain and preloads them, so no
@@ -125,6 +126,7 @@ export default function RootLayout({
       <body>
         {children}
         <CookieConsent />
+        <Motion />
       </body>
     </html>
   );

@@ -10,6 +10,7 @@ import { capabilities } from "@/lib/capabilities";
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   // Close the menu on navigation; the effect only resets UI state.
@@ -18,6 +19,13 @@ export default function Header() {
     setLastPath(pathname);
     setOpen(false);
   }
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -35,7 +43,7 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="site-header">
+    <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
