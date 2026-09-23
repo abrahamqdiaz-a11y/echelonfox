@@ -8,7 +8,7 @@ EchelonFox reads how a business makes money, finds the constraint holding growth
 
 Engagements follow four stages: Diagnose → Design → Build → Improve. Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution, chosen after the commercial problem is diagnosed.
 
-- [About](https://echelonfox.com/about): How EchelonFox reads a business, finds the constraint, and leads the build.
+- [About](https://echelonfox.com/about): We find the gaps that hold a growing business back, in how it sells, markets, and operates, then lead the work to fix them.
 - [Contact](https://echelonfox.com/contact): Send a message or book a call.
 
 ## Services

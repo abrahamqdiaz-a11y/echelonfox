@@ -78,14 +78,15 @@ export default function AboutPage() {
               Understand how the business makes money. Then change what&apos;s in the way.
             </h1>
             <p className="lead" style={{ marginTop: "1.75rem" }}>
-              EchelonFox works with established companies to find the commercial constraint holding growth back,
-              design a better system around it, and lead the work to build it.
+              We find the gaps that hold a growing business back, in how it sells, markets, and operates, then
+              lead the work to fix them with better processes, the right systems, and automation where it actually
+              helps.
             </p>
           </div>
           <dl className="margin-note" aria-label="At a glance">
             <div>
               <dt>What we do</dt>
-              <dd>Commercial growth strategy and implementation.</dd>
+              <dd>Growth strategy and implementation across sales, marketing, and operations.</dd>
             </div>
             <div>
               <dt>Who it&apos;s for</dt>
@@ -121,14 +122,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="band" aria-label="On channels">
+      <section className="band" aria-labelledby="vision-label">
         <div className="container">
-          <blockquote style={{ margin: 0, maxWidth: "56rem" }}>
-            <p className="pull">
-              Most businesses don&apos;t need every channel at once. They need the two or three that matter, run
-              properly, with everything else ready when the business is.
-            </p>
-          </blockquote>
+          <p id="vision-label" className="label" style={{ marginBottom: "1.25rem" }}>
+            What we&apos;re working toward
+          </p>
+          <p className="pull" style={{ maxWidth: "56rem" }}>
+            Companies that grow steadily because their systems work: they know where revenue comes from, their
+            teams are stretched in the right places, and growth doesn&apos;t depend on the owner holding everything
+            together.
+          </p>
         </div>
       </section>
 

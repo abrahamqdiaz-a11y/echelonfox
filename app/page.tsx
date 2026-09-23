@@ -46,9 +46,9 @@ const reads = [
     body: "The path from first contact to first purchase to repeat business, and what the company does, or doesn't do, at each step.",
   },
   {
-    label: "Process",
+    label: "Operations",
     title: "Where it slows down",
-    body: "Handoffs between marketing, sales, and delivery. Follow-up that depends on memory. Tools that don't talk to each other.",
+    body: "Handoffs between marketing, sales, and delivery. Follow-up that depends on memory. Staff stretched in the wrong places. Tools that don't talk to each other.",
   },
   {
     label: "Priority",
@@ -194,7 +194,7 @@ export default function Home() {
               </h2>
               <p className="lead muted">
                 Before recommending a channel or a tool, we read the business the way an operator would: where
-                revenue comes from, how customers are won and kept, and where that process slows down. The aim is
+                revenue comes from, how customers are won and kept, and how the business runs day to day. The aim is
                 to find the one constraint that, once fixed, makes the rest of the work easier.
               </p>
             </div>
@@ -225,7 +225,8 @@ export default function Home() {
                   <li>Sales, POS, and CRM records you already have</li>
                   <li>Which customers, products, and days carry the business</li>
                   <li>The path from first contact to repeat purchase</li>
-                  <li>Current spend, tools, vendors, and staffing</li>
+                  <li>Staffing, scheduling, and the day-to-day processes behind a sale</li>
+                  <li>Current spend, tools, and vendors</li>
                 </ul>
                 <p className="small muted" style={{ margin: 0 }}>
                   <Link href="/about" className="text-link">
