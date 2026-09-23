@@ -5,6 +5,9 @@ import PenMark from "@/components/site/PenMark";
 import StatementMark from "@/components/site/StatementMark";
 import Marked from "@/components/site/Marked";
 import Arrow from "@/components/site/Arrow";
+import DiagnosisSheet from "@/components/site/illustrations/DiagnosisSheet";
+import Icon, { type IconName } from "@/components/site/illustrations/Icon";
+import WeekPattern from "@/components/site/illustrations/WeekPattern";
 import ContactForm from "@/components/ContactForm";
 import { capabilities } from "@/lib/capabilities";
 import { getCase, publishedCases } from "@/lib/work-data";
@@ -35,24 +38,28 @@ const symptoms = [
   "Every fix is a tactic. Each one helps a little; none of them compound.",
 ];
 
-const reads = [
+const reads: { label: string; icon: IconName; title: string; body: string }[] = [
   {
     label: "Revenue",
+    icon: "revenue",
     title: "Where the money comes from",
     body: "Which customers, products, locations, and days carry the business. The sales records usually tell a different story than habit does.",
   },
   {
     label: "Customers",
+    icon: "customers",
     title: "How customers are won and kept",
     body: "The path from first contact to first purchase to repeat business, and what the company does, or doesn't do, at each step.",
   },
   {
     label: "Operations",
+    icon: "operations",
     title: "Where it slows down",
     body: "Handoffs between marketing, sales, and delivery. Follow-up that depends on memory. Staff stretched in the wrong places. Tools that don't talk to each other.",
   },
   {
     label: "Priority",
+    icon: "priority",
     title: "What to fix first",
     body: "The one constraint that matters most right now, what it's worth to address, and what can safely wait.",
   },
@@ -109,7 +116,7 @@ export default function Home() {
       <PageShell>
         {/* 1 — What commercial problem does EchelonFox solve? */}
         <section className="home-hero" aria-labelledby="hero-title" id="home">
-          <div className="container">
+          <div className="container hero-grid">
             <div>
               <p className="eyebrow">Commercial growth strategy &amp; implementation</p>
               <h1 id="hero-title" className="display">
@@ -128,7 +135,9 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
+            <div className="hero-visual">
+              <DiagnosisSheet />
+            </div>
           </div>
         </section>
 
@@ -206,6 +215,7 @@ export default function Home() {
             <div className="grid-4">
               {reads.map((r) => (
                 <div key={r.label}>
+                  <Icon name={r.icon} />
                   <p className="label">{r.label}</p>
                   <h3 className="cell-title">{r.title}</h3>
                   <p className="small muted" style={{ margin: 0 }}>
@@ -244,7 +254,7 @@ export default function Home() {
 
 
         {/* 4 — What happens after the diagnosis? */}
-        <section className="section" aria-labelledby="path-title" id="path">
+        <section className="section section--sand" aria-labelledby="path-title" id="path">
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">What happens after the diagnosis</p>
@@ -285,6 +295,7 @@ export default function Home() {
               <div className="grid-4">
                 {capabilities.map((c) => (
                   <Link key={c.slug} href={`/services/${c.slug}`} className="cell-link">
+                    <Icon name={c.slug} />
                     <h4 className="cell-title" style={{ marginTop: 0 }}>
                       {c.name}
                     </h4>
@@ -327,6 +338,7 @@ export default function Home() {
                     <Arrow />
                   </Link>
                 </p>
+                <WeekPattern />
               </div>
 
               <div className="case-rows">

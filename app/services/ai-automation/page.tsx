@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
+import Icon from "@/components/site/illustrations/Icon";
 import { getCapability, capabilities } from "@/lib/capabilities";
 
 /*
@@ -207,6 +208,7 @@ export default function AiAutomationPage() {
               <li aria-current="page">{cap.short}</li>
             </ol>
           </nav>
+          <Icon name="ai-automation" size="lg" />
           <h1 id="ai-title" className="h1" style={{ maxWidth: "18ch" }}>
             {cap.name}
           </h1>
