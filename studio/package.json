@@ -1,0 +1,29 @@
+{
+  "name": "echelonfox-studio",
+  "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "sanity dataset import seed/initial-content.ndjson production --missing"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/vision": "^6.20.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sanity": "^6.20.0",
+    "styled-components": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

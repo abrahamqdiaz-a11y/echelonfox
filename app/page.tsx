@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
-import PenMark from "@/components/site/PenMark";
+import HeroHeadline from "@/components/site/HeroHeadline";
 import StatementMark from "@/components/site/StatementMark";
 import Marked from "@/components/site/Marked";
 import Arrow from "@/components/site/Arrow";
@@ -9,7 +9,7 @@ import DiagnosisSheet from "@/components/site/illustrations/DiagnosisSheet";
 import Icon, { type IconName } from "@/components/site/illustrations/Icon";
 import WeekPattern from "@/components/site/illustrations/WeekPattern";
 import ContactForm from "@/components/ContactForm";
-import { capabilities } from "@/lib/capabilities";
+import { getServices, getSiteSettings } from "@/lib/cms";
 import { getCase, publishedCases } from "@/lib/work-data";
 import { SITE } from "@/lib/site";
 
@@ -96,7 +96,8 @@ const path = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const [settings, services] = await Promise.all([getSiteSettings(), getServices()]);
   const feature = getCase("beauty-supply-retailer-maryland")!;
   const others = publishedCases.filter((c) => c.slug !== feature.slug);
 
@@ -120,14 +121,12 @@ export default function Home() {
             <div>
               <p className="eyebrow">Commercial growth strategy &amp; implementation</p>
               <h1 id="hero-title" className="display">
-                Find what&apos;s <span className="nowrap"><PenMark>holding growth back</PenMark>.</span>
-                <br />
-                Build what comes next.
+                <HeroHeadline text={settings.heroHeadline} />
               </h1>
-              <p className="lead">{SITE.description}</p>
+              <p className="lead">{settings.heroSubheadline}</p>
               <div className="actions">
                 <Link href="/contact" className="btn">
-                  Start a conversation
+                  {settings.heroCtaText}
                   <Arrow />
                 </Link>
                 <a href="#approach" className="arrow-link">
@@ -293,7 +292,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="grid-4">
-                {capabilities.map((c) => (
+                {services.map((c) => (
                   <Link key={c.slug} href={`/services/${c.slug}`} className="cell-link">
                     <Icon name={c.slug} />
                     <h4 className="cell-title" style={{ marginTop: 0 }}>

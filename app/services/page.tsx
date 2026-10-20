@@ -5,7 +5,7 @@ import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import Icon from "@/components/site/illustrations/Icon";
-import { capabilities } from "@/lib/capabilities";
+import { getServices } from "@/lib/cms";
 
 const TITLE = "Services — Four capabilities beneath the strategy";
 const DESCRIPTION =
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <PageShell>
       <PageHero
@@ -36,7 +37,7 @@ export default function ServicesPage() {
       <section className="section section--card" aria-label="Capabilities">
         <div className="container">
           <div className="case-rows">
-            {capabilities.map((c, i) => (
+            {services.map((c, i) => (
               <article key={c.slug} className="case-row" aria-labelledby={`cap-${c.slug}`}>
                 <div className="case-row__head">
                   <Icon name={c.slug} size="lg" />
