@@ -8,7 +8,7 @@ export default defineConfig({
   name: "default",
   title: "EchelonFox",
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || "ndbe4jjy",
   dataset: process.env.SANITY_STUDIO_DATASET || "production",
 
   plugins: [structureTool({ structure }), visionTool()],

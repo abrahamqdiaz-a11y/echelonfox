@@ -1,3 +1,4 @@
+import https from "node:https";
 import { capabilities, getCapability, type Capability } from "@/lib/capabilities";
 import { SITE } from "@/lib/site";
 
@@ -30,12 +31,33 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   heroCtaText: "Start a conversation",
 };
 
-async function query<T>(groq: string): Promise<T> {
+/**
+ * Plain node:https rather than fetch: Next.js keeps fetch results in .next/cache, which
+ * Netlify restores between builds, so an edit could miss the rebuild it triggered.
+ * (fetch with cache: "no-store" avoids that but turns the pages dynamic.)
+ */
+function query<T>(groq: string): Promise<T> {
   const url = `https://${PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/query/${DATASET}?query=${encodeURIComponent(groq)}`;
-  // No data cache: every build must see what is published now. The pages stay static.
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Sanity query failed (${res.status}): ${groq}`);
-  return (await res.json()).result as T;
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, { timeout: 15_000 }, (res) => {
+        let body = "";
+        res.setEncoding("utf8");
+        res.on("data", (chunk) => (body += chunk));
+        res.on("end", () => {
+          if (res.statusCode !== 200) return reject(new Error(`Sanity query failed (${res.statusCode}): ${groq}`));
+          try {
+            resolve(JSON.parse(body).result as T);
+          } catch (err) {
+            reject(err);
+          }
+        });
+      })
+      .on("timeout", function (this: ReturnType<typeof https.get>) {
+        this.destroy(new Error("Sanity query timed out"));
+      })
+      .on("error", reject);
+  });
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {

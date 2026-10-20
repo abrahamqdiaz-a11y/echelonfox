@@ -29,6 +29,7 @@ Deployed on Netlify (see `netlify.toml`), which also captures contact form submi
 - `components/site/` — header, footer, page shell, final CTA, article parts
 - `components/ContactForm.tsx` — the Netlify contact form
 - `lib/site.ts` — site-wide facts (email, booking link, nav)
+- `lib/cms.ts` — homepage hero and service cards, read from Sanity at build time. The Studio is in `studio/` (see `studio/README.md`)
 - `lib/capabilities.ts` — the four capability groups behind `/services/*`
 - `lib/work-data.ts` — case studies. Read the rules at the top before adding one: no client names or performance numbers without written permission and verifiable data, and no case goes live without a documented broader issue.
 - `next.config.ts` — 301 redirects from the old single-channel service URLs
