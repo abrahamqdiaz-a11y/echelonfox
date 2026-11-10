@@ -194,10 +194,10 @@ export default function Home() {
         <div className="container human-split">
           <div className="editorial-photo">
             <Image
-              src="/images/consultancy/collaboration.webp"
-              alt="Illustrative photograph of people working through information together"
-              width={1000}
-              height={667}
+              src="/images/consultancy/business-conversation.webp"
+              alt="Illustrative photograph of two people discussing work across a table"
+              width={1100}
+              height={733}
               sizes="(max-width: 760px) 100vw, 50vw"
             />
           </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
@@ -85,11 +86,20 @@ export default function About() {
         </div>
       </section>
       <section className="band">
-        <div className="container split">
-          <h2 className="h2">
-            Strategy is useful when it changes what happens next.
-          </h2>
+        <div className="container human-split">
+          <div className="editorial-photo">
+            <Image
+              src="/images/consultancy/collaborative-learning.webp"
+              alt="Illustrative photograph of a small group sharing ideas around laptops"
+              width={1100}
+              height={733}
+              sizes="(max-width: 760px) 100vw, 45vw"
+            />
+          </div>
           <div>
+            <h2 className="h2">
+              Strategy is useful when it changes what happens next.
+            </h2>
             <p className="lead">
               Recommendations need to survive contact with the working day.
             </p>

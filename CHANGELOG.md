@@ -1,3 +1,13 @@
+# Distinct photography — 11 November 2026
+
+- Added four different stock scenes: a code review, a business conversation, a close-up laptop review and a small group sharing ideas.
+- Replaced the near-duplicate hero photo and removed repeated uses of the original office scene. The homepage, Our Approach and About now use five distinct photographs, with each used once.
+- Added an editorial photograph beside the existing About closing copy; no founder, staff or client identities are inferred from stock images.
+- Kept images local, compressed as WebP, explicitly sized and responsive. Only hero images are eager-loaded; editorial images remain lazy-loaded.
+- Updated image sources and removed the unused portrait asset. Site copy, forms, backend behaviour and routes are unchanged.
+
+---
+
 # AI consultancy direction — 11 November 2026
 
 - Repositioned EchelonFox as a founder-led AI strategy and implementation consultancy, retaining the commercial diagnosis-first approach.

@@ -46,10 +46,10 @@ export default function Approach() {
         <div className="container human-split">
           <div className="editorial-photo">
             <Image
-              src="/images/consultancy/working-session.webp"
-              alt="Illustrative workplace photograph of people reviewing information together"
-              width={1000}
-              height={1500}
+              src="/images/consultancy/workflow-review.webp"
+              alt="Illustrative close-up of people reviewing a laptop screen together"
+              width={1100}
+              height={733}
               sizes="(max-width: 760px) 100vw, 45vw"
             />
           </div>
