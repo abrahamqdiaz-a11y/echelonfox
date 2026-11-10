@@ -12,15 +12,21 @@ const NAV = [
   { href: "/admin/settings", label: "Settings", icon: "⚙" },
 ];
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
-    createClient().auth.getUser().then(({ data }) => {
-      if (data.user) setUserEmail(data.user.email ?? "");
-    });
+    createClient()
+      .auth.getUser()
+      .then(({ data }) => {
+        if (data.user) setUserEmail(data.user.email ?? "");
+      });
   }, []);
 
   async function signOut() {
@@ -36,21 +42,23 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="w-56 bg-white border-r border-gray-200 flex flex-col shrink-0">
         <div className="px-4 py-5 border-b border-gray-100">
           <span className="font-bold text-gray-900 tracking-tight">
-            Echelon<span style={{ color: "#FF5500" }}>Fox</span>
+            Echelon<span style={{ color: "#7C5138" }}>Fox</span>
           </span>
           <p className="text-xs text-gray-400 mt-0.5">Email Drip Admin</p>
         </div>
 
         <nav className="flex-1 p-3 space-y-0.5">
           {NAV.map(({ href, label, icon }) => {
-            const active = pathname === href || (href !== "/admin" && pathname.startsWith(href));
+            const active =
+              pathname === href ||
+              (href !== "/admin" && pathname.startsWith(href));
             return (
               <Link
                 key={href}
                 href={href}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   active
-                    ? "bg-orange-50 text-orange-700"
+                    ? "bg-[#F7F5F0] text-orange-700"
                     : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
@@ -62,7 +70,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </nav>
 
         <div className="p-3 border-t border-gray-100">
-          <p className="text-xs text-gray-400 truncate mb-2 px-3">{userEmail}</p>
+          <p className="text-xs text-gray-400 truncate mb-2 px-3">
+            {userEmail}
+          </p>
           <button
             onClick={signOut}
             className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"

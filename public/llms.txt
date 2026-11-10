@@ -1,27 +1,29 @@
 # EchelonFox
 
-> EchelonFox provides commercial growth strategy and implementation for established companies. It works with leaders of proven companies whose growth has outpaced their systems: it identifies the commercial constraint that matters most, then connects positioning, customer acquisition, sales processes, and technology into a clearer way to grow.
+> Growth Strategy & Business Systems Consultancy. We identify growth opportunities, solve commercial bottlenecks and implement the marketing, technology and operational systems a business actually needs.
 
-## About
+## Approach
 
-EchelonFox reads how a business makes money, finds the constraint holding growth back, designs a better commercial system, and leads the work to build it. The experience behind it includes enterprise B2B sales, founding a startup acquired by Staples, and operations.
+Diagnose before prescribing. Prioritise commercial impact. Connect strategy with execution. Build for sustainable improvement. Not every business needs every capability.
 
-Engagements follow four stages: Diagnose → Design → Build → Improve. Websites, SEO, campaigns, CRM workflows, and AI tools are parts of a solution, chosen after the commercial problem is diagnosed.
+- [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve.
+- [About](https://echelonfox.com/about): A founder-led consultancy connecting business thinking with practical execution.
+- [Contact](https://echelonfox.com/contact): Discuss the challenge before choosing a service.
 
-- [About](https://echelonfox.com/about): We find the gaps that hold a growing business back, in how it sells, markets, and operates, then lead the work to fix them.
-- [Contact](https://echelonfox.com/contact): Send a message or book a call.
+## Connected capabilities
 
-## Services
+- [What We Do](https://echelonfox.com/services): Strategy, marketing, technology and operations brought together around the business challenge.
+- [Growth Strategy & Business Advisory](https://echelonfox.com/services/commercial-diagnosis): Commercial assessment, positioning and prioritisation.
+- [Marketing & Customer Acquisition](https://echelonfox.com/services/customer-acquisition): SEO, local visibility, paid advertising and lead generation.
+- [Sales & Conversion Systems](https://echelonfox.com/services/sales-process-crm): Lead capture, CRM implementation, sales processes and follow-up.
+- [Technology & Operations](https://echelonfox.com/services/technology-operations): Digital infrastructure, connected workflows and operational improvements.
+- [Automation & Operations](https://echelonfox.com/services/ai-automation): Workflow assessment, integration and practical automation.
+- [Websites & Digital Infrastructure](https://echelonfox.com/services/websites-digital-infrastructure): Website strategy, design, development, technical SEO and integrations.
 
-- [Commercial diagnosis and positioning](https://echelonfox.com/services/commercial-diagnosis): Sales and customer analysis, segmentation, positioning, and measurement.
-- [Customer acquisition and conversion](https://echelonfox.com/services/customer-acquisition): Websites, search, local visibility, Google Shopping, and paid media.
-- [Sales process, CRM, and follow-up](https://echelonfox.com/services/sales-process-crm): CRM setup, pipeline design, and lifecycle email and SMS.
-- [Practical AI and automation](https://echelonfox.com/services/ai-automation): Lead response, scheduling, CRM workflows, follow-up, and admin automation, with human handoff.
+## Work and insights
 
-## Work & Insights
-
-- [Work](https://echelonfox.com/work): Case studies in the format asked for → broader issue found → what was built → outcome where evidence exists.
-- [Insights](https://echelonfox.com/insights): Practical guides on local SEO, AI search, and growth.
+- [Selected Work](https://echelonfox.com/work): Documented business challenges, diagnosis, strategy, implementation and outcomes where recorded.
+- [Insights](https://echelonfox.com/insights): Practical guides on growth and search visibility.
 
 ## Contact
 

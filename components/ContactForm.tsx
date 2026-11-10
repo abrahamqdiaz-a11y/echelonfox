@@ -25,9 +25,17 @@ export default function ContactForm({
   const uid = useId();
   const id = (name: string) => `${uid}-${name}`;
 
-  const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    website: "",
+    message: "",
+  });
   const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,14 +48,22 @@ export default function ContactForm({
       const res = await fetch("/netlify-forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(domForm as unknown as URLSearchParams).toString(),
+        body: new URLSearchParams(
+          domForm as unknown as URLSearchParams,
+        ).toString(),
       });
       if (!res.ok) {
         setStatus("error");
         return;
       }
       setStatus("success");
-      setFormData({ name: "", email: "", company: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        website: "",
+        message: "",
+      });
       setConsent(false);
     } catch {
       setStatus("error");
@@ -59,14 +75,22 @@ export default function ContactForm({
   if (status === "success") {
     return (
       <div role="status" aria-live="polite" className="form-success">
-        <p className="serif" style={{ fontSize: "1.6rem", lineHeight: 1.2, margin: "0 0 0.75rem" }}>
+        <p
+          className="serif"
+          style={{ fontSize: "1.6rem", lineHeight: 1.2, margin: "0 0 0.75rem" }}
+        >
           Thanks — your message is in.
         </p>
         <p className="muted" style={{ margin: "0 0 1.5rem" }}>
-          We read every enquiry and reply within one business day. If you&apos;d rather
-          pick a time now, you can book straight into the calendar.
+          We read every enquiry and reply within one business day. If you&apos;d
+          rather pick a time now, you can book straight into the calendar.
         </p>
-        <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn--ghost">
+        <a
+          href={SITE.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn--ghost"
+        >
           Book a time
           <span className="sr-only"> (opens in a new tab)</span>
           <Arrow />
@@ -82,14 +106,19 @@ export default function ContactForm({
       action="/netlify-forms.html"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      aria-label="Contact Echelon Fox"
+      aria-label="Contact EchelonFox"
       className="form"
       onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
       <div style={{ display: "none" }} aria-hidden="true">
         <label htmlFor={id("bot")}>Do not fill this out if you are human</label>
-        <input id={id("bot")} name="bot-field" tabIndex={-1} autoComplete="off" />
+        <input
+          id={id("bot")}
+          name="bot-field"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <div className="form-row">
@@ -121,7 +150,9 @@ export default function ContactForm({
             autoComplete="email"
             inputMode="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
         </div>
       </div>
@@ -137,22 +168,45 @@ export default function ContactForm({
           placeholder={visibleLabels ? undefined : "Company or business"}
           autoComplete="organization"
           value={formData.company}
-          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, company: e.target.value })
+          }
+        />
+      </div>
+
+      <div className="field">
+        <label htmlFor={id("website")} className={labelClass}>
+          Website <span className="muted">(optional)</span>
+        </label>
+        <input
+          id={id("website")}
+          name="website"
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          placeholder="yourbusiness.com"
+          value={formData.website}
+          onChange={(e) =>
+            setFormData({ ...formData, website: e.target.value })
+          }
         />
       </div>
 
       <div className="field">
         <label htmlFor={id("message")} className={labelClass}>
-          Where does growth feel stuck? <span className="muted">(required)</span>
+          What challenge are you facing?{" "}
+          <span className="muted">(required)</span>
         </label>
         <textarea
           id={id("message")}
           name="message"
-          placeholder="What the business does, where growth feels stuck, and what you've tried so far."
+          placeholder="Tell us what you’re trying to achieve, what’s getting in the way and what you’ve tried so far."
           rows={5}
           required
           value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, message: e.target.value })
+          }
         />
       </div>
 
@@ -166,15 +220,16 @@ export default function ContactForm({
           onChange={(e) => setConsent(e.target.checked)}
         />
         <span>
-          I agree to Echelon Fox using these details to respond to my enquiry. See our{" "}
-          <Link href="/privacy">Privacy Policy</Link>.
+          I agree to EchelonFox using these details to respond to my enquiry.
+          See our <Link href="/privacy">Privacy Policy</Link>.
         </span>
       </label>
 
       <div aria-live="polite">
         {status === "error" && (
           <p className="form-status">
-            <strong style={{ fontWeight: 500 }}>That didn&apos;t send.</strong> Please try again, or email{" "}
+            <strong style={{ fontWeight: 500 }}>That didn&apos;t send.</strong>{" "}
+            Please try again, or email{" "}
             <a className="text-link" href={`mailto:${SITE.email}`}>
               {SITE.email}
             </a>{" "}

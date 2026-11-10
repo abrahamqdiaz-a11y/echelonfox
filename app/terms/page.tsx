@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "Terms of Service for Echelon Fox.",
-  robots: { index: true, follow: true },
-  alternates: { canonical: "https://echelonfox.com/terms" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Terms of Service",
+  "Terms of use for the EchelonFox website.",
+  "/terms",
+);
 
 const sections = [
   {
@@ -63,13 +63,26 @@ export default function TermsPage() {
         <p className="eyebrow">Legal</p>
         <h1 className="h1">Terms of Service</h1>
         <p className="small muted" style={{ marginTop: "1rem" }}>
-          Last updated: June 15, 2026
+          Last updated: 15 June 2026
         </p>
 
         <div style={{ marginTop: "3rem", borderTop: "1px solid var(--ink)" }}>
           {sections.map((section) => (
-            <section key={section.title} style={{ padding: "1.75rem 0", borderBottom: "1px solid var(--rule)" }}>
-              <h2 className="serif" style={{ fontSize: "1.4rem", lineHeight: 1.3, margin: "0 0 0.75rem" }}>
+            <section
+              key={section.title}
+              style={{
+                padding: "1.75rem 0",
+                borderBottom: "1px solid var(--rule)",
+              }}
+            >
+              <h2
+                className="serif"
+                style={{
+                  fontSize: "1.4rem",
+                  lineHeight: 1.3,
+                  margin: "0 0 0.75rem",
+                }}
+              >
                 {section.title}
               </h2>
               <p className="muted" style={{ margin: 0, lineHeight: 1.75 }}>

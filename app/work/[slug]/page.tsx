@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/site/PageShell";
@@ -8,173 +7,147 @@ import WeekPattern from "@/components/site/illustrations/WeekPattern";
 import Arrow from "@/components/site/Arrow";
 import { getCase, publishedCases } from "@/lib/work-data";
 import { getCapability } from "@/lib/capabilities";
-
+import { pageMetadata } from "@/lib/metadata";
 type Params = { slug: string };
-
-export function generateStaticParams(): Params[] {
+export function generateStaticParams() {
   return publishedCases.map((c) => ({ slug: c.slug }));
 }
-
 export const dynamicParams = false;
-
-const plain = (s: string) => s.replace(/==/g, "");
-
-export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const { slug } = await params;
   const c = getCase(slug);
-  if (!c) return {};
-  const url = `https://echelonfox.com/work/${c.slug}`;
-  const description = `${c.descriptor}. Asked for: ${c.askedFor} Found: ${plain(c.found[0])}`;
-  return {
-    title: { absolute: `${c.descriptor} — Case study | EchelonFox` },
-    description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: `${c.descriptor}: ${c.title}`,
-      description,
-      url,
-      type: "article",
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: c.title }],
-    },
-  };
+  return c
+    ? pageMetadata(`${c.descriptor} — Case Study`, c.context, `/work/${c.slug}`)
+    : {};
 }
-
-export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
+export default async function Case({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const c = getCase(slug);
   if (!c) notFound();
-
-  const index = publishedCases.findIndex((x) => x.slug === c.slug);
-  const next = publishedCases[(index + 1) % publishedCases.length];
-
-  const rows: { label: string; content: React.ReactNode }[] = [
-    { label: "What they asked for", content: <p style={{ margin: 0 }}>{c.askedFor}</p> },
-    {
-      label: "What was found",
-      content: (
-        <>
-          <ul className="check-list">
-            {c.found.map((f) => (
-              <li key={f}>
-                <Marked text={f} />
-              </li>
-            ))}
-          </ul>
-          {c.slug === "beauty-supply-retailer-maryland" && (
-            <div style={{ marginTop: "2rem", maxWidth: "36rem" }}>
-              <WeekPattern />
-            </div>
-          )}
-        </>
-      ),
-    },
-    {
-      label: "What was built",
-      content: (
-        <ul className="check-list">
-          {c.built.map((b) => (
-            <li key={b}>{b}</li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
-  if (c.outcome) rows.push({ label: "Outcome", content: <p style={{ margin: 0 }}>{c.outcome}</p> });
-
+  const next =
+    publishedCases[
+      (publishedCases.findIndex((x) => x.slug === slug) + 1) %
+        publishedCases.length
+    ];
   return (
     <PageShell>
-      <section className="page-hero" aria-labelledby="case-title">
+      <section className="page-hero">
         <div className="container">
-          <nav aria-label="Breadcrumb" className="breadcrumb">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li>
-                <Link href="/work">Work</Link>
+                <Link href="/work">Selected Work</Link>
               </li>
               <li aria-current="page">Case study</li>
             </ol>
           </nav>
-          <p className="label" style={{ marginBottom: "1.25rem" }}>
-            {c.descriptor}
-          </p>
-          <h1 id="case-title" className="h1" style={{ maxWidth: "22ch" }}>
+          <p className="eyebrow">{c.descriptor}</p>
+          <h1 className="h1" style={{ maxWidth: "25ch" }}>
             {c.title}
           </h1>
         </div>
       </section>
-
-      <section className="section section--card" aria-label="The case">
+      <section className="section section--white">
         <div className="container">
-          <div className="case-rows">
-            {rows.map((r, i) => (
-              <div key={r.label} className="case-row">
-                <div className="case-row__head">
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
-                  <h2 className="case-row__title">{r.label}</h2>
-                </div>
-                <div style={{ maxWidth: "44rem", fontSize: "1.1rem" }}>{r.content}</div>
-              </div>
-            ))}
+          <div className="case-intro">
+            <p className="label">Business context</p>
+            <p className="lead">{c.context}</p>
           </div>
-          {!c.outcome && (
-            <p className="small muted" style={{ marginTop: "1.5rem", maxWidth: "44rem" }}>
-              We don&apos;t publish outcome figures for this project. We only publish results that come from a
-              client&apos;s own data, with their agreement.
-            </p>
-          )}
+          <div className="case-narrative">
+            <article>
+              <h2>The challenge</h2>
+              <div>
+                <p>{c.askedFor}</p>
+              </div>
+            </article>
+            <article>
+              <h2>The diagnosis</h2>
+              <div>
+                <ul className="check-list">
+                  {c.found.map((f) => (
+                    <li key={f}>
+                      <Marked text={f} />
+                    </li>
+                  ))}
+                </ul>
+                {slug === "beauty-supply-retailer-maryland" && <WeekPattern />}
+              </div>
+            </article>
+            <article>
+              <h2>The strategy</h2>
+              <div>
+                <p>{c.strategy}</p>
+              </div>
+            </article>
+            <article>
+              <h2>The implementation</h2>
+              <div>
+                <ul className="check-list">
+                  {c.built.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+            <article>
+              <h2>
+                {c.outcome
+                  ? "The documented outcome"
+                  : "Completed improvements"}
+              </h2>
+              <div>
+                <p>
+                  {c.outcome ??
+                    "The work brought customer analysis, acquisition activity and repeat-purchase workflows into a more connected approach. A staffing recommendation was also made from the sales patterns."}
+                </p>
+                {!c.outcome && (
+                  <p className="small muted">
+                    No financial or growth outcome is published for this
+                    project.
+                  </p>
+                )}
+              </div>
+            </article>
+          </div>
         </div>
       </section>
-
       {c.takeaway && (
-        <section className="band" aria-label="Takeaway">
+        <section className="band">
           <div className="container">
-            <p className="label" style={{ marginBottom: "1.25rem" }}>
-              The takeaway
-            </p>
-            <p className="pull" style={{ maxWidth: "56rem" }}>
-              {c.takeaway}
-            </p>
+            <p className="label">The perspective</p>
+            <p className="pull">{c.takeaway}</p>
           </div>
         </section>
       )}
-
-      <section className="section section--tight" aria-labelledby="capabilities-title">
-        <div className="container split" style={{ alignItems: "start" }}>
+      <section className="section">
+        <div className="container split">
           <div>
-            <h2 id="capabilities-title" className="label" style={{ marginBottom: "1rem" }}>
-              Capabilities used
-            </h2>
+            <p className="label">Capabilities used</p>
             <ul className="tag-list">
-              {c.capabilities.map((slug) => {
-                const cap = getCapability(slug)!;
-                return (
-                  <li key={slug}>
-                    <Link href={`/services/${slug}`}>{cap.name}</Link>
-                  </li>
-                );
-              })}
+              {c.capabilities.map((s) => (
+                <li key={s}>
+                  <Link href={`/services/${s}`}>{getCapability(s)!.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
-          {next && next.slug !== c.slug && (
-            <div>
-              <p className="label" style={{ marginBottom: "1rem" }}>
-                Next case
-              </p>
-              <Link href={`/work/${next.slug}`} className="cell-link">
-                <span className="small muted">{next.descriptor}</span>
-                <span className="serif" style={{ display: "block", fontSize: "1.5rem", lineHeight: 1.25, margin: "0.4rem 0 0.75rem" }}>
-                  {next.title}
-                </span>
-                <span className="arrow-link small">
-                  Read it
-                  <Arrow size={14} />
-                </span>
-              </Link>
-            </div>
-          )}
+          <div>
+            <p className="label">Next case study</p>
+            <Link href={`/work/${next.slug}`} className="cell-link">
+              <h2 className="h3">{next.title}</h2>
+              <span className="arrow-link">
+                Explore the work
+                <Arrow />
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
-
-      <FinalCta />
+      <FinalCta label="Discuss a Similar Challenge" />
     </PageShell>
   );
 }

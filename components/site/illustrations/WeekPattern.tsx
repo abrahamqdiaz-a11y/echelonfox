@@ -1,6 +1,6 @@
 /**
  * Case-study illustration for the beauty supply retailer: sales concentrated on
- * a few days, staffing flat across the week, Sunday marked in red pen. It shows
+ * a few days, staffing flat across the week, Sunday marked in copper. It shows
  * the shape of the finding only; the client's figures are not published.
  */
 const days = [
@@ -21,7 +21,7 @@ export default function WeekPattern() {
       <svg className="illo" viewBox="0 56 480 200" role="img" aria-labelledby="week-title" focusable="false">
         <title id="week-title">
           Illustrative chart: sales rise through the week and peak on Friday and Saturday, while staffing stays
-          flat every day. Sunday, with the lowest sales, is circled in red.
+          flat every day. Sunday, with the lowest sales, is circled in copper.
         </title>
         <line x1="24" y1={base} x2="456" y2={base} className="illo-axis" />
         {days.map((b, i) => {

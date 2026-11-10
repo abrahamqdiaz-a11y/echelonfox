@@ -5,14 +5,18 @@ import Arrow from "@/components/site/Arrow";
 export default function NotFound() {
   return (
     <PageShell>
-      <section className="page-hero" style={{ paddingBottom: "var(--section)" }}>
+      <section
+        className="page-hero"
+        style={{ paddingBottom: "var(--section)" }}
+      >
         <div className="container">
           <p className="eyebrow">404</p>
           <h1 className="h1" style={{ maxWidth: "16ch" }}>
             This page isn&apos;t here.
           </h1>
           <p className="lead muted" style={{ marginTop: "1.5rem" }}>
-            It may have moved when the site was reorganised. These are good places to pick up from.
+            It may have moved when the site was reorganised. These are good
+            places to pick up from.
           </p>
           <div className="actions" style={{ marginTop: "2rem" }}>
             <Link href="/" className="btn">
@@ -20,10 +24,10 @@ export default function NotFound() {
               <Arrow />
             </Link>
             <Link href="/services" className="arrow-link">
-              Services
+              What We Do
             </Link>
             <Link href="/work" className="arrow-link">
-              Work
+              Selected Work
             </Link>
           </div>
         </div>

@@ -1,17 +1,17 @@
-/** Site-wide facts. Change them here, not in individual pages. */
+/** Approved public contact details and navigation. */
 export const SITE = {
   name: "EchelonFox",
   url: "https://echelonfox.com",
   description:
-    "EchelonFox works with established companies to identify the commercial constraint that matters most, then connects positioning, customer acquisition, sales processes, and technology into a clearer way to grow.",
+    "We identify growth opportunities, solve commercial bottlenecks and implement the marketing, technology and operational systems your business actually needs.",
   email: "abe.quinn@echelonfox.com",
   bookingUrl: "https://cal.com/abe-quinn/growth-meeting",
   linkedin: "https://www.linkedin.com/company/echelonfox/",
 } as const;
-
 export const PRIMARY_NAV = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
+  { label: "Home", href: "/" },
+  { label: "What We Do", href: "/services" },
+  { label: "Our Approach", href: "/our-approach" },
+  { label: "Selected Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
 ] as const;

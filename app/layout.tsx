@@ -1,39 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
-import Motion from "@/components/site/Motion";
 import { SITE } from "@/lib/site";
-
-// next/font self-hosts these files on our own domain and preloads them, so no
-// visitor request goes to Google (see the privacy policy, section 5).
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-newsreader",
+const manrope = localFont({
+  src: "./fonts/Manrope.woff2",
+  variable: "--font-manrope",
   display: "swap",
-  fallback: ["Iowan Old Style", "Palatino Linotype", "Palatino", "Georgia", "serif"],
+  weight: "200 800",
 });
-
-const plexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-sans",
+const inter = localFont({
+  src: "./fonts/Inter.woff2",
+  variable: "--font-inter",
   display: "swap",
-  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-plex-mono",
-  display: "swap",
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} — Commercial growth strategy and implementation`,
+    default: `${SITE.name} — Growth Strategy & Business Systems Consultancy`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -42,17 +27,24 @@ export const metadata: Metadata = {
     canonical: SITE.url,
   },
   openGraph: {
-    title: `${SITE.name} — Find what's holding growth back. Build what comes next.`,
+    title: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
     type: "website",
-    locale: "en_US",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${SITE.name} — Find what's holding growth back. Build what comes next.` }],
+    locale: "en_GB",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Find what's holding growth back. Build what comes next.`,
+    title: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
     description: SITE.description,
     site: "@echelonfox",
     images: ["/opengraph-image"],
@@ -71,7 +63,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F4F0E8",
+  themeColor: "#101C2B",
   width: "device-width",
   initialScale: 1,
 };
@@ -88,12 +80,56 @@ const organizationSchema = {
   areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Commercial growth strategy and implementation",
+    name: "Growth Strategy & Business Systems Consultancy",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial diagnosis and positioning", url: `${SITE.url}/services/commercial-diagnosis` } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Customer acquisition and conversion", url: `${SITE.url}/services/customer-acquisition` } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sales process, CRM, and follow-up", url: `${SITE.url}/services/sales-process-crm` } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Practical AI and automation", url: `${SITE.url}/services/ai-automation` } },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Growth Strategy & Business Advisory",
+          url: `${SITE.url}/services/commercial-diagnosis`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Marketing & Customer Acquisition",
+          url: `${SITE.url}/services/customer-acquisition`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Sales & Conversion Systems",
+          url: `${SITE.url}/services/sales-process-crm`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Technology & Operations",
+          url: `${SITE.url}/services/technology-operations`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Automation & Operations",
+          url: `${SITE.url}/services/ai-automation`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Websites & Digital Infrastructure",
+          url: `${SITE.url}/services/websites-digital-infrastructure`,
+        },
+      },
     ],
   },
 };
@@ -112,11 +148,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="en-GB" className={`${manrope.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
         <script
           type="application/ld+json"
@@ -126,7 +164,6 @@ export default function RootLayout({
       <body>
         {children}
         <CookieConsent />
-        <Motion />
       </body>
     </html>
   );
