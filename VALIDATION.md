@@ -2,14 +2,18 @@
 
 ## Passing checks
 
+Updated for the AI consultancy direction on 11 November 2026.
+
 - Next.js production build and TypeScript compilation.
-- All 19 sitemap pages: one H1, unique title and description, self-canonical, correct Open Graph URL, page-specific social metadata and valid JSON-LD.
+- All 22 sitemap pages: one H1, unique title and description, self-canonical, correct Open Graph URL, page-specific social metadata and valid JSON-LD.
 - Internal page destinations, fragment targets, skip-link targets and unpublished-case exclusion.
-- Service schema on all six capability pages.
+- Service schema on all nine capability pages.
 - Contact field parity across the hidden homepage form, rendered component and static Netlify definition.
 - Contact component: labels, required fields, optional website, consent and honeypot, encoded payload, success, non-OK response and network failure. Fetch is mocked; no external submission is sent.
 - Navigation component: mobile disclosure, Escape, focus return, desktop disclosure dismissal, route-change reset, current-page indication and capability destinations.
 - Subscription canonical/noindex and static form-definition noindex.
+- One-time motion: intersection handling, live reduced-motion preference changes and cleanup of observers/timers.
+- Local image references, dimensions and alternative-text attributes in generated HTML.
 - Reduced-motion rule and absence of decorative gradients.
 - API, Supabase helpers, database and drip function, middleware and redirect configuration unchanged.
 

@@ -1,40 +1,39 @@
 import Link from "next/link";
+import Image from "next/image";
 import PageShell from "@/components/site/PageShell";
 import Arrow from "@/components/site/Arrow";
 import FinalCta from "@/components/site/FinalCta";
 import Process from "@/components/site/Process";
-import SystemDiagram from "@/components/site/SystemDiagram";
+import PeoplePanels from "@/components/site/PeoplePanels";
 import SectionIntro from "@/components/site/SectionIntro";
 import { coreCapabilities } from "@/lib/capabilities";
 import { publishedCases } from "@/lib/work-data";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Growth Strategy & Business Systems Consultancy",
+  "AI Strategy & Implementation Consultancy",
   SITE.description,
   "",
 );
-const challenges = [
-  [
-    "Visibility & demand",
-    "The right customers aren’t finding you.",
-    "Look at positioning, market visibility and the channels that can create relevant demand.",
-  ],
-  [
-    "Sales & conversion",
-    "Interest isn’t becoming business.",
-    "Understand what happens between first contact, follow-up and a customer’s decision.",
-  ],
-  [
-    "Operations & capacity",
-    "Growth is creating more friction.",
-    "Review handoffs, manual work and the capacity needed to deliver consistently.",
-  ],
-  [
-    "Direction & priorities",
-    "There are too many possible next steps.",
-    "Identify the constraint and choose the improvements worth prioritising now.",
-  ],
+const applications = [
+  {
+    area: "Sales & customer service",
+    title: "Give every enquiry a useful next step.",
+    body: "Summarise an enquiry, prepare a response and route it to the right person, with review before anything is sent.",
+    steps: ["Enquiry", "AI-assisted draft", "Human review"],
+  },
+  {
+    area: "Knowledge & internal work",
+    title: "Find the answer. Keep the source.",
+    body: "Help people find approved information across business documents, with source references and a clear fallback when an answer is uncertain.",
+    steps: ["Question", "Approved knowledge", "Source-backed answer"],
+  },
+  {
+    area: "Operations & administration",
+    title: "Move information without the repeated admin.",
+    body: "Extract details from documents, prepare records and connect tools, with checks and approval at the points that need judgement.",
+    steps: ["Document", "Extract & check", "Approved update"],
+  },
 ];
 export default function Home() {
   return (
@@ -55,80 +54,62 @@ export default function Home() {
         <textarea name="message" />
         <input name="consent" type="checkbox" />
       </form>
-      <section className="home-hero">
+      <section className="home-hero ai-hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">Growth Strategy &amp; Business Systems</p>
+            <p className="eyebrow">AI Strategy &amp; Implementation</p>
             <h1 className="display">
-              Find what’s holding your business back.
+              Practical AI.
               <br />
-              <span>Build what moves it forward.</span>
+              <span>
+                Built around
+                <br />
+                your business.
+              </span>
             </h1>
             <p className="lead">{SITE.description}</p>
             <div className="actions">
               <Link className="btn" href="/contact">
-                Discuss Your Business
+                Discuss Your AI Opportunities
                 <Arrow />
               </Link>
-              <Link className="arrow-link" href="/our-approach">
-                Explore Our Approach
+              <Link className="arrow-link" href="/services">
+                Explore AI Services
                 <Arrow />
               </Link>
             </div>
           </div>
-          <SystemDiagram />
+          <PeoplePanels />
         </div>
         <div className="container hero-foot">
-          <span>Commercial thinking. Hands-on execution.</span>
+          <span>Founder-led consultancy. Strategy through implementation.</span>
           <span>Diagnose / Design / Build / Improve</span>
         </div>
       </section>
       <section className="section section--white">
         <div className="container split">
           <div>
-            <p className="eyebrow">Why growth stalls</p>
+            <p className="eyebrow">The business comes first</p>
             <h2 className="h2">
-              A business is connected.
-              <br />
-              Its problems are too.
+              AI is an opportunity.
+              <br />A useful application is a decision.
             </h2>
           </div>
           <div className="statement-copy">
             <p className="lead">
-              A visibility problem can look like a sales problem. A capacity
-              constraint can limit the value of more demand.
+              Start with the work that needs to improve. Then decide where AI
+              belongs.
             </p>
             <p className="muted">
-              Marketing, sales, technology and operations affect one another.
-              Improving one part without understanding the others can leave the
-              real constraint untouched.
+              We look at your goals, workflows, people and existing systems
+              before recommending a tool. That commercial picture helps identify
+              where an assistant, an integration or an automated workflow could
+              be useful.
             </p>
             <p className="muted">
-              Some businesses need stronger acquisition. Others need clearer
-              positioning, a better conversion process or more effective
-              operations. We start by finding out which.
+              Sometimes a simpler process is the better answer. Where AI makes
+              sense, we connect the strategy with practical implementation.
             </p>
-          </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <SectionIntro
-            eyebrow="The problems we solve"
-            title="Find the point where progress gets stuck."
-            body="Different symptoms call for different responses. These are starting points for a conversation, not a diagnosis."
-          />
-          <div className="challenge-grid">
-            {challenges.map(([label, title, body], i) => (
-              <article key={label}>
-                <div className="challenge-top">
-                  <span className="index">0{i + 1}</span>
-                  <span className="label">{label}</span>
-                </div>
-                <h3>{title}</h3>
-                <p className="muted">{body}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>
@@ -136,16 +117,16 @@ export default function Home() {
         <div className="container">
           <div className="split section-head">
             <div>
-              <p className="eyebrow">Our connected capabilities</p>
+              <p className="eyebrow">AI services</p>
               <h2 className="h2">
-                The right combination.
+                From the right question
                 <br />
-                For the right challenge.
+                to a working solution.
               </h2>
             </div>
             <p className="lead muted">
-              Strategy sets the priorities. Marketing, sales systems and
-              technology help put them into practice.
+              One connected approach: establish the opportunity, build with
+              purpose and help people put it to use.
             </p>
           </div>
           <div className="capability-rows">
@@ -159,17 +140,48 @@ export default function Home() {
             ))}
           </div>
           <Link className="arrow-link" href="/services">
-            Explore what we do
+            Explore our AI capabilities
             <Arrow />
           </Link>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <SectionIntro
+            eyebrow="Where AI can help"
+            title="Real tasks. A clear role for AI."
+            body="Illustrative applications across the business. We assess suitability, data access and oversight before defining the solution."
+          />
+          <div className="application-list">
+            {applications.map((a, i) => (
+              <article key={a.area}>
+                <div>
+                  <span className="index">0{i + 1}</span>
+                  <p className="label">{a.area}</p>
+                  <h3>{a.title}</h3>
+                </div>
+                <div>
+                  <p className="muted">{a.body}</p>
+                  <ol className="application-flow">
+                    {a.steps.map((step, j) => (
+                      <li key={step}>
+                        <span>{step}</span>
+                        {j < 2 && <Arrow size={14} />}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
       <section className="section section--white">
         <div className="container">
           <SectionIntro
             eyebrow="Our approach"
-            title="Understand first. Then move forward."
-            body="Four stages connect a clearer commercial picture with practical improvements. The scope follows the business, not a fixed set of services."
+            title="Understand. Build. Put it to work."
+            body="We connect commercial priorities with the data, systems and people involved in implementation. The scope follows the problem."
           />
           <Process compact />
           <Link href="/our-approach" className="arrow-link">
@@ -178,12 +190,49 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="section">
+      <section className="section human-section">
+        <div className="container human-split">
+          <div className="editorial-photo">
+            <Image
+              src="/images/consultancy/collaboration.webp"
+              alt="Illustrative photograph of people working through information together"
+              width={1000}
+              height={667}
+              sizes="(max-width: 760px) 100vw, 50vw"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">A consultancy that implements</p>
+            <h2 className="h2">
+              Commercial judgement.
+              <br />
+              Technical execution.
+              <br />
+              People in the loop.
+            </h2>
+            <p className="lead">
+              A focused, founder-led partner from the first question through to
+              implementation.
+            </p>
+            <p className="muted">
+              We bring business understanding to AI decisions, define the work
+              clearly and stay close to how the solution is used. Ownership,
+              handoff and human review are part of the design.
+            </p>
+            <Link href="/about" className="arrow-link">
+              About EchelonFox
+              <Arrow />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="section section--white">
         <div className="container">
           <div className="work-heading">
             <SectionIntro
-              eyebrow="Selected work"
-              title="Business challenges. Practical solutions."
+              eyebrow="Selected business systems work"
+              title="The business thinking behind the build."
+              body="Existing work in commercial analysis, websites and enquiry systems. These projects show our approach to business problems; they are not presented as AI implementations."
             />
             <Link className="arrow-link" href="/work">
               View selected work
@@ -200,27 +249,10 @@ export default function Home() {
                   >
                     <span className="case-visual__number">0{i + 1}</span>
                     <div className="case-visual__lines">
-                      {i === 0 ? (
-                        <>
-                          <span>Customer patterns</span>
-                          <b>Understand</b>
-                          <span>Commercial priorities</span>
-                        </>
-                      ) : i === 1 ? (
-                        <>
-                          <span>Search &amp; referral</span>
-                          <b>Enquire</b>
-                          <span>A clear quote request</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Scattered enquiries</span>
-                          <b>Connect</b>
-                          <span>One place to respond</span>
-                        </>
-                      )}
+                      <span>Business systems work</span>
+                      <b>{["Understand", "Enquire", "Connect"][i]}</b>
+                      <span>Strategy into practice</span>
                     </div>
-                    <span className="label">Strategy into practice</span>
                   </div>
                   <p className="label">{c.descriptor}</p>
                   <h3>{c.title}</h3>
@@ -234,48 +266,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section section--white">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">Why EchelonFox</p>
-            <h2 className="h2">
-              Business thinking.
-              <br />
-              Practical execution.
-            </h2>
-            <Link href="/about" className="arrow-link">
-              Meet the approach behind the work
-              <Arrow />
-            </Link>
-          </div>
-          <div className="principles-list">
-            {[
-              [
-                "Diagnose before prescribing.",
-                "Understand the business before recommending a channel, system or service.",
-              ],
-              [
-                "Prioritise commercial impact.",
-                "Focus effort on the constraints and opportunities that matter most.",
-              ],
-              [
-                "Connect strategy with execution.",
-                "Carry the thinking through into practical implementation.",
-              ],
-              [
-                "Build for sustainable improvement.",
-                "Create processes and systems that can support the business over time.",
-              ],
-            ].map(([title, body]) => (
-              <div key={title}>
-                <h3>{title}</h3>
-                <p className="muted">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <FinalCta title="What’s holding your business back?" />
+      <FinalCta title="Where could AI make a difference in your business?" />
     </PageShell>
   );
 }

@@ -1,8 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-export const alt =
-  "EchelonFox — Find what’s holding your business back. Build what moves it forward.";
+export const alt = "EchelonFox — Practical AI. Built around your business.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default async function OgImage() {
@@ -33,7 +32,7 @@ export default async function OgImage() {
       >
         <span>EchelonFox</span>
         <span style={{ fontSize: 15, color: "#BEC5CA" }}>
-          Growth Strategy &amp; Business Systems
+          AI Strategy &amp; Implementation
         </span>
       </div>
       <div
@@ -45,11 +44,9 @@ export default async function OgImage() {
           letterSpacing: -2,
         }}
       >
-        <span>Find what’s holding</span>
-        <span>your business back.</span>
-        <span style={{ color: "#C99979", marginTop: 15 }}>
-          Build what moves it forward.
-        </span>
+        <span>Practical AI.</span>
+        <span>Built around</span>
+        <span style={{ color: "#C99979", marginTop: 15 }}>your business.</span>
       </div>
       <div
         style={{

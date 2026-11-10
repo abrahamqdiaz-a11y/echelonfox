@@ -1,3 +1,18 @@
+# AI consultancy direction — 11 November 2026
+
+- Repositioned EchelonFox as a founder-led AI strategy and implementation consultancy, retaining the commercial diagnosis-first approach.
+- Rebuilt the homepage around AI opportunities, implementation, human oversight and adoption. Added illustrative applications for enquiries, knowledge access and operations, clearly separated from client results.
+- Added dedicated AI Strategy & Readiness, AI Assistants & Integrations, and AI Adoption & Improvement routes. Reframed the existing automation page as AI Workflow & Automation.
+- Made the four AI capabilities primary in navigation, service overview, footer and organisation schema. Retained all five supporting business service pages and all existing redirects.
+- Updated About, Contact, Our Approach, shared CTAs, metadata, sitemap, Open Graph imagery and llms.txt to the AI positioning.
+- Kept case-study data and founder biographical claims unchanged. Selected Work explicitly identifies historical business-system projects as separate from AI implementation claims.
+- Added locally hosted WebP workplace photography in staggered hero panels and editorial sections. Images illustrate collaboration, not EchelonFox staff or clients. Sources are recorded in docs/IMAGE-CREDITS.md.
+- Added brief one-time section reveals, subtle hero panel reveals and restrained hover feedback. Content remains visible without JavaScript. Reduced-motion preferences are respected, including changes during a session.
+- Extended tests to all 22 sitemap pages, local image references and motion behaviour. Production build, TypeScript, metadata/schema/link checks and mocked contact/navigation/motion tests passed.
+- Contact integration, backend code, database, email delivery and authentication infrastructure are unchanged. No production deployment performed for this branch.
+
+---
+
 # Consultancy redesign
 
 ## Positioning and content

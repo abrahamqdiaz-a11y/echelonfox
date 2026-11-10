@@ -3,109 +3,88 @@ import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
-import { coreCapabilities } from "@/lib/capabilities";
+import { coreCapabilities, supportingCapabilities } from "@/lib/capabilities";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "What We Do — Connected Business Capabilities",
-  "Growth strategy, marketing, sales systems and technology brought together to solve commercial challenges and implement practical improvements.",
+  "AI Consulting Services — Strategy, Automation & Implementation",
+  "AI strategy, workflow automation, assistants, integrations and adoption support. Practical AI consulting grounded in your business priorities.",
   "/services",
 );
-const examples = [
-  [
-    "An established business has lost momentum.",
-    "A commercial assessment may reveal that positioning or capacity needs attention before acquisition spend increases.",
-  ],
-  [
-    "Enquiries arrive, but too many go quiet.",
-    "Clear ownership, a useful CRM workflow and consistent follow-up may help the team move opportunities forward.",
-  ],
-  [
-    "The business is growing, and admin is growing faster.",
-    "A workflow review may identify a simpler process or an integration between tools the team already uses.",
-  ],
-];
 export default function Services() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="What We Do"
-        title="Business challenges don’t fit neatly into service categories."
-        lead="Neither should the solutions. We bring strategy, marketing, technology and operations together to address the problems that matter most."
+        eyebrow="AI Services"
+        title="AI strategy. Practical implementation."
+        lead="From identifying the right opportunity to building and adopting the solution, we connect AI decisions with the way your business works."
       />
       <section className="section section--white">
-        <div className="container">
-          <div className="capability-editorial">
-            {coreCapabilities.map((c, i) => (
-              <article key={c.slug}>
-                <span className="index">0{i + 1}</span>
-                <div>
-                  <h2 className="h3">
-                    <Link href={`/services/${c.slug}`}>{c.name}</Link>
-                  </h2>
-                  <p className="lead">{c.summary}</p>
-                  <Link href={`/services/${c.slug}`} className="arrow-link">
-                    Explore this capability
-                    <Arrow />
-                  </Link>
-                </div>
-                <ul className="check-list small">
-                  {c.includes.map((group) => (
-                    <li key={group.heading}>
-                      {group.items.slice(0, 2).join(" · ")}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">From challenge to response</p>
-            <h2 className="h2">
-              Start with the problem.
-              <br />
-              Keep the possibilities open.
-            </h2>
-            <p className="muted">
-              These examples illustrate possible approaches. The right response
-              depends on what the diagnosis reveals.
-            </p>
-          </div>
-          <div className="principles-list">
-            {examples.map(([title, body]) => (
-              <div key={title}>
-                <h3>{title}</h3>
-                <p>{body}</p>
+        <div className="container capability-editorial">
+          {coreCapabilities.map((c, i) => (
+            <article key={c.slug}>
+              <span className="index">0{i + 1}</span>
+              <div>
+                <h2 className="h3">
+                  <Link href={`/services/${c.slug}`}>{c.name}</Link>
+                </h2>
+                <p className="lead">{c.summary}</p>
+                <Link href={`/services/${c.slug}`} className="arrow-link">
+                  Explore this capability
+                  <Arrow />
+                </Link>
               </div>
-            ))}
-          </div>
+              <ul className="check-list small">
+                {c.includes.map((g) => (
+                  <li key={g.heading}>{g.items.slice(0, 2).join(" · ")}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </section>
-      <section className="section section--white">
+      <section className="band">
         <div className="container split">
-          <div>
-            <p className="eyebrow">A connected delivery capability</p>
-            <h2 className="h2">Build what the business needs.</h2>
-          </div>
+          <h2 className="h2">
+            Start with a useful application.
+            <br />
+            Build with clear boundaries.
+          </h2>
           <div>
             <p className="lead">
-              Technology &amp; Operations includes dedicated expertise in
-              websites and automation. Each is a practical capability, chosen
-              for the role it needs to play.
+              We assess the task, the data and the people involved before
+              choosing the approach.
             </p>
-            <div className="tag-list">
-              <Link href="/services/websites-digital-infrastructure">
-                Websites &amp; Digital Infrastructure
-                <Arrow size={14} />
+            <p>
+              A focused pilot may be the right starting point. In another
+              business, readiness work or a connection between existing tools
+              may come first. The engagement is scoped around what needs to be
+              learned and built.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="business-systems" className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Supporting business capabilities</p>
+            <h2 className="h2">AI works within a wider business.</h2>
+            <p className="lead muted">
+              Commercial strategy, CRM, websites, marketing and operations
+              remain part of our delivery capability. We bring them into an
+              engagement where the business needs them.
+            </p>
+          </div>
+          <div className="supporting-grid">
+            {supportingCapabilities.map((c) => (
+              <Link href={`/services/${c.slug}`} key={c.slug}>
+                <h3>{c.name}</h3>
+                <p className="small muted">{c.summary}</p>
+                <span className="arrow-link">
+                  Explore
+                  <Arrow size={16} />
+                </span>
               </Link>
-              <Link href="/services/ai-automation">
-                Automation &amp; Operations
-                <Arrow size={14} />
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>

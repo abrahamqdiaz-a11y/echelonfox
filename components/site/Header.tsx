@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PRIMARY_NAV } from "@/lib/site";
-import { capabilities } from "@/lib/capabilities";
+import { coreCapabilities } from "@/lib/capabilities";
 import Arrow from "./Arrow";
 export default function Header() {
   const pathname = usePathname();
@@ -66,26 +66,20 @@ export default function Header() {
                 {item.href === "/services" ? (
                   <details className="nav-dropdown" ref={dropdown}>
                     <summary className={current(item.href) ? "is-current" : ""}>
-                      What We Do <span aria-hidden="true">⌄</span>
+                      AI Services <span aria-hidden="true">⌄</span>
                     </summary>
                     <div className="nav-dropdown__panel">
                       <Link href="/services">
                         Explore our capabilities <Arrow />
                       </Link>
-                      {capabilities
-                        .filter(
-                          (c) =>
-                            c.slug !== "ai-automation" &&
-                            c.slug !== "websites-digital-infrastructure",
-                        )
-                        .map((c) => (
-                          <Link key={c.slug} href={`/services/${c.slug}`}>
-                            {c.name}
-                          </Link>
-                        ))}
+                      {coreCapabilities.map((c) => (
+                        <Link key={c.slug} href={`/services/${c.slug}`}>
+                          {c.name}
+                        </Link>
+                      ))}
                       <div className="nav-dropdown__support">
-                        <Link href="/services/ai-automation">
-                          Automation &amp; Operations
+                        <Link href="/services#business-systems">
+                          Supporting business systems
                         </Link>
                         <Link href="/services/websites-digital-infrastructure">
                           Websites &amp; Digital Infrastructure
@@ -146,7 +140,7 @@ export default function Header() {
                   <details>
                     <summary>Explore capabilities</summary>
                     <ul>
-                      {capabilities.map((c) => (
+                      {coreCapabilities.map((c) => (
                         <li key={c.slug}>
                           <Link href={`/services/${c.slug}`}>{c.name}</Link>
                         </li>

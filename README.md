@@ -1,6 +1,6 @@
 # EchelonFox Solutions
 
-Growth Strategy & Business Systems Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
+Founder-led AI Strategy & Implementation Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
 
 ## Development
 
@@ -18,7 +18,7 @@ npm run build
 npm run test:site
 ```
 
-The site checks require Python 3 and the development dependencies. They inspect all sitemap pages in the production build for metadata, structured data, internal links, anchors and form-definition consistency. React/JSDOM tests exercise the contact form and navigation. Contact requests are intercepted, so tests send no email or external form submission. These checks do not replace real-browser visual, responsive or assistive-technology testing.
+The site checks require Python 3 and the development dependencies. They inspect all sitemap pages in the production build for metadata, structured data, internal links, anchors and form-definition consistency. React/JSDOM tests exercise the contact form and navigation, plus one-time motion and reduced-motion preferences. Contact requests are intercepted, so tests send no email or external form submission. These checks do not replace real-browser visual, responsive or assistive-technology testing.
 
 ## Structure
 
@@ -26,7 +26,7 @@ The site checks require Python 3 and the development dependencies. They inspect 
 - `app/globals.css` — design tokens, responsive layouts and shared styles.
 - `components/site/` — navigation, footer, heroes, capability layouts, process and commercial-system diagrams.
 - `components/ContactForm.tsx` — the Netlify form, with visible labels and success/error states.
-- `lib/capabilities.ts` — four core capabilities and two supporting service pages.
+- `lib/capabilities.ts` — four core AI capabilities and five retained supporting business capabilities.
 - `lib/work-data.ts` — published and withheld case records. Do not add claims or permissions without evidence.
 - `lib/metadata.ts` — consistent page and social metadata.
 - `next.config.ts` — retained legacy redirects.

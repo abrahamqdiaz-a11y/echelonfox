@@ -1,29 +1,33 @@
 # EchelonFox
 
-> Growth Strategy & Business Systems Consultancy. We identify growth opportunities, solve commercial bottlenecks and implement the marketing, technology and operational systems a business actually needs.
+> Founder-led AI strategy and implementation consultancy. Practical AI, built around your business. We help businesses identify valuable AI opportunities, design the right approach and implement practical solutions across sales, customer service and operations.
 
-## Approach
+## AI services
 
-Diagnose before prescribing. Prioritise commercial impact. Connect strategy with execution. Build for sustainable improvement. Not every business needs every capability.
+- [AI Services](https://echelonfox.com/services): Strategy, implementation and adoption connected to business priorities.
+- [AI Strategy & Readiness](https://echelonfox.com/services/ai-strategy): Opportunity discovery, readiness assessment and implementation planning.
+- [AI Workflow & Automation](https://echelonfox.com/services/ai-automation): Process assessment, AI-assisted workflows and business-tool integration with human oversight.
+- [AI Assistants & Integrations](https://echelonfox.com/services/ai-assistants): Focused knowledge and enquiry assistants with source checking, permissions and human handoff.
+- [AI Adoption & Improvement](https://echelonfox.com/services/ai-adoption): Team guidance, evaluation, ownership and workflow refinement.
 
-- [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve.
-- [About](https://echelonfox.com/about): A founder-led consultancy connecting business thinking with practical execution.
-- [Contact](https://echelonfox.com/contact): Discuss the challenge before choosing a service.
+## Approach and company
 
-## Connected capabilities
+- [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve. Understand the work before choosing the technology.
+- [About](https://echelonfox.com/about): Founder-led consultancy grounded in business understanding and practical implementation.
+- [Contact](https://echelonfox.com/contact): Discuss AI opportunities and the work you want to improve.
 
-- [What We Do](https://echelonfox.com/services): Strategy, marketing, technology and operations brought together around the business challenge.
-- [Growth Strategy & Business Advisory](https://echelonfox.com/services/commercial-diagnosis): Commercial assessment, positioning and prioritisation.
-- [Marketing & Customer Acquisition](https://echelonfox.com/services/customer-acquisition): SEO, local visibility, paid advertising and lead generation.
-- [Sales & Conversion Systems](https://echelonfox.com/services/sales-process-crm): Lead capture, CRM implementation, sales processes and follow-up.
-- [Technology & Operations](https://echelonfox.com/services/technology-operations): Digital infrastructure, connected workflows and operational improvements.
-- [Automation & Operations](https://echelonfox.com/services/ai-automation): Workflow assessment, integration and practical automation.
-- [Websites & Digital Infrastructure](https://echelonfox.com/services/websites-digital-infrastructure): Website strategy, design, development, technical SEO and integrations.
+## Supporting business capabilities
+
+- [Growth Strategy](https://echelonfox.com/services/commercial-diagnosis)
+- [Marketing & Customer Acquisition](https://echelonfox.com/services/customer-acquisition)
+- [Sales & Conversion Systems](https://echelonfox.com/services/sales-process-crm)
+- [Technology & Operations](https://echelonfox.com/services/technology-operations)
+- [Websites & Digital Infrastructure](https://echelonfox.com/services/websites-digital-infrastructure)
 
 ## Work and insights
 
-- [Selected Work](https://echelonfox.com/work): Documented business challenges, diagnosis, strategy, implementation and outcomes where recorded.
-- [Insights](https://echelonfox.com/insights): Practical guides on growth and search visibility.
+- [Selected Work](https://echelonfox.com/work): Existing commercial analysis, website and enquiry-system work. These projects are not described as AI implementations.
+- [Insights](https://echelonfox.com/insights): Practical guides on business systems and search visibility.
 
 ## Contact
 

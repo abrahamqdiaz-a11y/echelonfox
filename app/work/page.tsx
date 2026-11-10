@@ -15,8 +15,8 @@ export default function Work() {
     <PageShell>
       <PageHero
         eyebrow="Selected Work"
-        title="Real business challenges. Practical solutions."
-        lead="A closer look at the context, the diagnosis and the work put into practice. Each business called for a different response."
+        title="Business understanding, put into practice."
+        lead="Existing projects in commercial analysis, website development and enquiry systems. They illustrate our approach to business problems; they are not presented as AI implementations."
       />
       <section className="section section--white">
         <div className="container work-list">

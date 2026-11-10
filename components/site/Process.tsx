@@ -1,23 +1,23 @@
 export const stages = [
   {
     name: "Diagnose",
-    title: "Understand the real challenge.",
-    body: "Explore the business, its goals, customers, commercial constraints and existing systems before recommending a solution.",
+    title: "Find a useful opportunity.",
+    body: "Understand goals, workflows, data and readiness. Identify where AI could make a practical contribution.",
   },
   {
     name: "Design",
-    title: "Choose what matters most.",
-    body: "Prioritise the opportunities and develop a practical plan for the problems with the greatest commercial impact.",
+    title: "Design the right approach.",
+    body: "Define the workflow, integrations and human oversight. Agree what to build and how to evaluate it.",
   },
   {
     name: "Build",
-    title: "Put the plan into practice.",
-    body: "Implement the agreed marketing, technology, sales or operational improvements, connecting the work across the business.",
+    title: "Build and test the solution.",
+    body: "Implement the agreed AI solution, connect the relevant systems and test it with representative work.",
   },
   {
     name: "Improve",
-    title: "Review. Refine. Move forward.",
-    body: "Measure what can be measured, review how the changes work in practice and refine the systems as the business evolves.",
+    title: "Help people put it to use.",
+    body: "Support adoption, review quality and exceptions, and refine the workflow with feedback from the team.",
   },
 ];
 export default function Process({ compact = false }: { compact?: boolean }) {

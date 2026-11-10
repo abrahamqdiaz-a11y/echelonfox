@@ -1,80 +1,56 @@
 "use client";
-
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-/**
- * Scroll reveal. Blocks that start below the fold fade and rise in as they
- * reach the viewport, staggered among siblings; illustrations inside them hold
- * their draw-in animation until then. Anything already on screen is left
- * alone, and without JavaScript (or with reduced motion) nothing is hidden.
- */
-const TARGETS = [
-  ".section-head",
-  ".statement__title",
-  ".statement__body",
-  ".split > *",
-  ".grid-2 > *",
-  ".grid-3 > *",
-  ".grid-4 > *",
-  ".path-step",
-  ".symptoms li",
-  ".case-row",
-  ".case-card",
-  ".panel",
-  ".illo-figure",
-  ".final-cta__panel",
-  ".band .container",
-].join(",");
-
+/** One-time, small reveals. Content is always readable without JS or an observer. */
 export default function Motion() {
   const pathname = usePathname();
-
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (!("IntersectionObserver" in window)) return;
-
-    const fold = window.innerHeight * 0.92;
-    const all = Array.from(document.querySelectorAll<HTMLElement>(TARGETS));
-    const set = new Set(all);
-    // Reveal the outermost block only, so nested targets don't double-animate.
-    const els = all.filter((el) => {
-      for (let p = el.parentElement; p; p = p.parentElement) if (set.has(p)) return false;
-      return el.getBoundingClientRect().top > fold;
-    });
-
-    const done = (el: HTMLElement) => {
-      el.classList.remove("reveal", "is-in");
-      el.style.removeProperty("--reveal-delay");
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches || !("IntersectionObserver" in window)) return;
+    const candidates = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        ".section-head, .capability-rows > a, .application-list > article, .process-diagram, .human-split > *, .work-preview, .scope-grid > div, .capability-editorial > article",
+      ),
+    );
+    const targets = candidates.filter(
+      (el) => el.getBoundingClientRect().top > window.innerHeight * 0.95,
+    );
+    const timers = new Set<number>();
+    const clear = () => {
+      targets.forEach((el) => el.classList.remove("motion-visible"));
+      timers.forEach((timer) => window.clearTimeout(timer));
+      timers.clear();
     };
-
-    const io = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (!e.isIntersecting) continue;
-          const el = e.target as HTMLElement;
-          io.unobserve(el);
-          el.classList.add("is-in");
-          el.addEventListener("transitionend", () => done(el), { once: true });
-          window.setTimeout(() => done(el), 1600);
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer.unobserve(entry.target);
+          const el = entry.target as HTMLElement;
+          el.classList.add("motion-visible");
+          const timer = window.setTimeout(() => {
+            el.classList.remove("motion-visible");
+            timers.delete(timer);
+          }, 650);
+          timers.add(timer);
         }
       },
-      { rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08 },
     );
-
-    for (const el of els) {
-      const siblings = el.parentElement ? Array.from(el.parentElement.children) : [el];
-      const i = Math.min(siblings.indexOf(el), 5);
-      el.style.setProperty("--reveal-delay", `${i * 80}ms`);
-      el.classList.add("reveal");
-      io.observe(el);
-    }
-
+    targets.forEach((el) => observer.observe(el));
+    const onPreference = () => {
+      if (preference.matches) {
+        observer.disconnect();
+        clear();
+      }
+    };
+    preference.addEventListener("change", onPreference);
     return () => {
-      io.disconnect();
-      els.forEach(done);
+      observer.disconnect();
+      clear();
+      preference.removeEventListener("change", onPreference);
     };
   }, [pathname]);
-
   return null;
 }

@@ -3,7 +3,7 @@ import { capabilities } from "@/lib/capabilities";
 import { publishedCases } from "@/lib/work-data";
 
 const BASE = "https://echelonfox.com";
-const REDESIGN = "2026-11-10";
+const REDESIGN = "2026-11-11";
 
 type Entry = {
   path: string;

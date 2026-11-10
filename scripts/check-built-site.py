@@ -4,7 +4,7 @@ import re
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, parse_qs
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILT = ROOT / '.next/server/app'
@@ -22,6 +22,7 @@ class Page(HTMLParser):
         self.links = []
         self.ids = set()
         self.fields = set()
+        self.images = []
         self.schemas = []
         self.schema = None
         self.feed(text)
@@ -31,6 +32,7 @@ class Page(HTMLParser):
         if tag == 'head': self.head = True
         if tag == 'title' and self.head: self.capture_title = True
         if tag == 'h1': self.h1 += 1
+        if tag == 'img': self.images.append(d)
         if tag == 'meta': self.meta[d.get('name', d.get('property'))] = d.get('content', '')
         if tag == 'link' and d.get('rel') == 'canonical': self.canonical = d['href']
         if tag == 'a' and 'href' in d: self.links.append(d['href'])
@@ -70,6 +72,14 @@ for path, page in pages.items():
     check(page.meta.get('og:url') == page.canonical, f'{path}: Open Graph URL mismatch')
     check('main' in page.ids, f'{path}: missing skip-link target')
     check(len(page.schemas) >= 2, f'{path}: missing shared structured data')
+    for image in page.images:
+        check('alt' in image, f'{path}: image missing alt attribute')
+        check(bool(image.get('width')) and bool(image.get('height')), f'{path}: image dimensions missing')
+        src = image.get('src', '')
+        if src.startswith('/_next/image'):
+            src = parse_qs(urlparse(src).query).get('url', [''])[0]
+        if src.startswith('/') and not src.startswith('/_next/'):
+            check((ROOT/'public'/src.lstrip('/')).is_file(), f'{path}: missing image {src}')
     for href in page.links:
         target = urlparse(urljoin(BASE + path, href))
         if target.netloc != 'echelonfox.com': continue

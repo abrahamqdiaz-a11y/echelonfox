@@ -3,8 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Contact — Discuss Your Business",
-  "Tell us what you’re trying to solve. Start a conversation about customer acquisition, conversion, growth strategy or operational challenges.",
+  "Contact — Discuss Your AI Opportunities",
+  "Discuss AI strategy, workflow automation or an AI assistant. Start with your business challenge and explore a practical next step.",
   "/contact",
 );
 export default function Contact() {
@@ -14,11 +14,10 @@ export default function Contact() {
         <div className="container contact-grid">
           <div>
             <p className="eyebrow">Let’s talk</p>
-            <h1 className="h1">Tell us what you’re trying to solve.</h1>
+            <h1 className="h1">What could work better with AI?</h1>
             <p className="lead">
-              Whether you’re struggling to attract customers, convert
-              opportunities or improve operations, the first step is
-              understanding the challenge.
+              Whether you have a specific AI idea or need help finding the right
+              starting point, tell us about the work you want to improve.
             </p>
             <div className="contact-expectations">
               <p className="label">What happens next</p>
@@ -30,7 +29,8 @@ export default function Contact() {
                 <li>
                   <strong>We start with a conversation.</strong>
                   <span>
-                    We explore your goals and where the constraint might be.
+                    We explore your goals, workflows and where AI might be
+                    useful.
                   </span>
                 </li>
                 <li>

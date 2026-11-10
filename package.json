@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:site": "python3 scripts/check-built-site.py && node scripts/check-contact.cjs && node scripts/check-navigation.cjs"
+    "test:site": "python3 scripts/check-built-site.py && node scripts/check-contact.cjs && node scripts/check-navigation.cjs && node scripts/check-motion.cjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.0",
