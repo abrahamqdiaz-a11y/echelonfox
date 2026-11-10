@@ -1,6 +1,9 @@
 /** Existing service URLs are retained; the diagnosis determines which capabilities are useful. */
 export type Capability = {
   slug:
+    | "ai-strategy"
+    | "ai-assistants"
+    | "ai-adoption"
     | "commercial-diagnosis"
     | "customer-acquisition"
     | "sales-process-crm"
@@ -215,16 +218,16 @@ export const capabilities: Capability[] = [
   },
   {
     slug: "ai-automation",
-    name: "Automation & Operations",
-    short: "Automation and operations",
-    headline: "Less friction. Better execution.",
+    name: "AI Workflow & Automation",
+    short: "AI workflow and automation",
+    headline: "Put AI to work in the flow of your business.",
     summary:
-      "Improve how work flows through the business, using automation where it supports a clear and useful process.",
-    metaTitle: "Business Process Automation & Operations",
+      "Reduce repetitive work and connect business systems with practical AI workflows, clear rules and human oversight.",
+    metaTitle: "AI Workflow Automation & Business Process Integration",
     metaDescription:
-      "Workflow assessment, process automation, system integration and practical AI to reduce manual work and improve operational execution.",
+      "Practical AI workflow automation for sales, customer service and operations. Connect systems, reduce repetitive work and keep people in control.",
     intro:
-      "Technology should support a sound business process. Automating a confusing workflow can simply move the confusion faster. We first understand the work, the handoffs and the exceptions, then decide what should be simplified, connected or automated.",
+      "A useful automation starts with a process worth improving. We map the work, identify where AI can assist and use straightforward rules where they are the better fit. The aim is a workflow the team can understand, use and review.",
     signs: [
       "Staff repeatedly enter the same information.",
       "Scheduling, chasing and administration interrupt delivery.",
@@ -232,33 +235,33 @@ export const capabilities: Capability[] = [
     ],
     includes: [
       {
-        heading: "Assess the work",
+        heading: "Understand the workflow",
         items: [
-          "Workflow assessment",
-          "Process and handoff review",
-          "Manual task reduction",
+          "Process and handoff mapping",
+          "Data access and integration requirements",
+          "Prioritisation of repetitive tasks",
         ],
       },
       {
-        heading: "Connect and automate",
+        heading: "Build the connections",
         items: [
-          "Process automation",
-          "System integration",
-          "Customer communication workflows",
+          "AI-assisted information extraction and drafting",
+          "CRM and business-tool integrations",
+          "Routing, updates and customer communication workflows",
         ],
       },
       {
-        heading: "Maintain control",
+        heading: "Keep people in control",
         items: [
-          "Operational reporting",
-          "Practical AI applications",
-          "Human handoff and exception handling",
+          "Approval steps and exception handling",
+          "Workflow testing and operational reporting",
+          "Documentation and handover",
         ],
       },
     ],
     connects:
-      "Practical applications may include routing an enquiry, collecting missing information, updating records or preparing a report. The choice depends on the process, the data available and the level of human judgement required.",
-    cta: "Discuss Your Operations",
+      "An enquiry might be summarised, routed to the right person and used to prepare a draft response. A team member reviews the response before it is sent. This is an illustrative application, not a reported client result; the design depends on the process and data available.",
+    cta: "Discuss Your AI Workflow",
     cases: [],
   },
   {
@@ -309,9 +312,159 @@ export const capabilities: Capability[] = [
     cta: "Discuss Your Website",
     cases: ["independent-insurance-agency", "premium-pet-care"],
   },
+  {
+    slug: "ai-strategy",
+    name: "AI Strategy & Readiness",
+    short: "AI strategy and readiness",
+    headline: "Know where AI is worth the investment.",
+    summary:
+      "Identify useful AI opportunities, assess what is ready and build a practical roadmap around the business.",
+    metaTitle: "AI Strategy Consulting & Readiness Assessment",
+    metaDescription:
+      "AI strategy consulting grounded in business priorities. Assess workflows, data and readiness, then prioritise opportunities and plan implementation.",
+    intro:
+      "There is no shortage of AI tools. The harder decision is where to use them. We start with your goals, the work people do and the systems already in place, then assess where AI could make a useful contribution.",
+    signs: [
+      "There are many AI ideas, but no agreed priority.",
+      "You want to understand the effort, data needs and risks before investing.",
+      "Teams are experimenting with tools without a shared approach.",
+    ],
+    includes: [
+      {
+        heading: "Understand the opportunity",
+        items: [
+          "Business goals and workflow discovery",
+          "Opportunity mapping across teams",
+          "Assessment of current tools and processes",
+        ],
+      },
+      {
+        heading: "Assess readiness",
+        items: [
+          "Data availability and access requirements",
+          "People, process and integration readiness",
+          "Privacy, reliability and oversight requirements",
+        ],
+      },
+      {
+        heading: "Choose a practical path",
+        items: [
+          "Prioritisation by potential value and feasibility",
+          "A scoped starting point or pilot",
+          "An implementation roadmap and success criteria",
+        ],
+      },
+    ],
+    connects:
+      "The assessment informs what to build, what to test first and what should wait. An opportunity may lead to a workflow, an assistant or a simpler process change. We establish a reason for using AI before choosing the tools.",
+    cta: "Discuss Your AI Opportunities",
+    cases: [],
+  },
+  {
+    slug: "ai-assistants",
+    name: "AI Assistants & Integrations",
+    short: "AI assistants and integrations",
+    headline: "Useful assistance. Connected to the way you work.",
+    summary:
+      "Build focused AI assistants that help people find information, prepare work and interact with existing business systems.",
+    metaTitle: "AI Assistants & Business System Integrations",
+    metaDescription:
+      "AI assistants for knowledge access, customer enquiries and internal work, with business-system integrations, clear permissions and human handoff.",
+    intro:
+      "An assistant needs a specific job and a reliable source of information. We define the tasks, connect the relevant knowledge and systems, and design what happens when it cannot answer or an action needs approval.",
+    signs: [
+      "People spend too long searching documents or asking the same questions.",
+      "Customer enquiries need a more consistent first step.",
+      "You need AI tools to work with existing systems rather than in a separate window.",
+    ],
+    includes: [
+      {
+        heading: "Define the job",
+        items: [
+          "Task and conversation design",
+          "Knowledge sources and access boundaries",
+          "User roles and escalation requirements",
+        ],
+      },
+      {
+        heading: "Connect the assistant",
+        items: [
+          "Internal knowledge assistants",
+          "Enquiry support and draft preparation",
+          "Business-tool and CRM integrations",
+        ],
+      },
+      {
+        heading: "Test the boundaries",
+        items: [
+          "Evaluation with representative questions",
+          "Source checking and fallback behaviour",
+          "Human approval and handoff for sensitive actions",
+        ],
+      },
+    ],
+    connects:
+      "An internal assistant could help a team find an approved procedure and link back to the source. A customer-facing assistant might collect information and hand the enquiry to a person. These are possible applications, shaped around your knowledge, permissions and service standards.",
+    cta: "Discuss an AI Assistant",
+    cases: [],
+  },
+  {
+    slug: "ai-adoption",
+    name: "AI Adoption & Improvement",
+    short: "AI adoption and improvement",
+    headline: "Make AI useful beyond the first demonstration.",
+    summary:
+      "Help people use the systems confidently, evaluate how they perform and improve them as the work changes.",
+    metaTitle: "AI Adoption, Training & Continuous Improvement",
+    metaDescription:
+      "Practical AI adoption support, team guidance, evaluation and workflow improvement. Help people use AI systems with clear responsibilities and oversight.",
+    intro:
+      "A working demonstration is a starting point. The system needs to fit real tasks, the team needs to understand its limits and someone needs to own what happens next. Adoption is part of implementation.",
+    signs: [
+      "An AI tool has launched, but people are not using it consistently.",
+      "The team needs clear guidance on what to check and when to escalate.",
+      "You want to assess quality and usefulness with evidence from day-to-day work.",
+    ],
+    includes: [
+      {
+        heading: "Prepare the people",
+        items: [
+          "Role-specific guidance and practical training",
+          "Usage boundaries and review responsibilities",
+          "Documentation and working procedures",
+        ],
+      },
+      {
+        heading: "Evaluate the work",
+        items: [
+          "Success criteria and representative test cases",
+          "Review of output quality and exceptions",
+          "Feedback from the people using the system",
+        ],
+      },
+      {
+        heading: "Improve deliberately",
+        items: [
+          "Workflow and knowledge-source refinements",
+          "Handover and ownership planning",
+          "A review cadence appropriate to the engagement",
+        ],
+      },
+    ],
+    connects:
+      "We agree what useful performance looks like and how it can be reviewed. That may include task completion, accuracy checks, exception rates and user feedback. We do not promise a fixed productivity or revenue improvement.",
+    cta: "Discuss AI Adoption",
+    cases: [],
+  },
 ];
-export const coreCapabilities = capabilities.filter(
-  (c) => !["ai-automation", "websites-digital-infrastructure"].includes(c.slug),
+export const coreCapabilities = [
+  "ai-strategy",
+  "ai-automation",
+  "ai-assistants",
+  "ai-adoption",
+].map((slug) => capabilities.find((c) => c.slug === slug)!);
+export const supportingCapabilities = capabilities.filter(
+  (c) => !coreCapabilities.includes(c),
 );
 export const getCapability = (slug: string) =>
   capabilities.find((c) => c.slug === slug);

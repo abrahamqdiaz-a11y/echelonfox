@@ -5,8 +5,8 @@ import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "About — Business Thinking, Practical Execution",
-  "A founder-led consultancy connecting commercial strategy, sales, marketing, technology and hands-on implementation.",
+  "About — A Founder-Led AI Consultancy",
+  "A founder-led AI consultancy connecting commercial judgement with strategy, implementation and practical adoption.",
   "/about",
 );
 const background = [
@@ -28,8 +28,8 @@ export default function About() {
     <PageShell>
       <PageHero
         eyebrow="About EchelonFox"
-        title="Business thinking. Practical execution."
-        lead="A founder-led consultancy for businesses that need a clearer view of what to improve — and someone who can help put it into practice."
+        title="Business thinking. Practical AI."
+        lead="A focused AI strategy and implementation partner, grounded in how businesses work and what people need to do their jobs well."
       />
       <section className="section section--white">
         <div className="container split">
@@ -43,14 +43,16 @@ export default function About() {
           </div>
           <div>
             <p className="lead">
-              I work across commercial strategy, sales, marketing and technology
-              because a business challenge rarely stays inside one discipline.
+              My background spans commercial strategy, sales, marketing and
+              operations. That experience shapes how I approach AI: start with
+              the business, define a useful job and make the implementation
+              practical.
             </p>
             <p className="muted">
               The work starts with how the company makes money: which customers
               matter, what they buy, how they find you and what happens next.
-              That picture helps separate an urgent symptom from the underlying
-              constraint.
+              That picture helps establish where AI may be valuable and where a
+              simpler process change is the better answer.
             </p>
             <p className="muted">
               I lead the implementation as well as the thinking. Where a
@@ -93,8 +95,9 @@ export default function About() {
             </p>
             <p>
               That means considering the people, capacity and systems involved
-              in delivery, alongside the commercial objective. The aim is a
-              practical improvement the business can use and build on.
+              in delivery, alongside the commercial objective. For AI, it also
+              means defining what a person reviews, where information comes from
+              and who owns the system after launch.
             </p>
             <Link className="arrow-link" href="/our-approach">
               Explore our approach

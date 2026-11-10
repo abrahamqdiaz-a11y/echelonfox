@@ -94,6 +94,18 @@ const rootNode = createRoot(document.getElementById("app"));
   );
   assert(document.querySelector('.skip-link[href="#main"]'));
   assert.equal(document.querySelectorAll(".nav-dropdown__panel a").length, 7);
+  for (const slug of [
+    "ai-strategy",
+    "ai-automation",
+    "ai-assistants",
+    "ai-adoption",
+  ]) {
+    assert(
+      document.querySelector(
+        `.nav-dropdown__panel a[href="/services/${slug}"]`,
+      ),
+    );
+  }
   await act(async () => rootNode.unmount());
   console.log(
     "PASS: mobile toggle, Escape and focus return, desktop dropdown dismissal, route-change reset, current page and capability links.",

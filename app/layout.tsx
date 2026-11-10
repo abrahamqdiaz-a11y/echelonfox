@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Motion from "@/components/site/Motion";
+import { coreCapabilities } from "@/lib/capabilities";
 import CookieConsent from "@/components/CookieConsent";
 import { SITE } from "@/lib/site";
 const manrope = localFont({
@@ -18,7 +20,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} — Growth Strategy & Business Systems Consultancy`,
+    default: `${SITE.name} — AI Strategy & Implementation Consultancy`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     canonical: SITE.url,
   },
   openGraph: {
-    title: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
+    title: `${SITE.name} — Practical AI. Built around your business.`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
@@ -38,13 +40,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
+        alt: `${SITE.name} — Practical AI. Built around your business.`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Find what’s holding your business back. Build what moves it forward.`,
+    title: `${SITE.name} — Practical AI. Built around your business.`,
     description: SITE.description,
     site: "@echelonfox",
     images: ["/opengraph-image"],
@@ -80,57 +82,15 @@ const organizationSchema = {
   areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Growth Strategy & Business Systems Consultancy",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Growth Strategy & Business Advisory",
-          url: `${SITE.url}/services/commercial-diagnosis`,
-        },
+    name: "AI Strategy & Implementation Consultancy",
+    itemListElement: coreCapabilities.map((c) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: c.name,
+        url: `${SITE.url}/services/${c.slug}`,
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Marketing & Customer Acquisition",
-          url: `${SITE.url}/services/customer-acquisition`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Sales & Conversion Systems",
-          url: `${SITE.url}/services/sales-process-crm`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Technology & Operations",
-          url: `${SITE.url}/services/technology-operations`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Automation & Operations",
-          url: `${SITE.url}/services/ai-automation`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Websites & Digital Infrastructure",
-          url: `${SITE.url}/services/websites-digital-infrastructure`,
-        },
-      },
-    ],
+    })),
   },
 };
 
@@ -164,6 +124,7 @@ export default function RootLayout({
       <body>
         {children}
         <CookieConsent />
+        <Motion />
       </body>
     </html>
   );

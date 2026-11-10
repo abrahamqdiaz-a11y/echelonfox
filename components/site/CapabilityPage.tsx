@@ -10,6 +10,7 @@ import { SITE } from "@/lib/site";
 export default function CapabilityPage({ slug }: { slug: string }) {
   const c = getCapability(slug);
   if (!c) notFound();
+  const isAI = coreCapabilities.some((item) => item.slug === slug);
   const related = c.cases.map(getCase).filter((x) => x !== undefined);
   return (
     <PageShell>
@@ -36,7 +37,7 @@ export default function CapabilityPage({ slug }: { slug: string }) {
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li>
-                <Link href="/services">What We Do</Link>
+                <Link href="/services">AI Services</Link>
               </li>
               <li aria-current="page">{c.short}</li>
             </ol>
@@ -270,7 +271,19 @@ export default function CapabilityPage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
-      <FinalCta label={c.cta} />
+      <FinalCta
+        label={c.cta}
+        title={
+          isAI
+            ? "Find a useful role for AI in your business."
+            : "Discuss the business system you need."
+        }
+        body={
+          isAI
+            ? undefined
+            : "Tell us what needs to work better. We’ll discuss the challenge and how this capability could support the business."
+        }
+      />
     </PageShell>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { coreCapabilities } from "@/lib/capabilities";
 import { SITE } from "@/lib/site";
 import Arrow from "./Arrow";
 export default function Footer() {
@@ -13,7 +14,7 @@ export default function Footer() {
             </span>
           </Link>
           <p>
-            Growth strategy. Business systems.
+            AI strategy. Implementation.
             <br />
             Practical execution.
           </p>
@@ -24,45 +25,25 @@ export default function Footer() {
         <div className="site-footer__grid">
           <div>
             <p className="footer-statement">
-              Clearer priorities.
+              Practical AI.
               <br />
-              Connected thinking.
+              Commercial understanding.
               <br />
-              Work that moves forward.
+              People in the loop.
             </p>
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <div>
-            <h2 className="label">Capabilities</h2>
+            <h2 className="label">AI Services</h2>
             <ul>
+              {coreCapabilities.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/services/${c.slug}`}>{c.name}</Link>
+                </li>
+              ))}
               <li>
-                <Link href="/services/commercial-diagnosis">
-                  Growth Strategy &amp; Business Advisory
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/customer-acquisition">
-                  Marketing &amp; Customer Acquisition
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/sales-process-crm">
-                  Sales &amp; Conversion Systems
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/technology-operations">
-                  Technology &amp; Operations
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-automation">
-                  Automation &amp; Operations
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/websites-digital-infrastructure">
-                  Websites &amp; Digital Infrastructure
+                <Link href="/services#business-systems">
+                  Supporting business systems
                 </Link>
               </li>
             </ul>
@@ -71,7 +52,7 @@ export default function Footer() {
             <h2 className="label">Explore</h2>
             <ul>
               {[
-                ["What We Do", "/services"],
+                ["AI Services", "/services"],
                 ["Our Approach", "/our-approach"],
                 ["Selected Work", "/work"],
                 ["About", "/about"],
