@@ -1,3 +1,13 @@
+# Company positioning — 11 November 2026
+
+- Removed founder-led labels and personal-brand messaging from the homepage, About, privacy policy, README and llms.txt.
+- Replaced first-person founder biography on About with company-level delivery principles: commercial priorities, connected implementation and practical adoption.
+- Updated About title, description and social metadata to AI Strategy & Implementation.
+- Emphasised clear scope, accountable delivery, testing, handover and human oversight without inventing team size, credentials or company achievements.
+- Retained accurate case-study data, service descriptions, imagery and all functional integrations.
+
+---
+
 # Distinct photography — 11 November 2026
 
 - Added four different stock scenes: a code review, a business conversation, a close-up laptop review and a small group sharing ideas.

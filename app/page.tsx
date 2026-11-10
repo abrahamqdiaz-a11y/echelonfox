@@ -82,7 +82,7 @@ export default function Home() {
           <PeoplePanels />
         </div>
         <div className="container hero-foot">
-          <span>Founder-led consultancy. Strategy through implementation.</span>
+          <span>AI consultancy. Strategy through implementation.</span>
           <span>Diagnose / Design / Build / Improve</span>
         </div>
       </section>
@@ -211,8 +211,8 @@ export default function Home() {
               People in the loop.
             </h2>
             <p className="lead">
-              A focused, founder-led partner from the first question through to
-              implementation.
+              AI strategy, technical delivery and adoption, connected in one
+              considered approach.
             </p>
             <p className="muted">
               We bring business understanding to AI decisions, define the work
