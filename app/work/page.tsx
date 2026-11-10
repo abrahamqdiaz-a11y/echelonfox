@@ -1,86 +1,73 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import { publishedCases } from "@/lib/work-data";
-
-const TITLE = "Work — What clients asked for, and what the business needed";
-const DESCRIPTION =
-  "Case studies from EchelonFox: what each company asked for, the broader commercial issue found, what was built, and the outcome where evidence exists.";
-
-export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | EchelonFox` },
-  description: DESCRIPTION,
-  alternates: { canonical: "https://echelonfox.com/work" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: "https://echelonfox.com/work",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Work — EchelonFox" }],
-  },
-};
-
-export default function WorkPage() {
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Selected Work — Business Challenges & Practical Solutions",
+  "Explore documented work across commercial diagnosis, website development, customer acquisition and enquiry systems.",
+  "/work",
+);
+export default function Work() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Work"
-        title="What clients asked for, and what the business needed."
-        lead="Each case follows the same shape: the request, the broader issue the diagnosis found, what was built, and the outcome where there's evidence for one."
+        eyebrow="Selected Work"
+        title="Real business challenges. Practical solutions."
+        lead="A closer look at the context, the diagnosis and the work put into practice. Each business called for a different response."
       />
-
-      <section className="section section--card" aria-label="Case studies">
-        <div className="container">
-          <ol className="case-rows" style={{ listStyle: "none", margin: 0, padding: 0 }}>
-            {publishedCases.map((c, i) => (
-              <li key={c.slug} className="case-row">
-                <div className="case-row__head">
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="label">{c.descriptor}</span>
+      <section className="section section--white">
+        <div className="container work-list">
+          {publishedCases.map((c, i) => (
+            <article key={c.slug}>
+              <div
+                className={`case-visual case-visual--${i + 1}`}
+                aria-hidden="true"
+              >
+                <span className="case-visual__number">0{i + 1}</span>
+                <div className="case-visual__lines">
+                  <span>
+                    {
+                      [
+                        "Commercial diagnosis",
+                        "Customer journey",
+                        "Connected enquiries",
+                      ][i]
+                    }
+                  </span>
+                  <b>{["Understand", "Enquire", "Connect"][i]}</b>
+                  <span>Strategy into practice</span>
                 </div>
-                <div className="stack" style={{ ["--stack" as string]: "1rem" }}>
-                  <h2 className="h3" style={{ fontSize: "clamp(1.5rem, 1.25rem + 1vw, 2.1rem)" }}>
-                    <Link href={`/work/${c.slug}`} style={{ textDecoration: "none" }}>
-                      {c.title}
-                    </Link>
-                  </h2>
-                  <p className="muted" style={{ margin: 0 }}>
-                    <span className="label" style={{ marginRight: 10 }}>
-                      Asked for
-                    </span>
-                    {c.askedFor}
-                  </p>
-                  <p style={{ margin: 0 }}>
-                    <Link href={`/work/${c.slug}`} className="arrow-link">
-                      Read the case study <span className="sr-only">: {c.descriptor}</span>
-                      <Arrow />
-                    </Link>
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+              </div>
+              <div>
+                <p className="label">{c.descriptor}</p>
+                <h2>
+                  <Link href={`/work/${c.slug}`}>{c.title}</Link>
+                </h2>
+                <p>{c.context}</p>
+                <Link className="arrow-link" href={`/work/${c.slug}`}>
+                  Read the case study
+                  <Arrow />
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-
-      <section className="section section--tight" aria-labelledby="numbers-title">
+      <section className="section section--tight">
         <div className="container split">
-          <h2 id="numbers-title" className="h3">
-            Why there are no percentages on this page
-          </h2>
-          <p className="body muted">
-            Clients are described by category until they&apos;ve given written permission to be named. Figures
-            are only published when they come from a client&apos;s own analytics or accounts and the client has
-            agreed to share them. On a call, we can walk you through the work in more detail and say which parts
-            of a result the work can fairly claim.
+          <h2 className="h3">The work, described accurately.</h2>
+          <p className="muted small">
+            Clients are described by category. Outcomes are included where
+            documented; completed work is distinguished from performance
+            results. We do not publish client names or performance figures
+            without the relevant permission and evidence.
           </p>
         </div>
       </section>
-
-      <FinalCta />
+      <FinalCta label="Discuss a Similar Challenge" />
     </PageShell>
   );
 }

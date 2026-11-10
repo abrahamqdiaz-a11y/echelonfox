@@ -1,194 +1,109 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
+import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
-
-const TITLE = "About EchelonFox — How I work";
-const DESCRIPTION =
-  "I find the gaps that hold a growing business back, in how it sells, markets, and operates, then lead the work to fix them. Enterprise B2B sales, founding a startup acquired by Staples, and operations experience sit behind the approach.";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  alternates: { canonical: "https://echelonfox.com/about" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: "https://echelonfox.com/about",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: TITLE }],
-  },
-};
-
-const approach = [
-  {
-    num: "01",
-    title: "Reading the business",
-    body: "Every engagement starts with how the company makes money: which customers matter most, what they buy and when, how they find you, and what happens after they do. I look at the numbers you already have, such as sales records, POS exports, and CRM history, before forming an opinion.",
-  },
-  {
-    num: "02",
-    title: "Finding the constraint",
-    body: "Most growing companies have more than one problem, but usually one that holds the others in place. Naming it clearly, and saying plainly what can wait, is the most useful thing a diagnosis does.",
-  },
-  {
-    num: "03",
-    title: "Leading the build",
-    body: "I don't hand over a deck and leave. I lead the implementation, from positioning and acquisition to sales follow-up and the tools underneath, and I stay accountable for it. Where a job needs a specialist, such as a developer, a designer, or a video editor, I bring in people I've worked with.",
-  },
-];
-
+import Arrow from "@/components/site/Arrow";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "About — Business Thinking, Practical Execution",
+  "A founder-led consultancy connecting commercial strategy, sales, marketing, technology and hands-on implementation.",
+  "/about",
+);
 const background = [
-  {
-    label: "Enterprise B2B sales",
-    body: "How buying decisions get made inside companies, and how much depends on what happens after the first conversation.",
-  },
-  {
-    label: "Building a company to acquisition",
-    body: "I founded a startup that was acquired by Staples. Building a company through to an acquisition means treating sales, product, and operations as one system.",
-  },
-  {
-    label: "Operations",
-    body: "Including professional kitchens, which leave you with a respect for process under pressure: a system is only as good as what happens on the busiest day of the week.",
-  },
+  [
+    "Enterprise B2B sales",
+    "Experience of how buying decisions get made inside companies, and how much depends on what happens after the first conversation.",
+  ],
+  [
+    "Building a company to acquisition",
+    "I founded a startup that was acquired by Staples. Building a company through to an acquisition means treating sales, product and operations as one system.",
+  ],
+  [
+    "Hands-on operations",
+    "My operational experience includes professional kitchens, where a process has to work under pressure. That perspective carries into how I approach systems and implementation.",
+  ],
 ];
-
-const principles = [
-  {
-    title: "You should work with the person doing the work.",
-    body: "No account-manager layer, no handoffs to someone new each quarter, and no re-explaining your strategy.",
-  },
-  {
-    title: "Numbers should be traceable.",
-    body: "I tie reporting to leads, sales, and pipeline rather than impressions, and I only claim results the client's own data supports.",
-  },
-  {
-    title: "A business deserves a real read, not a template.",
-    body: "Every engagement starts from how that company actually works. I bring in specialists for specific jobs, and I stay accountable for the result.",
-  },
-];
-
-export default function AboutPage() {
+export default function About() {
   return (
     <PageShell>
-      <section className="page-hero" aria-labelledby="about-title">
-        <div className="container split split--hero" style={{ alignItems: "end" }}>
-          <div>
-            <p className="eyebrow">About</p>
-            <h1 id="about-title" className="h1">
-              Understand how the business makes money. Then change what&apos;s in the way.
-            </h1>
-            <p className="lead" style={{ marginTop: "1.75rem" }}>
-              I find the gaps that hold a growing business back, in how it sells, markets, and operates, then
-              lead the work to fix them with better processes, the right systems, and automation where it actually
-              helps.
-            </p>
-          </div>
-          <dl className="margin-note" aria-label="At a glance">
-            <div>
-              <dt>What I do</dt>
-              <dd>Growth strategy and implementation across sales, marketing, and operations.</dd>
-            </div>
-            <div>
-              <dt>Who it&apos;s for</dt>
-              <dd>Leaders of proven companies whose growth has outpaced their systems.</dd>
-            </div>
-            <div>
-              <dt>How</dt>
-              <dd>Diagnose, design, build, improve — in the order the diagnosis sets.</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section className="section section--card" aria-labelledby="approach-title">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">The approach</p>
-            <h2 id="approach-title" className="h2">
-              Read the business. Find the constraint. Lead the build.
-            </h2>
-          </div>
-          <ol className="path path--3">
-            {approach.map((a) => (
-              <li key={a.num} className="path-step">
-                <span className="path-step__num">{a.num}</span>
-                <h3 className="path-step__name">{a.title}</h3>
-                <p className="small muted" style={{ margin: 0 }}>
-                  {a.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="band" aria-labelledby="vision-label">
-        <div className="container">
-          <p id="vision-label" className="label" style={{ marginBottom: "1.25rem" }}>
-            What I&apos;m working toward
-          </p>
-          <p className="pull" style={{ maxWidth: "56rem" }}>
-            Companies that grow steadily because their systems work: they know where revenue comes from, their
-            teams are stretched in the right places, and growth doesn&apos;t depend on the owner holding everything
-            together.
-          </p>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="background-title">
-        <div className="container split">
-          <div className="stack">
-            <p className="eyebrow">Background</p>
-            <h2 id="background-title" className="h2">
-              Where the approach comes from.
-            </h2>
-            <p className="body muted">
-              My background is in selling, building, and running businesses, which is why the work starts with
-              how a company earns its revenue rather than with a channel.
-            </p>
-          </div>
-          <dl className="ruled-list" style={{ borderTopColor: "var(--ink)" }}>
-            {background.map((b) => (
-              <div key={b.label} style={{ padding: "1.4rem 0", borderBottom: "1px solid var(--rule)" }}>
-                <dt className="serif" style={{ fontSize: "1.45rem", lineHeight: 1.25 }}>
-                  {b.label}
-                </dt>
-                <dd className="muted" style={{ margin: "0.4rem 0 0" }}>
-                  {b.body}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      <section className="section section--card" aria-labelledby="principles-title">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">What I believe</p>
-            <h2 id="principles-title" className="h2">
-              Three things I hold to.
-            </h2>
-          </div>
-          <div className="grid-3">
-            {principles.map((p) => (
-              <div key={p.title}>
-                <h3 className="cell-title" style={{ marginTop: 0 }}>
-                  {p.title}
-                </h3>
-                <p className="small muted" style={{ margin: 0 }}>
-                  {p.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FinalCta
-        title="Want my read on your business?"
-        body="Tell me what the business does and where growth feels stuck. You'll hear back within one business day, with an honest answer on whether this is the right fit."
+      <PageHero
+        eyebrow="About EchelonFox"
+        title="Business thinking. Practical execution."
+        lead="A founder-led consultancy for businesses that need a clearer view of what to improve — and someone who can help put it into practice."
       />
+      <section className="section section--white">
+        <div className="container split">
+          <div>
+            <p className="eyebrow">The perspective behind the work</p>
+            <h2 className="h2">
+              Understand the business.
+              <br />
+              Stay close to the work.
+            </h2>
+          </div>
+          <div>
+            <p className="lead">
+              I work across commercial strategy, sales, marketing and technology
+              because a business challenge rarely stays inside one discipline.
+            </p>
+            <p className="muted">
+              The work starts with how the company makes money: which customers
+              matter, what they buy, how they find you and what happens next.
+              That picture helps separate an urgent symptom from the underlying
+              constraint.
+            </p>
+            <p className="muted">
+              I lead the implementation as well as the thinking. Where a
+              specific job needs a specialist, I bring in people I’ve worked
+              with and remain accountable for how the work fits together.
+            </p>
+            <p className="founder-signature">Founder-led. Directly involved.</p>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Experience that shapes the approach</p>
+            <h2 className="h2">
+              Commercial context.
+              <br />
+              First-hand understanding.
+            </h2>
+          </div>
+          <div className="background-list">
+            {background.map(([title, body], i) => (
+              <article key={title}>
+                <span className="index">0{i + 1}</span>
+                <h3>{title}</h3>
+                <p className="muted">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="band">
+        <div className="container split">
+          <h2 className="h2">
+            Strategy is useful when it changes what happens next.
+          </h2>
+          <div>
+            <p className="lead">
+              Recommendations need to survive contact with the working day.
+            </p>
+            <p>
+              That means considering the people, capacity and systems involved
+              in delivery, alongside the commercial objective. The aim is a
+              practical improvement the business can use and build on.
+            </p>
+            <Link className="arrow-link" href="/our-approach">
+              Explore our approach
+              <Arrow />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <FinalCta label="Work With EchelonFox" />
     </PageShell>
   );
 }

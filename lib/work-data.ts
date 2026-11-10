@@ -10,7 +10,7 @@ import type { Capability } from "@/lib/capabilities";
  *   what was built → outcome. `outcome` is optional and only filled in where evidence
  *   exists. Do not add performance numbers unless they come from the client's own
  *   analytics or accounts and the client has agreed to them being published.
- * - Wrap key findings in ==double equals== to mark them in red pen on the page.
+ * - Wrap key findings in ==double equals== to emphasise them on the page on the page.
  * - A case without a clear broader issue stays `published: false` until one is
  *   documented. Don't write one to fill the gap.
  */
@@ -21,6 +21,8 @@ export type CaseStudy = {
   descriptor: string;
   /** One-line headline: the request versus the real constraint. */
   title: string;
+  context: string;
+  strategy: string;
   askedFor: string;
   found: string[];
   built: string[];
@@ -37,7 +39,12 @@ export const cases: CaseStudy[] = [
     slug: "beauty-supply-retailer-maryland",
     published: true,
     descriptor: "Beauty supply retailer, Maryland",
-    title: "They asked for ads. The constraint was knowing their customers and their calendar.",
+    title:
+      "They asked for ads. The constraint was knowing their customers and their calendar.",
+    context:
+      "A beauty supply retailer in Maryland wanted to invest in customer acquisition.",
+    strategy:
+      "Use the existing sales data to understand valuable customer groups and buying patterns, then align acquisition, repeat-purchase activity and staffing recommendations with that picture.",
     askedFor: "Google Ads.",
     found: [
       "The store treated every customer the same, but its sales data showed ==a small group of buyers driving a large share of revenue==.",
@@ -55,14 +62,24 @@ export const cases: CaseStudy[] = [
     ],
     takeaway:
       "The request was “run ads.” The opportunity was putting marketing spend and payroll where sales actually happen.",
-    capabilities: ["commercial-diagnosis", "customer-acquisition", "sales-process-crm"],
+    capabilities: [
+      "commercial-diagnosis",
+      "customer-acquisition",
+      "sales-process-crm",
+    ],
   },
   {
     slug: "independent-insurance-agency",
     published: true,
     descriptor: "Independent insurance agency",
-    title: "They needed a new website. The gap was how a prospect asks for a quote.",
-    askedFor: "A new website to replace one that was dated and hard to use on a phone.",
+    title:
+      "They needed a new website. The gap was how a prospect asks for a quote.",
+    context:
+      "An independent insurance agency needed a website that served prospects arriving through search and referral.",
+    strategy:
+      "Structure the website around the coverage lines the agency sells and make requesting a quote a clear next step, supported by local search foundations.",
+    askedFor:
+      "A new website to replace one that was dated and hard to use on a phone.",
     found: [
       "Prospects who found the agency through search or referral ==had no clear way to request a quote==.",
       "Enquiries came in by phone during office hours, or not at all.",
@@ -81,7 +98,12 @@ export const cases: CaseStudy[] = [
     slug: "premium-pet-care",
     published: true,
     descriptor: "Premium pet care company",
-    title: "They needed a website. The leak was enquiries scattered across social inboxes.",
+    title:
+      "They needed a website. The leak was enquiries scattered across social inboxes.",
+    context:
+      "A premium pet care business relied on word of mouth and social media, with enquiries spread across direct messages.",
+    strategy:
+      "Create one clear place to understand the services, find booking information and submit an enquiry, with a structure relevant to the areas served.",
     askedFor: "A website that explained the services and made booking obvious.",
     found: [
       "The business relied on word of mouth and social media, with no site that explained services clearly or showed how to book.",
@@ -101,6 +123,10 @@ export const cases: CaseStudy[] = [
     published: false,
     descriptor: "Beauty and barber supply wholesaler",
     title: "E-commerce SEO for a wholesale supplier to stylists and barbers.",
+    context:
+      "A beauty and barber supply wholesaler needed better organic visibility for commercial categories.",
+    strategy:
+      "Address documented crawl and category-page issues; the broader commercial case remains unpublished.",
     askedFor: "E-commerce SEO.",
     found: [
       "Category pages weren't ranking for the commercial terms buyers actually search, and technical issues were holding back the pages with the best chance of competing.",
@@ -119,4 +145,5 @@ export const cases: CaseStudy[] = [
 ];
 
 export const publishedCases = cases.filter((c) => c.published);
-export const getCase = (slug: string) => publishedCases.find((c) => c.slug === slug);
+export const getCase = (slug: string) =>
+  publishedCases.find((c) => c.slug === slug);

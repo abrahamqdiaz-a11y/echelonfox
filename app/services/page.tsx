@@ -1,81 +1,114 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
-import Icon from "@/components/site/illustrations/Icon";
-import { capabilities } from "@/lib/capabilities";
-
-const TITLE = "Services — Four capabilities beneath the strategy";
-const DESCRIPTION =
-  "Commercial diagnosis and positioning; customer acquisition and conversion; sales process, CRM, and follow-up; and practical AI and automation — used in whatever combination the diagnosis calls for.";
-
-export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | EchelonFox` },
-  description: DESCRIPTION,
-  alternates: { canonical: "https://echelonfox.com/services" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: "https://echelonfox.com/services",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Services — EchelonFox" }],
-  },
-};
-
-export default function ServicesPage() {
+import { coreCapabilities } from "@/lib/capabilities";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "What We Do — Connected Business Capabilities",
+  "Growth strategy, marketing, sales systems and technology brought together to solve commercial challenges and implement practical improvements.",
+  "/services",
+);
+const examples = [
+  [
+    "An established business has lost momentum.",
+    "A commercial assessment may reveal that positioning or capacity needs attention before acquisition spend increases.",
+  ],
+  [
+    "Enquiries arrive, but too many go quiet.",
+    "Clear ownership, a useful CRM workflow and consistent follow-up may help the team move opportunities forward.",
+  ],
+  [
+    "The business is growing, and admin is growing faster.",
+    "A workflow review may identify a simpler process or an integration between tools the team already uses.",
+  ],
+];
+export default function Services() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Services"
-        title="Four capabilities, in service of the diagnosis."
-        lead="The work is organised in four groups. They sit beneath the strategy: the diagnosis decides which ones a company needs, and in what order. Most engagements use two or three."
+        eyebrow="What We Do"
+        title="Business challenges don’t fit neatly into service categories."
+        lead="Neither should the solutions. We bring strategy, marketing, technology and operations together to address the problems that matter most."
       />
-
-      <section className="section section--card" aria-label="Capabilities">
+      <section className="section section--white">
         <div className="container">
-          <div className="case-rows">
-            {capabilities.map((c, i) => (
-              <article key={c.slug} className="case-row" aria-labelledby={`cap-${c.slug}`}>
-                <div className="case-row__head">
-                  <Icon name={c.slug} size="lg" />
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
+          <div className="capability-editorial">
+            {coreCapabilities.map((c, i) => (
+              <article key={c.slug}>
+                <span className="index">0{i + 1}</span>
+                <div>
+                  <h2 className="h3">
+                    <Link href={`/services/${c.slug}`}>{c.name}</Link>
+                  </h2>
+                  <p className="lead">{c.summary}</p>
+                  <Link href={`/services/${c.slug}`} className="arrow-link">
+                    Explore this capability
+                    <Arrow />
+                  </Link>
                 </div>
-                <div className="split split--even" style={{ gap: "1.5rem 3rem" }}>
-                  <div className="stack" style={{ ["--stack" as string]: "1rem" }}>
-                    <h2 id={`cap-${c.slug}`} className="h3" style={{ fontSize: "clamp(1.6rem, 1.3rem + 1vw, 2.2rem)" }}>
-                      <Link href={`/services/${c.slug}`} style={{ textDecoration: "none" }}>
-                        {c.name}
-                      </Link>
-                    </h2>
-                    <p className="muted" style={{ margin: 0 }}>
-                      {c.summary}
-                    </p>
-                    <p style={{ margin: 0 }}>
-                      <Link href={`/services/${c.slug}`} className="arrow-link">
-                        Read more <span className="sr-only">about {c.name.toLowerCase()}</span>
-                        <Arrow />
-                      </Link>
-                    </p>
-                  </div>
-                  <div>
-                    <p className="label" style={{ marginBottom: "0.75rem" }}>
-                      Usually the constraint when
-                    </p>
-                    <ul className="check-list small">
-                      {c.signs.slice(0, 3).map((s) => (
-                        <li key={s}>{s}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                <ul className="check-list small">
+                  {c.includes.map((group) => (
+                    <li key={group.heading}>
+                      {group.items.slice(0, 2).join(" · ")}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
         </div>
       </section>
-
+      <section className="section">
+        <div className="container split">
+          <div>
+            <p className="eyebrow">From challenge to response</p>
+            <h2 className="h2">
+              Start with the problem.
+              <br />
+              Keep the possibilities open.
+            </h2>
+            <p className="muted">
+              These examples illustrate possible approaches. The right response
+              depends on what the diagnosis reveals.
+            </p>
+          </div>
+          <div className="principles-list">
+            {examples.map(([title, body]) => (
+              <div key={title}>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section section--white">
+        <div className="container split">
+          <div>
+            <p className="eyebrow">A connected delivery capability</p>
+            <h2 className="h2">Build what the business needs.</h2>
+          </div>
+          <div>
+            <p className="lead">
+              Technology &amp; Operations includes dedicated expertise in
+              websites and automation. Each is a practical capability, chosen
+              for the role it needs to play.
+            </p>
+            <div className="tag-list">
+              <Link href="/services/websites-digital-infrastructure">
+                Websites &amp; Digital Infrastructure
+                <Arrow size={14} />
+              </Link>
+              <Link href="/services/ai-automation">
+                Automation &amp; Operations
+                <Arrow size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       <FinalCta />
     </PageShell>
   );

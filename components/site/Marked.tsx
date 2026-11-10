@@ -1,4 +1,4 @@
-/** Renders text where ==phrases== are key findings, underlined in red pen. */
+/** Renders text where ==phrases== are key findings, emphasised with a copper rule. */
 export default function Marked({ text }: { text: string }) {
   const parts = text.split(/==(.+?)==/g);
   return (
@@ -10,7 +10,7 @@ export default function Marked({ text }: { text: string }) {
           </span>
         ) : (
           part
-        )
+        ),
       )}
     </>
   );

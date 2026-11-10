@@ -1,42 +1,45 @@
-# Echelon Fox Website
+# EchelonFox Solutions
 
-Marketing site for EchelonFox: commercial growth strategy and implementation for established companies. Built with Next.js 16 and TypeScript. The public pages use the "Red pen" design system in `app/globals.css`; Tailwind is still used by the admin area.
+Growth Strategy & Business Systems Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
 
-## Getting Started
+## Development
 
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Production remains hosted on Netlify. Contact submissions depend on Netlify Forms; a local server does not prove notification delivery.
 
-## Build for Production
+## Validation
 
-```bash
+```sh
 npm run build
-npm start
+npm run test:site
 ```
 
-## Deploy
-
-Deployed on Netlify (see `netlify.toml`), which also captures contact form submissions via Netlify Forms.
+The site checks require Python 3 and the development dependencies. They inspect all sitemap pages in the production build for metadata, structured data, internal links, anchors and form-definition consistency. React/JSDOM tests exercise the contact form and navigation. Contact requests are intercepted, so tests send no email or external form submission. These checks do not replace real-browser visual, responsive or assistive-technology testing.
 
 ## Structure
 
-- `app/` — Next.js App Router pages and layout
-- `app/globals.css` — design tokens and components for the "Red pen" system. Read the header comment before using the accent colour: it marks only the headline constraint phrase, the first engagement step, case-study findings, and a page's single final CTA.
-- `components/site/` — header, footer, page shell, final CTA, article parts
-- `components/ContactForm.tsx` — the Netlify contact form
-- `lib/site.ts` — site-wide facts (email, booking link, nav)
-- `lib/capabilities.ts` — the four capability groups behind `/services/*`
-- `lib/work-data.ts` — case studies. Read the rules at the top before adding one: no client names or performance numbers without written permission and verifiable data, and no case goes live without a documented broader issue.
-- `next.config.ts` — 301 redirects from the old single-channel service URLs
+- `app/` — public pages, utility pages, administration and APIs.
+- `app/globals.css` — design tokens, responsive layouts and shared styles.
+- `components/site/` — navigation, footer, heroes, capability layouts, process and commercial-system diagrams.
+- `components/ContactForm.tsx` — the Netlify form, with visible labels and success/error states.
+- `lib/capabilities.ts` — four core capabilities and two supporting service pages.
+- `lib/work-data.ts` — published and withheld case records. Do not add claims or permissions without evidence.
+- `lib/metadata.ts` — consistent page and social metadata.
+- `next.config.ts` — retained legacy redirects.
+- `scripts/` — build-output and interaction checks.
 
-## Content rules
+## Preservation rules
 
-- Nothing unfinished ships. No `TODO`, `EDITABLE`, or placeholder strings in anything a visitor can reach.
-- Echelon Fox is industry-agnostic. Individual vertical pages and articles (e-commerce, SaaS, insurance) are fine; site-wide copy stays broad.
-- Statistics need a source. If a number can't be traced to the client's own analytics or a citable study, don't publish it.
-- The contact form is a Netlify form named `contact`. Its fields must stay in sync across `components/ContactForm.tsx`, the hidden static form in `app/page.tsx`, and `public/netlify-forms.html`.
-- No analytics or tracking scripts are installed. If any are added, `app/privacy/page.tsx` and `components/CookieConsent.tsx` must be updated first — the notice is currently informational, not a consent gate.
+The contact form is named `contact`. Keep its fields synchronised in `components/ContactForm.tsx`, the hidden form in `app/page.tsx`, and `public/netlify-forms.html`. Preserve the POST destination `/netlify-forms.html`, consent and honeypot. Netlify notification settings must be checked in the hosting account.
+
+Keep campaign administration, subscription, global opt-out handling and legacy email links working. The redesign does not change the Supabase schema or email-delivery implementation.
+
+No analytics or advertising trackers are installed. Adding them requires appropriate consent behaviour and corresponding privacy-policy changes. The current cookie notice is informational.
+
+Use British English, retain valuable public URLs and publish only documented work. Do not publish client names, performance figures or testimonials without evidence and the relevant permission.
+
+See `CHANGELOG.md` for the redesign and `VALIDATION.md` for verification limits. Production deployment requires separate approval.

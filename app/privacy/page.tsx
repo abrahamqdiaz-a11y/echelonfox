@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Privacy Policy for Echelon Fox — how we collect, use, and protect your personal data.",
-  robots: { index: true, follow: true },
-  alternates: { canonical: "https://echelonfox.com/privacy" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Privacy Policy",
+  "How EchelonFox collects, uses and protects personal data provided through this website.",
+  "/privacy",
+);
 
 const sections = [
   {
     title: "1. Who We Are",
-    body: `Echelon Fox ("we", "us", "our") is a founder-led marketing and growth agency. We are the data controller responsible for your personal data collected through this website (echelonfox.com). You can contact us at abe.quinn@echelonfox.com for any privacy-related queries.`,
+    body: `Echelon Fox ("we", "us", "our") is a founder-led growth strategy and business systems consultancy. We are the data controller responsible for your personal data collected through this website (echelonfox.com). You can contact us at abe.quinn@echelonfox.com for any privacy-related queries.`,
   },
   {
     title: "2. What Personal Data We Collect",
-    body: `We collect personal data only when you actively provide it to us. Through our contact form, we collect your name, email address, company or business name, and any message content you choose to include. If you subscribe to one of our email sequences, we collect your email address and first name. Through our unsubscribe process, we use your email address solely to record your removal from our mailing list. We do not run analytics, advertising, or tracking scripts on this website, so we do not build a profile of your browsing. We do not collect any special category data (as defined under Article 9 of the UK/EU GDPR).`,
+    body: `We collect personal data only when you actively provide it to us. Through our contact form, we collect your name, email address, company or business name, an optional website address, and any message content you choose to include. If you subscribe to one of our email sequences, we collect your email address and first name. Through our unsubscribe process, we use your email address solely to record your removal from our mailing list. We do not run analytics, advertising, or tracking scripts on this website, so we do not build a profile of your browsing. We do not collect any special category data (as defined under Article 9 of the UK/EU GDPR).`,
   },
   {
     title: "3. Legal Basis for Processing",
@@ -71,13 +71,26 @@ export default function PrivacyPage() {
         <p className="eyebrow">Legal</p>
         <h1 className="h1">Privacy Policy</h1>
         <p className="small muted" style={{ marginTop: "1rem" }}>
-          Last updated: August 23, 2026
+          Last updated: 10 November 2026
         </p>
 
         <div style={{ marginTop: "3rem", borderTop: "1px solid var(--ink)" }}>
           {sections.map((section) => (
-            <section key={section.title} style={{ padding: "1.75rem 0", borderBottom: "1px solid var(--rule)" }}>
-              <h2 className="serif" style={{ fontSize: "1.4rem", lineHeight: 1.3, margin: "0 0 0.75rem" }}>
+            <section
+              key={section.title}
+              style={{
+                padding: "1.75rem 0",
+                borderBottom: "1px solid var(--rule)",
+              }}
+            >
+              <h2
+                className="serif"
+                style={{
+                  fontSize: "1.4rem",
+                  lineHeight: 1.3,
+                  margin: "0 0 0.75rem",
+                }}
+              >
                 {section.title}
               </h2>
               <p className="muted" style={{ margin: 0, lineHeight: 1.75 }}>

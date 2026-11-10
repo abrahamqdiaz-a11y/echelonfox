@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:site": "python3 scripts/check-built-site.py && node scripts/check-contact.cjs && node scripts/check-navigation.cjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.0",
@@ -22,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "jsdom": "^31.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
