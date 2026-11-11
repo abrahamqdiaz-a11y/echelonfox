@@ -1,6 +1,6 @@
 # EchelonFox
 
-> Founder-led AI strategy and implementation consultancy. Practical AI, built around your business. We help businesses identify valuable AI opportunities, design the right approach and implement practical solutions across sales, customer service and operations.
+> AI strategy and implementation consultancy. Practical AI, built around your business. We help businesses identify valuable AI opportunities, design the right approach and implement practical solutions across sales, customer service and operations.
 
 ## AI services
 
@@ -13,7 +13,7 @@
 ## Approach and company
 
 - [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve. Understand the work before choosing the technology.
-- [About](https://echelonfox.com/about): Founder-led consultancy grounded in business understanding and practical implementation.
+- [About](https://echelonfox.com/about): AI consultancy grounded in business understanding and practical implementation.
 - [Contact](https://echelonfox.com/contact): Discuss AI opportunities and the work you want to improve.
 
 ## Supporting business capabilities

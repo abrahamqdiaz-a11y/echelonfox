@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata(
 const sections = [
   {
     title: "1. Who We Are",
-    body: `Echelon Fox ("we", "us", "our") is a founder-led AI strategy and implementation consultancy. We are the data controller responsible for your personal data collected through this website (echelonfox.com). You can contact us at abe.quinn@echelonfox.com for any privacy-related queries.`,
+    body: `Echelon Fox ("we", "us", "our") is an AI strategy and implementation consultancy. We are the data controller responsible for your personal data collected through this website (echelonfox.com). You can contact us at abe.quinn@echelonfox.com for any privacy-related queries.`,
   },
   {
     title: "2. What Personal Data We Collect",

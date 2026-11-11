@@ -1,35 +1,37 @@
 import Link from "next/link";
+import Image from "next/image";
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "About — A Founder-Led AI Consultancy",
-  "A founder-led AI consultancy connecting commercial judgement with strategy, implementation and practical adoption.",
+  "About — AI Strategy & Implementation",
+  "EchelonFox connects commercial judgement, AI strategy and practical implementation to build solutions around your business.",
   "/about",
 );
-const background = [
+const deliveryPrinciples = [
   [
-    "Enterprise B2B sales",
-    "Experience of how buying decisions get made inside companies, and how much depends on what happens after the first conversation.",
+    "Commercial priorities",
+    "We assess the business objective, the workflow and the potential value before recommending an AI application. Clear priorities guide the scope.",
   ],
   [
-    "Building a company to acquisition",
-    "I founded a startup that was acquired by Staples. Building a company through to an acquisition means treating sales, product and operations as one system.",
+    "Connected implementation",
+    "We design around the systems and information the business uses, with clear responsibilities, integration requirements and human oversight.",
   ],
   [
-    "Hands-on operations",
-    "My operational experience includes professional kitchens, where a process has to work under pressure. That perspective carries into how I approach systems and implementation.",
+    "Practical adoption",
+    "We test representative tasks, document how the solution works and help establish the ownership and review needed for day-to-day use.",
   ],
 ];
+
 export default function About() {
   return (
     <PageShell>
       <PageHero
         eyebrow="About EchelonFox"
         title="Business thinking. Practical AI."
-        lead="A focused AI strategy and implementation partner, grounded in how businesses work and what people need to do their jobs well."
+        lead="AI strategy and implementation grounded in commercial understanding, practical delivery and the way people work."
       />
       <section className="section section--white">
         <div className="container split">
@@ -43,10 +45,10 @@ export default function About() {
           </div>
           <div>
             <p className="lead">
-              My background spans commercial strategy, sales, marketing and
-              operations. That experience shapes how I approach AI: start with
-              the business, define a useful job and make the implementation
-              practical.
+              We connect commercial understanding with AI strategy and
+              implementation. Our approach starts with the business, defines a
+              useful application and carries the work through to practical
+              delivery.
             </p>
             <p className="muted">
               The work starts with how the company makes money: which customers
@@ -55,26 +57,26 @@ export default function About() {
               simpler process change is the better answer.
             </p>
             <p className="muted">
-              I lead the implementation as well as the thinking. Where a
-              specific job needs a specialist, I bring in people I’ve worked
-              with and remain accountable for how the work fits together.
+              We define scope, responsibilities and success criteria before
+              implementation. From solution design through testing and handover,
+              we keep the work connected to the business objective.
             </p>
-            <p className="founder-signature">Founder-led. Directly involved.</p>
+            <p className="delivery-note">Clear scope. Accountable delivery.</p>
           </div>
         </div>
       </section>
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Experience that shapes the approach</p>
+            <p className="eyebrow">How we deliver</p>
             <h2 className="h2">
-              Commercial context.
+              Commercial understanding.
               <br />
-              First-hand understanding.
+              Disciplined implementation.
             </h2>
           </div>
           <div className="background-list">
-            {background.map(([title, body], i) => (
+            {deliveryPrinciples.map(([title, body], i) => (
               <article key={title}>
                 <span className="index">0{i + 1}</span>
                 <h3>{title}</h3>
@@ -85,11 +87,20 @@ export default function About() {
         </div>
       </section>
       <section className="band">
-        <div className="container split">
-          <h2 className="h2">
-            Strategy is useful when it changes what happens next.
-          </h2>
+        <div className="container human-split">
+          <div className="editorial-photo">
+            <Image
+              src="/images/consultancy/collaborative-learning.webp"
+              alt="Illustrative photograph of a small group sharing ideas around laptops"
+              width={1100}
+              height={733}
+              sizes="(max-width: 760px) 100vw, 45vw"
+            />
+          </div>
           <div>
+            <h2 className="h2">
+              Strategy is useful when it changes what happens next.
+            </h2>
             <p className="lead">
               Recommendations need to survive contact with the working day.
             </p>

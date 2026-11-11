@@ -8,20 +8,20 @@ export default function PeoplePanels() {
       <div className="people-panels__images">
         <div className="people-panel people-panel--first">
           <Image
-            src="/images/consultancy/working-session.webp"
-            alt="People reviewing work around a table with laptops"
+            src="/images/consultancy/collaboration.webp"
+            alt="People working together around a table with laptops"
             width={1000}
-            height={1500}
+            height={667}
             sizes="(max-width: 760px) 45vw, 23vw"
             priority
           />
         </div>
         <div className="people-panel people-panel--second">
           <Image
-            src="/images/consultancy/collaboration.webp"
-            alt="A collaborative working session around business information"
-            width={1000}
-            height={667}
+            src="/images/consultancy/implementation-review.webp"
+            alt="Two people reviewing code on a computer"
+            width={1100}
+            height={733}
             sizes="(max-width: 760px) 45vw, 23vw"
             priority
           />
