@@ -1,3 +1,15 @@
+# EchelonFox Consulting identity — 11 November 2026
+
+- Replaced active illustrated fox branding with a medium-weight Manrope wordmark and regular, letter-spaced CONSULTING descriptor across header, footer and utility surfaces.
+- Added navy and white outlined SVG/PNG variants, a noindex brand asset review page and geometric EF SVG/ICO/PNG favicon sizes.
+- Set full public organisation metadata/schema to EchelonFox AI Consulting while the visible identity reads EchelonFox Consulting. Updated social imagery, publisher logos and accessibility labels.
+- Set the visible positioning to Business Strategy. Technology. Execution. Broadened main-page framing and navigation to commercial strategy, marketing, technology and operations while retaining every existing AI and business service page.
+- Kept Inter body typography and existing Manrope font licensing; refined large hero/page headings to regular weight. Added no paid font or dependency.
+- Preserved domain, routes, redirects, case-study data, legal entity wording, form fields/handlers and integrations. Kept legacy public image URLs only for historical external compatibility.
+- See docs/BRAND-IDENTITY.md for the asset catalogue and grouped file list. No production deployment performed.
+
+---
+
 # Company positioning — 11 November 2026
 
 - Removed founder-led labels and personal-brand messaging from the homepage, About, privacy policy, README and llms.txt.

@@ -1,10 +1,10 @@
-# EchelonFox
+# EchelonFox Consulting
 
-> AI strategy and implementation consultancy. Practical AI, built around your business. We help businesses identify valuable AI opportunities, design the right approach and implement practical solutions across sales, customer service and operations.
+> EchelonFox AI Consulting. Business Strategy. Technology. Execution. A boutique consultancy helping businesses identify commercial constraints and implement practical improvements across marketing, technology and operations.
 
 ## AI services
 
-- [AI Services](https://echelonfox.com/services): Strategy, implementation and adoption connected to business priorities.
+- [Consulting Capabilities](https://echelonfox.com/services): Strategy, implementation and adoption connected to business priorities.
 - [AI Strategy & Readiness](https://echelonfox.com/services/ai-strategy): Opportunity discovery, readiness assessment and implementation planning.
 - [AI Workflow & Automation](https://echelonfox.com/services/ai-automation): Process assessment, AI-assisted workflows and business-tool integration with human oversight.
 - [AI Assistants & Integrations](https://echelonfox.com/services/ai-assistants): Focused knowledge and enquiry assistants with source checking, permissions and human handoff.
@@ -13,10 +13,10 @@
 ## Approach and company
 
 - [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve. Understand the work before choosing the technology.
-- [About](https://echelonfox.com/about): AI consultancy grounded in business understanding and practical implementation.
-- [Contact](https://echelonfox.com/contact): Discuss AI opportunities and the work you want to improve.
+- [About](https://echelonfox.com/about): Business and technology consultancy connecting commercial understanding with practical execution.
+- [Contact](https://echelonfox.com/contact): Discuss commercial challenges and the work you want to improve.
 
-## Supporting business capabilities
+## Business strategy, marketing and operations
 
 - [Growth Strategy](https://echelonfox.com/services/commercial-diagnosis)
 - [Marketing & Customer Acquisition](https://echelonfox.com/services/customer-acquisition)

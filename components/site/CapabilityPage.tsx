@@ -25,7 +25,7 @@ export default function CapabilityPage({ slug }: { slug: string }) {
             url: `${SITE.url}/services/${c.slug}`,
             provider: {
               "@type": "Organization",
-              name: SITE.name,
+              name: SITE.publicName,
               url: SITE.url,
             },
             areaServed: { "@type": "Country", name: "United States" },
@@ -37,7 +37,7 @@ export default function CapabilityPage({ slug }: { slug: string }) {
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li>
-                <Link href="/services">AI Services</Link>
+                <Link href="/services">Services</Link>
               </li>
               <li aria-current="page">{c.short}</li>
             </ol>

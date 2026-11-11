@@ -3,9 +3,9 @@ import Arrow from "./Arrow";
 import { SITE } from "@/lib/site";
 export default function FinalCta({
   eyebrow = "The next step",
-  title = "Find the right starting point for AI.",
-  body = "Tell us what your business needs to improve. We’ll explore where AI could help and what a practical first step might involve.",
-  label = "Discuss Your AI Opportunities",
+  title = "Find the right way forward.",
+  body = "Tell us what your business needs to improve. We’ll explore the commercial challenge and the practical steps worth taking.",
+  label = "Discuss Your Business",
 }: {
   eyebrow?: string;
   title?: string;

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Motion from "@/components/site/Motion";
-import { coreCapabilities } from "@/lib/capabilities";
+import { capabilities } from "@/lib/capabilities";
 import CookieConsent from "@/components/CookieConsent";
 import { SITE } from "@/lib/site";
 const manrope = localFont({
@@ -20,19 +20,27 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} — AI Strategy & Implementation Consultancy`,
-    template: `%s | ${SITE.name}`,
+    default: `${SITE.publicName} — Business Strategy, Technology & Execution`,
+    template: `%s | ${SITE.publicName}`,
   },
   description: SITE.description,
+  icons: {
+    icon: [
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   metadataBase: new URL(SITE.url),
   alternates: {
     canonical: SITE.url,
   },
   openGraph: {
-    title: `${SITE.name} — Practical AI. Built around your business.`,
+    title: `${SITE.displayName} — ${SITE.tagline}`,
     description: SITE.description,
     url: SITE.url,
-    siteName: SITE.name,
+    siteName: SITE.publicName,
     type: "website",
     locale: "en_GB",
     images: [
@@ -40,13 +48,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — Practical AI. Built around your business.`,
+        alt: `${SITE.displayName} — ${SITE.tagline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Practical AI. Built around your business.`,
+    title: `${SITE.displayName} — ${SITE.tagline}`,
     description: SITE.description,
     site: "@echelonfox",
     images: ["/opengraph-image"],
@@ -73,17 +81,18 @@ export const viewport: Viewport = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: SITE.name,
+  name: SITE.publicName,
+  alternateName: [SITE.displayName, SITE.name],
   url: SITE.url,
-  logo: `${SITE.url}/eflogo.logo.png`,
+  logo: `${SITE.url}/brand/echelonfox-consulting-navy.png`,
   description: SITE.description,
   email: SITE.email,
   sameAs: [SITE.linkedin],
   areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "AI Strategy & Implementation Consultancy",
-    itemListElement: coreCapabilities.map((c) => ({
+    name: "Business strategy, technology and implementation",
+    itemListElement: capabilities.map((c) => ({
       "@type": "Offer",
       itemOffered: {
         "@type": "Service",
@@ -97,9 +106,9 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE.name,
+  name: SITE.publicName,
   url: SITE.url,
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@type": "Organization", name: SITE.publicName, url: SITE.url },
 };
 
 export default function RootLayout({

@@ -23,7 +23,7 @@ const DESCRIPTION =
   "How independent insurance agencies get found in the map pack, organic results, and AI answers from ChatGPT, Perplexity, and Google AI Overviews: one ten-step plan covering GBP, citations, reviews, agent pages, schema, and content.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | EchelonFox` },
+  title: { absolute: `${TITLE} | EchelonFox AI Consulting` },
   description: DESCRIPTION,
   alternates: { canonical: URL },
   openGraph: {
@@ -398,16 +398,16 @@ const articleSchema = {
   dateModified: "2026-09-23",
   author: {
     "@type": "Organization",
-    name: "EchelonFox",
+    name: "EchelonFox AI Consulting",
     url: "https://echelonfox.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "EchelonFox",
+    name: "EchelonFox AI Consulting",
     url: "https://echelonfox.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://echelonfox.com/eflogo.logo.png",
+      url: "https://echelonfox.com/brand/echelonfox-consulting-navy.png",
     },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": URL },

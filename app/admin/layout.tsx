@@ -1,4 +1,5 @@
 "use client";
+import Wordmark from "@/components/site/Wordmark";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -42,7 +43,7 @@ export default function AdminLayout({
       <aside className="w-56 bg-white border-r border-gray-200 flex flex-col shrink-0">
         <div className="px-4 py-5 border-b border-gray-100">
           <span className="font-bold text-gray-900 tracking-tight">
-            Echelon<span style={{ color: "#7C5138" }}>Fox</span>
+            <Wordmark />
           </span>
           <p className="text-xs text-gray-400 mt-0.5">Email Drip Admin</p>
         </div>
