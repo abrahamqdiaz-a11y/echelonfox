@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     canonical: "https://echelonfox.com/insights",
   },
   twitter: {
-    title: "Insights — EchelonFox",
+    title: "Insights — EchelonFox AI Consulting",
     description: "Practical guides on growth, search and business systems.",
   },
   openGraph: {
-    title: "Insights — EchelonFox",
+    title: "Insights — EchelonFox AI Consulting",
     description:
       "Practical guides on search, customer acquisition, follow-up, and growth strategy.",
     url: "https://echelonfox.com/insights",

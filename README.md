@@ -1,6 +1,6 @@
-# EchelonFox Solutions
+# EchelonFox Consulting
 
-AI Strategy & Implementation Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
+Business Strategy, Technology & Execution Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
 
 ## Development
 

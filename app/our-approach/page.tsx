@@ -5,14 +5,14 @@ import Process, { stages } from "@/components/site/Process";
 import FinalCta from "@/components/site/FinalCta";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Our Approach — From AI Opportunity to Implementation",
-  "Business discovery, AI solution design, practical implementation and adoption. Understand how EchelonFox takes AI from an opportunity to useful work.",
+  "Our Approach — From Business Diagnosis to Implementation",
+  "Commercial discovery, solution design and practical implementation across marketing, technology, operations and AI. Understand the EchelonFox Consulting approach.",
   "/our-approach",
 );
 const details = [
-  "Explore your goals, the work people do and the systems they use. Assess data availability, readiness and where an AI application could be useful. Agree a practical starting point and what success should mean.",
-  "Define the workflow, knowledge sources and integrations. Decide what AI does, what a person reviews and how exceptions are handled. Scope the implementation around the opportunity and its constraints.",
-  "Implement and test the agreed solution with representative tasks. Connect the relevant systems, check permissions and fallback behaviour, and refine the workflow before wider use.",
+  "Explore your goals, customers, workflows and systems. Identify commercial constraints and prioritise the opportunities worth addressing. Agree a practical starting point and what success should mean.",
+  "Define the approach, responsibilities and implementation requirements. The work may involve marketing, sales processes, digital infrastructure, AI or operational change, depending on the diagnosis.",
+  "Implement the agreed solution, connect the relevant systems and test the work in practice. Where technology or AI is involved, define permissions, review steps and fallback behaviour.",
   "Help the team use the system, establish ownership and review performance against the agreed criteria. Use feedback and exceptions to improve the workflow and supporting information.",
 ];
 export default function Approach() {
@@ -20,8 +20,8 @@ export default function Approach() {
     <PageShell>
       <PageHero
         eyebrow="Our Approach"
-        title="A clear path from AI opportunity to useful work."
-        lead="Commercial understanding, thoughtful implementation and human oversight, connected from the first conversation."
+        title="The right solution starts with the right diagnosis."
+        lead="Commercial understanding, thoughtful implementation and practical improvement, connected from the first conversation."
       />
       <section className="section section--white">
         <div className="container">
@@ -80,7 +80,7 @@ export default function Approach() {
           </h2>
           <div>
             <p className="lead">
-              Not every AI idea should become a full implementation.
+              Not every opportunity calls for a new system.
             </p>
             <p>
               We scope the work around the questions that need answering. That

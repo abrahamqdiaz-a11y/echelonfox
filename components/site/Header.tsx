@@ -3,8 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PRIMARY_NAV } from "@/lib/site";
-import { coreCapabilities } from "@/lib/capabilities";
+import {
+  coreCapabilities,
+  supportingCapabilities,
+  capabilities,
+} from "@/lib/capabilities";
 import Arrow from "./Arrow";
+import Wordmark from "./Wordmark";
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -52,12 +57,12 @@ export default function Header() {
         Skip to content
       </a>
       <div className="container site-header__inner">
-        <Link href="/" className="brand" aria-label="EchelonFox, home">
-          {/* eslint-disable-next-line @next/next/no-img-element -- preserved small brand asset */}
-          <img src="/images/fox-mark.png" width={192} height={76} alt="" />
-          <span>
-            EchelonFox<small>SOLUTIONS</small>
-          </span>
+        <Link
+          href="/"
+          className="brand"
+          aria-label="EchelonFox Consulting, home"
+        >
+          <Wordmark />
         </Link>
         <nav className="site-nav" aria-label="Main">
           <ul>
@@ -66,24 +71,23 @@ export default function Header() {
                 {item.href === "/services" ? (
                   <details className="nav-dropdown" ref={dropdown}>
                     <summary className={current(item.href) ? "is-current" : ""}>
-                      AI Services <span aria-hidden="true">⌄</span>
+                      Services <span aria-hidden="true">⌄</span>
                     </summary>
                     <div className="nav-dropdown__panel">
                       <Link href="/services">
                         Explore our capabilities <Arrow />
                       </Link>
-                      {coreCapabilities.map((c) => (
+                      {supportingCapabilities.map((c) => (
                         <Link key={c.slug} href={`/services/${c.slug}`}>
                           {c.name}
                         </Link>
                       ))}
                       <div className="nav-dropdown__support">
-                        <Link href="/services#business-systems">
-                          Supporting business systems
-                        </Link>
-                        <Link href="/services/websites-digital-infrastructure">
-                          Websites &amp; Digital Infrastructure
-                        </Link>
+                        {coreCapabilities.map((c) => (
+                          <Link key={c.slug} href={`/services/${c.slug}`}>
+                            {c.name}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </details>
@@ -140,7 +144,7 @@ export default function Header() {
                   <details>
                     <summary>Explore capabilities</summary>
                     <ul>
-                      {coreCapabilities.map((c) => (
+                      {capabilities.map((c) => (
                         <li key={c.slug}>
                           <Link href={`/services/${c.slug}`}>{c.name}</Link>
                         </li>

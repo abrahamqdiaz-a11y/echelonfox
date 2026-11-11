@@ -6,8 +6,8 @@ import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "About — AI Strategy & Implementation",
-  "EchelonFox connects commercial judgement, AI strategy and practical implementation to build solutions around your business.",
+  "About — Business Strategy, Technology & Execution",
+  "EchelonFox Consulting connects business strategy, technology and execution to address commercial constraints and implement practical improvements.",
   "/about",
 );
 const deliveryPrinciples = [
@@ -29,9 +29,9 @@ export default function About() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="About EchelonFox"
-        title="Business thinking. Practical AI."
-        lead="AI strategy and implementation grounded in commercial understanding, practical delivery and the way people work."
+        eyebrow="EchelonFox Consulting"
+        title="Business Strategy. Technology. Execution."
+        lead="A boutique business and technology consultancy that identifies commercial constraints and implements practical improvements across marketing, technology and operations."
       />
       <section className="section section--white">
         <div className="container split">
@@ -45,10 +45,9 @@ export default function About() {
           </div>
           <div>
             <p className="lead">
-              We connect commercial understanding with AI strategy and
-              implementation. Our approach starts with the business, defines a
-              useful application and carries the work through to practical
-              delivery.
+              We connect commercial understanding with strategy and
+              implementation. Our approach starts with the business, identifies
+              the priorities and carries the work through to practical delivery.
             </p>
             <p className="muted">
               The work starts with how the company makes money: which customers

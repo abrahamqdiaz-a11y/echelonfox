@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Wordmark from "@/components/site/Wordmark";
 import type { CSSProperties } from "react";
 
 export const metadata: Metadata = {
   title: "Unsubscribe",
-  description: "Unsubscribe from Echelon Fox marketing emails.",
+  description: "Unsubscribe from EchelonFox Consulting marketing emails.",
   alternates: {
     canonical: "https://echelonfox.com/unsubscribe",
   },
@@ -29,16 +30,42 @@ const bodyStyle: CSSProperties = {
 
 function CheckIcon() {
   return (
-    <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ marginBottom: "1.25rem" }}>
-      <path d="M5 13l4 4L19 7" stroke="var(--ink)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      aria-hidden="true"
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{ marginBottom: "1.25rem" }}
+    >
+      <path
+        d="M5 13l4 4L19 7"
+        stroke="var(--ink)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function MailIcon() {
   return (
-    <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ marginBottom: "1.25rem" }}>
-      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      aria-hidden="true"
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{ marginBottom: "1.25rem" }}
+    >
+      <path
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        stroke="var(--ink)"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -129,7 +156,14 @@ function EmailForm() {
     <form method="POST" action="/api/unsubscribe" className="form">
       <div className="field">
         <label htmlFor="email">Email address</label>
-        <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@company.com" />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="you@company.com"
+        />
       </div>
       <button type="submit" className="btn btn--block">
         Unsubscribe me
@@ -147,13 +181,19 @@ export default async function UnsubscribePage({
 
   return (
     <main className="utility-page">
-      <Link href="/" className="brand" style={{ marginBottom: "2.5rem" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element -- 6 KB mark, sized by CSS */}
-        <img src="/images/fox-mark.png" alt="" width={192} height={76} />
-        <span>EchelonFox</span>
+      <Link
+        href="/"
+        className="brand"
+        aria-label="EchelonFox Consulting, home"
+        style={{ marginBottom: "2.5rem" }}
+      >
+        <Wordmark />
       </Link>
       <Card status={status} contactId={contactId} />
-      <p className="small muted" style={{ marginTop: "2rem", textAlign: "center" }}>
+      <p
+        className="small muted"
+        style={{ marginTop: "2rem", textAlign: "center" }}
+      >
         © {new Date().getFullYear()} Echelon Fox. All rights reserved.
       </p>
     </main>

@@ -7,7 +7,7 @@ export function pageMetadata(
 ): Metadata {
   const url = `${SITE.url}${path}`;
   return {
-    title: { absolute: `${title} | ${SITE.name}` },
+    title: { absolute: `${title} | ${SITE.publicName}` },
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -16,13 +16,13 @@ export function pageMetadata(
       url,
       type: "website",
       locale: "en_GB",
-      siteName: SITE.name,
+      siteName: SITE.publicName,
       images: [
         {
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "EchelonFox — AI Strategy & Implementation",
+          alt: "EchelonFox Consulting — Business Strategy. Technology. Execution.",
         },
       ],
     },

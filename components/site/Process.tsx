@@ -1,22 +1,22 @@
 export const stages = [
   {
     name: "Diagnose",
-    title: "Find a useful opportunity.",
-    body: "Understand goals, workflows, data and readiness. Identify where AI could make a practical contribution.",
+    title: "Understand the commercial challenge.",
+    body: "Understand goals, customers, workflows and systems. Identify the constraints and opportunities that matter.",
   },
   {
     name: "Design",
     title: "Design the right approach.",
-    body: "Define the workflow, integrations and human oversight. Agree what to build and how to evaluate it.",
+    body: "Prioritise the work, define responsibilities and agree how the improvement will be evaluated.",
   },
   {
     name: "Build",
     title: "Build and test the solution.",
-    body: "Implement the agreed AI solution, connect the relevant systems and test it with representative work.",
+    body: "Implement the agreed marketing, technology or operational solution and test how it works in practice.",
   },
   {
     name: "Improve",
-    title: "Help people put it to use.",
+    title: "Review, refine and improve.",
     body: "Support adoption, review quality and exceptions, and refine the workflow with feedback from the team.",
   },
 ];

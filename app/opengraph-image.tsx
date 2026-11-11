@@ -1,12 +1,16 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-export const alt = "EchelonFox — Practical AI. Built around your business.";
+export const alt =
+  "EchelonFox Consulting — Business Strategy. Technology. Execution.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default async function OgImage() {
   const font = await readFile(
-    join(process.cwd(), "app/_og/Manrope-Medium.ttf"),
+    join(process.cwd(), "app/_og/Manrope-Regular.ttf"),
+  );
+  const logo = await readFile(
+    join(process.cwd(), "public/brand/echelonfox-consulting-white.svg"),
   );
   return new ImageResponse(
     <div
@@ -17,36 +21,31 @@ export default async function OgImage() {
         flexDirection: "column",
         justifyContent: "space-between",
         background: "#101C2B",
-        color: "#F7F5F0",
+        color: "#FFFFFF",
         padding: "58px 70px",
         fontFamily: "Manrope",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          fontSize: 27,
-        }}
-      >
-        <span>EchelonFox</span>
-        <span style={{ fontSize: 15, color: "#BEC5CA" }}>
-          AI Strategy &amp; Implementation
-        </span>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={`data:image/svg+xml;base64,${logo.toString("base64")}`}
+          width={245}
+          height={73}
+          alt="EchelonFox Consulting"
+        />
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          fontSize: 63,
-          lineHeight: 1.16,
-          letterSpacing: -2,
+          fontSize: 64,
+          lineHeight: 1.2,
+          letterSpacing: -1.5,
         }}
       >
-        <span>Practical AI.</span>
-        <span>Built around</span>
-        <span style={{ color: "#C99979", marginTop: 15 }}>your business.</span>
+        <span>Business Strategy.</span>
+        <span>Technology.</span>
+        <span>Execution.</span>
       </div>
       <div
         style={{
@@ -54,17 +53,17 @@ export default async function OgImage() {
           justifyContent: "space-between",
           borderTop: "1px solid #45505A",
           paddingTop: 22,
-          fontSize: 17,
+          fontSize: 16,
           color: "#BEC5CA",
         }}
       >
-        <span>Diagnose / Design / Build / Improve</span>
+        <span>Independent business &amp; technology consultancy</span>
         <span>echelonfox.com</span>
       </div>
     </div>,
     {
       ...size,
-      fonts: [{ name: "Manrope", data: font, weight: 500, style: "normal" }],
+      fonts: [{ name: "Manrope", data: font, weight: 400, style: "normal" }],
     },
   );
 }

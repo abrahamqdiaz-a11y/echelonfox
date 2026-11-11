@@ -1,4 +1,5 @@
 "use client";
+import Wordmark from "@/components/site/Wordmark";
 
 import { useState, FormEvent } from "react";
 import { createClient } from "@/lib/supabase-client";
@@ -36,7 +37,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <span className="text-2xl font-bold tracking-tight text-gray-900">
-            Echelon<span style={{ color: "#7C5138" }}>Fox</span>
+            <Wordmark />
           </span>
           <p className="mt-1 text-sm text-gray-500">Admin panel</p>
         </div>

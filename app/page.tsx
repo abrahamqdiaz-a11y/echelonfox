@@ -6,15 +6,21 @@ import FinalCta from "@/components/site/FinalCta";
 import Process from "@/components/site/Process";
 import PeoplePanels from "@/components/site/PeoplePanels";
 import SectionIntro from "@/components/site/SectionIntro";
-import { coreCapabilities } from "@/lib/capabilities";
+import { capabilities } from "@/lib/capabilities";
 import { publishedCases } from "@/lib/work-data";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "AI Strategy & Implementation Consultancy",
+  "Business Strategy, Technology & Execution Consultancy",
   SITE.description,
   "",
 );
+const featuredCapabilities = [
+  "commercial-diagnosis",
+  "customer-acquisition",
+  "technology-operations",
+  "ai-automation",
+].map((slug) => capabilities.find((c) => c.slug === slug)!);
 const applications = [
   {
     area: "Sales & customer service",
@@ -57,24 +63,22 @@ export default function Home() {
       <section className="home-hero ai-hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">AI Strategy &amp; Implementation</p>
+            <p className="eyebrow">EchelonFox Consulting</p>
             <h1 className="display">
-              Practical AI.
+              Business Strategy.
               <br />
-              <span>
-                Built around
-                <br />
-                your business.
-              </span>
+              Technology.
+              <br />
+              Execution.
             </h1>
             <p className="lead">{SITE.description}</p>
             <div className="actions">
               <Link className="btn" href="/contact">
-                Discuss Your AI Opportunities
+                Discuss Your Business
                 <Arrow />
               </Link>
               <Link className="arrow-link" href="/services">
-                Explore AI Services
+                Explore Our Capabilities
                 <Arrow />
               </Link>
             </div>
@@ -82,7 +86,7 @@ export default function Home() {
           <PeoplePanels />
         </div>
         <div className="container hero-foot">
-          <span>AI consultancy. Strategy through implementation.</span>
+          <span>Independent consultancy. Strategy through implementation.</span>
           <span>Diagnose / Design / Build / Improve</span>
         </div>
       </section>
@@ -91,24 +95,25 @@ export default function Home() {
           <div>
             <p className="eyebrow">The business comes first</p>
             <h2 className="h2">
-              AI is an opportunity.
-              <br />A useful application is a decision.
+              Progress starts with clarity.
+              <br />
+              The right work follows.
             </h2>
           </div>
           <div className="statement-copy">
             <p className="lead">
-              Start with the work that needs to improve. Then decide where AI
-              belongs.
+              Understand the commercial constraint. Then choose the improvements
+              that matter.
             </p>
             <p className="muted">
-              We look at your goals, workflows, people and existing systems
-              before recommending a tool. That commercial picture helps identify
-              where an assistant, an integration or an automated workflow could
-              be useful.
+              We look at your goals, customers, workflows and existing systems
+              before recommending a solution. The right response may involve
+              positioning, marketing, sales processes, technology or operations.
             </p>
             <p className="muted">
-              Sometimes a simpler process is the better answer. Where AI makes
-              sense, we connect the strategy with practical implementation.
+              Our role connects diagnosis with execution. AI, automation and
+              digital infrastructure are applied where they serve a clear
+              business need.
             </p>
           </div>
         </div>
@@ -117,7 +122,7 @@ export default function Home() {
         <div className="container">
           <div className="split section-head">
             <div>
-              <p className="eyebrow">AI services</p>
+              <p className="eyebrow">Connected capabilities</p>
               <h2 className="h2">
                 From the right question
                 <br />
@@ -130,7 +135,7 @@ export default function Home() {
             </p>
           </div>
           <div className="capability-rows">
-            {coreCapabilities.map((c, i) => (
+            {featuredCapabilities.map((c, i) => (
               <Link key={c.slug} href={`/services/${c.slug}`}>
                 <span className="index">0{i + 1}</span>
                 <h3>{c.name}</h3>
@@ -140,7 +145,7 @@ export default function Home() {
             ))}
           </div>
           <Link className="arrow-link" href="/services">
-            Explore our AI capabilities
+            Explore all capabilities
             <Arrow />
           </Link>
         </div>
@@ -211,8 +216,8 @@ export default function Home() {
               People in the loop.
             </h2>
             <p className="lead">
-              AI strategy, technical delivery and adoption, connected in one
-              considered approach.
+              Business strategy, technical delivery and practical improvements,
+              connected in one considered approach.
             </p>
             <p className="muted">
               We bring business understanding to AI decisions, define the work
@@ -266,7 +271,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <FinalCta title="Where could AI make a difference in your business?" />
+      <FinalCta title="What’s holding your business back?" />
     </PageShell>
   );
 }

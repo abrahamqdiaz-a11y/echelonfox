@@ -93,7 +93,7 @@ const rootNode = createRoot(document.getElementById("app"));
     "/our-approach",
   );
   assert(document.querySelector('.skip-link[href="#main"]'));
-  assert.equal(document.querySelectorAll(".nav-dropdown__panel a").length, 7);
+  assert.equal(document.querySelectorAll(".nav-dropdown__panel a").length, 10);
   for (const slug of [
     "ai-strategy",
     "ai-automation",
