@@ -1,27 +1,29 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
 import Process, { stages } from "@/components/site/Process";
 import FinalCta from "@/components/site/FinalCta";
+import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Our Approach — From Business Diagnosis to Implementation",
-  "Commercial discovery, solution design and practical implementation across marketing, technology, operations and AI. Understand the EchelonFox Consulting approach.",
+  "Our Approach — Diagnose, Design, Build, Improve",
+  "How EchelonFox measures where revenue is leaking, agrees the fix, builds it and keeps it fixed. Four steps, mapped to the Diagnostic, Build, Run and Embedded Growth Team.",
   "/our-approach",
 );
 const details = [
-  "Explore your goals, customers, workflows and systems. Identify commercial constraints and prioritise the opportunities worth addressing. Agree a practical starting point and what success should mean.",
-  "Define the approach, responsibilities and implementation requirements. The work may involve marketing, sales processes, digital infrastructure, AI or operational change, depending on the diagnosis.",
-  "Implement the agreed solution, connect the relevant systems and test the work in practice. Where technology or AI is involved, define permissions, review steps and fallback behaviour.",
-  "Help the team use the system, establish ownership and review performance against the agreed criteria. Use feedback and exceptions to improve the workflow and supporting information.",
+  "Over two weeks we review your enquiries, quotes, order history and CRM, and how marketing spend is tracked. Each leak gets a dollar figure. You receive a ranked list and a recommended next step.",
+  "We take the top one or two leaks and agree the fix: the workflow, who owns each step, what the CRM needs to do and what gets reported. We agree the starting baseline and the one number we will report against it.",
+  "We build and test the workflow, CRM setup, follow-up and reporting with the people who will use them. Training is included, and we fix anything that breaks in the first 30 days.",
+  "We run the system, make a fixed number of changes each month and report one revenue number every week against the baseline. When the number shows a new problem, it becomes the next priority.",
 ];
 export default function Approach() {
   return (
     <PageShell>
       <PageHero
         eyebrow="Our Approach"
-        title="The right solution starts with the right diagnosis."
-        lead="Commercial understanding, thoughtful implementation and practical improvement, connected from the first conversation."
+        title="Measure the leak. Fix it. Keep it fixed."
+        lead="Diagnose, Design, Build, Improve. The same four steps, whichever path you take after the Diagnostic."
       />
       <section className="section section--white">
         <div className="container">
@@ -36,6 +38,7 @@ export default function Approach() {
               <div>
                 <p className="eyebrow">{stage.name}</p>
                 <h2 className="h3">{stage.title}</h2>
+                <p className="label">{stage.offer}</p>
               </div>
               <p className="lead muted">{details[i]}</p>
             </article>
@@ -54,19 +57,18 @@ export default function Approach() {
             />
           </div>
           <div>
-            <p className="eyebrow">Designed for the working day</p>
+            <p className="eyebrow">People in the loop</p>
             <h2 className="h2">
-              The people using it are part of the solution.
+              The people using it are part of the system.
             </h2>
             <p className="lead">
-              A system needs to fit real tasks, not just perform well in a
+              A system has to fit the working day, not just look good in a
               demonstration.
             </p>
             <p className="muted">
-              We consider the team’s capacity, the information available and the
-              decisions that need human judgement. Clear handoff, useful
-              documentation and a way to review the work help make
-              implementation practical.
+              Every step has a named owner. Anything that reaches a customer is
+              reviewed by a person first. We use AI to build and run systems
+              faster, but a person decides what goes out.
             </p>
           </div>
         </div>
@@ -74,19 +76,23 @@ export default function Approach() {
       <section className="band">
         <div className="container split">
           <h2 className="h2">
-            A focused starting point.
+            A fixed starting point.
             <br />
-            Room to learn.
+            Public prices.
           </h2>
           <div>
             <p className="lead">
-              Not every opportunity calls for a new system.
+              Every engagement starts with the Revenue Leak Diagnostic: two
+              weeks, from $2,000.
             </p>
             <p>
-              We scope the work around the questions that need answering. That
-              may mean an assessment, a pilot or a defined implementation.
-              Evidence from the work informs what should happen next.
+              The fee is credited to a Build signed within 30 days. After that,
+              you choose Build, then Run, or the Embedded Growth Team.
             </p>
+            <Link className="arrow-link" href="/what-we-do">
+              See the offers and prices
+              <Arrow />
+            </Link>
           </div>
         </div>
       </section>

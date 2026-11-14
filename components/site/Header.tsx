@@ -3,32 +3,33 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PRIMARY_NAV } from "@/lib/site";
-import {
-  coreCapabilities,
-  supportingCapabilities,
-  capabilities,
-} from "@/lib/capabilities";
+import { PRIMARY_CTA } from "@/lib/offers";
 import Arrow from "./Arrow";
 import Wordmark from "./Wordmark";
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menu = useRef<HTMLButtonElement>(null);
-  const dropdown = useRef<HTMLDetailsElement>(null);
+  const nav = useRef<HTMLElement>(null);
   const [lastPath, setLastPath] = useState(pathname);
   if (lastPath !== pathname) {
     setLastPath(pathname);
     setOpen(false);
   }
+  const dropdowns = () =>
+    Array.from(
+      nav.current?.querySelectorAll<HTMLDetailsElement>(".nav-dropdown") ?? [],
+    );
   useEffect(() => {
-    if (dropdown.current) dropdown.current.open = false;
+    dropdowns().forEach((d) => (d.open = false));
   }, [pathname]);
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        if (dropdown.current?.open) {
-          dropdown.current.open = false;
-          dropdown.current.querySelector("summary")?.focus();
+        const openDropdown = dropdowns().find((d) => d.open);
+        if (openDropdown) {
+          openDropdown.open = false;
+          openDropdown.querySelector("summary")?.focus();
         }
         if (open) {
           setOpen(false);
@@ -37,8 +38,9 @@ export default function Header() {
       }
     };
     const outside = (e: PointerEvent) => {
-      if (dropdown.current && !dropdown.current.contains(e.target as Node))
-        dropdown.current.open = false;
+      dropdowns().forEach((d) => {
+        if (!d.contains(e.target as Node)) d.open = false;
+      });
     };
     document.addEventListener("keydown", close);
     document.addEventListener("pointerdown", outside);
@@ -47,48 +49,45 @@ export default function Header() {
       document.removeEventListener("pointerdown", outside);
     };
   }, [open]);
+  /** Opening one dropdown closes the others. */
+  const onToggle = (e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const el = e.currentTarget;
+    if (el.open) dropdowns().forEach((d) => d !== el && (d.open = false));
+  };
   const current = (href: string) =>
     href === "/"
       ? pathname === href
       : pathname === href || pathname.startsWith(`${href}/`);
+  const groupCurrent = (item: (typeof PRIMARY_NAV)[number]) =>
+    current(item.href) || !!item.children?.some((c) => current(c.href));
   return (
     <header className="site-header">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
       <div className="container site-header__inner">
-        <Link
-          href="/"
-          className="brand"
-          aria-label="EchelonFox Consulting, home"
-        >
+        <Link href="/" className="brand" aria-label="EchelonFox, home">
           <Wordmark />
         </Link>
-        <nav className="site-nav" aria-label="Main">
+        <nav className="site-nav" aria-label="Main" ref={nav}>
           <ul>
             {PRIMARY_NAV.map((item) => (
               <li key={item.href}>
-                {item.href === "/services" ? (
-                  <details className="nav-dropdown" ref={dropdown}>
-                    <summary className={current(item.href) ? "is-current" : ""}>
-                      Services <span aria-hidden="true">⌄</span>
+                {item.children ? (
+                  <details className="nav-dropdown" onToggle={onToggle}>
+                    <summary className={groupCurrent(item) ? "is-current" : ""}>
+                      {item.label} <span aria-hidden="true">⌄</span>
                     </summary>
                     <div className="nav-dropdown__panel">
-                      <Link href="/services">
-                        Explore our capabilities <Arrow />
-                      </Link>
-                      {supportingCapabilities.map((c) => (
-                        <Link key={c.slug} href={`/services/${c.slug}`}>
-                          {c.name}
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          aria-current={pathname === c.href ? "page" : undefined}
+                        >
+                          {c.label} <Arrow />
                         </Link>
                       ))}
-                      <div className="nav-dropdown__support">
-                        {coreCapabilities.map((c) => (
-                          <Link key={c.slug} href={`/services/${c.slug}`}>
-                            {c.name}
-                          </Link>
-                        ))}
-                      </div>
                     </div>
                   </details>
                 ) : (
@@ -103,7 +102,7 @@ export default function Header() {
             ))}
             <li>
               <Link
-                href="/contact"
+                href={PRIMARY_CTA.href}
                 className="btn btn--small"
                 aria-current={current("/contact") ? "page" : undefined}
               >
@@ -133,29 +132,39 @@ export default function Header() {
           <ul>
             {PRIMARY_NAV.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={current(item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                  <Arrow />
-                </Link>
-                {item.href === "/services" && (
-                  <details>
-                    <summary>Explore capabilities</summary>
+                {item.children ? (
+                  <details className="mobile-group">
+                    <summary>
+                      {item.label} <span aria-hidden="true">⌄</span>
+                    </summary>
                     <ul>
-                      {capabilities.map((c) => (
-                        <li key={c.slug}>
-                          <Link href={`/services/${c.slug}`}>{c.name}</Link>
+                      {item.children.map((c) => (
+                        <li key={c.href}>
+                          <Link
+                            href={c.href}
+                            aria-current={
+                              pathname === c.href ? "page" : undefined
+                            }
+                          >
+                            {c.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </details>
+                ) : (
+                  <Link
+                    href={item.href}
+                    aria-current={current(item.href) ? "page" : undefined}
+                  >
+                    {item.label}
+                    <Arrow />
+                  </Link>
                 )}
               </li>
             ))}
             <li>
-              <Link href="/contact" className="btn">
+              <Link href={PRIMARY_CTA.href} className="btn">
                 Let’s Talk <Arrow />
               </Link>
             </li>

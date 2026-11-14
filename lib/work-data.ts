@@ -1,5 +1,3 @@
-import type { Capability } from "@/lib/capabilities";
-
 /**
  * Case studies.
  *
@@ -10,7 +8,7 @@ import type { Capability } from "@/lib/capabilities";
  *   what was built → outcome. `outcome` is optional and only filled in where evidence
  *   exists. Do not add performance numbers unless they come from the client's own
  *   analytics or accounts and the client has agreed to them being published.
- * - Wrap key findings in ==double equals== to emphasise them on the page on the page.
+ * - Wrap key findings in ==double equals== to emphasise them on the page.
  * - A case without a clear broader issue stays `published: false` until one is
  *   documented. Don't write one to fill the gap.
  */
@@ -29,7 +27,10 @@ export type CaseStudy = {
   /** Only where evidence exists. */
   outcome?: string;
   takeaway?: string;
-  capabilities: Capability["slug"][];
+  /** The revenue problem found, in one line. A reframing of `found`, not a new fact. */
+  revenueProblem: string;
+  /** Short card copy: what they asked for and what was found. Facts only. */
+  revenueSummary: string;
   /** Why an unpublished case is on hold. */
   holdReason?: string;
 };
@@ -62,11 +63,10 @@ export const cases: CaseStudy[] = [
     ],
     takeaway:
       "The request was “run ads.” The opportunity was putting marketing spend and payroll where sales actually happen.",
-    capabilities: [
-      "commercial-diagnosis",
-      "customer-acquisition",
-      "sales-process-crm",
-    ],
+    revenueProblem:
+      "Marketing spend and staffing weren’t matched to where sales actually happened.",
+    revenueSummary:
+      "They asked for Google Ads. A small group of buyers drove a large share of revenue, and buying clustered on predictable days.",
   },
   {
     slug: "independent-insurance-agency",
@@ -92,7 +92,9 @@ export const cases: CaseStudy[] = [
     ],
     outcome:
       "Live, with quote requests arriving through the site outside office hours instead of only by phone during them.",
-    capabilities: ["customer-acquisition", "sales-process-crm"],
+    revenueProblem: "Prospects had no clear way to ask for a quote.",
+    revenueSummary:
+      "They asked for a new website. Enquiries came by phone during office hours, or not at all.",
   },
   {
     slug: "premium-pet-care",
@@ -116,7 +118,9 @@ export const cases: CaseStudy[] = [
     ],
     outcome:
       "Live, with service and booking information structured for local search and enquiries collected in one place rather than across social inboxes.",
-    capabilities: ["customer-acquisition", "sales-process-crm"],
+    revenueProblem: "Enquiries were getting lost in social inboxes.",
+    revenueSummary:
+      "They asked for a website. Requests arrived as DMs that were easy to lose.",
   },
   {
     slug: "beauty-barber-supply-wholesaler",
@@ -138,7 +142,8 @@ export const cases: CaseStudy[] = [
     ],
     outcome:
       "Ongoing programme. Performance is reported to the client from their own Search Console and analytics data.",
-    capabilities: ["customer-acquisition"],
+    revenueProblem: "",
+    revenueSummary: "",
     holdReason:
       "The existing write-up describes the SEO work itself but no broader commercial issue beyond it.",
   },

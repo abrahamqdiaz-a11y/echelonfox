@@ -10,7 +10,7 @@ export default function Motion() {
     if (preference.matches || !("IntersectionObserver" in window)) return;
     const candidates = Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".section-head, .capability-rows > a, .application-list > article, .process-diagram, .human-split > *, .work-preview, .scope-grid > div, .capability-editorial > article",
+        ".section-head, .capability-rows > a, .application-list > article, .process-diagram, .human-split > *, .work-preview, .scope-grid > div, .offer-path, .offer-detail",
       ),
     );
     const targets = candidates.filter(

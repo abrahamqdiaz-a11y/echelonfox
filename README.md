@@ -1,6 +1,6 @@
-# EchelonFox Consulting
+# EchelonFox
 
-Business Strategy, Technology & Execution Consultancy, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
+Revenue operations consultancy website, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
 
 ## Development
 
@@ -24,12 +24,13 @@ The site checks require Python 3 and the development dependencies. They inspect 
 
 - `app/` — public pages, utility pages, administration and APIs.
 - `app/globals.css` — design tokens, responsive layouts and shared styles.
-- `components/site/` — navigation, footer, heroes, capability layouts, process and commercial-system diagrams.
+- `components/site/` — navigation, footer, heroes, the offer ladder, process diagram and the single closing call to action.
 - `components/ContactForm.tsx` — the Netlify form, with visible labels and success/error states.
-- `lib/capabilities.ts` — four core AI capabilities and five retained supporting business capabilities.
+- `lib/offers.ts` — the four offers: names, prices, terms, inclusions and exclusions. The only place prices are set.
+- `lib/industries.ts` — industry page content for the `/industries/[slug]` template. Add an entry to publish a new industry page.
 - `lib/work-data.ts` — published and withheld case records. Do not add claims or permissions without evidence.
 - `lib/metadata.ts` — consistent page and social metadata.
-- `next.config.ts` — retained legacy redirects.
+- `next.config.ts` — legacy redirects, including every retired `/services` URL → `/what-we-do`.
 - `scripts/` — build-output and interaction checks.
 
 ## Preservation rules
@@ -40,6 +41,6 @@ Keep campaign administration, subscription, global opt-out handling and legacy e
 
 No analytics or advertising trackers are installed. Adding them requires appropriate consent behaviour and corresponding privacy-policy changes. The current cookie notice is informational.
 
-Use British English, retain valuable public URLs and publish only documented work. Do not publish client names, performance figures or testimonials without evidence and the relevant permission.
+Use British English, retain valuable public URLs and publish only documented work. Every page ends with the shared `FinalCta`. Do not list SEO, paid advertising, content production or social media management as services we perform. Do not publish client names, performance figures or testimonials without evidence and the relevant permission.
 
 See `CHANGELOG.md` for the redesign and `VALIDATION.md` for verification limits. Production deployment requires separate approval.

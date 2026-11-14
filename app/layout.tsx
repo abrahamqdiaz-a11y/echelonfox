@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Motion from "@/components/site/Motion";
-import { capabilities } from "@/lib/capabilities";
+import { offerList } from "@/lib/offers";
+import { offerSchema } from "@/components/site/ServiceSchema";
 import CookieConsent from "@/components/CookieConsent";
 import { SITE } from "@/lib/site";
 const manrope = localFont({
@@ -20,7 +21,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.publicName} — Business Strategy, Technology & Execution`,
+    default: `${SITE.publicName} — Revenue Operations for B2B Companies`,
     template: `%s | ${SITE.publicName}`,
   },
   description: SITE.description,
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     canonical: SITE.url,
   },
   openGraph: {
-    title: `${SITE.displayName} — ${SITE.tagline}`,
+    title: `${SITE.displayName} — ${SITE.headline}`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.publicName,
@@ -48,13 +49,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE.displayName} — ${SITE.tagline}`,
+        alt: `${SITE.displayName} — ${SITE.headline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.displayName} — ${SITE.tagline}`,
+    title: `${SITE.displayName} — ${SITE.headline}`,
     description: SITE.description,
     site: "@echelonfox",
     images: ["/opengraph-image"],
@@ -82,24 +83,23 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: SITE.publicName,
-  alternateName: [SITE.displayName, SITE.name],
   url: SITE.url,
-  logo: `${SITE.url}/brand/echelonfox-consulting-navy.png`,
+  logo: `${SITE.url}/brand/echelonfox-navy.png`,
   description: SITE.description,
   email: SITE.email,
   sameAs: [SITE.linkedin],
   areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Business strategy, technology and implementation",
-    itemListElement: capabilities.map((c) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: c.name,
-        url: `${SITE.url}/services/${c.slug}`,
-      },
-    })),
+    name: "Revenue operations",
+    itemListElement: offerList.map((o) =>
+      offerSchema(
+        o,
+        o.id === "embedded-growth-team"
+          ? `${SITE.url}/embedded-growth-team`
+          : `${SITE.url}/what-we-do#${o.id}`,
+      ),
+    ),
   },
 };
 

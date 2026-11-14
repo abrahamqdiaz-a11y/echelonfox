@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Subscribe",
-  description: "Subscribe to an EchelonFox Consulting email sequence.",
+  description: "Subscribe to an EchelonFox email sequence.",
   alternates: { canonical: "https://echelonfox.com/subscribe" },
   robots: { index: false, follow: false },
 };

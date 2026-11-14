@@ -5,7 +5,7 @@ import type { CSSProperties } from "react";
 
 export const metadata: Metadata = {
   title: "Unsubscribe",
-  description: "Unsubscribe from EchelonFox Consulting marketing emails.",
+  description: "Unsubscribe from EchelonFox marketing emails.",
   alternates: {
     canonical: "https://echelonfox.com/unsubscribe",
   },
@@ -184,7 +184,7 @@ export default async function UnsubscribePage({
       <Link
         href="/"
         className="brand"
-        aria-label="EchelonFox Consulting, home"
+        aria-label="EchelonFox, home"
         style={{ marginBottom: "2.5rem" }}
       >
         <Wordmark />

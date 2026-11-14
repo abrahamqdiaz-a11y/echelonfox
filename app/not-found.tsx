@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageShell from "@/components/site/PageShell";
 import Arrow from "@/components/site/Arrow";
+import FinalCta from "@/components/site/FinalCta";
 
 export default function NotFound() {
   return (
@@ -23,8 +24,8 @@ export default function NotFound() {
               Go to the homepage
               <Arrow />
             </Link>
-            <Link href="/services" className="arrow-link">
-              What We Do
+            <Link href="/what-we-do" className="arrow-link">
+              How It Works
             </Link>
             <Link href="/work" className="arrow-link">
               Selected Work
@@ -32,6 +33,7 @@ export default function NotFound() {
           </div>
         </div>
       </section>
+      <FinalCta />
     </PageShell>
   );
 }

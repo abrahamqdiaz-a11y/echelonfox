@@ -1,3 +1,20 @@
+# Revenue operations positioning — 14 November 2026
+
+- Repositioned EchelonFox as a revenue operations consultancy. New homepage headline: "Find the revenue your business already earned and lost." AI moved below the offers.
+- Published one offer ladder with public prices, kept in `lib/offers.ts`: Revenue Leak Diagnostic (from $2,000), then Build (from $6,000) and Run (from $1,000 a month), or the Embedded Growth Team (from $4,200 a month).
+- Replaced the nine service pages with `/what-we-do` (How It Works) and added `/embedded-growth-team`.
+- Added a reusable industry template at `/industries/[slug]` with one page: industrial manufacturers and distributors. No case study is shown there because none is from that industry.
+- New navigation: What We Do and Industries dropdowns. The nine-item Services dropdown is gone.
+- Reframed the three case studies around the revenue problem found. Facts are unchanged.
+- Every page ends with the same single call to action: "Book a Revenue Leak Diagnostic".
+- Renamed the brand to "EchelonFox" everywhere (wordmark, titles, metadata, schema, OG image). New name-only logo files in `public/brand/`.
+- Redirected every `/services` URL, `/pricing`, `/ecommerce`, `/saas` and `/industries` to `/what-we-do` with 301s; repointed older chained redirects so nothing hops twice.
+- The insurance search article keeps its content; its links and closing call to action now follow the new structure.
+- Updated titles, descriptions, Open Graph text, structured data (offers with USD starting prices), sitemap, `llms.txt` and the site checks.
+- Privacy Policy and Terms of Service unchanged. No production deployment performed.
+
+---
+
 # EchelonFox Consulting identity — 11 November 2026
 
 - Replaced active illustrated fox branding with a medium-weight Manrope wordmark and regular, letter-spaced CONSULTING descriptor across header, footer and utility surfaces.

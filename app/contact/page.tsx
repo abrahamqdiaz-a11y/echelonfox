@@ -3,8 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Contact — Discuss Your Business",
-  "Discuss business strategy, marketing, technology, AI implementation or operations with EchelonFox Consulting. Start with the challenge you need to solve.",
+  "Book a Revenue Leak Diagnostic",
+  "Book a Revenue Leak Diagnostic with EchelonFox. Two weeks, from $2,000: a costed, ranked list of where your business is losing revenue.",
   "/contact",
 );
 export default function Contact() {
@@ -14,31 +14,32 @@ export default function Contact() {
         <div className="container contact-grid">
           <div>
             <p className="eyebrow">Let’s talk</p>
-            <h1 className="h1">Tell us what you’re trying to solve.</h1>
+            <h1 className="h1">Book a Revenue Leak Diagnostic.</h1>
             <p className="lead">
-              Whether you need clearer commercial priorities, better technology
-              or more effective operations, the first step is understanding the
-              challenge.
+              Tell us a little about your business. We’ll reply to arrange a
+              short call, check the Diagnostic is a fit and agree what we will
+              review.
             </p>
             <div className="contact-expectations">
               <p className="label">What happens next</p>
               <ol>
                 <li>
                   <strong>We read your enquiry.</strong>
-                  <span>A person reviews the challenge you describe.</span>
+                  <span>A person reviews what you send.</span>
                 </li>
                 <li>
-                  <strong>We start with a conversation.</strong>
+                  <strong>We have a short call.</strong>
                   <span>
-                    We explore your goals, workflows and where AI might be
-                    useful.
+                    We check the Diagnostic fits and agree access to your
+                    enquiries, quotes, order history and CRM.
                   </span>
                 </li>
                 <li>
-                  <strong>We discuss a useful next step.</strong>
+                  <strong>Two weeks later, you get the list.</strong>
                   <span>
-                    The scope follows the business and whether we are the right
-                    fit.
+                    A costed, ranked list of where revenue is being lost, and a
+                    recommended next step. From $2,000, credited to a Build
+                    signed within 30 days.
                   </span>
                 </li>
               </ol>
@@ -53,7 +54,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book a conversation
+                  Book a call
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </p>
@@ -67,12 +68,12 @@ export default function Contact() {
             </div>
           </div>
           <div className="contact-panel">
-            <h2 className="h3">Start with the challenge.</h2>
+            <h2 className="h3">Start with what you know.</h2>
             <p className="small muted">
-              No need to choose a service. Fields marked required must be
-              completed.
+              Tell us how enquiries and orders reach you today. Fields marked
+              required must be completed.
             </p>
-            <ContactForm visibleLabels submitLabel="Send Your Enquiry" />
+            <ContactForm visibleLabels submitLabel="Request a Diagnostic" />
           </div>
         </div>
       </section>

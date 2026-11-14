@@ -6,8 +6,8 @@ import Arrow from "@/components/site/Arrow";
 import { publishedCases } from "@/lib/work-data";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Selected Work — Business Challenges & Practical Solutions",
-  "Explore documented work across commercial diagnosis, website development, customer acquisition and enquiry systems.",
+  "Selected Work — The Revenue Problems We Found",
+  "Three documented projects, each described by what the client asked for and the revenue problem we found: spend, quote requests and lost enquiries.",
   "/work",
 );
 export default function Work() {
@@ -15,8 +15,8 @@ export default function Work() {
     <PageShell>
       <PageHero
         eyebrow="Selected Work"
-        title="Business understanding, put into practice."
-        lead="Existing projects in commercial analysis, website development and enquiry systems. They illustrate our approach to business problems; they are not presented as AI implementations."
+        title="What they asked for. The revenue problem we found."
+        lead="Three projects, described by category. In each one, the request was a familiar fix. The real problem was revenue being lost somewhere else."
       />
       <section className="section section--white">
         <div className="container work-list">
@@ -28,25 +28,17 @@ export default function Work() {
               >
                 <span className="case-visual__number">0{i + 1}</span>
                 <div className="case-visual__lines">
-                  <span>
-                    {
-                      [
-                        "Commercial diagnosis",
-                        "Customer journey",
-                        "Connected enquiries",
-                      ][i]
-                    }
-                  </span>
-                  <b>{["Understand", "Enquire", "Connect"][i]}</b>
-                  <span>Strategy into practice</span>
+                  <span>Revenue problem</span>
+                  <b>{["Spend", "Quote", "Enquire"][i]}</b>
+                  <span>What we found</span>
                 </div>
               </div>
               <div>
                 <p className="label">{c.descriptor}</p>
                 <h2>
-                  <Link href={`/work/${c.slug}`}>{c.title}</Link>
+                  <Link href={`/work/${c.slug}`}>{c.revenueProblem}</Link>
                 </h2>
-                <p>{c.context}</p>
+                <p>{c.revenueSummary}</p>
                 <Link className="arrow-link" href={`/work/${c.slug}`}>
                   Read the case study
                   <Arrow />
@@ -67,7 +59,7 @@ export default function Work() {
           </p>
         </div>
       </section>
-      <FinalCta label="Discuss a Similar Challenge" />
+      <FinalCta />
     </PageShell>
   );
 }

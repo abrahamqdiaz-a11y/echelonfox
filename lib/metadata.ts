@@ -22,7 +22,7 @@ export function pageMetadata(
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "EchelonFox Consulting — Business Strategy. Technology. Execution.",
+          alt: `EchelonFox — ${SITE.headline}`,
         },
       ],
     },

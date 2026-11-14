@@ -54,7 +54,7 @@ export default function SubscribePage({ searchParams: _sp }: Props) {
     <Link
       href="/"
       className="brand"
-      aria-label="EchelonFox Consulting, home"
+      aria-label="EchelonFox, home"
       style={{ marginBottom: "2.5rem" }}
     >
       <Wordmark />

@@ -6,7 +6,6 @@ import Marked from "@/components/site/Marked";
 import WeekPattern from "@/components/site/illustrations/WeekPattern";
 import Arrow from "@/components/site/Arrow";
 import { getCase, publishedCases } from "@/lib/work-data";
-import { getCapability } from "@/lib/capabilities";
 import { pageMetadata } from "@/lib/metadata";
 type Params = { slug: string };
 export function generateStaticParams() {
@@ -21,7 +20,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCase(slug);
   return c
-    ? pageMetadata(`${c.descriptor} — Case Study`, c.context, `/work/${c.slug}`)
+    ? pageMetadata(
+        `${c.descriptor} — Case Study`,
+        `Revenue problem found: ${c.revenueProblem} ${c.context}`,
+        `/work/${c.slug}`,
+      )
     : {};
 }
 export default async function Case({ params }: { params: Promise<Params> }) {
@@ -49,6 +52,10 @@ export default async function Case({ params }: { params: Promise<Params> }) {
           <h1 className="h1" style={{ maxWidth: "25ch" }}>
             {c.title}
           </h1>
+          <p className="lead case-problem">
+            <span className="label">The revenue problem</span>
+            {c.revenueProblem}
+          </p>
         </div>
       </section>
       <section className="section section--white">
@@ -126,14 +133,15 @@ export default async function Case({ params }: { params: Promise<Params> }) {
       <section className="section">
         <div className="container split">
           <div>
-            <p className="label">Capabilities used</p>
-            <ul className="tag-list">
-              {c.capabilities.map((s) => (
-                <li key={s}>
-                  <Link href={`/services/${s}`}>{getCapability(s)!.name}</Link>
-                </li>
-              ))}
-            </ul>
+            <p className="label">How we work today</p>
+            <p className="muted">
+              Every engagement now starts with the Revenue Leak Diagnostic: the
+              leaks, measured in dollars and ranked, before anything is built.
+            </p>
+            <Link href="/what-we-do" className="arrow-link">
+              See how it works
+              <Arrow />
+            </Link>
           </div>
           <div>
             <p className="label">Next case study</p>
@@ -147,7 +155,7 @@ export default async function Case({ params }: { params: Promise<Params> }) {
           </div>
         </div>
       </section>
-      <FinalCta label="Discuss a Similar Challenge" />
+      <FinalCta />
     </PageShell>
   );
 }
