@@ -2448,7 +2448,7 @@ summary {
   }
 }
 
-/* Consulting identity: medium wordmark, regular descriptor, no illustration. */
+/* Identity: medium wordmark, no descriptor, no illustration. */
 .brand {
   gap: 0;
   font-weight: 500;
@@ -2469,15 +2469,6 @@ summary {
   letter-spacing: -0.028em;
   font-kerning: normal;
 }
-.wordmark__descriptor {
-  font-family: var(--font-manrope), Arial, sans-serif;
-  font-size: 0.48rem;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0.34em;
-  margin-top: 6px;
-  padding-left: 0.06em;
-}
 .wordmark--inverse {
   color: #ffffff;
 }
@@ -2495,10 +2486,6 @@ summary {
   .wordmark__name {
     font-size: 1.4rem;
   }
-  .wordmark__descriptor {
-    font-size: 0.44rem;
-    margin-top: 5px;
-  }
   .ai-hero .display {
     font-size: clamp(2.4rem, 8vw, 3.2rem);
   }
@@ -2506,4 +2493,310 @@ summary {
 .nav-dropdown__panel {
   max-height: calc(100dvh - 140px);
   overflow-y: auto;
+}
+
+/* Offer ladder: the Diagnostic first, then two paths side by side. */
+.offer-ladder {
+  margin-bottom: 2rem;
+}
+.offer-ladder h3 {
+  font-weight: 500;
+}
+.offer-start {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+}
+.offer-start h3 {
+  font-size: 1.8rem;
+  margin: 0.75rem 0 1rem;
+}
+.offer-start .btn {
+  margin-top: 0.5rem;
+}
+.offer-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-bottom: 1rem;
+}
+.offer-price strong {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #7c5138;
+  letter-spacing: -0.02em;
+  width: 100%;
+}
+.offer-price span {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.offer-price span + span::before {
+  content: "·";
+  margin-right: 14px;
+}
+.offer-note {
+  font-size: 0.85rem;
+  color: var(--graphite);
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+}
+.offer-then {
+  display: block;
+  margin: 2.5rem 0 1.25rem;
+}
+.offer-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.offer-path {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+}
+.offer-path__title {
+  font-size: 1.6rem;
+  margin: 0.75rem 0 1.5rem;
+}
+.offer-item {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+}
+.offer-item h4 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.offer-item p:not(.offer-price) {
+  font-size: 0.95rem;
+}
+.offer-fit {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--graphite);
+}
+.offer-fit span {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.offer-more {
+  margin-top: 1rem;
+}
+
+/* How It Works: one row per offer. */
+.offer-detail {
+  display: grid;
+  grid-template-columns: 45px 1fr 1fr;
+  gap: 3rem;
+  padding-block: 3rem;
+  border-top: 1px solid var(--rule);
+}
+.offer-detail .index {
+  padding-top: 6px;
+}
+.offer-detail .lead {
+  font-size: 1rem;
+}
+.offer-detail h2 {
+  margin-top: 0.75rem;
+}
+.offer-detail h3.label {
+  display: block;
+  font-family: var(--font-sans);
+  margin-bottom: 0.5rem;
+}
+.offer-excludes-head {
+  margin-top: 2rem;
+}
+.offer-facts {
+  margin: 1.5rem 0;
+}
+.offer-facts > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule);
+}
+.offer-facts dt {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  padding-top: 4px;
+}
+.offer-facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.exclude-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exclude-list li {
+  position: relative;
+  padding: 9px 0 9px 20px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+  color: var(--graphite);
+}
+.exclude-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 9px;
+  height: 1px;
+  background: var(--graphite);
+}
+.exclude-list li:last-child {
+  border-bottom: 0;
+}
+.exclude-list--large li {
+  font-size: 1.15rem;
+  color: var(--ink);
+  padding-block: 14px;
+}
+.exclude-list--large li::before {
+  top: 30px;
+}
+.marketing-list {
+  margin-bottom: 1.5rem;
+}
+
+/* Embedded Growth Team */
+.monthly-list > li {
+  display: grid;
+  grid-template-columns: 45px 0.8fr 1fr;
+  gap: 3rem;
+  align-items: baseline;
+}
+.monthly-list > li h3 {
+  margin: 0;
+  font-weight: 500;
+}
+.monthly-list > li p {
+  margin: 0;
+}
+.compare-wrap {
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 1rem 1.25rem 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+.compare-table thead th {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+}
+.compare-table thead th:nth-child(2),
+.compare-table td:nth-child(2) {
+  color: var(--ink);
+}
+.compare-table tbody th {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--graphite);
+  width: 16%;
+}
+.compare-table td {
+  color: var(--graphite);
+}
+
+/* Case studies */
+.case-problem {
+  margin-top: 1.75rem;
+  max-width: 46rem;
+}
+.case-problem .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.work-preview h3 + .small {
+  margin-top: -0.5rem;
+}
+
+/* Mobile navigation groups */
+.mobile-nav details.mobile-group > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  list-style: none;
+}
+.mobile-nav details.mobile-group > summary::-webkit-details-marker {
+  display: none;
+}
+.mobile-nav details.mobile-group ul {
+  padding: 4px 0 8px 18px;
+}
+.mobile-nav details.mobile-group a {
+  display: block;
+  font-size: 0.9rem;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .offer-start,
+  .offer-detail {
+    gap: 2rem;
+  }
+}
+@media (max-width: 760px) {
+  .offer-start,
+  .offer-paths {
+    grid-template-columns: 1fr;
+  }
+  .offer-start {
+    gap: 1rem;
+  }
+  .offer-detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .offer-facts > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .monthly-list > li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }

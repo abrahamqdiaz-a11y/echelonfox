@@ -23,7 +23,7 @@ const DESCRIPTION =
   "How independent insurance agencies get found in the map pack, organic results, and AI answers from ChatGPT, Perplexity, and Google AI Overviews: one ten-step plan covering GBP, citations, reviews, agent pages, schema, and content.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | EchelonFox AI Consulting` },
+  title: { absolute: `${TITLE} | EchelonFox` },
   description: DESCRIPTION,
   alternates: { canonical: URL },
   openGraph: {
@@ -398,16 +398,16 @@ const articleSchema = {
   dateModified: "2026-09-23",
   author: {
     "@type": "Organization",
-    name: "EchelonFox AI Consulting",
+    name: "EchelonFox",
     url: "https://echelonfox.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "EchelonFox AI Consulting",
+    name: "EchelonFox",
     url: "https://echelonfox.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://echelonfox.com/brand/echelonfox-consulting-navy.png",
+      url: "https://echelonfox.com/brand/echelonfox-navy.png",
     },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": URL },
@@ -818,9 +818,9 @@ export default function SearchVisibilityPage() {
             <NextLinks
               items={[
                 {
-                  href: "/services/customer-acquisition",
-                  label: "Customer acquisition and conversion",
-                  desc: "Where the profile, service pages, and location pages in this guide get built.",
+                  href: "/what-we-do",
+                  label: "How it works",
+                  desc: "The Revenue Leak Diagnostic and what comes after it, with prices.",
                 },
                 {
                   href: "/work/independent-insurance-agency",
@@ -828,9 +828,9 @@ export default function SearchVisibilityPage() {
                   desc: "A website rebuild that turned out to be about how prospects ask for a quote.",
                 },
                 {
-                  href: "/services/commercial-diagnosis",
-                  label: "Commercial diagnosis",
-                  desc: "When visibility isn't the real constraint, this is where we find out what is.",
+                  href: "/our-approach",
+                  label: "Our approach",
+                  desc: "Diagnose, Design, Build, Improve: measure the leak before fixing it.",
                 },
               ]}
             />
@@ -838,11 +838,7 @@ export default function SearchVisibilityPage() {
         </div>
       </article>
 
-      <FinalCta
-        eyebrow="Where do you appear today?"
-        title="Find out what's keeping your agency out of the results."
-        body="Tell us about your agency and your market. We'll look at your profile, citations, pages, and where you appear in AI answers, and tell you what to fix first."
-      />
+      <FinalCta />
     </PageShell>
   );
 }

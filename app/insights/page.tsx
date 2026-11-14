@@ -7,20 +7,20 @@ import Arrow from "@/components/site/Arrow";
 import { insights } from "@/lib/insights";
 
 export const metadata: Metadata = {
-  title: "Insights — Guides on growth, search, and the commercial system",
+  title: { absolute: "Insights — Notes from the Work | EchelonFox" },
   description:
-    "Practical guides for established companies on search, customer acquisition, follow-up, and growth strategy from EchelonFox.",
+    "Practical guides from EchelonFox for established companies on enquiries, follow-up and how customers find a business.",
   alternates: {
     canonical: "https://echelonfox.com/insights",
   },
   twitter: {
-    title: "Insights — EchelonFox AI Consulting",
-    description: "Practical guides on growth, search and business systems.",
+    title: "Insights — EchelonFox",
+    description: "Practical guides on enquiries, follow-up and how customers find a business.",
   },
   openGraph: {
-    title: "Insights — EchelonFox AI Consulting",
+    title: "Insights — EchelonFox",
     description:
-      "Practical guides on search, customer acquisition, follow-up, and growth strategy.",
+      "Practical guides on enquiries, follow-up and how customers find a business.",
     url: "https://echelonfox.com/insights",
     type: "website",
     images: [
@@ -40,7 +40,7 @@ export default function InsightsPage() {
       <PageHero
         eyebrow="Insights"
         title="Notes from the work."
-        lead="Practical guides on search, content, and growth for businesses that want marketing to work as part of a system. Some are written for a specific industry; the thinking applies more broadly."
+        lead="Practical guides written for business owners and managers. Some are written for a specific industry; the thinking applies more broadly."
       />
 
       <section className="section section--card" aria-label="Articles">

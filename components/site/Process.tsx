@@ -1,23 +1,28 @@
+/** Diagnose / Design / Build / Improve, mapped onto the offer ladder. */
 export const stages = [
   {
     name: "Diagnose",
-    title: "Understand the commercial challenge.",
-    body: "Understand goals, customers, workflows and systems. Identify the constraints and opportunities that matter.",
+    title: "Measure the leak.",
+    body: "The Revenue Leak Diagnostic puts a dollar figure on each leak and ranks them.",
+    offer: "Revenue Leak Diagnostic",
   },
   {
     name: "Design",
-    title: "Design the right approach.",
-    body: "Prioritise the work, define responsibilities and agree how the improvement will be evaluated.",
+    title: "Agree the fix.",
+    body: "Scope the top one or two leaks, agree the starting baseline and choose the number we will report.",
+    offer: "End of the Diagnostic, start of the Build",
   },
   {
     name: "Build",
-    title: "Build and test the solution.",
-    body: "Implement the agreed marketing, technology or operational solution and test how it works in practice.",
+    title: "Fix it.",
+    body: "Workflow, CRM, follow-up and reporting, tested with your team and handed over with training.",
+    offer: "Build, or the first months of the Embedded Growth Team",
   },
   {
     name: "Improve",
-    title: "Review, refine and improve.",
-    body: "Support adoption, review quality and exceptions, and refine the workflow with feedback from the team.",
+    title: "Keep it fixed.",
+    body: "Operate the system, make changes each month and report the number every week.",
+    offer: "Run, or the Embedded Growth Team",
   },
 ];
 export default function Process({ compact = false }: { compact?: boolean }) {
@@ -33,13 +38,13 @@ export default function Process({ compact = false }: { compact?: boolean }) {
             </span>
             <h3>{stage.name}</h3>
             <p className="process-title">{stage.title}</p>
-            {!compact && <p className="small muted">{stage.body}</p>}
+            <p className="small muted">{stage.body}</p>
           </li>
         ))}
       </ol>
       <div className="process-loop">
-        <span aria-hidden="true">↶</span> Review findings inform the next
-        priorities
+        <span aria-hidden="true">↶</span> Each week’s number shows where to look
+        next.
       </div>
     </div>
   );

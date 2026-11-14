@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { supportingCapabilities, coreCapabilities } from "@/lib/capabilities";
+import { offerList, PRIMARY_CTA } from "@/lib/offers";
+import { industries } from "@/lib/industries";
 import { SITE } from "@/lib/site";
 import Arrow from "./Arrow";
 import Wordmark from "./Wordmark";
@@ -8,49 +9,53 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-top">
-          <Link
-            className="brand"
-            href="/"
-            aria-label="EchelonFox Consulting, home"
-          >
+          <Link className="brand" href="/" aria-label="EchelonFox, home">
             <Wordmark />
           </Link>
           <p>{SITE.tagline}</p>
-          <a className="arrow-link" href={`mailto:${SITE.email}`}>
-            Start a conversation <Arrow />
-          </a>
+          <Link className="arrow-link" href={PRIMARY_CTA.href}>
+            {PRIMARY_CTA.label} <Arrow />
+          </Link>
         </div>
         <div className="site-footer__grid">
           <div>
             <p className="footer-statement">
-              Business strategy.
+              Marketing, sales
               <br />
-              Connected technology.
+              and customer retention,
               <br />
-              Practical execution.
+              run as one system.
             </p>
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <div>
-            <h2 className="label">Capabilities</h2>
+            <h2 className="label">What we do</h2>
             <ul>
-              {[...supportingCapabilities, ...coreCapabilities].map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/services/${c.slug}`}>{c.name}</Link>
+              {offerList.map((o) => (
+                <li key={o.id}>
+                  <Link
+                    href={
+                      o.id === "embedded-growth-team"
+                        ? "/embedded-growth-team"
+                        : `/what-we-do#${o.id}`
+                    }
+                  >
+                    {o.name}
+                  </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/services#business-systems">
-                  Business strategy & systems
-                </Link>
-              </li>
+              {industries.map((i) => (
+                <li key={i.slug}>
+                  <Link href={`/industries/${i.slug}`}>{i.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <h2 className="label">Explore</h2>
             <ul>
               {[
-                ["Services", "/services"],
+                ["How It Works", "/what-we-do"],
                 ["Our Approach", "/our-approach"],
                 ["Selected Work", "/work"],
                 ["About", "/about"],
@@ -72,7 +77,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book a conversation
+                  Book a call
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </li>

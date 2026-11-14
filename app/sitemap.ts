@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { capabilities } from "@/lib/capabilities";
+import { industries } from "@/lib/industries";
 import { publishedCases } from "@/lib/work-data";
 
 const BASE = "https://echelonfox.com";
+const REPOSITION = "2026-11-14";
 const REDESIGN = "2026-11-11";
 
 type Entry = {
@@ -13,67 +14,75 @@ type Entry = {
 };
 
 const entries: Entry[] = [
-  { path: "", lastModified: REDESIGN, changeFrequency: "monthly", priority: 1 },
+  { path: "", lastModified: REPOSITION, changeFrequency: "monthly", priority: 1 },
   {
     path: "/contact",
-    lastModified: REDESIGN,
+    lastModified: REPOSITION,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+
+  // Offers
+  {
+    path: "/what-we-do",
+    lastModified: REPOSITION,
     changeFrequency: "monthly",
     priority: 0.9,
   },
   {
-    path: "/about",
-    lastModified: REDESIGN,
+    path: "/embedded-growth-team",
+    lastModified: REPOSITION,
     changeFrequency: "monthly",
     priority: 0.8,
   },
 
-  {
-    path: "/our-approach",
-    lastModified: REDESIGN,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  },
-
-  // Retained services and new supporting capabilities
-  {
-    path: "/services",
-    lastModified: REDESIGN,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  },
-  ...capabilities.map((c) => ({
-    path: `/services/${c.slug}`,
-    lastModified: REDESIGN,
+  // Industries
+  ...industries.map((i) => ({
+    path: `/industries/${i.slug}`,
+    lastModified: REPOSITION,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   })),
 
+  {
+    path: "/our-approach",
+    lastModified: REPOSITION,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    path: "/about",
+    lastModified: REPOSITION,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+
   // Work
   {
     path: "/work",
-    lastModified: REDESIGN,
+    lastModified: REPOSITION,
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: 0.7,
   },
   ...publishedCases.map((c) => ({
     path: `/work/${c.slug}`,
-    lastModified: REDESIGN,
+    lastModified: REPOSITION,
     changeFrequency: "yearly" as const,
-    priority: 0.7,
+    priority: 0.6,
   })),
 
   // Insights
   {
     path: "/insights",
-    lastModified: REDESIGN,
+    lastModified: REPOSITION,
     changeFrequency: "monthly",
-    priority: 0.7,
+    priority: 0.5,
   },
   {
     path: "/insights/search-visibility-for-insurance-agencies",
-    lastModified: REDESIGN,
+    lastModified: REPOSITION,
     changeFrequency: "yearly",
-    priority: 0.6,
+    priority: 0.5,
   },
 
   // Legal

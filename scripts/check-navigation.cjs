@@ -93,22 +93,33 @@ const rootNode = createRoot(document.getElementById("app"));
     "/our-approach",
   );
   assert(document.querySelector('.skip-link[href="#main"]'));
-  assert.equal(document.querySelectorAll(".nav-dropdown__panel a").length, 10);
-  for (const slug of [
-    "ai-strategy",
-    "ai-automation",
-    "ai-assistants",
-    "ai-adoption",
+  const dropdowns = document.querySelectorAll(".nav-dropdown");
+  assert.equal(dropdowns.length, 2, "What We Do and Industries dropdowns");
+  assert.equal(
+    dropdowns[0].querySelector("summary").textContent.trim().split(" ")[0],
+    "What",
+  );
+  for (const href of [
+    "/what-we-do",
+    "/embedded-growth-team",
+    "/industries/industrial-manufacturers-distributors",
   ]) {
-    assert(
-      document.querySelector(
-        `.nav-dropdown__panel a[href="/services/${slug}"]`,
-      ),
-    );
+    assert(document.querySelector(`.nav-dropdown__panel a[href="${href}"]`), href);
   }
+  assert(!document.querySelector('a[href^="/services"]'), "no retired service links");
+  // Opening one dropdown closes the other.
+  dropdowns[0].open = true;
+  dropdowns[1].open = true;
+  await act(async () => dropdowns[1].dispatchEvent(new window.Event("toggle")));
+  assert(!dropdowns[0].open && dropdowns[1].open);
+  dropdowns[1].open = false;
+  // A child page marks its group as current.
+  pathname = "/embedded-growth-team";
+  await act(async () => rootNode.render(React.createElement(Header)));
+  assert(dropdowns[0].querySelector("summary").classList.contains("is-current"));
   await act(async () => rootNode.unmount());
   console.log(
-    "PASS: mobile toggle, Escape and focus return, desktop dropdown dismissal, route-change reset, current page and capability links.",
+    "PASS: mobile toggle, Escape and focus return, desktop dropdown dismissal, route-change reset, current page, dropdown groups and offer/industry links.",
   );
 })().catch((e) => {
   console.error(e);

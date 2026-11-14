@@ -1,33 +1,28 @@
-# EchelonFox Consulting
+# EchelonFox
 
-> EchelonFox AI Consulting. Business Strategy. Technology. Execution. A boutique consultancy helping businesses identify commercial constraints and implement practical improvements across marketing, technology and operations.
+> EchelonFox is a revenue operations consultancy. Revenue operations means marketing, sales and customer retention run as one system. We find where established B2B companies lose revenue they have already earned, fix it, and keep it fixed. Typical leaks: enquiries and quote requests that are never answered or followed up, customers who quietly stopped ordering, a pipeline that lives in inboxes and spreadsheets, and marketing spend nobody can trace to revenue.
 
-## AI services
+## Offers and prices
 
-- [Consulting Capabilities](https://echelonfox.com/services): Strategy, implementation and adoption connected to business priorities.
-- [AI Strategy & Readiness](https://echelonfox.com/services/ai-strategy): Opportunity discovery, readiness assessment and implementation planning.
-- [AI Workflow & Automation](https://echelonfox.com/services/ai-automation): Process assessment, AI-assisted workflows and business-tool integration with human oversight.
-- [AI Assistants & Integrations](https://echelonfox.com/services/ai-assistants): Focused knowledge and enquiry assistants with source checking, permissions and human handoff.
-- [AI Adoption & Improvement](https://echelonfox.com/services/ai-adoption): Team guidance, evaluation, ownership and workflow refinement.
+Every engagement starts with the Diagnostic. After it, a client takes one of two paths.
 
-## Approach and company
+- [Revenue Leak Diagnostic](https://echelonfox.com/what-we-do#diagnostic): From $2,000, fixed fee, two weeks. A costed, ranked list of where revenue is being lost. The fee is credited to a Build signed within 30 days.
+- [Build](https://echelonfox.com/what-we-do#build) (path A): From $6,000, fixed scope, six to eight weeks. Fixes the top one or two leaks: workflow, CRM setup, follow-up and reporting. Includes training and 30 days of fixes.
+- [Run](https://echelonfox.com/what-we-do#run) (path A): From $1,000 a month. Three-month minimum, then monthly. We operate what we built, make a fixed number of changes each month and report one revenue number weekly against the starting baseline.
+- [Embedded Growth Team](https://echelonfox.com/embedded-growth-team) (path B): From $4,200 a month. Six-month minimum. A part-time head of growth plus our technical team, working inside the client's business.
 
-- [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve. Understand the work before choosing the technology.
-- [About](https://echelonfox.com/about): Business and technology consultancy connecting commercial understanding with practical execution.
-- [Contact](https://echelonfox.com/contact): Discuss commercial challenges and the work you want to improve.
+## Pages
 
-## Business strategy, marketing and operations
+- [How It Works](https://echelonfox.com/what-we-do): What each offer includes and excludes, how long it takes, what it costs and the number it moves.
+- [Industrial manufacturers & distributors](https://echelonfox.com/industries/industrial-manufacturers-distributors): Slow quotes, quotes never followed up, and accounts that stopped reordering.
+- [Our Approach](https://echelonfox.com/our-approach): Diagnose, Design, Build, Improve.
+- [Selected Work](https://echelonfox.com/work): Three documented projects, each described by the revenue problem found.
+- [About](https://echelonfox.com/about): A revenue operations consultancy.
+- [Contact](https://echelonfox.com/contact): Book a Revenue Leak Diagnostic.
 
-- [Growth Strategy](https://echelonfox.com/services/commercial-diagnosis)
-- [Marketing & Customer Acquisition](https://echelonfox.com/services/customer-acquisition)
-- [Sales & Conversion Systems](https://echelonfox.com/services/sales-process-crm)
-- [Technology & Operations](https://echelonfox.com/services/technology-operations)
-- [Websites & Digital Infrastructure](https://echelonfox.com/services/websites-digital-infrastructure)
+## Marketing scope
 
-## Work and insights
-
-- [Selected Work](https://echelonfox.com/work): Existing commercial analysis, website and enquiry-system work. These projects are not described as AI implementations.
-- [Insights](https://echelonfox.com/insights): Practical guides on business systems and search visibility.
+We capture and route enquiries, write follow-up and nurture emails, run campaigns to win back lapsed customers, track which sources produce revenue, and report. We do not perform SEO, paid advertising, content production or social media management; we plan them and manage the specialists who do them.
 
 ## Contact
 

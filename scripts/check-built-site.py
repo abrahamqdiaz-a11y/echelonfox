@@ -103,8 +103,34 @@ check(subscribe.canonical == BASE+'/subscribe', 'Subscription canonical mismatch
 check('noindex' in subscribe.meta.get('robots', ''), 'Subscription must remain noindex')
 check('/work/beauty-barber-supply-wholesaler' not in paths, 'Unpublished case exposed')
 for path in paths:
-    if path.startswith('/services/'):
+    if path in ('/what-we-do', '/embedded-growth-team') or path.startswith('/industries/'):
         check(any(s.get('@type') == 'Service' for s in pages[path].schemas), f'{path}: missing Service schema')
+    check(not path.startswith('/services'), f'{path}: retired service page in sitemap')
+
+# Every public page ends with the same single call to action.
+for path, page in pages.items():
+    if path in ('/contact', '/privacy', '/terms'): continue
+    text = file_for(path).read_text()
+    check(text.count('>Find out what the leak is worth.</h2>') == 1, f'{path}: missing or repeated closing call to action')
+
+# Copy rules.
+banned = ['owner-led', 'leverage', 'unlock', 'synergy', 'Business Strategy. Technology. Execution', 'EchelonFox Consulting', 'EchelonFox AI Consulting']
+for path in paths:
+    if path in ('/privacy', '/terms'): continue
+    text = file_for(path).read_text()
+    for word in banned:
+        check(word.lower() not in text.lower(), f'{path}: banned phrase "{word}"')
+
+# Prices appear exactly as published.
+home = file_for('/').read_text()
+for price in ['From $2,000', 'From $6,000', 'From $1,000 a month', 'From $4,200 a month']:
+    check(price in home, f'/: missing price {price}')
+
+# Retired URLs redirect to What We Do.
+config = (ROOT / 'next.config.ts').read_text()
+for slug in ['commercial-diagnosis', 'customer-acquisition', 'sales-process-crm', 'technology-operations', 'ai-automation', 'websites-digital-infrastructure', 'ai-strategy', 'ai-assistants', 'ai-adoption']:
+    check(f'"{slug}"' in config, f'missing redirect for /services/{slug}')
+check('moved("/services", "/what-we-do")' in config, 'missing /services redirect')
 
 css = (ROOT / 'app/globals.css').read_text()
 check('prefers-reduced-motion' in css, 'Missing reduced-motion handling')

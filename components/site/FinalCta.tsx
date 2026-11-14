@@ -1,39 +1,29 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
-import { SITE } from "@/lib/site";
-export default function FinalCta({
-  eyebrow = "The next step",
-  title = "Find the right way forward.",
-  body = "Tell us what your business needs to improve. We’ll explore the commercial challenge and the practical steps worth taking.",
-  label = "Discuss Your Business",
-}: {
-  eyebrow?: string;
-  title?: string;
-  body?: string;
-  label?: string;
-}) {
+import { PRIMARY_CTA } from "@/lib/offers";
+
+/**
+ * The single closing call to action. Every page ends with this block, unchanged,
+ * so it takes no props.
+ */
+export default function FinalCta() {
   return (
     <section className="final-cta">
       <div className="container split">
         <div>
-          <p className="eyebrow">{eyebrow}</p>
-          <h2 className="h2">{title}</h2>
-          <p className="lead">{body}</p>
+          <p className="eyebrow">The next step</p>
+          <h2 className="h2">Find out what the leak is worth.</h2>
+          <p className="lead">
+            Two weeks and a fixed fee from $2,000. You get a costed, ranked list
+            of where your business is losing revenue, and the fee is credited to
+            a Build signed within 30 days.
+          </p>
         </div>
         <div className="final-cta__actions">
-          <Link className="btn btn--copper" href="/contact">
-            {label}
+          <Link className="btn btn--copper" href={PRIMARY_CTA.href}>
+            {PRIMARY_CTA.label}
             <Arrow />
           </Link>
-          <a
-            className="text-link small"
-            href={SITE.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Or book a conversation
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
         </div>
       </div>
     </section>

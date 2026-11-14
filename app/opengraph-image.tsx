@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 export const alt =
-  "EchelonFox Consulting — Business Strategy. Technology. Execution.";
+  "EchelonFox — Find the revenue your business already earned and lost.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default async function OgImage() {
@@ -10,7 +10,7 @@ export default async function OgImage() {
     join(process.cwd(), "app/_og/Manrope-Regular.ttf"),
   );
   const logo = await readFile(
-    join(process.cwd(), "public/brand/echelonfox-consulting-white.svg"),
+    join(process.cwd(), "public/brand/echelonfox-white.svg"),
   );
   return new ImageResponse(
     <div
@@ -29,9 +29,9 @@ export default async function OgImage() {
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
           src={`data:image/svg+xml;base64,${logo.toString("base64")}`}
-          width={245}
-          height={73}
-          alt="EchelonFox Consulting"
+          width={229}
+          height={40}
+          alt="EchelonFox"
         />
       </div>
       <div
@@ -43,9 +43,9 @@ export default async function OgImage() {
           letterSpacing: -1.5,
         }}
       >
-        <span>Business Strategy.</span>
-        <span>Technology.</span>
-        <span>Execution.</span>
+        <span>Find the revenue</span>
+        <span>your business already</span>
+        <span>earned and lost.</span>
       </div>
       <div
         style={{
@@ -57,7 +57,7 @@ export default async function OgImage() {
           color: "#BEC5CA",
         }}
       >
-        <span>Independent business &amp; technology consultancy</span>
+        <span>Revenue operations for established B2B companies</span>
         <span>echelonfox.com</span>
       </div>
     </div>,
