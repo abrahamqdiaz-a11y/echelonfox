@@ -5,11 +5,11 @@ export const SITE = {
   name: "EchelonFox",
   publicName: "EchelonFox",
   displayName: "EchelonFox",
-  tagline: "Revenue operations for established B2B companies.",
+  tagline: "Go-to-market strategy and revenue operations for established B2B companies.",
   headline: "Find the revenue your business already earned and lost.",
   url: "https://echelonfox.com",
   description:
-    "We find where established B2B companies lose revenue they already earned, fix it and keep it fixed. Revenue Leak Diagnostic from $2,000.",
+    "GTM strategy and revenue operations for established B2B companies. We sharpen how you win customers, find revenue leaks and fix the systems behind growth. Diagnostic from $2,000.",
   email: "abe.quinn@echelonfox.com",
   bookingUrl: "https://cal.com/abe-quinn/growth-meeting",
   linkedin: "https://www.linkedin.com/company/echelonfox/",
@@ -28,6 +28,8 @@ export const PRIMARY_NAV: NavItem[] = [
     label: "What We Do",
     href: "/what-we-do",
     children: [
+      { label: "GTM Strategy", href: "/what-we-do#gtm-strategy" },
+      { label: "Revenue Operations", href: "/what-we-do#revenue-operations" },
       { label: "How It Works", href: "/what-we-do" },
       { label: "Embedded Growth Team", href: "/embedded-growth-team" },
     ],
