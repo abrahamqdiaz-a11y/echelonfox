@@ -12,7 +12,7 @@ const egt = offers["embedded-growth-team"];
 const diagnostic = offers.diagnostic;
 const TITLE = "Embedded Growth Team — Part-Time Revenue Leadership";
 const DESCRIPTION =
-  "A part-time head of growth plus our technical team, working inside your business. Planning, pipeline reviews, systems and vendor management. From $4,200 a month.";
+  "Fractional GTM leadership and revenue operations for B2B companies. A part-time head of growth plus a technical team for planning, pipeline reviews, CRM, automation and vendor management. From $4,200 a month.";
 
 export const metadata = pageMetadata(TITLE, DESCRIPTION, "/embedded-growth-team");
 
@@ -25,7 +25,7 @@ const signs = [
 const monthly = [
   {
     title: "Planning",
-    body: "A written plan, reviewed each month, built on the leaks found in the Diagnostic.",
+    body: "A written go-to-market and revenue plan, reviewed each month and built on the priorities found in the Diagnostic.",
   },
   {
     title: "A weekly pipeline review",
