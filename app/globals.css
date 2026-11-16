@@ -2182,22 +2182,29 @@ summary {
   max-width: 540px;
 }
 
-/* Hero: marketing, sales and retention as one clearly connected system. */
-.signal-system {
+/* Supplied Growth Map: animated canvas in a sandboxed, responsive embed. */
+.growth-map-hero {
   margin: 0;
   min-width: 0;
+  width: 100%;
 }
-.signal-system__stage {
-  position: relative;
-  isolation: isolate;
-  min-height: 510px;
-  border: 1px solid var(--rule);
+.growth-map-hero__frame {
+  display: block;
+  width: 100%;
+  height: 590px;
+  border: 0;
+  margin-inline: auto;
+  background: transparent;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 51%, rgba(115, 102, 240, 0.10), transparent 45%),
-    linear-gradient(165deg, #fff 12%, var(--paper) 100%);
 }
-.signal-system__mesh,
+.growth-map-hero__caption {
+  margin-top: -0.1rem;
+  color: var(--graphite);
+  font-size: 0.65rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
 .editorial-panel__grid {
   position: absolute;
   inset: 0;
@@ -2208,126 +2215,9 @@ summary {
   background-size: 38px 38px;
   opacity: 0.55;
 }
-.signal-system__paths {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.signal-system__paths path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-opacity: 0.48;
-  stroke-width: 1.3;
-  stroke-dasharray: 5 9;
-  animation: signal-path-flow 22s linear infinite;
-}
-.signal-system__core {
-  position: absolute;
-  z-index: 3;
-  top: 53%;
-  left: 50%;
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: white;
-  box-shadow: 0 0 0 13px rgba(115,102,240,0.075), 0 25px 55px rgba(17,24,39,0.12);
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-  padding: 1.4rem;
-  animation: signal-core-drift 8s ease-in-out infinite;
-}
-.signal-system__core-label,
-.signal-system__core-meta {
-  color: var(--on-ink-muted);
-  font-size: 0.62rem;
-  line-height: 1.45;
-}
-.signal-system__core-label {
-  letter-spacing: 0.12em;
-}
-.signal-system__core strong {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.1rem;
-  line-height: 1.15;
-}
-.signal-system__node {
-  position: absolute;
-  z-index: 2;
-  width: min(38%, 196px);
-  padding: clamp(0.8rem, 1.6vw, 1.1rem);
-  border: 1px solid #dad6f8;
-  background: rgba(255,255,255,0.94);
-  box-shadow: 0 12px 34px rgba(17,24,39,0.055);
-}
-.signal-system__node span,
-.signal-system__node strong {
-  display: block;
-}
-.signal-system__node-kicker {
-  color: var(--accent-text);
-  font-size: 0.59rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  margin-bottom: 0.55rem;
-  font-weight: 600;
-}
-.signal-system__node strong {
-  font-family: var(--font-serif);
-  font-size: clamp(0.82rem, 1.25vw, 1.05rem);
-  font-weight: 600;
-  line-height: 1.22;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-}
-.signal-system__node span:last-child {
-  font-size: 0.7rem;
-  line-height: 1.5;
-  color: var(--graphite);
-}
-.signal-system__node--one {
-  top: 9%;
-  left: 4%;
-  animation: signal-float 8s ease-in-out infinite;
-}
-.signal-system__node--two {
-  top: 13%;
-  right: 4%;
-  animation: signal-float 9s ease-in-out -3s infinite;
-}
-.signal-system__node--three {
-  left: 50%;
-  bottom: 5%;
-  width: min(46%, 220px);
-  transform: translateX(-50%);
-  animation: signal-float-centred 9s ease-in-out -1.5s infinite;
-}
-.signal-system__annotation {
-  position: absolute;
-  font-size: 0.59rem;
-  color: var(--accent-text);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-.signal-system__annotation--left { left: 5%; bottom: 16%; }
-.signal-system__annotation--right { right: 5%; bottom: 16%; }
-.signal-system figcaption {
-  margin-top: 1rem;
-  font-size: 0.65rem;
-  color: var(--graphite);
-  letter-spacing: 0.065em;
-  line-height: 1.5;
-  text-transform: uppercase;
+@media (max-width: 760px) {
+  .growth-map-hero { max-width: 620px; margin-inline: auto; }
+  .growth-map-hero__caption { text-align: left; }
 }
 
 .application-list > article {
@@ -2503,11 +2393,9 @@ summary {
   50% { transform: translate(-50%,-50%) scale(1.04); opacity: 0.8; }
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .signal-system__node,
   .editorial-panel__callout {
     transition: box-shadow 220ms ease, border-color 220ms ease;
   }
-  .signal-system__node:hover,
   .editorial-panel__callout:hover {
     border-color: var(--accent);
     box-shadow: 0 16px 42px rgba(17,24,39,0.11);
@@ -2976,31 +2864,11 @@ summary {
   }
 }
 
-/* Revenue illustration breakpoints override earlier shared hero rules. */
-@media (max-width: 1100px) {
-  .signal-system__stage { min-height: 465px; }
-  .signal-system__core { width: 148px; height: 148px; }
-  .signal-system__node { width: 42%; }
-  .signal-system__node--three { width: 52%; }
-  .signal-system__annotation { display: none; }
-}
+/* Mid-page editorial illustration on smaller screens. */
 @media (max-width: 760px) {
-  .signal-system { width: 100%; max-width: 620px; margin-inline: auto; }
-  .signal-system__stage { min-height: 490px; }
-  .signal-system figcaption { text-align: left; }
   .editorial-panel { min-height: 440px; }
 }
 @media (max-width: 480px) {
-  .signal-system__stage { min-height: 470px; }
-  .signal-system__node { width: 43%; padding: 0.7rem; }
-  .signal-system__node--one { top: 5%; left: 3%; }
-  .signal-system__node--two { top: 5%; right: 3%; }
-  .signal-system__node--three { width: 58%; bottom: 4%; }
-  .signal-system__node-kicker { font-size: 0.51rem; margin-bottom: 0.3rem; }
-  .signal-system__node strong { font-size: 0.86rem; }
-  .signal-system__node span:last-child { font-size: 0.64rem; }
-  .signal-system__core { width: 145px; height: 145px; top: 54%; }
-  .signal-system__paths { opacity: 0.5; }
   .editorial-panel { min-height: 425px; }
   .editorial-panel__orbit--outer { width: 275px; height: 275px; }
   .editorial-panel__orbit--inner { width: 195px; height: 195px; }
@@ -3010,15 +2878,9 @@ summary {
   .editorial-panel__callout--three { bottom: 4%; }
   .editorial-panel__core { width: 140px; height: 140px; }
 }
-/* Respect OS motion settings even if the client-side observer is disabled. */
 @media (prefers-reduced-motion: reduce) {
-  .signal-system__paths path,
-  .signal-system__node,
-  .signal-system__core,
   .editorial-panel__orbit,
-  .editorial-panel__callout {
-    animation: none !important;
-  }
+  .editorial-panel__callout { animation: none !important; }
 }
 
 /* GTM strategy + RevOps: two editorial pillars, not product-style cards. */
