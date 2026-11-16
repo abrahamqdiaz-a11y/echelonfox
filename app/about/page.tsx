@@ -6,8 +6,8 @@ import FinalCta from "@/components/site/FinalCta";
 import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "About — A Revenue Operations Consultancy",
-  "EchelonFox is a revenue operations consultancy. We run marketing, sales and customer retention as one system for established B2B companies.",
+  "About — GTM Strategy & Revenue Operations",
+  "EchelonFox combines go-to-market strategy with revenue operations. We help established B2B businesses sharpen how they acquire customers and fix the systems behind conversion and retention.",
   "/about",
 );
 const deliveryPrinciples = [
@@ -31,22 +31,23 @@ export default function About() {
       <PageHero
         eyebrow="About EchelonFox"
         title="We find the revenue a business already earned and lost."
-        lead="EchelonFox is a revenue operations consultancy. We run marketing, sales and customer retention as one system for established B2B companies, so revenue stops leaking out between them."
+        lead="EchelonFox combines go-to-market strategy and revenue operations. We help established B2B companies decide how to win more of the right customers and build the systems that prevent revenue from leaking away."
       />
       <section className="section section--white">
         <div className="container split">
           <div>
-            <p className="eyebrow">Why revenue operations</p>
+            <p className="eyebrow">Why GTM and RevOps</p>
             <h2 className="h2">
-              The leaks sit
+              A good plan needs
               <br />
-              between the teams.
+              a system behind it.
             </h2>
           </div>
           <div>
             <p className="lead">
-              Marketing brings in an enquiry. Sales sends a quote. Someone else
-              looks after the account.
+              Go-to-market strategy defines the customers, the message and the
+              way to win. Revenue operations connects what happens after that:
+              enquiries, quotes, pipeline and repeat business.
             </p>
             <p className="muted">
               When nobody owns the system that connects them, revenue falls
@@ -54,8 +55,9 @@ export default function About() {
               ordering. Spend goes out with no line back to sales.
             </p>
             <p className="muted">
-              We take ownership of that system. We measure what the gaps cost in
-              dollars, fix the biggest ones and keep them fixed.
+              We connect commercial strategy to execution. We measure what
+              revenue gaps cost in dollars, fix the biggest ones and keep
+              those systems working.
             </p>
             <p className="delivery-note">
               Public prices. Fixed scope. One number, reported weekly.

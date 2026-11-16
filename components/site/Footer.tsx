@@ -20,17 +20,19 @@ export default function Footer() {
         <div className="site-footer__grid">
           <div>
             <p className="footer-statement">
-              Marketing, sales
+              Go-to-market strategy
               <br />
-              and customer retention,
+              and revenue operations,
               <br />
-              run as one system.
+              working as one.
             </p>
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <div>
             <h2 className="label">What we do</h2>
             <ul>
+              <li><Link href="/what-we-do#gtm-strategy">GTM Strategy</Link></li>
+              <li><Link href="/what-we-do#revenue-operations">Revenue Operations</Link></li>
               {offerList.map((o) => (
                 <li key={o.id}>
                   <Link

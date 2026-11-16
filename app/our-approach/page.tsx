@@ -8,7 +8,7 @@ import Arrow from "@/components/site/Arrow";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
   "Our Approach — Diagnose, Design, Build, Improve",
-  "How EchelonFox measures where revenue is leaking, agrees the fix, builds it and keeps it fixed. Four steps, mapped to the Diagnostic, Build, Run and Embedded Growth Team.",
+  "How EchelonFox connects GTM priorities with revenue operations, measures revenue leaks, designs improvements and keeps them working across Diagnostic, Build, Run and Embedded Growth Team engagements.",
   "/our-approach",
 );
 const details = [
@@ -23,7 +23,7 @@ export default function Approach() {
       <PageHero
         eyebrow="Our Approach"
         title="Measure the leak. Fix it. Keep it fixed."
-        lead="Diagnose, Design, Build, Improve. The same four steps, whichever path you take after the Diagnostic."
+        lead="We connect go-to-market priorities to the sales and retention systems that deliver them. Diagnose, Design, Build, Improve: the same four steps, whichever path you take after the Diagnostic."
       />
       <section className="section section--white">
         <div className="container">

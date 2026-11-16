@@ -45,7 +45,7 @@ export default function ServiceSchema({
           "@context": "https://schema.org",
           "@type": "Service",
           name,
-          serviceType: "Revenue operations consulting",
+          serviceType: "Go-to-market strategy and revenue operations consulting",
           description,
           url,
           provider: {

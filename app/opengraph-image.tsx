@@ -57,7 +57,7 @@ export default async function OgImage() {
           color: "#BEC5CA",
         }}
       >
-        <span>Revenue operations for established B2B companies</span>
+        <span>GTM strategy + RevOps for established B2B companies</span>
         <span>echelonfox.com</span>
       </div>
     </div>,

@@ -1,38 +1,55 @@
-import Image from "next/image";
+/** 
+ * A purpose-built RevOps illustration, not a product screenshot or customer data.
+ * Pure CSS animation; the static design remains legible without JavaScript.
+ */
 export default function PeoplePanels() {
   return (
-    <figure
-      className="people-panels"
-      aria-label="Illustrative workplace photography"
-    >
-      <div className="people-panels__images">
-        <div className="people-panel people-panel--first">
-          <Image
-            src="/images/consultancy/collaboration.webp"
-            alt="People working together around a table with laptops"
-            width={1000}
-            height={667}
-            sizes="(max-width: 760px) 45vw, 23vw"
-            priority
-          />
+    <figure className="signal-system">
+      <div
+        className="signal-system__stage"
+        role="img"
+        aria-label="Marketing, sales and customer retention connected through one revenue operations system"
+      >
+        <div className="signal-system__mesh" aria-hidden="true" />
+        <svg
+          className="signal-system__paths"
+          viewBox="0 0 600 510"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M300 270 C248 198 199 160 132 139" />
+          <path d="M300 270 C375 198 423 177 486 144" />
+          <path d="M300 270 C300 330 300 372 300 428" />
+        </svg>
+
+        <div className="signal-system__core" aria-hidden="true">
+          <span className="signal-system__core-label">ECHELONFOX</span>
+          <strong>Revenue operations</strong>
+          <span className="signal-system__core-meta">One connected system</span>
         </div>
-        <div className="people-panel people-panel--second">
-          <Image
-            src="/images/consultancy/implementation-review.webp"
-            alt="Two people reviewing code on a computer"
-            width={1100}
-            height={733}
-            sizes="(max-width: 760px) 45vw, 23vw"
-            priority
-          />
+
+        <div className="signal-system__node signal-system__node--one" aria-hidden="true">
+          <span className="signal-system__node-kicker">01 / Marketing</span>
+          <strong>Demand captured</strong>
+          <span>Every enquiry has a next step.</span>
         </div>
-        <div className="people-panels__annotation">
-          <span aria-hidden="true">+</span> Human judgement.
-          <br />
-          Practical intelligence.
+        <div className="signal-system__node signal-system__node--two" aria-hidden="true">
+          <span className="signal-system__node-kicker">02 / Sales</span>
+          <strong>Quotes followed up</strong>
+          <span>Every open opportunity has an owner.</span>
         </div>
+        <div className="signal-system__node signal-system__node--three" aria-hidden="true">
+          <span className="signal-system__node-kicker">03 / Retention</span>
+          <strong>Customers monitored</strong>
+          <span>Changes in buying behaviour get noticed.</span>
+        </div>
+
+        <span className="signal-system__annotation signal-system__annotation--left" aria-hidden="true">Identify the leak</span>
+        <span className="signal-system__annotation signal-system__annotation--right" aria-hidden="true">Keep it fixed</span>
       </div>
-      <figcaption>Built around people. Connected to the work.</figcaption>
+      <figcaption>
+        Marketing, sales and customer retention working as one system.
+      </figcaption>
     </figure>
   );
 }

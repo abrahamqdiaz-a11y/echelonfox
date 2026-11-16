@@ -1,6 +1,6 @@
 # EchelonFox
 
-Revenue operations consultancy website, built with Next.js 16, React and TypeScript. Public pages use the midnight navy (`#111827`), warm ivory (`#F8F7F4`) and periwinkle (`#7366F0`) design system in `app/globals.css`. Headlines use Instrument Sans; body text and UI use Geist. Both fonts are bundled by `next/font/google` at build time.
+Go-to-market strategy and revenue operations consultancy website, built with Next.js 16, React and TypeScript. Public pages use the midnight navy (`#111827`), warm ivory (`#F8F7F4`) and periwinkle (`#7366F0`) design system in `app/globals.css`. Headlines use Instrument Sans; body text and UI use Geist. Both fonts are bundled by `next/font/google` at build time.
 
 ## Development
 
@@ -11,11 +11,19 @@ npm run dev
 
 Production remains hosted on Netlify. Contact submissions depend on Netlify Forms; a local server does not prove notification delivery.
 
+## Positioning
+
+- GTM Strategy determines which customers to target, the value proposition and the sales motion.
+- Revenue Operations improves the handoffs, CRM, quoting, follow-up and retention systems that deliver the strategy.
+- Revenue leakage remains the core entry problem, and all pricing and scopes remain in `lib/offers.ts`.
+- Capability anchors on `/what-we-do` are `#gtm-strategy` and `#revenue-operations`.
+
 ## Design system
 
 - `app/layout.tsx` loads Instrument Sans and Geist as self-hosted font assets via Next.js.
 - `app/globals.css` contains the palette and typography tokens. The darker `--accent-action` is used behind white button labels for WCAG AA contrast.
 - Existing page content, pricing, tracking behaviour and public routes remain unchanged by the typography and colour refresh.
+- The homepage now uses CSS-drawn, accessible revenue-system illustrations in place of generic workplace photographs. Subtle CSS motion respects `prefers-reduced-motion` and remains legible without JavaScript.
 
 ## Validation
 
