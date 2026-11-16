@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const headingStyle: CSSProperties = {
-  fontFamily: "var(--font-serif)",
+  fontFamily: "var(--font-heading)",
   fontWeight: 400,
   fontSize: "2rem",
   lineHeight: 1.15,

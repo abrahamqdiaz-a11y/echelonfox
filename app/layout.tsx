@@ -6,15 +6,15 @@ import { offerList } from "@/lib/offers";
 import { offerSchema } from "@/components/site/ServiceSchema";
 import CookieConsent from "@/components/CookieConsent";
 import { SITE } from "@/lib/site";
-const manrope = localFont({
-  src: "./fonts/Manrope.woff2",
-  variable: "--font-manrope",
+const instrumentSans = localFont({
+  src: "./fonts/instrument-sans.woff2",
+  variable: "--font-instrument-sans",
   display: "swap",
-  weight: "200 800",
+  weight: "400 700",
 });
-const inter = localFont({
-  src: "./fonts/Inter.woff2",
-  variable: "--font-inter",
+const geist = localFont({
+  src: "./fonts/geist.woff2",
+  variable: "--font-geist",
   display: "swap",
   weight: "100 900",
 });
@@ -117,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="en-GB" className={`${instrumentSans.variable} ${geist.variable}`}>
       <head>
         <script
           type="application/ld+json"
