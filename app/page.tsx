@@ -12,7 +12,7 @@ import { PRIMARY_CTA } from "@/lib/offers";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Revenue Operations Consultancy for B2B Companies",
+  "GTM Strategy & Revenue Operations for B2B Companies",
   SITE.description,
   "",
 );
@@ -77,14 +77,14 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
-              Revenue operations for established B2B companies
+              Go-to-market strategy &amp; revenue operations
             </p>
             <h1 className="display">{SITE.headline}</h1>
             <p className="lead">
-              For established B2B companies with a sales team and no one who
-              owns the systems. We measure the leak in dollars across marketing,
-              sales and existing customers. Then we fix it, and run it so it
-              stays fixed.
+              We help established B2B companies sharpen who they target and
+              how they win, then connect the systems behind sales and customer
+              retention. We measure revenue leakage in dollars, fix the biggest
+              gaps and keep them fixed.
             </p>
             <div className="actions">
               <Link className="btn" href={PRIMARY_CTA.href}>
@@ -100,7 +100,7 @@ export default function Home() {
           <PeoplePanels />
         </div>
         <div className="container hero-foot">
-          <span>Marketing, sales and customer retention, run as one system.</span>
+          <span>GTM sets the direction. RevOps makes it repeatable.</span>
           <span>Diagnose / Design / Build / Improve</span>
         </div>
       </section>
@@ -121,6 +121,51 @@ export default function Home() {
                 <p className="muted">{l.body}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="section gtm-section" id="capabilities">
+        <div className="container">
+          <SectionIntro
+            eyebrow="Two capabilities. One commercial system."
+            title="Decide how to win. Build the system to deliver."
+            body="GTM Strategy sets the direction. Revenue Operations connects the processes, people and technology that turn that plan into measurable results."
+          />
+          <div className="gtm-pillars">
+            <article className="gtm-pillar">
+              <span className="index">01 / Strategic direction</span>
+              <h3 className="h3">Go-to-Market Strategy</h3>
+              <p className="muted">
+                Define the customers worth pursuing, how to reach them and why
+                they should choose you.
+              </p>
+              <ul className="gtm-pillar__list">
+                <li>Ideal customer profiles and market priorities</li>
+                <li>Positioning and commercial messaging</li>
+                <li>Sales motion and channel strategy</li>
+                <li>Account growth and expansion priorities</li>
+              </ul>
+              <Link className="arrow-link" href="/what-we-do#gtm-strategy">
+                Explore GTM Strategy <Arrow />
+              </Link>
+            </article>
+            <article className="gtm-pillar">
+              <span className="index">02 / Revenue execution</span>
+              <h3 className="h3">Revenue Operations</h3>
+              <p className="muted">
+                Give that strategy an operating system that captures demand,
+                improves conversion and keeps existing customers buying.
+              </p>
+              <ul className="gtm-pillar__list">
+                <li>CRM workflows and sales pipeline ownership</li>
+                <li>Quoting, routing and follow-up processes</li>
+                <li>Attribution, automation and reporting</li>
+                <li>Retention and customer reactivation</li>
+              </ul>
+              <Link className="arrow-link" href="/what-we-do#revenue-operations">
+                Explore RevOps <Arrow />
+              </Link>
+            </article>
           </div>
         </div>
       </section>
