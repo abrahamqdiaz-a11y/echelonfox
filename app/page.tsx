@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import PageShell from "@/components/site/PageShell";
 import Arrow from "@/components/site/Arrow";
 import FinalCta from "@/components/site/FinalCta";
@@ -186,14 +185,26 @@ export default function Home() {
       </section>
       <section className="section human-section">
         <div className="container human-split">
-          <div className="editorial-photo">
-            <Image
-              src="/images/consultancy/business-conversation.webp"
-              alt="Illustrative photograph of two people discussing work across a table"
-              width={1100}
-              height={733}
-              sizes="(max-width: 760px) 100vw, 50vw"
-            />
+          <div className="editorial-panel" aria-hidden="true">
+            <div className="editorial-panel__grid" />
+            <div className="editorial-panel__orbit editorial-panel__orbit--outer" />
+            <div className="editorial-panel__orbit editorial-panel__orbit--inner" />
+            <div className="editorial-panel__core">
+              <span>REVENUE SYSTEM</span>
+              <strong>People in the loop.</strong>
+            </div>
+            <div className="editorial-panel__callout editorial-panel__callout--one">
+              <span>01 / Systems</span>
+              <strong>Connected</strong>
+            </div>
+            <div className="editorial-panel__callout editorial-panel__callout--two">
+              <span>02 / Revenue leaks</span>
+              <strong>Measured</strong>
+            </div>
+            <div className="editorial-panel__callout editorial-panel__callout--three">
+              <span>03 / Execution</span>
+              <strong>Improved</strong>
+            </div>
           </div>
           <div>
             <p className="eyebrow">People in the loop</p>
