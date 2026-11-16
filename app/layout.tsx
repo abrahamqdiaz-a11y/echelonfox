@@ -19,7 +19,7 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.publicName} — Revenue Operations for B2B Companies`,
+    default: `${SITE.publicName} — GTM Strategy & Revenue Operations`,
     template: `%s | ${SITE.publicName}`,
   },
   description: SITE.description,
@@ -89,7 +89,7 @@ const organizationSchema = {
   areaServed: { "@type": "Country", name: "United States" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Revenue operations",
+    name: "Go-to-market strategy and revenue operations",
     itemListElement: offerList.map((o) =>
       offerSchema(
         o,
