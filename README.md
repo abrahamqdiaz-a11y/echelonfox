@@ -23,7 +23,7 @@ Production remains hosted on Netlify. Contact submissions depend on Netlify Form
 - `app/layout.tsx` loads Instrument Sans and Geist as self-hosted font assets via Next.js.
 - `app/globals.css` contains the palette and typography tokens. The darker `--accent-action` is used behind white button labels for WCAG AA contrast.
 - Existing page content, pricing, tracking behaviour and public routes remain unchanged by the typography and colour refresh.
-- The homepage now uses CSS-drawn, accessible revenue-system illustrations in place of generic workplace photographs. Subtle CSS motion respects `prefers-reduced-motion` and remains legible without JavaScript.
+- The homepage hero embeds the supplied animated Growth Map from `public/hero-visual-growth-map.html` in a sandboxed iframe, preserving the original canvas behaviour and isolating its styles. Example figures in the illustration are not client results. The mid-page illustration respects `prefers-reduced-motion`.
 
 ## Validation
 
