@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EchelonFox hero visual – growth map</title>
+<style>
+  :root{
+    --app:#0d1426; --card:#151e36; --card2:#1a2442; --border:#273453;
+    --t:#eaeefb; --tm:#8d98b8; --accent:#8b7dff; --leak:#ff8a4c; --ok:#3ddc97;
+  }
+  *{box-sizing:border-box}
+  /* transparent + padded so the glow and shadow never get clipped when embedded */
+  html,body{margin:0;background:transparent}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;padding:24px 24px 40px}
+
+  .stage{position:relative;width:100%;max-width:520px;margin:0 auto}
+  .stage::before{content:"";position:absolute;inset:6% 0 -2% 4%;background:radial-gradient(closest-side,rgba(91,75,224,.35),transparent 70%);filter:blur(30px);z-index:0}
+  .app{position:relative;z-index:1;background:var(--app);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--t);
+    box-shadow:0 40px 80px rgba(17,26,46,.35),0 0 0 1px rgba(255,255,255,.03) inset}
+
+  .bar{display:flex;align-items:center;gap:12px;padding:11px 14px;background:#0a1020;border-bottom:1px solid var(--border)}
+  .dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#2a3556}
+  .tabs{display:flex;gap:4px;margin-left:4px}
+  .tab{font-size:11.5px;color:var(--tm);padding:5px 10px;border-radius:6px;font-weight:500;transition:.3s;white-space:nowrap}
+  .tab.on{background:var(--card2);color:var(--t)}
+  .status{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);white-space:nowrap}
+  .status i{--c:139,125,255;width:7px;height:7px;border-radius:50%;background:rgb(var(--c));animation:ping 1.6s infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 rgba(var(--c),.6)}70%,100%{box-shadow:0 0 0 7px rgba(var(--c),0)}}
+
+  .body{padding:16px;display:grid;gap:12px}
+  .head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .head h3{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+  .sample{display:inline-block;margin-top:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a9b3d1;border:1px solid var(--border);border-radius:99px;padding:3px 8px}
+  .money{text-align:right;flex:none}
+  .money small{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:3px}
+  .money b{font-size:19px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#56618a;transition:color .4s}
+
+  .flow{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 0 12px}
+  canvas{display:block;width:100%;height:150px}
+  .labels{position:relative;height:44px}
+  .lab{position:absolute;top:0;width:19%;transform:translateX(-50%);text-align:center}
+  .lab .n{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);white-space:nowrap;transition:color .4s}
+  .lab .v{margin-top:3px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;color:#56618a;transition:color .4s}
+  .lab i{display:block;width:18px;height:3px;border-radius:2px;margin:5px auto 0;background:#2a3556;transition:background .4s}
+  .lab.ok .v{color:var(--t)} .lab.ok i{background:rgba(61,220,151,.5)}
+  .lab.leak .n,.lab.leak .v{color:var(--leak)} .lab.leak i{background:var(--leak)}
+  .lab.fixed .n,.lab.fixed .v{color:var(--ok)} .lab.fixed i{background:var(--ok)}
+
+  .call{position:relative;height:58px;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color .5s}
+  .call.leak{border-color:rgba(255,138,76,.55)}
+  .call.fixed{border-color:rgba(61,220,151,.5)}
+  .call p{position:absolute;inset:0;margin:0;padding:0 16px;display:flex;align-items:center;font-size:13px;line-height:1.45;color:var(--tm);opacity:0;transition:opacity .45s}
+  .call p.on{opacity:1}
+  .call p b{color:var(--t);font-weight:600}
+  .call p.c1 b{color:var(--leak)} .call p.c2 b{color:var(--ok)}
+
+  .foot{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);background:#0a1020}
+  .step{padding:12px 14px;font-size:10.5px;line-height:1.4;color:var(--tm);border-right:1px solid var(--border);position:relative;transition:color .3s}
+  .step:last-child{border-right:0}
+  .step b{display:block;font-size:11.5px;color:#c9d1ea;margin-bottom:2px}
+  .step::before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--accent);opacity:0;transition:opacity .3s}
+  .step.on::before{opacity:1}.step.on b{color:#fff}.step.on{color:#b7c0dc}
+
+  @media (max-width:440px){
+    body{padding:16px 12px 32px}
+    .tabs .tab:nth-child(3){display:none}
+    .lab .n{font-size:8px;letter-spacing:0}
+    .lab .v{font-size:12px}
+    .money b{font-size:16px}
+    .call p{font-size:12px}
+    .step{padding:10px}
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .status i { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="app" aria-label="Sample growth map: EchelonFox checks every step of the customer journey and finds the one losing the most revenue">
+    <div class="bar">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="tabs"><span class="tab on" id="tabA">Growth map</span><span class="tab" id="tabB">Fixes</span><span class="tab">Results</span></div>
+      <div class="status"><i id="sDot"></i><span id="sTxt">Mapping journey</span></div>
+    </div>
+
+    <div class="body">
+      <div class="head">
+        <div>
+          <h3>Where you're losing customers</h3>
+        </div>
+        <div class="money"><small id="mLab">At stake</small><b id="mVal">—</b></div>
+      </div>
+
+      <div class="flow">
+        <canvas id="cv"></canvas>
+        <div class="labels">
+          <div class="lab" style="left:10%"><div class="n">Find you</div><div class="v">1,000</div><i></i></div>
+          <div class="lab" style="left:30%"><div class="n">Enquire</div><div class="v">14%</div><i></i></div>
+          <div class="lab" style="left:50%"><div class="n">Book</div><div class="v">60%</div><i></i></div>
+          <div class="lab" style="left:70%"><div class="n">Buy</div><div class="v">62%</div><i></i></div>
+          <div class="lab" style="left:90%"><div class="n">Buy again</div><div class="v" id="lastV">29%</div><i></i></div>
+        </div>
+      </div>
+
+      <div class="call" id="call">
+        <p class="c0 on"><span>Checking every step, from first search to repeat order…</span></p>
+        <p class="c1"><span><b>Not leads. Not quotes.</b>&nbsp;7 in 10 customers never buy a second time.</span></p>
+        <p class="c2"><span><b>Fixed.</b>&nbsp;More customers come back: 29% → 58%.</span></p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="step on" id="st0"><b>1. Map it</b>Every step, first search to repeat order.</div>
+      <div class="step" id="st1"><b>2. Find the leak</b>The one that costs you the most.</div>
+      <div class="step" id="st2"><b>3. Fix it</b>Built with your team, kept fixed.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+  var labs=[].slice.call(document.querySelectorAll('.lab'));
+  var $=function(id){return document.getElementById(id)};
+  var tabA=$('tabA'),tabB=$('tabB'),sDot=$('sDot'),sTxt=$('sTxt'),mLab=$('mLab'),mVal=$('mVal'),lastV=$('lastV'),call=$('call');
+  var calls=[].slice.call(call.querySelectorAll('p')), steps=[$('st0'),$('st1'),$('st2')];
+
+  var P=[.1,.3,.5,.7,.9];                 // stage positions (match label left %)
+  var HS=[1,.82,.68,.58];                  // band thickness for the healthy stages
+  var LAST0=.22, LAST1=.46;                // "Buy again" thickness before / after fix
+  var T=15, SCAN0=2.5, SCAN1=5.5, FIX0=8.5, FIX1=11, RESET=14;
+  var STAKE=17400;
+  var PURPLE=[139,125,255], ORANGE=[255,138,76], GREEN=[61,220,151], GREY=[86,97,138], DOT=[205,200,255];
+
+  var W=0,H=150;
+  function size(){var d=Math.min(2,window.devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+  size();
+  if(window.ResizeObserver) new ResizeObserver(function(){size();if(reduce)frame(12,0)}).observe(cv);
+
+  function cl(x){return x<0?0:x>1?1:x}
+  function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+  function sm(a,b,x){x=cl((x-a)/(b-a));return x*x*(3-2*x)}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function mixC(a,b,t){return [lerp(a[0],b[0],t),lerp(a[1],b[1],t),lerp(a[2],b[2],t)]}
+  function rgba(c,a){return 'rgba('+(c[0]|0)+','+(c[1]|0)+','+(c[2]|0)+','+a+')'}
+
+  function stateAt(t){
+    var on=t<RESET+0.5;
+    var scan=ease((t-SCAN0)/(SCAN1-SCAN0));
+    var fix=t<RESET?ease((t-FIX0)/(FIX1-FIX0)):1-ease((t-RESET)/(T-RESET));
+    var scanX=lerp(-10,P[4]*W+34,scan);
+    var checked=P.map(function(p){return on&&t>=SCAN0&&scanX>=p*W});
+    return {t:t,on:on,scan:scan,scanX:scanX,scanVis:t>SCAN0&&t<SCAN1+.25,fix:fix,checked:checked,found:checked[4]};
+  }
+
+  function heights(st){return [HS[0],HS[1],HS[2],HS[3],lerp(LAST0,LAST1,st.fix)]}
+  function half(x,hs){
+    var m=H*.3;
+    if(x<=P[0]*W) return hs[0]*m;
+    if(x>=P[4]*W) return hs[4]*m;
+    for(var i=0;i<4;i++){var a=P[i]*W,b=P[i+1]*W;if(x<=b) return lerp(hs[i],hs[i+1],sm(.3,.7,(x-a)/(b-a)))*m}
+    return hs[4]*m;
+  }
+
+  var parts=[],drops=[],acc=0;
+  function update(dt,st){
+    var hs=heights(st), cy=H*.4;
+    acc+=dt*30;
+    while(acc>1){acc--;parts.push({x:-4,u:Math.random()*2-1,v:62+Math.random()*24,r:1.2+Math.random()*1.1,k:0,ph:Math.random()*6.28})}
+    var keep=[];
+    for(var i=0;i<parts.length;i++){
+      var p=parts[i]; p.x+=p.v*dt;
+      if(p.k<4&&p.x>=(P[p.k]+P[p.k+1])/2*W){
+        if(Math.random()>hs[p.k+1]/hs[p.k]){
+          drops.push({x:p.x,y:cy+p.u*half(p.x,hs)*.82,vx:p.v*.35,vy:-10+Math.random()*16,r:p.r,a:1,leak:p.k===3});
+          continue;
+        }
+        p.k++;
+      }
+      if(p.x<W+6) keep.push(p);
+    }
+    parts=keep;
+    var dk=[];
+    for(i=0;i<drops.length;i++){var d=drops[i];d.vy+=260*dt;d.x+=d.vx*dt;d.y+=d.vy*dt;d.a-=dt*1.1;if(d.a>0&&d.y<H+6)dk.push(d)}
+    drops=dk;
+  }
+
+  function draw(st,time){
+    ctx.clearRect(0,0,W,H);
+    var hs=heights(st), cy=H*.4;
+    var lastC=st.found?mixC(ORANGE,GREEN,st.fix):PURPLE;
+
+    // band
+    var g=ctx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,rgba(PURPLE,.10));g.addColorStop(.66,rgba(PURPLE,.24));
+    g.addColorStop(.78,rgba(lastC,st.found?.34:.24));g.addColorStop(1,rgba(lastC,.2));
+    ctx.beginPath();
+    for(var x=0;x<=W;x+=3) ctx.lineTo(x,cy-half(x,hs));
+    for(x=W;x>=0;x-=3) ctx.lineTo(x,cy+half(x,hs));
+    ctx.closePath();ctx.fillStyle=g;ctx.fill();
+    var e=ctx.createLinearGradient(0,0,W,0);
+    e.addColorStop(0,rgba(PURPLE,.15));e.addColorStop(.66,rgba(PURPLE,.5));e.addColorStop(.78,rgba(lastC,.8));e.addColorStop(1,rgba(lastC,.6));
+    ctx.strokeStyle=e;ctx.lineWidth=1;
+    ctx.beginPath();for(x=0;x<=W;x+=3) ctx.lineTo(x,cy-half(x,hs));ctx.stroke();
+    ctx.beginPath();for(x=0;x<=W;x+=3) ctx.lineTo(x,cy+half(x,hs));ctx.stroke();
+
+    // stage dividers
+    for(var i=0;i<5;i++){var sx=P[i]*W,hh=half(sx,hs);ctx.fillStyle=st.checked[i]?'rgba(255,255,255,.12)':'rgba(255,255,255,.05)';ctx.fillRect(sx-.5,cy-hh,1,hh*2)}
+
+    // falling drop-offs
+    for(i=0;i<drops.length;i++){var d=drops[i],hot=d.leak&&st.found;
+      if(hot){ctx.beginPath();ctx.arc(d.x,d.y,d.r*3.2,0,6.283);ctx.fillStyle=rgba(ORANGE,d.a*.18);ctx.fill()}
+      ctx.beginPath();ctx.arc(d.x,d.y,hot?d.r*1.4:d.r,0,6.283);ctx.fillStyle=rgba(hot?ORANGE:GREY,d.a*(hot?1:.6));ctx.fill()}
+
+    // customers flowing through
+    var leakX=(P[3]+P[4])/2*W;
+    for(i=0;i<parts.length;i++){var p=parts[i];
+      var y=cy+p.u*half(p.x,hs)*.82+Math.sin(p.x*.05+p.ph)*1.2;
+      var col=(st.found&&p.x>leakX)?mixC(lastC,[255,255,255],.25):DOT;
+      ctx.beginPath();ctx.arc(p.x,y,p.r,0,6.283);ctx.fillStyle=rgba(col,.9);ctx.fill()}
+
+    // scan sweep
+    if(st.scanVis){var s=st.scanX,sg=ctx.createLinearGradient(s-70,0,s,0);
+      sg.addColorStop(0,'rgba(139,125,255,0)');sg.addColorStop(1,'rgba(139,125,255,.25)');
+      ctx.fillStyle=sg;ctx.fillRect(s-70,6,70,H-12);ctx.fillStyle='rgba(215,210,255,.95)';ctx.fillRect(s-1,6,2,H-12)}
+
+    // leak marker
+    if(st.found){var my=cy-HS[3]*H*.3-15,mc=lastC,pr=(time%1.4)/1.4;
+      ctx.beginPath();ctx.arc(leakX,my,8+pr*10,0,6.283);ctx.strokeStyle=rgba(mc,.7*(1-pr));ctx.lineWidth=1.5;ctx.stroke();
+      ctx.beginPath();ctx.arc(leakX,my,8,0,6.283);ctx.fillStyle=rgba(mc,1);ctx.fill();
+      ctx.fillStyle='#0d1426';ctx.font='700 11px Inter,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(st.fix>.5?'✓':'!',leakX,my+.5)}
+  }
+
+  var cache={};
+  function set(key,val,fn){if(cache[key]!==val){cache[key]=val;fn(val)}}
+  function ui(st){
+    var t=st.t, fixed=st.on&&st.fix>=.5, leak=st.found&&!fixed;
+    labs.forEach(function(l,i){
+      var c=!st.checked[i]?'lab':(i<4?'lab ok':(fixed?'lab fixed':'lab leak'));
+      set('lab'+i,c,function(v){l.className=v});
+    });
+    set('lastV',Math.round(lerp(29,58,st.fix))+'%',function(v){lastV.textContent=v});
+
+    var phase=!st.on||t<SCAN0?0:(t<SCAN1?1:(st.fix>0?3:2));
+    set('status',phase,function(v){
+      sTxt.textContent=['Mapping journey','Scanning','Leak found','Fix live'][v];
+      sDot.style.setProperty('--c',['139,125,255','139,125,255','255,138,76','61,220,151'][v]);
+    });
+    set('tab',phase===3?1:0,function(v){tabA.classList.toggle('on',!v);tabB.classList.toggle('on',!!v)});
+
+    var cs=!st.found?0:(st.fix<.3?1:2);
+    set('call',cs,function(v){calls.forEach(function(p,i){p.classList.toggle('on',i===v)});call.className='call'+(v===1?' leak':v===2?' fixed':'')});
+
+    var money=!st.found?'—':(st.fix<.02?'€'+STAKE.toLocaleString('en-US')+'/mo':'+€'+(Math.round(STAKE*st.fix/100)*100).toLocaleString('en-US')+'/mo');
+    set('money',money,function(v){mVal.textContent=v});
+    set('mLab',st.found&&st.fix>=.02?1:0,function(v){mLab.textContent=v?'Recovered':'At stake'});
+    set('mCol',!st.found?0:(st.fix<.02?1:2),function(v){mVal.style.color=['','var(--leak)','var(--ok)'][v]});
+
+    var sp=!st.on||t<SCAN0?0:(t<FIX0?1:2);
+    set('step',sp,function(v){steps.forEach(function(s,i){s.classList.toggle('on',i===v)})});
+  }
+
+  function frame(t,time){var st=stateAt(t);draw(st,time);ui(st)}
+
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // warm up so the flow is already full on first paint
+  var warm=stateAt(0);for(var i=0;i<140;i++) update(.05,warm);
+
+  if(reduce){var fs=stateAt(12);for(i=0;i<60;i++)update(.05,fs);frame(12,0);return}
+
+  var t0=performance.now(),last=t0;
+  (function tick(now){
+    var dt=Math.min(.05,(now-last)/1000);last=now;
+    var time=(now-t0)/1000,t=time%T,st=stateAt(t);
+    update(dt,st);draw(st,time);ui(st);
+    requestAnimationFrame(tick);
+  })(t0);
+})();
+</script>
+</body>
+</html>
