@@ -9,9 +9,9 @@ import ServiceSchema from "@/components/site/ServiceSchema";
 import { offerList } from "@/lib/offers";
 import { pageMetadata } from "@/lib/metadata";
 
-const TITLE = "How It Works — Offers, Prices and What Each Includes";
+const TITLE = "GTM Strategy & Revenue Operations — Services and Pricing";
 const DESCRIPTION =
-  "The Revenue Leak Diagnostic, Build, Run and Embedded Growth Team: what each includes and excludes, how long it takes, what it costs and the number it moves.";
+  "Our two capabilities are go-to-market strategy and revenue operations. Explore how we diagnose revenue leaks, implement fixes and support growth through four defined engagements.";
 
 export const metadata = pageMetadata(TITLE, DESCRIPTION, "/what-we-do");
 
@@ -34,16 +34,57 @@ export default function WhatWeDo() {
   return (
     <PageShell>
       <ServiceSchema
-        name="Revenue operations"
+        name="GTM strategy and revenue operations"
         description={DESCRIPTION}
         path="/what-we-do"
         offers={offerList}
       />
       <PageHero
-        eyebrow="What We Do · How It Works"
-        title="Four offers. Public prices. One place to start."
-        lead="Every engagement starts with the Revenue Leak Diagnostic. After it, you take one of two paths: Build, then Run, or the Embedded Growth Team."
+        eyebrow="GTM Strategy & Revenue Operations"
+        title="A clearer route to customers. A stronger system for revenue."
+        lead="We advise on who to target and how to win, then improve the processes that convert and retain customers. Every engagement starts with the Revenue Leak Diagnostic, followed by Build and Run or the Embedded Growth Team."
       />
+      <section className="section section--white" aria-label="Our core capabilities">
+        <div className="container">
+          <SectionIntro
+            eyebrow="Our core capabilities"
+            title="Commercial direction and operational discipline."
+            body="GTM and RevOps work together. The Diagnostic remains the fixed starting point; the strategy and implementation work in each subsequent engagement is agreed in scope."
+          />
+          <div className="gtm-pillars">
+            <article className="gtm-pillar" id="gtm-strategy">
+              <span className="index">01 / Where to compete</span>
+              <h2 className="h3">Go-to-Market Strategy</h2>
+              <p className="muted">
+                We help you decide which customers and markets to prioritise,
+                what makes your offer relevant, and how your sales team should
+                reach and win those accounts.
+              </p>
+              <ul className="gtm-pillar__list">
+                <li>ICP and market segmentation</li>
+                <li>Positioning, messaging and commercial offer</li>
+                <li>Outbound, partner and channel strategy</li>
+                <li>Sales motion and account expansion planning</li>
+              </ul>
+            </article>
+            <article className="gtm-pillar" id="revenue-operations">
+              <span className="index">02 / How to deliver</span>
+              <h2 className="h3">Revenue Operations</h2>
+              <p className="muted">
+                We make the commercial process visible and repeatable:
+                handling enquiries, tracking quotes, maintaining the pipeline
+                and retaining customers through connected systems and reporting.
+              </p>
+              <ul className="gtm-pillar__list">
+                <li>CRM, pipeline stages and ownership</li>
+                <li>Lead routing, quoting and follow-up</li>
+                <li>Automation, attribution and reporting</li>
+                <li>Customer retention and reactivation</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
       <section className="section section--white" id="pricing">
         <div className="container">
           <OfferLadder detailLinks={false} />
