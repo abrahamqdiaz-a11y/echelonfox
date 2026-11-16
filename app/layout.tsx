@@ -1,22 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { Geist, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Motion from "@/components/site/Motion";
 import { offerList } from "@/lib/offers";
 import { offerSchema } from "@/components/site/ServiceSchema";
 import CookieConsent from "@/components/CookieConsent";
 import { SITE } from "@/lib/site";
-const manrope = localFont({
-  src: "./fonts/Manrope.woff2",
-  variable: "--font-manrope",
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument-sans",
   display: "swap",
-  weight: "200 800",
 });
-const inter = localFont({
-  src: "./fonts/Inter.woff2",
-  variable: "--font-inter",
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
   display: "swap",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -74,7 +72,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#101C2B",
+  themeColor: "#111827",
   width: "device-width",
   initialScale: 1,
 };
@@ -117,7 +115,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="en-GB" className={`${instrumentSans.variable} ${geist.variable}`}>
       <head>
         <script
           type="application/ld+json"

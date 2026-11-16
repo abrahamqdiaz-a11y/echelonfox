@@ -1,6 +1,6 @@
 # EchelonFox
 
-Revenue operations consultancy website, built with Next.js 16, React and TypeScript. Public pages use the navy, off-white and copper design system in `app/globals.css`, with locally served Manrope and Inter fonts.
+Revenue operations consultancy website, built with Next.js 16, React and TypeScript. Public pages use the midnight navy (`#111827`), warm ivory (`#F8F7F4`) and periwinkle (`#7366F0`) design system in `app/globals.css`. Headlines use Instrument Sans; body text and UI use Geist. Both fonts are bundled by `next/font/google` at build time.
 
 ## Development
 
@@ -10,6 +10,12 @@ npm run dev
 ```
 
 Production remains hosted on Netlify. Contact submissions depend on Netlify Forms; a local server does not prove notification delivery.
+
+## Design system
+
+- `app/layout.tsx` loads Instrument Sans and Geist as self-hosted font assets via Next.js.
+- `app/globals.css` contains the palette and typography tokens. The darker `--accent-action` is used behind white button labels for WCAG AA contrast.
+- Existing page content, pricing, tracking behaviour and public routes remain unchanged by the typography and colour refresh.
 
 ## Validation
 

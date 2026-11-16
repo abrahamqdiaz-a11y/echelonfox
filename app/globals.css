@@ -2,22 +2,27 @@
 
 /* EchelonFox: editorial consultancy system. Fonts are served locally. */
 :root {
-  --paper: #f7f5f0;
+  --paper: #f8f7f4;
   --card: #ffffff;
-  --sand: #eeebe4;
-  --sand-light: #faf9f6;
-  --ink: #101c2b;
-  --ink-deep: #101c2b;
-  --graphite: #66717c;
-  --charcoal: #252b32;
-  --accent: #b77b55;
-  --coral: #b77b55;
-  --rule: #dedcd6;
-  --on-ink: #f7f5f0;
-  --on-ink-muted: #bec5ca;
-  --font-sans: var(--font-inter), Arial, sans-serif;
-  --font-serif: var(--font-manrope), Arial, sans-serif;
-  --font-mono: var(--font-inter), Arial, sans-serif;
+  --sand: #f1efea;
+  --sand-light: #fbfaf8;
+  --ink: #111827;
+  --ink-deep: #111827;
+  --graphite: #64748b;
+  --charcoal: #334155;
+  --accent: #7366f0;
+  --coral: #7366f0; /* legacy alias */
+  --lavender: #eeebff;
+  --accent-action: #6254d8; /* WCAG AA contrast with white button text */
+  --accent-hover: #5546c9;
+  --accent-text: #5b4fd1;
+  --accent-on-dark: #a9a1ff;
+  --rule: #e3e5eb;
+  --on-ink: #f8f7f4;
+  --on-ink-muted: #cbd5e1;
+  --font-sans: var(--font-geist), Arial, sans-serif;
+  --font-serif: var(--font-instrument-sans), Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --container: 1320px;
   --section: clamp(4rem, 8vw, 8rem);
@@ -52,9 +57,9 @@ h4,
 .serif {
   font-family: var(--font-serif);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.12;
   color: var(--ink);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
 }
 h1,
 h2,
@@ -186,30 +191,30 @@ summary {
   color: var(--graphite);
 }
 .display {
-  font-size: clamp(2.65rem, 4.35vw, 4.7rem);
-  line-height: 1.1;
-  letter-spacing: -0.055em;
-  font-weight: 500;
+  font-size: clamp(3rem, 5vw, 5.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 650;
   margin-bottom: 1.7rem;
 }
 .h1 {
-  font-size: clamp(2.5rem, 4.5vw, 4.75rem);
-  line-height: 1.13;
-  letter-spacing: -0.05em;
-  font-weight: 500;
+  font-size: clamp(2.6rem, 4.8vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 650;
   max-width: 21ch;
   margin-bottom: 1.6rem;
 }
 .h2 {
-  font-size: clamp(2rem, 3vw, 3.35rem);
-  font-weight: 500;
-  line-height: 1.18;
+  font-size: clamp(2.1rem, 3.3vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.14;
   letter-spacing: -0.045em;
   margin-bottom: 1.5rem;
 }
 .h3 {
   font-size: clamp(1.5rem, 2vw, 2rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.035em;
 }
 .lead {
@@ -228,7 +233,7 @@ summary {
 .index {
   font-size: 0.75rem;
   font-weight: 500;
-  color: #7c5138;
+  color: #5b4fd1;
   letter-spacing: 0.08em;
 }
 .stack > * + * {
@@ -246,22 +251,23 @@ summary {
   align-items: center;
   justify-content: center;
   gap: 1.3rem;
-  background: var(--ink);
-  border: 1px solid var(--ink);
+  background: var(--accent-action);
+  border: 1px solid var(--accent-action);
   color: white;
   min-height: 52px;
   padding: 14px 23px;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.35;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 2px;
   transition:
     background 0.18s,
     color 0.18s;
 }
 .btn:hover {
-  background: #26394f;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 .btn svg {
   flex-shrink: 0;
@@ -272,14 +278,15 @@ summary {
 }
 .btn--copper,
 .btn--final {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--ink);
+  background: var(--accent-action);
+  border-color: var(--accent-action);
+  color: white;
 }
 .btn--copper:hover,
 .btn--final:hover {
-  background: #c98d67;
-  color: var(--ink);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: white;
 }
 .btn--block {
   width: 100%;
@@ -287,6 +294,9 @@ summary {
 .btn--ghost {
   background: transparent;
   color: var(--ink);
+}
+.btn--ghost:hover {
+  color: white;
 }
 .arrow-link {
   display: inline-flex;
@@ -354,7 +364,7 @@ summary {
   letter-spacing: -0.045em;
   text-decoration: none;
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 650;
   flex-shrink: 0;
 }
 .site-nav > ul {
@@ -367,7 +377,7 @@ summary {
 }
 .site-nav a:not(.btn),
 .nav-dropdown > summary {
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -396,7 +406,7 @@ summary {
   width: 360px;
   padding: 24px;
   background: white;
-  box-shadow: 0 12px 36px #101c2b15;
+  box-shadow: 0 12px 36px #11182715;
   border: 1px solid var(--rule);
 }
 .nav-dropdown__panel > a,
@@ -407,7 +417,7 @@ summary {
   white-space: normal !important;
 }
 .nav-dropdown__panel > a:first-child {
-  color: #7c5138;
+  color: #5b4fd1;
   border-bottom: 1px solid var(--rule);
   margin-bottom: 8px;
 }
@@ -417,7 +427,7 @@ summary {
   margin-top: 8px;
 }
 .nav-dropdown__panel a:hover {
-  color: #7c5138;
+  color: #5b4fd1;
 }
 .menu-toggle {
   display: none;
@@ -483,7 +493,7 @@ summary {
   margin-bottom: 2rem;
 }
 .display > span {
-  color: #7c5138;
+  color: #5b4fd1;
 }
 .hero-copy .lead {
   max-width: 575px;
@@ -523,7 +533,7 @@ summary {
 .system-orbit::before {
   content: "";
   position: absolute;
-  border: 1px solid #c8b29f;
+  border: 1px solid #c7c1fa;
   inset: 45px 45px;
   border-radius: 50%;
 }
@@ -578,7 +588,7 @@ summary {
 .system-point > span {
   display: block;
   font-size: 0.55rem;
-  color: #7c5138;
+  color: #5b4fd1;
   letter-spacing: 0.1em;
   margin-bottom: 4px;
 }
@@ -693,7 +703,7 @@ summary {
   color: var(--on-ink-muted);
 }
 .capability-rows .index {
-  color: #d2a484;
+  color: var(--accent-on-dark);
 }
 .capability-rows > a:hover h3 {
   text-decoration: underline;
@@ -731,7 +741,7 @@ summary {
   border-radius: 50%;
   position: relative;
   z-index: 1;
-  color: #7c5138;
+  color: #5b4fd1;
   font-size: 0.8rem;
   margin-bottom: 1.6rem;
 }
@@ -759,7 +769,7 @@ summary {
   text-align: center;
 }
 .process-loop span {
-  color: #7c5138;
+  color: #5b4fd1;
   font-size: 1.1rem;
   margin-right: 8px;
 }
@@ -801,26 +811,26 @@ summary {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #e9e5db;
+  background: #eeebff;
   padding: 28px;
   position: relative;
   overflow: hidden;
 }
 .case-visual--2 {
-  background: #e0e5e7;
+  background: #e8eefb;
 }
 .case-visual--3 {
-  background: #e6e6dc;
+  background: #f2f0ff;
 }
 .case-visual__number {
   font-family: var(--font-serif);
   font-size: 3rem;
-  color: #101c2b35;
+  color: #11182735;
   line-height: 1;
 }
 .case-visual__lines {
   padding: 20px 0;
-  border-block: 1px solid #101c2b25;
+  border-block: 1px solid #11182725;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -983,7 +993,7 @@ summary {
 .breadcrumb li + li::before {
   content: "/";
   margin-right: 10px;
-  color: #9da1a4;
+  color: #94a3b8;
 }
 .breadcrumb a {
   text-decoration: none;
@@ -1252,7 +1262,7 @@ summary {
 .approach-number {
   font-family: var(--font-serif);
   font-size: 3.5rem;
-  color: #a2856b;
+  color: #6254d8;
   line-height: 1;
 }
 .approach-detail .eyebrow {
@@ -1332,7 +1342,7 @@ summary {
   position: absolute;
   left: 0;
   font-size: 0.65rem;
-  color: #7c5138;
+  color: #5b4fd1;
 }
 .contact-expectations strong,
 .contact-expectations span {
@@ -1379,7 +1389,7 @@ summary {
 .field input,
 .field textarea {
   width: 100%;
-  border: 1px solid #c9cdd0;
+  border: 1px solid #cbd5e1;
   background: var(--sand-light);
   color: var(--charcoal);
   padding: 12px 13px;
@@ -1398,7 +1408,7 @@ summary {
 }
 .field input::placeholder,
 .field textarea::placeholder {
-  color: #727b84;
+  color: #64748b;
   opacity: 1;
 }
 .consent {
@@ -1547,10 +1557,10 @@ summary {
   stroke: var(--rule);
 }
 .illo-bar {
-  fill: #b5bfc6;
+  fill: #cbd5e1;
 }
 .illo-bar--soft {
-  fill: #d8c4b4;
+  fill: #c8c2f7;
 }
 .illo-dash {
   stroke: var(--ink);
@@ -1723,7 +1733,7 @@ summary {
   max-width: 470px;
   background: white;
   border: 1px solid var(--rule);
-  box-shadow: 0 5px 25px #101c2b10;
+  box-shadow: 0 5px 25px #11182710;
   padding: 16px 20px;
   display: flex;
   align-items: center;
@@ -1745,7 +1755,7 @@ summary {
     grid-template-columns: 1.2fr 0.8fr;
   }
   .display {
-    font-size: 5rem;
+    font-size: 5.5rem;
   }
 }
 @media (max-width: 1100px) {
@@ -2267,11 +2277,11 @@ summary {
   font-size: 0.65rem;
 }
 .application-flow li:last-child span {
-  color: #7c5138;
+  color: #5b4fd1;
   font-weight: 500;
 }
 .application-flow svg {
-  color: #7c5138;
+  color: #5b4fd1;
 }
 .human-split {
   display: grid;
@@ -2458,11 +2468,11 @@ summary {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  color: #101c2b;
+  color: #111827;
   flex-shrink: 0;
 }
 .wordmark__name {
-  font-family: var(--font-manrope), Arial, sans-serif;
+  font-family: var(--font-instrument-sans), Arial, sans-serif;
   font-size: 1.55rem;
   font-weight: 500;
   line-height: 1.1;
@@ -2529,7 +2539,7 @@ summary {
   font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 500;
-  color: #7c5138;
+  color: #5b4fd1;
   letter-spacing: -0.02em;
   width: 100%;
 }
