@@ -8,7 +8,7 @@ import { PRIMARY_CTA } from "@/lib/offers";
  */
 export default function FinalCta() {
   return (
-    <section className="final-cta">
+    <section className="final-cta" id="contact">
       <div className="container split">
         <div>
           <p className="eyebrow">The next step</p>
