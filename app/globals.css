@@ -2960,6 +2960,10 @@ summary {
 }
 .gp-hero__inner {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .gp-hero__eyebrow {
   margin: 0 0 1.5rem;
@@ -2980,10 +2984,12 @@ summary {
   letter-spacing: -0.045em;
   color: var(--ink);
   text-wrap: balance;
+  margin-inline: auto;
 }
 .gp-hero__lead {
-  max-width: 600px;
-  margin: 0;
+  max-width: 620px;
+  margin: 0 auto;
+  text-wrap: pretty;
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
   line-height: 1.7;
   color: var(--charcoal);
@@ -2993,6 +2999,7 @@ summary {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-top: 2.75rem;
 }
@@ -3005,12 +3012,46 @@ summary {
   top: 50%;
   left: 50%;
   z-index: 0;
-  width: 1200px;
+  width: 2000px;
   max-width: none;
-  height: 400px;
+  height: 520px;
   transform: translate(-50%, -50%);
   color: var(--accent);
   pointer-events: none;
+}
+.gp-hero__line {
+  opacity: 0.35;
+  animation: gp-hero-pulse 5.2s ease-in-out infinite;
+}
+.gp-hero__exit {
+  animation: gp-hero-exit 5.2s ease-in-out infinite;
+}
+@keyframes gp-hero-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes gp-hero-exit {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gp-hero__line,
+  .gp-hero__exit {
+    animation: none;
+  }
+  .gp-hero__line {
+    opacity: 0.6;
+  }
 }
 .gp-hero__btn {
   position: relative;
