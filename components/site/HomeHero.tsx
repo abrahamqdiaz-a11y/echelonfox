@@ -9,10 +9,18 @@ import { useId } from "react";
  * Gradient IDs come from useId so each copy of the hero on a page gets its own.
  */
 
-// Start points (left edge) of the converging lines, in viewBox units.
-const INPUTS = [24, 92, 152, 200, 248, 308, 376];
-const CX = 600;
-const CY = 200;
+// Converging lines start on the left edge, evenly spread down the viewBox.
+// Each gets an uneven negative delay so the dim-up/dim-down pulse never
+// moves in lockstep and is already mid-cycle on first paint.
+const W = 2000;
+const H = 520;
+const CX = W / 2;
+const CY = H / 2;
+const COUNT = 19;
+const INPUTS = Array.from({ length: COUNT }, (_, i) => ({
+  y: Math.round(12 + (i * (H - 24)) / (COUNT - 1)),
+  delay: -((i * 1.37) % 5.2).toFixed(2),
+}));
 
 export default function HomeHero() {
   const uid = useId().replace(/[^a-zA-Z0-9_-]/g, "");
@@ -37,7 +45,7 @@ export default function HomeHero() {
           <span className="gp-hero__cta">
             <svg
               className="gp-hero__lines"
-              viewBox="0 0 1200 400"
+              viewBox={`0 0 ${W} ${H}`}
               aria-hidden="true"
               focusable="false"
             >
@@ -59,7 +67,7 @@ export default function HomeHero() {
                   gradientUnits="userSpaceOnUse"
                   x1={CX}
                   y1="0"
-                  x2="1200"
+                  x2={W}
                   y2="0"
                 >
                   <stop offset="0" stopColor="currentColor" stopOpacity="1" />
@@ -68,10 +76,12 @@ export default function HomeHero() {
                 </linearGradient>
               </defs>
               <g fill="none" strokeLinecap="round">
-                {INPUTS.map((y) => (
+                {INPUTS.map(({ y, delay }) => (
                   <path
                     key={y}
-                    d={`M0 ${y} C ${CX * 0.55} ${y} ${CX * 0.7} ${CY} ${CX} ${CY}`}
+                    className="gp-hero__line"
+                    style={{ animationDelay: `${delay}s` }}
+                    d={`M0 ${y} C ${CX * 0.55} ${y} ${CX * 0.72} ${CY} ${CX} ${CY}`}
                     stroke={`url(#${inId})`}
                     strokeWidth="1"
                     vectorEffect="non-scaling-stroke"
@@ -79,7 +89,7 @@ export default function HomeHero() {
                 ))}
                 <path
                   className="gp-hero__exit"
-                  d={`M${CX} ${CY} H1200`}
+                  d={`M${CX} ${CY} H${W}`}
                   stroke={`url(#${outId})`}
                   strokeWidth="1.5"
                   vectorEffect="non-scaling-stroke"
