@@ -60,7 +60,7 @@ export default function About() {
               those systems working.
             </p>
             <p className="delivery-note">
-              Public prices. Fixed scope. One number, reported weekly.
+              Fixed scope. One number, reported weekly.
             </p>
           </div>
         </div>

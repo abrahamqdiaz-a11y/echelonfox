@@ -6,10 +6,10 @@ import Arrow from "@/components/site/Arrow";
 import OfferLadder from "@/components/site/OfferLadder";
 import SectionIntro from "@/components/site/SectionIntro";
 import ServiceSchema from "@/components/site/ServiceSchema";
-import { offerList } from "@/lib/offers";
+import { offerList, SCOPE_STEP } from "@/lib/offers";
 import { pageMetadata } from "@/lib/metadata";
 
-const TITLE = "GTM Strategy & Revenue Operations — Services and Pricing";
+const TITLE = "GTM Strategy & Revenue Operations — Services and Engagements";
 const DESCRIPTION =
   "Our two capabilities are go-to-market strategy and revenue operations. Explore how we diagnose revenue leaks, implement fixes and support growth through four defined engagements.";
 
@@ -95,7 +95,7 @@ export default function WhatWeDo() {
           <SectionIntro
             eyebrow="In detail"
             title="What is included, and what is not."
-            body="For each offer: what you get, what sits outside it, how long it takes, what it costs and the number it moves."
+            body="For each offer: what you get, what sits outside it, how long it takes, how to start and the number it moves."
           />
           <div className="offer-detail-list">
             {offerList.map((o, i) => (
@@ -111,8 +111,8 @@ export default function WhatWeDo() {
                       <dd>{o.duration}</dd>
                     </div>
                     <div>
-                      <dt>What it costs</dt>
-                      <dd>{o.cost}</dd>
+                      <dt>How to start</dt>
+                      <dd>{SCOPE_STEP}.</dd>
                     </div>
                     <div>
                       <dt>The number it moves</dt>

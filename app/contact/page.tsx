@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
   "Book a Revenue Leak Diagnostic",
-  "Book a Revenue Leak Diagnostic with EchelonFox. Two weeks, from $2,000: a costed, ranked list of where your business is losing revenue.",
+  "Book a Revenue Leak Diagnostic with EchelonFox. Two weeks, fixed scope: a costed, ranked list of where your business is losing revenue.",
   "/contact",
 );
 export default function Contact() {
@@ -38,8 +38,7 @@ export default function Contact() {
                   <strong>Two weeks later, you get the list.</strong>
                   <span>
                     A costed, ranked list of where revenue is being lost, and a
-                    recommended next step. From $2,000, credited to a Build
-                    signed within 30 days.
+                    recommended next step.
                   </span>
                 </li>
               </ol>

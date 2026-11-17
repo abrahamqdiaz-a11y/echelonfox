@@ -14,9 +14,8 @@ export default function FinalCta() {
           <p className="eyebrow">The next step</p>
           <h2 className="h2">Find out what the leak is worth.</h2>
           <p className="lead">
-            Two weeks and a fixed fee from $2,000. You get a costed, ranked list
-            of where your business is losing revenue, and the fee is credited to
-            a Build signed within 30 days.
+            Two weeks, fixed scope. You get a costed, ranked list of where your
+            business is losing revenue. Book a call to scope your project.
           </p>
         </div>
         <div className="final-cta__actions">

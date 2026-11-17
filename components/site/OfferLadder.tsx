@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
-import { offers, PRIMARY_CTA, type Offer } from "@/lib/offers";
+import { offers, PRIMARY_CTA, SCOPE_STEP, type Offer } from "@/lib/offers";
 
-function Price({ offer }: { offer: Offer }) {
+/** The booking step and terms, in the line that used to carry the price. */
+function Scope({ offer }: { offer: Offer }) {
   return (
     <p className="offer-price">
-      <strong>{offer.price}</strong>
+      <strong>{SCOPE_STEP}</strong>
       {offer.terms.map((t) => (
         <span key={t}>{t}</span>
       ))}
@@ -15,7 +16,7 @@ function Price({ offer }: { offer: Offer }) {
 
 /**
  * The offer ladder: the Diagnostic first, then the two paths side by side.
- * Prices and terms come from lib/offers.ts.
+ * Names and terms come from lib/offers.ts. No prices are shown.
  */
 export default function OfferLadder({
   showButton = true,
@@ -36,11 +37,10 @@ export default function OfferLadder({
         <div>
           <p className="label">Step 1 · Every engagement starts here</p>
           <h3>{d.name}</h3>
-          <Price offer={d} />
+          <Scope offer={d} />
         </div>
         <div>
           <p>{d.summary}</p>
-          <p className="offer-note">{d.note}</p>
           {showButton && (
             <Link className="btn" href={PRIMARY_CTA.href}>
               {PRIMARY_CTA.label}
@@ -57,7 +57,7 @@ export default function OfferLadder({
           {[build, run].map((o) => (
             <div className="offer-item" key={o.id}>
               <h4>{o.name}</h4>
-              <Price offer={o} />
+              <Scope offer={o} />
               <p>{o.summary}</p>
             </div>
           ))}
@@ -76,7 +76,7 @@ export default function OfferLadder({
           <p className="label">Path B</p>
           <h3 className="offer-path__title">{egt.name}</h3>
           <div className="offer-item">
-            <Price offer={egt} />
+            <Scope offer={egt} />
             <p>{egt.summary}</p>
           </div>
           <p className="offer-fit">

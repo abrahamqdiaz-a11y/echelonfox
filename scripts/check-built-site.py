@@ -25,6 +25,8 @@ class Page(HTMLParser):
         self.images = []
         self.schemas = []
         self.schema = None
+        self.text = []
+        self.skip = 0
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
@@ -39,14 +41,19 @@ class Page(HTMLParser):
         if 'id' in d: self.ids.add(d['id'])
         if tag in ('input', 'textarea') and 'name' in d: self.fields.add(d['name'])
         if tag == 'script' and d.get('type') == 'application/ld+json': self.schema = ''
+        if tag in ('script', 'style', 'template'): self.skip += 1
+        for key in ('alt', 'title', 'aria-label', 'placeholder'):
+            if d.get(key): self.text.append(d[key])
 
     def handle_data(self, data):
         if self.capture_title: self.title += data
         if self.schema is not None: self.schema += data
+        if not self.skip: self.text.append(data)
 
     def handle_endtag(self, tag):
         if tag == 'head': self.head = False
         if tag == 'title': self.capture_title = False
+        if tag in ('script', 'style', 'template') and self.skip: self.skip -= 1
         if tag == 'script' and self.schema is not None:
             self.schemas.append(json.loads(self.schema))
             self.schema = None
@@ -121,10 +128,34 @@ for path in paths:
     for word in banned:
         check(word.lower() not in text.lower(), f'{path}: banned phrase "{word}"')
 
-# Prices appear exactly as published.
-home = file_for('/').read_text()
-for price in ['From $2,000', 'From $6,000', 'From $1,000 a month', 'From $4,200 a month']:
-    check(price in home, f'/: missing price {price}')
+# No prices anywhere: visible text, title, meta and Open Graph tags, or JSON-LD.
+PRICE = re.compile(
+    # Currency amounts, and billing units only where an amount is attached, so
+    # frequencies such as "two reviews per month" in articles are not flagged.
+    r'[$€£]\s?\d|\d[\d,.]*\s?k?\s?(?:USD|EUR|GBP|dollars|euros|pounds)\b'
+    r'|\d[\d,.]*k?\s?(?:/\s?(?:mo|month|yr|year)|per (?:month|year|annum)|a (?:month|year))\b'
+    r'|/\s?(?:mo|yr)\b|\bone[- ]time (?:fee|payment|price)|\bstarting at\b|\bfrom \d|free trial|\bfixed fee\b',
+    re.I)
+PRICE_KEYS = {'price', 'priceCurrency', 'priceSpecification', 'minPrice', 'maxPrice', 'priceRange', 'lowPrice', 'highPrice'}
+def schema_keys(node):
+    if isinstance(node, dict):
+        for k, v in node.items():
+            yield k
+            yield from schema_keys(v)
+    elif isinstance(node, list):
+        for v in node: yield from schema_keys(v)
+for path, page in pages.items():
+    surfaces = {'text': ' '.join(page.text), 'title': page.title,
+                'meta': ' '.join(v or '' for v in page.meta.values()),
+                'JSON-LD': json.dumps(page.schemas, ensure_ascii=False)}
+    for where, value in surfaces.items():
+        for m in PRICE.finditer(value):
+            check(False, f'{path}: price text in {where}: "{value[max(0, m.start() - 40):m.end() + 40]}"')
+    keys = set(schema_keys(page.schemas)) & PRICE_KEYS
+    check(not keys, f'{path}: price fields in JSON-LD: {sorted(keys)}')
+check('Book a call to scope your project' in ' '.join(pages['/'].text), '/: missing booking step on the offer cards')
+llms = (ROOT / 'public/llms.txt').read_text()
+check(not PRICE.search(llms), 'public/llms.txt: price text')
 
 # Retired URLs redirect to What We Do.
 config = (ROOT / 'next.config.ts').read_text()

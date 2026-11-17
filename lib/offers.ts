@@ -1,6 +1,7 @@
 /**
- * The offer ladder. Names, prices and terms are public and must match everywhere,
- * so every page reads them from here. Change a price here and nowhere else.
+ * The offer ladder. Names, terms and scopes must match everywhere, so every page
+ * reads them from here. Prices are not published: each offer points to the
+ * booking step instead (SCOPE_STEP).
  *
  * Every engagement starts with the Diagnostic. After it, a client takes one of two
  * paths: Build, then Run (path A), or the Embedded Growth Team (path B).
@@ -10,34 +11,25 @@ export type OfferId = "diagnostic" | "build" | "run" | "embedded-growth-team";
 export type Offer = {
   id: OfferId;
   name: string;
-  /** Display price, e.g. "From $2,000". */
-  price: string;
-  /** Starting price in USD, for structured data. */
-  priceValue: number;
-  /** Set for monthly offers. */
-  monthly?: boolean;
-  /** Short terms shown beside the price. */
+  /** Short terms shown beside the booking step. */
   terms: string[];
   summary: string;
-  /** A condition attached to the price. */
-  note?: string;
   includes: string[];
   excludes: string[];
   duration: string;
-  cost: string;
   moves: string;
 };
+
+/** Shown wherever a price used to appear. */
+export const SCOPE_STEP = "Book a call to scope your project";
 
 export const offers: Record<OfferId, Offer> = {
   diagnostic: {
     id: "diagnostic",
     name: "Revenue Leak Diagnostic",
-    price: "From $2,000",
-    priceValue: 2000,
-    terms: ["Fixed fee", "Two weeks"],
+    terms: ["Fixed scope", "Two weeks"],
     summary:
       "We review your enquiries, quotes, order history and CRM. You get a costed, ranked list of where revenue is being lost.",
-    note: "The fee is credited to a Build signed within 30 days.",
     includes: [
       "How enquiries and quote requests arrive, who picks them up and how fast.",
       "Quotes sent, and what happened to each one afterwards.",
@@ -52,15 +44,12 @@ export const offers: Record<OfferId, Offer> = {
       "New software or data clean-up.",
     ],
     duration: "Two weeks.",
-    cost: "From $2,000, fixed. The fee is credited to a Build signed within 30 days.",
     moves:
       "Your starting baseline. Every leak gets a dollar figure, so you know what fixing it is worth.",
   },
   build: {
     id: "build",
     name: "Build",
-    price: "From $6,000",
-    priceValue: 6000,
     terms: ["Fixed scope", "Six to eight weeks"],
     summary:
       "We fix the top one or two leaks: the workflow, the CRM setup, the follow-up and the reporting. Includes training and 30 days of fixes.",
@@ -79,16 +68,12 @@ export const offers: Record<OfferId, Offer> = {
       "Custom applications.",
     ],
     duration: "Six to eight weeks, fixed scope.",
-    cost: "From $6,000.",
     moves:
       "The dollar value of the leaks it fixes, measured against the Diagnostic baseline.",
   },
   run: {
     id: "run",
     name: "Run",
-    price: "From $1,000 a month",
-    priceValue: 1000,
-    monthly: true,
     terms: ["Three-month minimum", "Then monthly"],
     summary:
       "We operate what we built, make a fixed number of changes each month, and report one revenue number every week against your starting baseline.",
@@ -105,15 +90,11 @@ export const offers: Record<OfferId, Offer> = {
       "Running advertising or SEO.",
     ],
     duration: "Three-month minimum, then monthly.",
-    cost: "From $1,000 a month.",
     moves: "One revenue number, reported weekly against the starting baseline.",
   },
   "embedded-growth-team": {
     id: "embedded-growth-team",
     name: "Embedded Growth Team",
-    price: "From $4,200 a month",
-    priceValue: 4200,
-    monthly: true,
     terms: ["Six-month minimum"],
     summary:
       "A part-time head of growth plus our technical team, working inside your business. We own the plan, the CRM and automation, the reporting, and the management of any outside marketing vendors.",
@@ -126,7 +107,6 @@ export const offers: Record<OfferId, Offer> = {
     ],
     excludes: ["Ad spend.", "Vendor fees.", "Creative production."],
     duration: "Six-month minimum.",
-    cost: "From $4,200 a month.",
     moves:
       "One revenue number, reported weekly, and the pipeline that produces it.",
   },

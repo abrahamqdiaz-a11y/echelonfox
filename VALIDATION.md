@@ -7,10 +7,10 @@ Updated for the revenue operations positioning on 14 November 2026.
 - Next.js production build and TypeScript compilation.
 - All 15 sitemap pages: one H1, unique title and description, self-canonical, correct Open Graph URL, page-specific social metadata and valid JSON-LD.
 - Internal page destinations, fragment targets, skip-link targets and unpublished-case exclusion.
-- Service schema with offer prices on How It Works, Embedded Growth Team and each industry page.
+- Service schema on How It Works, Embedded Growth Team and each industry page; offers carry no price, currency or price-specification fields.
 - Every public page except Contact and the legal pages ends with exactly one closing call to action.
 - Copy-rule check: no "owner-led", "leverage", "unlock", "synergy", retired tagline or retired brand names in public pages.
-- All four published prices present on the homepage; redirect rules present for every retired service URL.
+- No price text in any sitemap page (visible text, title, meta and Open Graph tags, JSON-LD) or `llms.txt`; booking step present on the homepage offer cards; redirect rules present for every retired service URL.
 - 301 redirects confirmed against a local production server for `/services`, all nine former service pages, older service URLs, `/websites`, `/ai-agents`, `/pricing`, `/ecommerce`, `/saas` and `/industries`.
 - Contact field parity across the hidden homepage form, rendered component and static Netlify definition.
 - Contact component: labels, required fields, optional website, consent and honeypot, encoded payload, success, non-OK response and network failure. Fetch is mocked; no external submission is sent.

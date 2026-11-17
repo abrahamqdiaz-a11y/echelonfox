@@ -1,3 +1,8 @@
+## Prices removed (17 November 2026)
+
+- Removed every published price from the site: offer cards, How It Works details, closing call to action, Contact, Our Approach, About, Embedded Growth Team, industry pages, meta descriptions, Open Graph text, JSON-LD offers and `llms.txt`. Offer cards now read "Book a call to scope your project".
+- The site check now fails if price text or JSON-LD price fields appear on any sitemap page.
+
 # Revenue operations positioning — 14 November 2026
 
 - Repositioned EchelonFox as a revenue operations consultancy. New homepage headline: "Find the revenue your business already earned and lost." AI moved below the offers.

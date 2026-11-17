@@ -29,8 +29,8 @@ export async function generateMetadata({
 }
 
 /**
- * Reusable industry page. Content lives in lib/industries.ts; the offers and
- * prices are the same on every industry page.
+ * Reusable industry page. Content lives in lib/industries.ts; the offers are
+ * the same on every industry page.
  */
 export default async function IndustryPage({
   params,
@@ -121,8 +121,8 @@ export default async function IndustryPage({
       <section className="section">
         <div className="container">
           <SectionIntro
-            eyebrow="What it costs"
-            title="The same offers and prices, whatever your industry."
+            eyebrow="How to start"
+            title="The same offers, whatever your industry."
           />
           <OfferLadder />
         </div>
