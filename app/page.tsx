@@ -3,12 +3,11 @@ import PageShell from "@/components/site/PageShell";
 import Arrow from "@/components/site/Arrow";
 import FinalCta from "@/components/site/FinalCta";
 import Process from "@/components/site/Process";
-import PeoplePanels from "@/components/site/PeoplePanels";
+import HomeHero from "@/components/site/HomeHero";
 import SectionIntro from "@/components/site/SectionIntro";
 import OfferLadder from "@/components/site/OfferLadder";
 import { publishedCases } from "@/lib/work-data";
 import { industries } from "@/lib/industries";
-import { PRIMARY_CTA } from "@/lib/offers";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -73,37 +72,7 @@ export default function Home() {
         <textarea name="message" />
         <input name="consent" type="checkbox" />
       </form>
-      <section className="home-hero ai-hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              Go-to-market strategy &amp; revenue operations
-            </p>
-            <h1 className="display">{SITE.headline}</h1>
-            <p className="lead">
-              We help established B2B companies sharpen who they target and
-              how they win, then connect the systems behind sales and customer
-              retention. We measure revenue leakage in dollars, fix the biggest
-              gaps and keep them fixed.
-            </p>
-            <div className="actions">
-              <Link className="btn" href={PRIMARY_CTA.href}>
-                {PRIMARY_CTA.label}
-                <Arrow />
-              </Link>
-              <Link className="arrow-link" href="/what-we-do">
-                See how it works
-                <Arrow />
-              </Link>
-            </div>
-          </div>
-          <PeoplePanels />
-        </div>
-        <div className="container hero-foot">
-          <span>GTM sets the direction. RevOps makes it repeatable.</span>
-          <span>Diagnose / Design / Build / Improve</span>
-        </div>
-      </section>
+      <HomeHero />
       <section className="section section--white">
         <div className="container">
           <SectionIntro
@@ -125,7 +94,7 @@ export default function Home() {
         </div>
       </section>
       <section className="section gtm-section" id="capabilities">
-        <div className="container">
+        <div className="container" id="what-we-do">
           <SectionIntro
             eyebrow="Two capabilities. One commercial system."
             title="Decide how to win. Build the system to deliver."

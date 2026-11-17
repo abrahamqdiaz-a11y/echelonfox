@@ -2949,3 +2949,118 @@ summary {
     font-size: clamp(1.75rem, 7vw, 2.5rem);
   }
 }
+
+/* Homepage hero: growth plan. Colours and fonts come from the :root tokens
+   above (navy ink, accent, darker accent text, heading font). */
+.gp-hero {
+  position: relative;
+  overflow: hidden; /* clips the converging lines on small screens */
+  padding-block: clamp(3.5rem, 8vw, 7.5rem) clamp(4rem, 9vw, 8.5rem);
+  background: var(--paper);
+}
+.gp-hero__inner {
+  position: relative;
+}
+.gp-hero__eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.gp-hero__title {
+  max-width: 15ch;
+  margin: 0 0 1.75rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 6.4vw, 5.6rem);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.gp-hero__lead {
+  max-width: 600px;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+.gp-hero__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.75rem;
+}
+.gp-hero__cta {
+  position: relative;
+  display: inline-flex;
+}
+.gp-hero__lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 1200px;
+  max-width: none;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  color: var(--accent);
+  pointer-events: none;
+}
+.gp-hero__btn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 26px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 0.18s,
+    color 0.18s,
+    border-color 0.18s;
+}
+.gp-hero__btn--primary {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.gp-hero__btn--primary:hover {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+}
+.gp-hero__btn--secondary {
+  background: var(--paper);
+  color: var(--ink);
+}
+.gp-hero__btn--secondary:hover {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.gp-hero__btn:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 3px;
+}
+@media (max-width: 560px) {
+  .gp-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .gp-hero__cta,
+  .gp-hero__btn {
+    display: flex;
+    width: 100%;
+  }
+}
