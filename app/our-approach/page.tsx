@@ -78,19 +78,19 @@ export default function Approach() {
           <h2 className="h2">
             A fixed starting point.
             <br />
-            Public prices.
+            A clear next step.
           </h2>
           <div>
             <p className="lead">
               Every engagement starts with the Revenue Leak Diagnostic: two
-              weeks, from $2,000.
+              weeks, fixed scope. Book a call to scope your project.
             </p>
             <p>
-              The fee is credited to a Build signed within 30 days. After that,
-              you choose Build, then Run, or the Embedded Growth Team.
+              After that, you choose Build, then Run, or the Embedded Growth
+              Team.
             </p>
             <Link className="arrow-link" href="/what-we-do">
-              See the offers and prices
+              See the offers
               <Arrow />
             </Link>
           </div>

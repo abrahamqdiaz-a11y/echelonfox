@@ -820,7 +820,7 @@ export default function SearchVisibilityPage() {
                 {
                   href: "/what-we-do",
                   label: "How it works",
-                  desc: "The Revenue Leak Diagnostic and what comes after it, with prices.",
+                  desc: "The Revenue Leak Diagnostic and what comes after it.",
                 },
                 {
                   href: "/work/independent-insurance-agency",

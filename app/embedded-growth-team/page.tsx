@@ -12,7 +12,7 @@ const egt = offers["embedded-growth-team"];
 const diagnostic = offers.diagnostic;
 const TITLE = "Embedded Growth Team — Part-Time Revenue Leadership";
 const DESCRIPTION =
-  "Fractional GTM leadership and revenue operations for B2B companies. A part-time head of growth plus a technical team for planning, pipeline reviews, CRM, automation and vendor management. From $4,200 a month.";
+  "Fractional GTM leadership and revenue operations for B2B companies. A part-time head of growth plus a technical team for planning, pipeline reviews, CRM, automation and vendor management. Six-month minimum.";
 
 export const metadata = pageMetadata(TITLE, DESCRIPTION, "/embedded-growth-team");
 
@@ -96,7 +96,7 @@ export default function EmbeddedGrowthTeam() {
       <PageHero
         eyebrow="What We Do · Embedded Growth Team"
         title="Marketing and revenue leadership, without hiring a department."
-        lead={`A part-time head of growth plus our technical team, working inside your business. ${egt.price}, ${egt.terms[0].toLowerCase()}.`}
+        lead={`A part-time head of growth plus our technical team, working inside your business. ${egt.terms[0]}.`}
       />
       <section className="section section--white">
         <div className="container split">
@@ -154,7 +154,7 @@ export default function EmbeddedGrowthTeam() {
             </ul>
             <p className="muted">
               We plan and manage this work. The spend, the vendor fees and the
-              creative production sit outside the monthly fee.
+              creative production sit outside our engagement.
             </p>
           </div>
         </div>
@@ -200,8 +200,8 @@ export default function EmbeddedGrowthTeam() {
           </div>
           <div>
             <p className="lead">
-              Two weeks, {diagnostic.price.toLowerCase()}. We measure the leaks
-              in dollars, and that list becomes the first plan.
+              Two weeks, fixed scope. We measure the leaks in dollars, and that
+              list becomes the first plan.
             </p>
             <p>
               If the Diagnostic shows you need the leaks fixed rather than an

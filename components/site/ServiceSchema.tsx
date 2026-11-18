@@ -1,26 +1,16 @@
 import { SITE } from "@/lib/site";
 import type { Offer } from "@/lib/offers";
 
-/** Schema.org offer for one rung of the ladder, with its public starting price. */
+/**
+ * Schema.org offer for one rung of the ladder. Prices are not published, so it
+ * carries no price, priceCurrency or priceSpecification.
+ */
 export function offerSchema(o: Offer, url: string) {
   return {
     "@type": "Offer",
     name: o.name,
     description: o.summary,
     url,
-    priceCurrency: "USD",
-    priceSpecification: o.monthly
-      ? {
-          "@type": "UnitPriceSpecification",
-          minPrice: o.priceValue,
-          priceCurrency: "USD",
-          unitText: "month",
-        }
-      : {
-          "@type": "PriceSpecification",
-          minPrice: o.priceValue,
-          priceCurrency: "USD",
-        },
   };
 }
 

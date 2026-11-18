@@ -15,14 +15,14 @@ Production remains hosted on Netlify. Contact submissions depend on Netlify Form
 
 - GTM Strategy determines which customers to target, the value proposition and the sales motion.
 - Revenue Operations improves the handoffs, CRM, quoting, follow-up and retention systems that deliver the strategy.
-- Revenue leakage remains the core entry problem, and all pricing and scopes remain in `lib/offers.ts`.
+- Revenue leakage remains the core entry problem, and all scopes remain in `lib/offers.ts`. Prices are not published anywhere on the site; offer cards show the booking step "Book a call to scope your project" (`SCOPE_STEP`).
 - Capability anchors on `/what-we-do` are `#gtm-strategy` and `#revenue-operations`.
 
 ## Design system
 
 - `app/layout.tsx` loads Instrument Sans and Geist as self-hosted font assets via Next.js.
 - `app/globals.css` contains the palette and typography tokens. The darker `--accent-action` is used behind white button labels for WCAG AA contrast.
-- Existing page content, pricing, tracking behaviour and public routes remain unchanged by the typography and colour refresh.
+- Existing page content, tracking behaviour and public routes remain unchanged by the typography and colour refresh.
 - The homepage hero embeds the supplied animated Growth Map from `public/hero-visual-growth-map.html` in a sandboxed iframe, preserving the original canvas behaviour and isolating its styles. Example figures in the illustration are not client results. The mid-page illustration respects `prefers-reduced-motion`.
 
 ## Validation
@@ -40,7 +40,7 @@ The site checks require Python 3 and the development dependencies. They inspect 
 - `app/globals.css` — design tokens, responsive layouts and shared styles.
 - `components/site/` — navigation, footer, heroes, the offer ladder, process diagram and the single closing call to action.
 - `components/ContactForm.tsx` — the Netlify form, with visible labels and success/error states.
-- `lib/offers.ts` — the four offers: names, prices, terms, inclusions and exclusions. The only place prices are set.
+- `lib/offers.ts` — the four offers: names, terms, inclusions and exclusions, plus the `SCOPE_STEP` booking line shown in place of prices.
 - `lib/industries.ts` — industry page content for the `/industries/[slug]` template. Add an entry to publish a new industry page.
 - `lib/work-data.ts` — published and withheld case records. Do not add claims or permissions without evidence.
 - `lib/metadata.ts` — consistent page and social metadata.

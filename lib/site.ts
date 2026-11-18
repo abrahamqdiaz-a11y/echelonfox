@@ -9,7 +9,7 @@ export const SITE = {
   headline: "Find the revenue your business already earned and lost.",
   url: "https://echelonfox.com",
   description:
-    "GTM strategy and revenue operations for established B2B companies. We sharpen how you win customers, find revenue leaks and fix the systems behind growth. Diagnostic from $2,000.",
+    "GTM strategy and revenue operations for established B2B companies. We sharpen how you win customers, find revenue leaks and fix the systems behind growth. Every engagement starts with a Revenue Leak Diagnostic.",
   email: "abe.quinn@echelonfox.com",
   bookingUrl: "https://cal.com/abe-quinn/growth-meeting",
   linkedin: "https://www.linkedin.com/company/echelonfox/",

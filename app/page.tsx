@@ -141,7 +141,7 @@ export default function Home() {
       <section className="section" id="offers">
         <div className="container">
           <SectionIntro
-            eyebrow="What it costs"
+            eyebrow="How to start"
             title="One starting point. Two ways forward."
             body="Every engagement starts with the Diagnostic. You see the leaks in dollars before you decide anything else."
           />

@@ -2606,12 +2606,6 @@ summary {
   content: "·";
   margin-right: 14px;
 }
-.offer-note {
-  font-size: 0.85rem;
-  color: var(--graphite);
-  border-left: 2px solid var(--accent);
-  padding-left: 14px;
-}
 .offer-then {
   display: block;
   margin: 2.5rem 0 1.25rem;
